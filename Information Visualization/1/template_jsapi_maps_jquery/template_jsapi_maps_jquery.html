@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>    
+	div {
+	}
+	.row {
+	  width: 100%;
+	}
+
+	.element {
+	 border: 1px solid #cccccc;
+	  display: inline-block; // display inline with abality to provide width/height
+	}​
+    </style>
+
+	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?sensor=true&v=3&callback"></script> -->
+	<script src="https://www.google.com/jsapi"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		 
+  </head>
+  <body>
+
+  	<script>
+	// https://developers.google.com/chart/interactive/docs/library_loading_enhancements
+	 google.load("visualization", "1", {'packages':["map"]});
+	 google.load("visualization", "1", {'packages':["table,corechart"]});
+
+	var urlDefib =
+			"http://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:DEFIBRILLATOROGD&srsName=EPSG:4326&outputFormat=json";
+
+	// Jquery = easy to use wrapper (always use dollar sign $$$)
+
+
+	function drawgeodata(){
+
+		//alert("Hello");
+		//console.dir("Console writing!");
+		var markerArray = [['Long', 'Lat', 'Name']];
+
+		$.ajax({
+			url: urlDefib,
+			datatype: "JSON"
+		}).done(
+				function(data){
+					console.dir(data);
+
+					// for loop
+					$.each(data.features, function() {
+						var lat = this.geometry.coordinates[0];
+						var long = this.geometry.coordinates[1];
+						var labelName = this.properties['INFO'];
+
+						//console.log(labelName + ", lat: " + lat + ", long: " + long);
+
+						var markerItem = [lat,long,labelName];
+						markerArray.push(markerItem);
+					});
+
+					var dataTable = google.visualization.arrayToDataTable(markerArray);
+					var map = new google.visualization.Map($('#map_div')[0]);
+
+					var options = { showTip: true };
+
+					map.draw(dataTable,options);
+				}
+		);
+	}
+
+	</script>
+		
+	<h1>Open Gov Data Vienna</h1>
+
+	<button onClick = "drawgeodata()">Display Defib</button>
+
+    <div class="row">
+		<div class="element" id="map_div" style="width: 600px; height: 600px "></div>
+		<div class="element" id="table_div" style="width: 200px; height: 600px"></div>
+		<div class="element" id="statistics_div" style="width: 400px; height: 400px"></div>
+	<div/>
+
+  </body>
+</html>

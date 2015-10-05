@@ -47,7 +47,7 @@ public class BucketDrop implements ApplicationListener
 	@Override
 	public void create()
 	{
-		dropImage = new Texture("droplet.png");
+		dropImage = new Texture("cat-tongue.png");
 		bucketImage = new Texture("bucket.png");
 
 		dropSound = Gdx.audio.newSound(Gdx.files.internal("drop.wav"));
