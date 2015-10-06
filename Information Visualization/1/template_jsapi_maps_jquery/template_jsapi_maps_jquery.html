@@ -39,14 +39,15 @@
 
 		//alert("Hello");
 		//console.dir("Console writing!");
-		var markerArray = [['Long', 'Lat', 'Name']];
 
 		$.ajax({
 			url: urlDefib,
 			datatype: "JSON"
 		}).done(
 				function(data){
-					console.dir(data);
+					var markerArray = [['Long', 'Lat', 'Name']];
+
+					//console.dir(data);
 
 					// for loop
 					$.each(data.features, function() {
