@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+	.gm-style-iw{
+		min-width:100px;
+		min-height:20px;
+		text-align:center;
+	}
+	.gm-style canvas{
+		display:block !important;
+	}
+	.gm-style-iw + div{
+		display:none !important;
+	}
+	.gmnoprint{
+		right:90% !important;
+	}
+	</style>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Dinosaur', 'Length'],
+          ['Acrocanthosaurus (top-spined lizard)', 12.2],
+          ['Albertosaurus (Alberta lizard)', 9.1],
+          ['Allosaurus (other lizard)', 12.2],
+          ['Apatosaurus (deceptive lizard)', 22.9],
+          ['Archaeopteryx (ancient wing)', 0.9],
+          ['Argentinosaurus (Argentina lizard)', 36.6],
+          ['Baryonyx (heavy claws)', 9.1],
+          ['Brachiosaurus (arm lizard)', 30.5],
+          ['Ceratosaurus (horned lizard)', 6.1],
+          ['Coelophysis (hollow form)', 2.7],
+          ['Compsognathus (elegant jaw)', 0.9],
+          ['Deinonychus (terrible claw)', 2.7],
+          ['Diplodocus (double beam)', 27.1],
+          ['Dromicelomimus (emu mimic)', 3.4],
+          ['Gallimimus (fowl mimic)', 5.5],
+          ['Mamenchisaurus (Mamenchi lizard)', 21.0],
+          ['Megalosaurus (big lizard)', 7.9],
+          ['Microvenator (small hunter)', 1.2],
+          ['Ornithomimus (bird mimic)', 4.6],
+          ['Oviraptor (egg robber)', 1.5],
+          ['Plateosaurus (flat lizard)', 7.9],
+          ['Sauronithoides (narrow-clawed lizard)', 2.0],
+          ['Seismosaurus (tremor lizard)', 45.7],
+          ['Spinosaurus (spiny lizard)', 12.2],
+          ['Supersaurus (super lizard)', 30.5],
+          ['Tyrannosaurus (tyrant lizard)', 15.2],
+          ['Ultrasaurus (ultra lizard)', 30.5],
+          ['Velociraptor (swift robber)', 1.8]]);
+
+        var options = {
+          title: 'Lengths of dinosaurs, in meters',
+          legend: { position: 'none' },
+        };
+
+        var chart = new google.visualization.Histogram(document.getElementById('charts'));
+        chart.draw(data, options);
+      }
+    </script>
+
+</head>
+<body>
+<article id="wrapper" class="row">
+	
+	<div id="chat">
+		<ul class="chat_area">
+			<li><a href="#" class="world">World</a></li>
+			<li><a href="#" class="room" id="createroom">Room</a></li>
+		</ul>
+		<div id="login_panel">
+			<div class="content">
+				<div class="item-control">
+					<div class="label">Username: </div>
+					<div class="control"><input id="user_name" type="text" value="user1"></div>
+				</div>
+				<div class="item-control">
+					<div class="label">Sex: </div>
+					<div class="control" id="sex">
+						<input type="radio" id="male" name="sex" checked><label for="male">Male</label>
+						<input type="radio" id="female" name="sex"><label for="female">Female</label>
+					</div>
+				</div>
+				<div class="item-control">
+					<div class="label">Coordinate x: </div>
+					<div class="control"><input id="coor_k" type="text" value="" disabled></div>
+				</div>
+				<div class="item-control">
+					<div class="label">Coordinate y: </div>
+					<div class="control"><input id="coor_B" type="text" value="" disabled></div>
+				</div>
+				<button id="button_login">Login</button>
+			</div>
+				
+		</div>
+		<div id="world" style="display:none">
+			<div class="room_chat">
+				<div id="message"><!--Nội dung chat--></div>
+				<input type="text" id="chat_message" value="Hello !!!">
+				<button id="send_message">Send</button>
+			</div>
+		</div>
+		<div id="room" style="display:none">
+			<div class="room_chat">
+				<div id="room_message"></div>
+				<input type="text" id="chat_room_message" value="Room Message">
+				<button id="send_room_message">Send</button>
+			</div>
+		</div>
+	</div>
+	<div id="hide-show">Hide</div>
+
+	<div id="invite_form" style="display:none">
+		<div class="message_content">Do you want to room chat ?</div>
+		<div class="button">
+			<button class="no" id="no">No</button>
+			<button class="yes" id="yes">Yes</button>
+		</div>
+	</div>
+	<div id="map"></div>
+	
+</article>
+<div id="charts">tdsadadsa</div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDs8SYxRh-pMXa9Qe-K1nVY0g3CLpmJ9mo"></script>
+<script type="text/javascript" src="socket.io/socket.io.js"></script>
+<script type="text/javascript" src="core.js"></script>
+<script type="text/javascript">
+$(function(){
+	var show = 1;
+	var this_right = $("#chat").width();
+	$("#hide-show").css({right:this_right+"px"});
+	$("#hide-show").click(function(){
+		//Hide
+		if (show == 1){
+			show = 0;	
+			$(this).text("Show");
+			$("#chat").hide();
+			$(this).css({right:"0"});
+		}else{
+			show = 1;
+			$(this).text("Hide");
+			$("#chat").show();
+			$(this).css({right:this_right});
+		}
+		
+	});
+});
+</script>
+<script>
+</script>
+
+
+</body>
+</html>

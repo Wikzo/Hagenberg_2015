@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Template</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>    
+	div {
+	}
+	.row {
+	  width: 100%;
+	}
+
+	.element {
+	 border: 1px solid #cccccc;
+	  display: inline-block; // display inline with abality to provide width/height
+	}​
+    </style>
+
+	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?sensor=true&v=3&callback"></script> -->
+	<script src="https://www.google.com/jsapi"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src=drawgeodata.js></script>
+		 
+  </head>
+  <body>
+
+  	<script>
+	
+	
+	
+	google.load("visualization","1",{packages:["map"]});
+	google.load("visualization","1",{packages:["table,corechart"]});
+	
+	var urlDefib = "http://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:DEFIBRILLATOROGD&srsName=EPSG:4326&outputFormat=json";
+	
+	var urlHospitals = "http://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:KRANKENHAUSOGD&srsName=EPSG:4326&outputFormat=json";
+	
+	
+	
+	</script>
+		
+	<h1>Open Gov Data Vienna</h1>
+	<button onclick="drawgeodata(urlDefib,'INFO')">Display Defis</button>
+	<button onclick="drawgeodata(urlHospitals,'BEZEICHNUNG')">Display Hospitals</button>
+	
+    <div class="row">
+		<div class="element" id="map_div" style="width: 600px; height: 600px "></div>
+		<div class="element" id="table_div" style="width: 200px; height: 600px"></div>
+		<div class="element" id="statistics_div" style="width: 400px; height: 400px"></div>
+	<div/>
+
+  </body>
+</html>

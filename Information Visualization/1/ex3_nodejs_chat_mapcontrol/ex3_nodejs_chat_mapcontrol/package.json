@@ -1,0 +1,16 @@
+{
+  "name": "ex3_nodejs_chat_mapcontrol",
+  "version": "1.0.0",
+  "description": "Run file app.js in Nodejs If you want to use it, you should read and edit it, because when I create it, I am just a Nodejs newbie",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.13.3",
+    "socket.io": "~1.3.7"
+  },
+  "devDependencies": {}
+}
