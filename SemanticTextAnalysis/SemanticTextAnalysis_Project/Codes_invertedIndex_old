@@ -1,0 +1,41 @@
+// OLD:
+news1 = paste(readLines("news1.txt"), collapse="\n") // load raw data
+split1 = strsplit(news1, " "); // split data with spaces
+
+
+// this:
+news1 = scan("news1.txt", what="character")
+news2 = scan("news2.txt", what="character")
+news3 = scan("news3.txt", what="character")
+news4 = scan("news4.txt", what="character")
+news5 = scan("news5.txt", what="character")
+
+// combine to big vector
+a = c(news1, news2, news3, news4, news5)
+
+
+union
+is.element
+
+news1 = scan("news1.txt", what="character")
+news2 = scan("news2.txt", what="character")
+news3 = scan("news3.txt", what="character")
+news4 = scan("news4.txt", what="character")
+news5 = scan("news5.txt", what="character")
+
+a = c(news1, news2, news3, news4, news5)
+
+#list
+#union
+#is.element
+
+a = list(news1, news2, news3, news4, news5);
+
+
+for (variable in vector) {
+  
+}
+
+myList[[c(1,2)]]
+
+is.element("in", a)

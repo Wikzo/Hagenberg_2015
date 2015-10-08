@@ -1,19 +1,20 @@
 var http = require("http");
 var url = require('url');
 
-function start(route) {
+function start(route, handle) {
     function onRequest(request, response) {
 
         var timeStamp = new Date().toString();
 
-        var pathName = url.parse(request.url).pathname;
-        console.log("*Server* request for " + pathName + " received [" + timeStamp + "]");
+        var pathname = url.parse(request.url).pathname;
+        console.log("Server request for " + pathname + " received [" + timeStamp + "]");
 
-        route(pathName);
+        route(handle, pathname);
 
         // https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers
         response.writeHead(200, {"Content-Type": "text/plain"});
-        response.write("Hello World");
+        var content = route(handle, pathname);
+        response.write(content);
         response.end();
     }
 
