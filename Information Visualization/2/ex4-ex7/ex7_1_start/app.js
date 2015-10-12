@@ -18,7 +18,9 @@ http.listen(2500, function() {
 });
 
 io.sockets.on("connection", function(socket) {
-	console.log("client connected");	
+	console.log("client connected");
+    getMapOverlays();
+    getMapCluster();
 	//TODO display map overlay
 	//TODO display map clusters
 	socket.on("mapsoverlay_added", function(overlay) {
@@ -26,6 +28,7 @@ io.sockets.on("connection", function(socket) {
         db.insert(overlay); // insert to database
 
         getMapOverlays();
+        getMapCluster();
 
 		//TODO display map clusters (same as above)
     });
@@ -48,3 +51,34 @@ function getMapOverlays()
 }
 
 
+function getMapCluster() {
+
+    db.find({"overlay.type": "polyline" }, function (err, docs) {
+        if (!err) {
+            var pointList = [];
+            //1.) get all points (lat long as normal array)
+            for (var i = 0; i < docs.length; i++) {
+                var geoCoords = docs[i].overlay.geo;
+                for (var j = 0; j < geoCoords.length; j++) {
+                    var latLng = geoCoords[j];
+                    var point = [latLng.lat,latLng.lng];
+                    pointList.push(point);
+                }
+            }
+
+            var km = new kMeans({K: 6});
+            km.cluster(pointList);
+            while (km.step()) {
+                km.findClosestCentroids();
+                km.moveCentroids();
+                if(km.hasConverged()) break;
+            }
+            var clusterWeights = [];
+            for (var i = 0; i < km.clusters.length; i++) {
+                clusterWeights[i] = km.clusters[i].length;
+            }
+            io.emit("mapsoverlay_getcluster",km.centroids,clusterWeights);
+            console.log("cluster calculation done");
+        }
+    });
+}

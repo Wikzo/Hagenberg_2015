@@ -1,5 +1,5 @@
 var map;
-var mapsOverlays = [];
+var mapOverlays = [];
 
 
 /* ---------------------------------------------------------------*/
@@ -84,14 +84,14 @@ function initSocketIo() {
     socket.on("mapsoverlay_getAll", function (docs) {
         console.log("docs found");
 
-        //getMapOverlays(); // redo
+        // THIS --> getMapOverlays(); // redo
 
         // delete all exisiting lines
-        for (var i = 0; i < mapsOverlays.length; i++) {
-            mapsOverlays[i].setMap(null);
+        for (var i = 0; i < mapOverlays.length; i++) {
+            mapOverlays[i].setMap(null);
         }
 
-        mapsOverlays = [];
+        mapOverlays = [];
 
         for (var i = 0; i < docs.length; i++) {
             var geoCoords = docs[i].overlay.geo;
@@ -108,17 +108,37 @@ function initSocketIo() {
             );
             polyLine.setMap(map);
 
-            mapsOverlays.push(polyLine); // prevent re-drawing all old lines
+            mapOverlays.push(polyLine); // prevent re-drawing all old lines
         }
 
     });
-}
 
-/*
- db.find({ system: req.params.system }, function (err, docs) {
- if (!err) {
- //res.send(docs.length + "<br>" + docs);
- res.send(docs); // all objects
- }
- });
- */
+    socket.on("mapsoverlay_getcluster", function(clusterCenters,clusterWeights) {
+
+        for (var i = 0; i < clusterCenters.length;i++) {
+            var latLng = {lat: clusterCenters[i][0], lng: clusterCenters[i][1]};
+
+            //1.) draw circle
+            var cityCircle = new google.maps.Circle({
+                strokeColor: '#0000FF',
+                strokeOpacity: 0.3,
+                strokeWeight: 2,
+                fillColor: '#0000FF',
+                fillOpacity: 0.2,
+                map: map,
+                center: latLng,
+                radius: Math.sqrt(clusterWeights[i]) * 80000  //approx 200.000 is a good value for display
+            });
+            mapOverlays.push(cityCircle);
+            //2.) draw marker
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: 'current people: ' + clusterWeights[i],
+                icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+            });
+            mapOverlays.push(marker);
+        }
+    });
+
+}
