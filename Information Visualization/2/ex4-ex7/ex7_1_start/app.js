@@ -22,13 +22,29 @@ io.sockets.on("connection", function(socket) {
 	//TODO display map overlay
 	//TODO display map clusters
 	socket.on("mapsoverlay_added", function(overlay) {
-		//TODO insert overlay from map
-		//TODO display map overlay (same as above)
+        console.dir(overlay); // log all points
+        db.insert(overlay); // insert to database
+
+        getMapOverlays();
+
 		//TODO display map clusters (same as above)
     });
 	socket.on("disconnect", function() {
 		console.log("client disconnected");
     });
 });
+
+function getMapOverlays()
+{
+    db.find({"overlay.type":"polyline"}, function(err,docs)
+    {
+        if(!err)
+        {
+            //console.log("no errors!");
+
+            io.emit("mapsoverlay_getAll", docs);
+        }
+    });
+}
 
 
