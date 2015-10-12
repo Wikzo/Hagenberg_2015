@@ -81,7 +81,7 @@ int main(void)
 	std::string vertexShaderPath = contentPath;
 	vertexShaderPath += std::string("StandardShading.vertexshader");//contentPath.append("StandardShading.vertexshader");
 	std::string fragmentShaderPath = contentPath;
-	fragmentShaderPath += std::string("StandardShading.fragmentshader");
+	fragmentShaderPath += std::string("StandardShading.fragmentshader.cpp");
 	std::string geometryShaderPath = contentPath;
 	geometryShaderPath += std::string("passThrough.geometryshader");
 	GLuint programID = LoadShaders(vertexShaderPath.c_str(), geometryShaderPath.c_str(), fragmentShaderPath.c_str());
@@ -139,23 +139,38 @@ int main(void)
 		normals[i] = normalize(smooth_normals);
 	}
 
-	// fin stuff
-	/*int vertices_size = vertices.size();
-	for (int i = 0; i < vertices_size; i++) {
-		glm::vec3 temp_vertices = vertices[i] * normals[i] * 0.9f;
 
-		vertices.push_back(temp_vertices);
+	//printf("loop nr %i\n", i);
+
+	// fins
+	/*
+	int vertices_size = vertices.size();
+	for (size_t i = 0; i < vertices_size; i+=3)
+	{
+		// vertices
+		glm::vec3 temp1 = vertices[i] * normals[i] * 0.9f;
+		glm::vec3 temp2 = vertices[i+1] * normals[i+1] * 0.9f;
+		glm::vec3 temp3 = vertices[i+2] * normals[i+2] * 0.9f;
+
+		vertices.push_back(temp1);
+		vertices.push_back(temp2);
+		vertices.push_back(temp3);
+
+		// UVs
 		uvs.push_back(uvs[i]);
-		normals.push_back(normals[i]);
-		//printf("loop nr %i\n", i);
-	}*/
+		uvs.push_back(uvs[i+1]);
+		uvs.push_back(uvs[i+2]);
 
+		// normals
+		glm::vec3 normal1 = glm::cross(temp2 - temp1, temp3-temp2);
+		glm::vec3 normal2 = glm::cross(temp2 - temp1, temp3-temp2);
+		glm::vec3 normal3 = glm::cross(temp2 - temp1, temp3-temp2);
 
-
-
-
-
-
+		normals.push_back(normal1);
+		normals.push_back(normal2);
+		normals.push_back(normal3);
+	}
+	*/
 
 
 	std::vector<unsigned short> indices;

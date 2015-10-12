@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -56,33 +56,33 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tutorial09_vbo_indexing.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tutorial09_vbo_indexing</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tutorial09_vbo_indexing.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tutorial09_vbo_indexing</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\MinSizeRel\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tutorial09_vbo_indexing.dir\MinSizeRel\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tutorial09_vbo_indexing</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\RelWithDebInfo\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tutorial09_vbo_indexing.dir\RelWithDebInfo\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tutorial09_vbo_indexing</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tutorial09_vbo_indexing.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tutorial09_vbo_indexing</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tutorial09_vbo_indexing.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tutorial09_vbo_indexing</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tutorial09_vbo_indexing.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tutorial09_vbo_indexing</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tutorial09_vbo_indexing.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tutorial09_vbo_indexing</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\external\glfw-3.0.3\include\GLFW;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\external\glm-0.9.4.0;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\external\glew-1.9.0\include;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -122,7 +122,8 @@
       <ImportLibrary>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/Debug/tutorial09_vbo_indexing.lib</ImportLibrary>
       <ProgramDataBaseFile>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/Debug/tutorial09_vbo_indexing.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -143,7 +144,8 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -166,7 +168,8 @@
       <ImportLibrary>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/Release/tutorial09_vbo_indexing.lib</ImportLibrary>
       <ProgramDataBaseFile>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/Release/tutorial09_vbo_indexing.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -187,7 +190,8 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -210,7 +214,8 @@
       <ImportLibrary>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/MinSizeRel/tutorial09_vbo_indexing.lib</ImportLibrary>
       <ProgramDataBaseFile>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/MinSizeRel/tutorial09_vbo_indexing.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -254,7 +259,8 @@
       <ImportLibrary>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/RelWithDebInfo/tutorial09_vbo_indexing.lib</ImportLibrary>
       <ProgramDataBaseFile>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/RelWithDebInfo/tutorial09_vbo_indexing.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -322,14 +328,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\texture.hpp" />
     <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\objloader.hpp" />
     <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\vboindexer.hpp" />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\tutorial09.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\shader.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\controls.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\texture.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\objloader.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\vboindexer.cpp"  />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\tutorial09.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\shader.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\controls.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\texture.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\objloader.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\vboindexer.cpp" />
     <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\StandardShading.vertexshader" />
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\StandardShading.fragmentshader" />
+    <None Include="..\tutorial09_vbo_indexing\StandardShading.fragmentshader.cpp" />
     <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\passThrough.geometryshader" />
   </ItemGroup>
   <ItemGroup>
