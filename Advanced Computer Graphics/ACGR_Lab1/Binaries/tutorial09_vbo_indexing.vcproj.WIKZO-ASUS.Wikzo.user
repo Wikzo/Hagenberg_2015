@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioUserFile
+	ProjectType="Visual C++"
+	Version=""
+	ShowAllFiles="false"
+	>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			>
+			<DebugSettings
+				Command="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\Debug\tutorial09_vbo_indexing.exe"
+				WorkingDirectory="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/tutorial09_vbo_indexing/"
+				CommandArguments=""
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="WIKZO-ASUS"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment="PATH=;%PATH%&#x0A;PATH=;%PATH%"
+				EnvironmentMerge="true"
+				DebuggerFlavor=""
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			>
+			<DebugSettings
+				Command="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\Release\tutorial09_vbo_indexing.exe"
+				WorkingDirectory="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/tutorial09_vbo_indexing/"
+				CommandArguments=""
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="WIKZO-ASUS"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment="PATH=;%PATH%&#x0A;PATH=;%PATH%"
+				EnvironmentMerge="true"
+				DebuggerFlavor=""
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="MinSizeRel|Win32"
+			>
+			<DebugSettings
+				Command="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\MinSizeRel\tutorial09_vbo_indexing.exe"
+				WorkingDirectory="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/tutorial09_vbo_indexing/"
+				CommandArguments=""
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="WIKZO-ASUS"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment="PATH=;%PATH%&#x0A;PATH=;%PATH%"
+				EnvironmentMerge="true"
+				DebuggerFlavor=""
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="RelWithDebInfo|Win32"
+			>
+			<DebugSettings
+				Command="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\RelWithDebInfo\tutorial09_vbo_indexing.exe"
+				WorkingDirectory="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/tutorial09_vbo_indexing/"
+				CommandArguments=""
+				Attach="false"
+				DebuggerType="3"
+				Remote="1"
+				RemoteMachine="WIKZO-ASUS"
+				RemoteCommand=""
+				HttpUrl=""
+				PDBPath=""
+				SQLDebugging=""
+				Environment="PATH=;%PATH%&#x0A;PATH=;%PATH%"
+				EnvironmentMerge="true"
+				DebuggerFlavor=""
+				MPIRunCommand=""
+				MPIRunArguments=""
+				MPIRunWorkingDirectory=""
+				ApplicationCommand=""
+				ApplicationArguments=""
+				ShimCommand=""
+				MPIAcceptMode=""
+				MPIAcceptFilter=""
+			/>
+		</Configuration>
+
+	</Configurations>
+</VisualStudioUserFile>
