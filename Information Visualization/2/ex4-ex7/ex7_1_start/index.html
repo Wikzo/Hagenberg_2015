@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Collaborative Crisis Map</title>
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://www.google.com/jsapi"></script>
+	<!-- local socket.io.js is automtically exposed by npm https://www.npmjs.com/package/socket.io-client -->
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="client.core.js"></script>
+	<script src="client.chart.js"></script>
+	
+    <script>
+      google.load("visualization", "1", {packages:["corechart"]});
+	  google.load("maps", 3, {other_params:"libraries=drawing"});
+      google.setOnLoadCallback(initAll);
+	  
+		function initAll() {
+			initChart();
+			initMap();
+		}
+	</script>
+
+</head>
+<body>
+	<h3>Collaborative Crisis Map</h3>
+	<div id="map"></div>
+	<div id="charts"></div>
+</body>
+</html>

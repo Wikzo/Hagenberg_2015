@@ -1,0 +1,15 @@
+{
+  "name": "ex5_nodejs_hellonedb_database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.13.3",
+    "nedb": "~1.2.1"
+  }
+}
