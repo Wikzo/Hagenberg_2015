@@ -6,16 +6,23 @@ function start(route, handle) {
 
         var timeStamp = new Date().toString();
 
+        var postData = "";
         var pathname = url.parse(request.url).pathname;
         console.log("Server request for " + pathname + " received [" + timeStamp + "]");
 
-        route(handle, pathname);
+        request.setEncoding("utf8");
 
-        // https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers
-        response.writeHead(200, {"Content-Type": "text/plain"});
-        var content = route(handle, pathname);
-        response.write(content);
-        response.end();
+        // called when a new chunk of data was received
+        request.addListener("data", function (postDataChunk) {
+            postData += postDataChunk;
+            console.log("Received POST data chunk '" +
+                postDataChunk + "'.");
+        });
+
+        // called when all chunks of data have been received
+        request.addListener("end", function () {
+            route(handle, pathname, response, postData);
+        });
     }
 
     http.createServer(onRequest).listen(8888);
