@@ -7,5 +7,16 @@
 <body>
 Hello HTML
 Test
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    var socket = io.connect('http://localhost:2500');
+    socket.on('news', function (data) {
+        console.log(data.hello);
+        socket.emit('talktoserver', {my: 'data'});
+    });
+</script>
+
 </body>
 </html>
