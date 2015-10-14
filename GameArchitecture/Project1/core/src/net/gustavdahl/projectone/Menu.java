@@ -24,10 +24,6 @@ public class Menu implements Screen
 
 	
 	private Project1 project1;
-	private Stage stage;
-
-	private Texture texture;
-	private SpriteBatch spriteBatch;
 	private OrthographicCamera cam;
 
 	private float displayTime;
@@ -36,12 +32,8 @@ public class Menu implements Screen
 	{
 		// TODO Auto-generated constructor stub
 		this.project1 = project;
-		this.stage = project1.getStage();
-
-		this.spriteBatch = project.getSpriteBatch();
 		this.cam = new OrthographicCamera();
 
-		texture = new Texture("splash.png");
 
 		this.displayTime = 2f;
 		
@@ -64,7 +56,7 @@ public class Menu implements Screen
 	{
 		// TODO Auto-generated method stub
 		
-		Image img = new Image(texture);
+		Image img = new Image(Assets.SplashTexture);
 		img.setPosition(0, 0, Align.center);
 		img.getColor().a = 0f;
 		img.setName("Splash");
@@ -73,7 +65,7 @@ public class Menu implements Screen
 
 
 
-		stage.addActor(img);
+		Assets.Stage.addActor(img);
 
 	}
 
@@ -83,24 +75,24 @@ public class Menu implements Screen
 		Gdx.gl.glClearColor(0.1f, 1f, 0.8f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		spriteBatch.setProjectionMatrix(cam.combined);
+		Assets.SpriteBatch.setProjectionMatrix(cam.combined);
 
-		spriteBatch.begin();
+		Assets.SpriteBatch.begin();
 
-		float w = texture.getWidth();
-		float h = texture.getHeight();
+		float w = Assets.SplashTexture.getWidth();
+		float h = Assets.SplashTexture.getHeight();
 
 		//spriteBatch.draw(texture, -w / 2, -h / 2);
 		
 		// DRAW MENU
-		this.font.draw(spriteBatch, "Menu Item 1 ", 100, 150);
+		this.font.draw(Assets.SpriteBatch, "Menu Item 1 ", 100, 150);
 		
 		// label
 		Label l;
 		Label.LabelStyle f;
 
 
-		spriteBatch.end();
+		Assets.SpriteBatch.end();
 
 		/*if (displayTime > 0)
 			displayTime -= delta;
@@ -163,8 +155,6 @@ public class Menu implements Screen
 	public void dispose()
 	{
 		// TODO Auto-generated method stub
-		texture.dispose();
-
 	}
 
 }

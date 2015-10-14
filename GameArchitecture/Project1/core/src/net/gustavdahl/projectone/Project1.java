@@ -12,33 +12,20 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class Project1 extends Game
 {
 
-	private SpriteBatch spriteBatch;
-	private Stage stage;
-	
 	// virtual resoltuion
-		public static final float V_WIDTH = 1366;
-		public static final float V_HEIGHT = 768;
+	public static final float V_WIDTH = 1366;
+	public static final float V_HEIGHT = 768;
 
-	
 	@Override
 	public void create()
 	{
-		
-		spriteBatch = new SpriteBatch();
-		stage = new Stage();
-		
-		setScreen(new SplashScreen2(this));
-		
+		setScreen(new SplashScreen(this));
 	}
-	
-	public SpriteBatch getSpriteBatch()
+
+	@Override
+	public void dispose()
 	{
-		return spriteBatch;
+		Assets.DisposeAllAssets(this.toString());
 	}
-	
-	public Stage getStage()
-	{
-		return stage;
-	}
-	
+
 }
