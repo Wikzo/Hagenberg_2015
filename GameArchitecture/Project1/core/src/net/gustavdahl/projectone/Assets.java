@@ -15,7 +15,7 @@ public class Assets
 	// TODO: make use of AssetManager
 	// https://github.com/libgdx/libgdx/wiki/Managing-your-assets
 	private static ArrayList<BitmapFont> fonts;
-	public static BitmapFont Font;
+	public static BitmapFont ArialFont;
 
 	private static ArrayList<Texture> textures;
 	public static Texture SplashTexture;
@@ -28,14 +28,13 @@ public class Assets
 	static
 	{
 		InitializeAssets();
-
 	}
 
 	static void InitializeAssets()
 	{
-		Font = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
+		ArialFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
 		fonts = new ArrayList<BitmapFont>();
-		fonts.add(Font);
+		fonts.add(ArialFont);
 
 		SplashTexture = new Texture("splash.png");
 		textures = new ArrayList<Texture>();
@@ -55,7 +54,7 @@ public class Assets
 		for (Texture t : textures)
 			t.dispose();
 
-		System.out.println("All assets have been disposed by " + name);
+		//System.out.println("All assets have been disposed by " + name);
 
 	}
 

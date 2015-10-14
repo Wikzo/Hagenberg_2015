@@ -5,6 +5,7 @@ import java.sql.Time;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -32,7 +33,8 @@ public class SplashScreen implements Screen
 	private OrthographicCamera cam;
 
 	private float displayTime;
-	private float fadeTime = 1f;
+	private float fadeInTime = 1f;
+	private float fadeOutTime = 1f;
 	private float DisplayTime = 1f;
 
 	public SplashScreen(Project1 project)
@@ -52,16 +54,15 @@ public class SplashScreen implements Screen
 		img.getColor().a = 0f;
 		img.setName("Splash");
 
-		// img.addAction(Actions.sequence(Actions.fadeOut(5f), Actions.hide()));
 
 		img.addAction(Actions.sequence(
 				// Actions.show(),
-				Actions.delay(0.2f), Actions.fadeIn(1), Actions.delay(DisplayTime), Actions.run(new Runnable()
+				Actions.delay(0.2f), Actions.fadeIn(fadeInTime), Actions.delay(DisplayTime), Actions.run(new Runnable()
 				{
 					@Override
 					public void run()
 					{
-						fadeOut();
+						fadeOut(fadeOutTime);
 					}
 				})));
 
@@ -74,12 +75,12 @@ public class SplashScreen implements Screen
 
 	}
 
-	private void fadeOut()
+	private void fadeOut(float fadeTime)
 	{
 		Actor img = Assets.Stage.getRoot().findActor("Splash");
 		assert(img != null);
 		img.clearActions();
-		img.addAction(Actions.sequence(Actions.fadeOut(2f), Actions.run(new Runnable()
+		img.addAction(Actions.sequence(Actions.fadeOut(fadeTime), Actions.run(new Runnable()
 		{
 			@Override
 			public void run()
@@ -91,6 +92,7 @@ public class SplashScreen implements Screen
 
 	void EndOfState()
 	{
+
 		project1.setScreen(new Menu(project1));
 		// System.out.println("New state");
 	}
@@ -103,6 +105,9 @@ public class SplashScreen implements Screen
 
 		Assets.Stage.act(delta);
 		Assets.Stage.draw();
+		
+		if (Gdx.input.isKeyPressed(Keys.ANY_KEY) || Gdx.input.isTouched())
+			fadeOut(0.1f);
 
 	}
 
