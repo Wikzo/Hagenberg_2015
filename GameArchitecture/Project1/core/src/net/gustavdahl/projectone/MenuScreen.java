@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 public class MenuScreen implements Screen
 {
 
+	// OLD!
 	Project1 project;
 	
 	public MenuScreen(Project1 project1)

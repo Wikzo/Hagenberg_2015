@@ -47,6 +47,8 @@ public class BucketDrop implements ApplicationListener
 	@Override
 	public void create()
 	{
+		//System.out.println("create");
+		
 		dropImage = new Texture("droplet.png");
 		bucketImage = new Texture("bucket.png");
 

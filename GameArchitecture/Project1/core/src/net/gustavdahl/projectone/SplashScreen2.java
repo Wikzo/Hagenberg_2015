@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
@@ -61,59 +62,55 @@ public class SplashScreen2 implements Screen
 		img.getColor().a = 0f;
 		img.setName("Splash");
 
-		img.addAction(Actions.sequence(Actions.delay(1.5f),
-				Actions.fadeIn(fadeTime),
+		//img.addAction(Actions.sequence(Actions.fadeOut(5f), Actions.hide()));
+
+		img.addAction(Actions.sequence(
+				//Actions.show(),
+				Actions.delay(0.2f),
+				Actions.fadeIn(1),
 				Actions.delay(DisplayTime),
-				Actions.run(new Runnable()
-				{
-
+				Actions.run(new Runnable() {
 					@Override
-					public void run()
-					{
-						// TODO Auto-generated method stub
-						FadeOut();
-
+					public void run() {
+						fadeOut();
 					}
-				})));
+				})
+				));
 
 		stage.addActor(img);
 
-		
-		//Gdx.input
-		
+		// Gdx.input
+
 		// configure viewport
 		stage.setViewport(new FitViewport(project1.V_WIDTH, project1.V_HEIGHT));
 
 	}
 
-	private void FadeOut()
+	private void fadeOut()
 	{
-		Image img = stage.getRoot().findActor("Splash");
-		
+		Actor img = stage.getRoot().findActor("Splash");
+		assert(img != null);
 		img.clearActions();
-		img.addAction(Actions.sequence(
-				Actions.fadeOut(fadeTime),
-				Actions.run(new Runnable()
-				{
-					
-					@Override
-					public void run()
-					{
-						EndOfState();
-						
-					}
-				})));
+		img.addAction(Actions.sequence(Actions.fadeOut(2f), Actions.run(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				EndOfState();
+			}
+		})));
 	}
 
 	void EndOfState()
 	{
-		project1.setScreen(new MenuScreen(project1));
+		project1.setScreen(new Menu(project1));
+		//System.out.println("New state");
 	}
-	
+
 	@Override
 	public void render(float delta)
 	{
-		Gdx.gl.glClearColor(1, 1, 0, 1);
+		Gdx.gl.glClearColor(0.1f, 1f, 0.8f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		stage.act(delta);

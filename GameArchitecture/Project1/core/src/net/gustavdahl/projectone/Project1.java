@@ -27,7 +27,7 @@ public class Project1 extends Game
 		spriteBatch = new SpriteBatch();
 		stage = new Stage();
 		
-		setScreen(new SplashScreen(this));
+		setScreen(new SplashScreen2(this));
 		
 	}
 	
