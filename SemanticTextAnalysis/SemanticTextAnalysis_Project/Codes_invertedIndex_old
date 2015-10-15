@@ -39,3 +39,17 @@ for (variable in vector) {
 myList[[c(1,2)]]
 
 is.element("in", a)
+
+# old sorting
+# sort all (article 1 in alphabetical order)
+newsArticles[[1]][order(newsArticles[[1]][,1],newsArticles[[1]][,2],decreasing=FALSE),]
+
+
+
+# order by first column (text)
+df[order(df[,1],df[,2],decreasing=FALSE),]
+
+df<-matrix(data=c(3,7,5,0,1,0,0,0,0,8,0,9), ncol=2)
+
+
+newsArticles[[1]][,1]
