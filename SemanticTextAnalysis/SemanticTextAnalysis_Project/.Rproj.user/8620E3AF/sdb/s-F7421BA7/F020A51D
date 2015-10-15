@@ -1,0 +1,18 @@
+{
+    "contents" : "news1 = scan(\"news1.txt\", what=\"character\")\nnews2 = scan(\"news2.txt\", what=\"character\")\nnews3 = scan(\"news3.txt\", what=\"character\")\nnews4 = scan(\"news4.txt\", what=\"character\")\nnews5 = scan(\"news5.txt\", what=\"character\")\n\nnewsArticles = list(news1, news2, news3, news4, news5); # list of all articles\n\n#list of all words\nallWords = union(news1, news2);\nallWords = union(allArticles, news3);\nallWords = union(allArticles, news4);\nallWords = union(allArticles, news5);\n\n\n# make index list with 727 entries and 1 column set to NULL\nindexList = list(rep(list(c()), times=length(allWords)));\n\n# look through all words and set document ID\nfor (i in 1:length(allWords)) # loop through all words\n{\n  for (j in 1:length(newsArticles)) # loop through all articles\n  {\n    \n    if (is.element(allWords[[i]], newsArticles[[j]])) # check if word matches article\n    {\n      indexList[[1]][[i]] = union(indexList[[1]][[i]],j); # set document ID to list\n    }\n\n  }\n}\n# set the second element to all the words\nindexList[[2]]<- allWords;\n\n\n# NOTE: list too long to be shown in Environment list\nindexList[[1]] # see all document IDs\nindexList[[2]] # see all words\n",
+    "created" : 1444308965906.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2675370782",
+    "id" : "F020A51D",
+    "lastKnownWriteTime" : 1444902558,
+    "path" : "~/Hagenberg_2015/SemanticTextAnalysis/SemanticTextAnalysis_Project/invertedIndex.R",
+    "project_path" : "invertedIndex.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

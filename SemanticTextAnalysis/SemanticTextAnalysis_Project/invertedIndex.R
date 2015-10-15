@@ -4,88 +4,35 @@ news3 = scan("news3.txt", what="character")
 news4 = scan("news4.txt", what="character")
 news5 = scan("news5.txt", what="character")
 
-#list
-#union
-#is.element
+newsArticles = list(news1, news2, news3, news4, news5); # list of all articles
 
-v = c(0);
+#list of all words
+allWords = union(news1, news2);
+allWords = union(allArticles, news3);
+allWords = union(allArticles, news4);
+allWords = union(allArticles, news5);
 
-# put 1 extra ID column
-# article 1
 
-length = length(news1);
-a = matrix(v, length, 1)
-news1_matrix = matrix(c(news1, a), length, 2);
+# make index list with 727 entries and 1 column set to NULL
+indexList = list(rep(list(c()), times=length(allWords)));
 
-# article 2
-length = length(news2);
-a = matrix(v, length, 1)
-news2_matrix = matrix(c(news2, a), length, 2);
-
-# article 3
-length = length(news3);
-a = matrix(v, length, 1)
-news3_matrix = matrix(c(news3, a), length, 2);
-
-# article 4
-length = length(news4);
-a = matrix(v, length, 1)
-news4_matrix = matrix(c(news4, a), length, 2);
-
-# article 5
-length = length(news5);
-a = matrix(v, length, 1)
-news5_matrix = matrix(c(news5, a), length, 2);
-
-newsArticles = list(news1_matrix, news2_matrix, news3_matrix, news4_matrix, news5_matrix);
-
-#print(newsArticles[[c(1,1)]]);
-#a = newsArticles[1]
-
-#newsArticles[[2]][1,2];
-
-#a = get(newsArticles[1]);
-
-#g = get(newsArticles[1])
-
-#newsArticles[[1,]]
-
-#news1_matrix[1,2]
-
-for (i in 1:1 ) # loop through 5 articles
+# look through all words and set document ID
+for (i in 1:length(allWords)) # loop through all words
 {
-  
-  for (j in 1:length(newsArticles[[i]]) / 2) # we only want the first column!
+  for (j in 1:length(newsArticles)) # loop through all articles
+  {
+    
+    if (is.element(allWords[[i]], newsArticles[[j]])) # check if word matches article
     {
-    
-    word = (newsArticles[[c(i,j)]]);
-    cat("Searching for the word: ", word);
-    cat("\n");
-    
-    cat("Current article: ", i);
-    cat("\n");
-    
-    # set document ID
-    newsArticles[[i]][j,2] = i;
-    
-    ID = newsArticles[[i]][j,2];
-    cat("Now the document ID is set to", ID);
-    cat("\n\n");
+      indexList[[1]][[i]] = union(indexList[[1]][[i]],j); # set document ID to list
+    }
+
   }
-  
 }
+# set the second element to all the words
+indexList[[2]]<- allWords;
 
 
-
-# sort all (article 1 in alphabetical order)
-newsArticles[[1]][order(newsArticles[[1]][,1],newsArticles[[1]][,2],decreasing=FALSE),]
-
-
-
-# order by first column (text)
-df[order(df[,1],df[,2],decreasing=FALSE),]
-
-df<-matrix(data=c(3,7,5,0,1,0,0,0,0,8,0,9), ncol=2)
-
-
-newsArticles[[1]][,1]
+# NOTE: list too long to be shown in Environment list
+indexList[[1]] # see all document IDs
+indexList[[2]] # see all words
