@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\Binaries\CMakeFiles\6c4c989b1b6f1425f65220d57860fdc7\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{FDF8D38D-EC7B-37C6-81E1-DBCF64E8D7A8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
