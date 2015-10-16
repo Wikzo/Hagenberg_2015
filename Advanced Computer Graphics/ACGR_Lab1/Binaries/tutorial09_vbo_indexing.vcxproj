@@ -334,9 +334,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\texture.cpp" />
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\objloader.cpp" />
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\common\vboindexer.cpp" />
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\StandardShading.vertexshader" />
+    <None Include="..\tutorial09_vbo_indexing\StandardShading.vertexshader" />
     <None Include="..\tutorial09_vbo_indexing\StandardShading.fragmentshader.cpp" />
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\passThrough.geometryshader" />
+    <None Include="..\tutorial09_vbo_indexing\passThrough.geometryshader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/ACGR_Lab1/Binaries/ZERO_CHECK.vcxproj">

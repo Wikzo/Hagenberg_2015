@@ -6,6 +6,7 @@ in vec3 Position_worldspace;
 in vec3 Normal_cameraspace;
 in vec3 EyeDirection_cameraspace;
 in vec3 LightDirection_cameraspace;
+in float vertexDepth_g2f;
 
 // Ouput data
 out vec4 color;
@@ -61,5 +62,9 @@ void main()
 		MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha, 5) / (distance*distance);
 
 	color.a = 1.0;
+
+	/*color.r = vertexDepth_g2f;
+	color.g = vertexDepth_g2f;
+	color.b = vertexDepth_g2f;*/
 
 }

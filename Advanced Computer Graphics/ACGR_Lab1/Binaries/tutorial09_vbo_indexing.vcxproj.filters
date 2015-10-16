@@ -41,13 +41,13 @@
     <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\StandardShading.vertexshader">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ACGR_Lab1\tutorial09_vbo_indexing\passThrough.geometryshader">
-      <Filter>shaders</Filter>
-    </None>
     <None Include="..\tutorial09_vbo_indexing\StandardShading.fragmentshader.cpp">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\tutorial09_vbo_indexing\passThrough.geometryshader.cpp">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\tutorial09_vbo_indexing\StandardShading.vertexshader">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

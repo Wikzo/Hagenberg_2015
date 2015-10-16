@@ -93,8 +93,9 @@ int main(void)
 
 	// Load the texture
 	std::string texturePath = contentPath;
-	texturePath += std::string("spongebob.DDS");
-	GLuint Texture = loadDDS(texturePath.c_str());
+	//texturePath += std::string("spongebob.DDS");
+	texturePath += std::string("FinsTexture.bmp");
+	GLuint Texture = loadBMP_custom(texturePath.c_str());
 
 	// Get a handle for our "myTextureSampler" uniform
 	GLuint TextureID = glGetUniformLocation(programID, "myTextureSampler");
@@ -102,6 +103,7 @@ int main(void)
 	// Read our .obj file
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
+	std::vector<float> depth;
 	std::vector<glm::vec3> normals;
 	std::string modelPath = contentPath;
 	modelPath += std::string("Spongebob/spongebob_bind.obj");
@@ -116,9 +118,13 @@ int main(void)
 	for (int i = 0; i < vertices.size(); i += 3)
 	{
 		///save normal x3 for the plane
-		normals[i] = glm::cross(vertices[i + 1] - vertices[i], vertices[i + 2] - vertices[i + 1]);
+		glm::vec3 tempNormal = glm::cross(vertices[i + 1] - vertices[i], vertices[i + 2] - vertices[i + 1]);
+		normals[i] = tempNormal;
+		normals[i+1] = tempNormal;
+		normals[i+2] = tempNormal;
+		/*normals[i] = glm::cross(vertices[i + 1] - vertices[i], vertices[i + 2] - vertices[i + 1]);
 		normals[i + 1] = glm::cross(vertices[i + 1] - vertices[i], vertices[i + 2] - vertices[i + 1]);
-		normals[i + 2] = glm::cross(vertices[i + 1] - vertices[i], vertices[i + 2] - vertices[i + 1]);
+		normals[i + 2] = glm::cross(vertices[i + 1] - vertices[i], vertices[i + 2] - vertices[i + 1]);*/
 	}
 
 	// using smooth normals
@@ -143,35 +149,59 @@ int main(void)
 	//printf("loop nr %i\n", i);
 
 	// fins
-	/*
 	int vertices_size = vertices.size();
 	for (size_t i = 0; i < vertices_size; i+=3)
 	{
-		// vertices
-		glm::vec3 temp1 = vertices[i] * normals[i] * 0.9f;
-		glm::vec3 temp2 = vertices[i+1] * normals[i+1] * 0.9f;
-		glm::vec3 temp3 = vertices[i+2] * normals[i+2] * 0.9f;
+		// vertices - triangle 1
+		glm::vec3 temp1 = vertices[i]; // point 0
+		glm::vec3 temp2 = vertices[i] + normals[i] * 0.1f; // point 0 raised
+		glm::vec3 temp3 = vertices[i + 1]; // point 1
 
+		// vertices - triangle 2
+		glm::vec3 temp2_1 = temp3; // point 1
+		glm::vec3 temp2_2 = temp3 + normals[i] * 0.1f; // point 1 raised
+		glm::vec3 temp2_3 = temp2; // point 0 raised
+	
 		vertices.push_back(temp1);
 		vertices.push_back(temp2);
 		vertices.push_back(temp3);
+		
+		vertices.push_back(temp2_1);
+		vertices.push_back(temp2_2);
+		vertices.push_back(temp2_3);
 
 		// UVs
-		uvs.push_back(uvs[i]);
-		uvs.push_back(uvs[i+1]);
-		uvs.push_back(uvs[i+2]);
+		uvs.push_back(glm::vec2(0,0));
+		uvs.push_back(glm::vec2(0,1));
+		uvs.push_back(glm::vec2(1,0));
+
+		uvs.push_back(glm::vec2(1, 0));
+		uvs.push_back(glm::vec2(1, 1));
+		uvs.push_back(glm::vec2(0, 1));
 
 		// normals
-		glm::vec3 normal1 = glm::cross(temp2 - temp1, temp3-temp2);
-		glm::vec3 normal2 = glm::cross(temp2 - temp1, temp3-temp2);
-		glm::vec3 normal3 = glm::cross(temp2 - temp1, temp3-temp2);
+		glm::vec3 normal1 = normals[i];
 
 		normals.push_back(normal1);
-		normals.push_back(normal2);
-		normals.push_back(normal3);
-	}
-	*/
+		normals.push_back(normal1);
+		normals.push_back(normal1);
 
+		normals.push_back(normal1);
+		normals.push_back(normal1);
+		normals.push_back(normal1);
+	}
+	
+	// shells - move outwards and make more transparent
+	vertices_size = vertices.size();
+	for (size_t i = 0; i < vertices_size; i += 3)
+	{
+		vertices[i] = vertices[i] + normals[i] * 0.1f;
+		vertices[i+1] = vertices[i+1] + normals[i+1] * 0.1f;
+		vertices[i+2] = vertices[i+2] + normals[i+2] * 0.1f;
+
+		//depth.push_back(1.0f);
+
+	}
 
 	std::vector<unsigned short> indices;
 	std::vector<glm::vec3> indexed_vertices;
@@ -195,6 +225,12 @@ int main(void)
 	glGenBuffers(1, &normalbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
 	glBufferData(GL_ARRAY_BUFFER, indexed_normals.size() * sizeof(glm::vec3), &indexed_normals[0], GL_STATIC_DRAW);
+
+	// depth
+	GLuint vertexDepthBuffer;
+	glGenBuffers(1, &vertexDepthBuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexDepthBuffer);
+	glBufferData(GL_ARRAY_BUFFER, depth.size() * sizeof(float), &depth[0], GL_STATIC_DRAW);
 
 	// Generate a buffer for the indices as well
 	GLuint elementbuffer;
