@@ -1,0 +1,9 @@
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/external/CMakeFiles/ANTTWEAKBAR_116_OGLCORE_GLFW.dir
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/external/assimp-3.0.1270/contrib/zlib/CMakeFiles/zlib.dir
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/external/CMakeFiles/SOIL.dir
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/external/assimp-3.0.1270/code/CMakeFiles/assimp.dir
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/CMakeFiles/ALL_BUILD.dir
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/CMakeFiles/tutorial09_AssImp.dir
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/external/CMakeFiles/GLEW_190.dir
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/Binaries/external/glfw-3.0.3/src/CMakeFiles/GLFW_303.dir

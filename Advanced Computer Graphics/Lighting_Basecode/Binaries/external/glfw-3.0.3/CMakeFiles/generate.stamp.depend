@@ -1,0 +1,22 @@
+# CMake generation dependency list for this directory.
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/external/glfw-3.0.3/CMakeLists.txt
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindOpenGL.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageMessage.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeParseArguments.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindThreads.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CheckLibraryExists.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CheckSymbolExists.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CheckIncludeFile.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CheckIncludeFile.c.in
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageMessage.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeParseArguments.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindDoxygen.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/FindPackageMessage.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.4/Modules/CMakeParseArguments.cmake
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/external/glfw-3.0.3/docs/Doxyfile.in
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/external/glfw-3.0.3/src/config.h.in
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/external/glfw-3.0.3/src/glfwConfig.cmake.in
+C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/Lighting_Basecode/external/glfw-3.0.3/src/glfwConfigVersion.cmake.in

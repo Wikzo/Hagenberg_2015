@@ -68,6 +68,10 @@ int main( void )
 	// Cull triangles which normal is not towards the camera
 	glEnable(GL_CULL_FACE);
 
+	// TODO: alpha blend mode enable (for shells)
+	//glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
@@ -75,11 +79,11 @@ int main( void )
 	// Create and compile our GLSL program from the shaders
 	std::string contentPath = PATHTOCONTENT;
 	std::string vertexShaderPath = contentPath;
-	vertexShaderPath += std::string("StandardShading.vertexshader");//contentPath.append("StandardShading.vertexshader");
+	vertexShaderPath += std::string("StandardShading.vertexshader.cpp");//contentPath.append("StandardShading.vertexshader");
 	std::string fragmentShaderPath = contentPath;
-	fragmentShaderPath += std::string("StandardShading.fragmentshader");
+	fragmentShaderPath += std::string("StandardShading.fragmentshader.cpp");
 	std::string geometryShaderPath = contentPath;
-	geometryShaderPath += std::string("passThrough.geometryshader");
+	geometryShaderPath += std::string("passThrough.geometryshader.cpp");
 	GLuint programID = LoadShaders(vertexShaderPath.c_str(), geometryShaderPath.c_str(), fragmentShaderPath.c_str());
 
 	// Get a handle for our "MVP" uniform
@@ -87,7 +91,7 @@ int main( void )
 	GLuint ViewMatrixID = glGetUniformLocation(programID, "V");
 	GLuint ModelMatrixID = glGetUniformLocation(programID, "M");
 
-	// Load the texture
+	// Load thglEnablee texture
 	std::string texturePath = contentPath;
 	texturePath += std::string("spongebob.DDS");
 	GLuint Texture = loadDDS(texturePath.c_str());

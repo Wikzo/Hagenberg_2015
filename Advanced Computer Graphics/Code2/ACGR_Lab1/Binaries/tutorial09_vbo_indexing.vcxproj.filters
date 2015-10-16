@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Code2\ACGR_Lab1\tutorial09_vbo_indexing\tutorial09.cpp">
@@ -41,13 +41,13 @@
     <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Code2\ACGR_Lab1\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Code2\ACGR_Lab1\tutorial09_vbo_indexing\StandardShading.vertexshader">
+    <None Include="..\tutorial09_vbo_indexing\StandardShading.fragmentshader.cpp">
       <Filter>shaders</Filter>
     </None>
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Code2\ACGR_Lab1\tutorial09_vbo_indexing\StandardShading.fragmentshader">
+    <None Include="..\tutorial09_vbo_indexing\passThrough.geometryshader.cpp">
       <Filter>shaders</Filter>
     </None>
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Code2\ACGR_Lab1\tutorial09_vbo_indexing\passThrough.geometryshader">
+    <None Include="..\tutorial09_vbo_indexing\StandardShading.vertexshader.cpp">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

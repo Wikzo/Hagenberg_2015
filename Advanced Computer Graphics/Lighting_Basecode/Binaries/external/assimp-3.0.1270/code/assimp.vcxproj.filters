@@ -1,0 +1,1209 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Assimp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\AssimpPCH.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BaseImporter.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BaseProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PostStepRegistry.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ImporterRegistry.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DefaultIOStream.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DefaultIOSystem.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Importer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SGSpatialSort.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\VertexTriangleAdjacency.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SpatialSort.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SceneCombiner.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ScenePreprocessor.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SkeletonMeshBuilder.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SplitByBoneCountProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\StandardShapes.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TargetAnimation.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\RemoveComments.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Subdivision.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DefaultLogger.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Exporter.cpp">
+      <Filter>Exporter</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\AssimpCExport.cpp">
+      <Filter>Exporter</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\CalcTangentsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ComputeUVMappingProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ConvertToLHProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FindDegenerates.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FindInstancesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FindInvalidDataProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FixNormalsStep.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\GenFaceNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\GenVertexNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PretransformVertices.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ImproveCacheLocality.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\JoinVerticesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LimitBoneWeightsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\RemoveRedundantMaterials.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\RemoveVCProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SortByPTypeProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SplitLargeMeshes.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TerragenLoader.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TextureTransform.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TriangulateProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ValidateDataStructure.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OptimizeGraph.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OptimizeMeshes.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DeboneProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ProcessHelper.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MakeVerboseFormat.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\3DSConverter.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\3DSLoader.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ACLoader.cpp">
+      <Filter>AC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ASELoader.cpp">
+      <Filter>ASE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ASEParser.cpp">
+      <Filter>ASE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\B3DImporter.cpp">
+      <Filter>B3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BVHLoader.cpp">
+      <Filter>BVH</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ColladaLoader.cpp">
+      <Filter>Collada</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ColladaParser.cpp">
+      <Filter>Collada</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ColladaExporter.cpp">
+      <Filter>Collada</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DXFLoader.cpp">
+      <Filter>DXF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\CSMLoader.cpp">
+      <Filter>CSM</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\HMPLoader.cpp">
+      <Filter>HMP</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IRRLoader.cpp">
+      <Filter>Irr</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IRRMeshLoader.cpp">
+      <Filter>Irr</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IRRShared.cpp">
+      <Filter>Irr</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWOAnimation.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWOBLoader.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWOLoader.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWOMaterial.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWSLoader.cpp">
+      <Filter>LWS</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\M3Importer.cpp">
+      <Filter>M3</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD2Loader.cpp">
+      <Filter>MD2</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD3Loader.cpp">
+      <Filter>MD3</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD5Loader.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD5Parser.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDCLoader.cpp">
+      <Filter>MDC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDLLoader.cpp">
+      <Filter>MDL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDLMaterialLoader.cpp">
+      <Filter>MDL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MaterialSystem.cpp">
+      <Filter>MaterialSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\NFFLoader.cpp">
+      <Filter>NFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OFFLoader.cpp">
+      <Filter>OFFFormat</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjFileImporter.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjFileMtlImporter.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjFileParser.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjExporter.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OgreImporter.cpp">
+      <Filter>Ogre</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OgreMaterial.cpp">
+      <Filter>Ogre</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OgreMesh.cpp">
+      <Filter>Ogre</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OgreSkeleton.cpp">
+      <Filter>Ogre</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PlyLoader.cpp">
+      <Filter>Ply</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PlyParser.cpp">
+      <Filter>Ply</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PlyExporter.cpp">
+      <Filter>Ply</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3DLoader.cpp">
+      <Filter>Q3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3BSPFileParser.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3BSPFileImporter.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3BSPZipArchive.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\RawLoader.cpp">
+      <Filter>Raw</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SMDLoader.cpp">
+      <Filter>SMD</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\STLLoader.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\STLExporter.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\UnrealLoader.cpp">
+      <Filter>Unreal</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\XFileImporter.cpp">
+      <Filter>XFile</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\XFileParser.cpp">
+      <Filter>XFile</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MS3DLoader.cpp">
+      <Filter>MS3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\COBLoader.cpp">
+      <Filter>COB</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderLoader.cpp">
+      <Filter>BLENDER</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderDNA.cpp">
+      <Filter>BLENDER</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderScene.cpp">
+      <Filter>BLENDER</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderModifier.cpp">
+      <Filter>BLENDER</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\NDOLoader.cpp">
+      <Filter>NDO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCLoader.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCReaderGen.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCUtil.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCGeometry.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCMaterial.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCProfile.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCCurve.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\STEPFileReader.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\XGLLoader.cpp">
+      <Filter>XGL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\irrXML\irrXML.cpp">
+      <Filter>IrrXML</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\ConvertUTF\ConvertUTF.c">
+      <Filter>ConvertUTF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\unzip\ioapi.c">
+      <Filter>unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\unzip\unzip.c">
+      <Filter>unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\common\shapes.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\sweep\advancing_front.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\sweep\cdt.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\sweep\sweep.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\sweep\sweep_context.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\clipper\clipper.cpp">
+      <Filter>Clipper</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\AssimpPCH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\fast_atof.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\qnan.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BaseImporter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BaseProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Importer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ScenePrivate.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ByteSwap.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DefaultProgressHandler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DefaultIOStream.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DefaultIOSystem.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\CInterfaceIOWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Hash.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFF.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ParsingUtils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\StdOStreamLogStream.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\StreamReader.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\StringComparison.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SGSpatialSort.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\VertexTriangleAdjacency.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\GenericProperty.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SpatialSort.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SceneCombiner.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ScenePreprocessor.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SkeletonMeshBuilder.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SplitByBoneCountProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SmoothingGroups.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\StandardShapes.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TargetAnimation.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\RemoveComments.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Subdivision.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Vertex.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LineSplitter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TinyFormatter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Profiler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LogAux.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\DefaultLogger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\IOStream.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\LogStream.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\Logger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\NullLogger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Win32DebugLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FileLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlobIOSystem.h">
+      <Filter>Exporter</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\CalcTangentsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ComputeUVMappingProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ConvertToLHProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FindDegenerates.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FindInstancesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FindInvalidDataProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\FixNormalsStep.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\GenFaceNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\GenVertexNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PretransformVertices.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ImproveCacheLocality.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\JoinVerticesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LimitBoneWeightsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\RemoveRedundantMaterials.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\RemoveVCProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SortByPTypeProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SplitLargeMeshes.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TerragenLoader.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TextureTransform.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\TriangulateProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ValidateDataStructure.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OptimizeGraph.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OptimizeMeshes.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DeboneProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ProcessHelper.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PolyTools.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MakeVerboseFormat.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\3DSHelper.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\3DSLoader.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ACLoader.h">
+      <Filter>AC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ASELoader.h">
+      <Filter>ASE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ASEParser.h">
+      <Filter>ASE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\B3DImporter.h">
+      <Filter>B3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BVHLoader.h">
+      <Filter>BVH</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ColladaHelper.h">
+      <Filter>Collada</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ColladaLoader.h">
+      <Filter>Collada</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ColladaParser.h">
+      <Filter>Collada</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ColladaExporter.h">
+      <Filter>Collada</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DXFLoader.h">
+      <Filter>DXF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\DXFHelper.h">
+      <Filter>DXF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\CSMLoader.h">
+      <Filter>CSM</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\HMPFileData.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\HMPLoader.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\HalfLifeFileData.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IRRLoader.h">
+      <Filter>Irr</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IRRMeshLoader.h">
+      <Filter>Irr</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IRRShared.h">
+      <Filter>Irr</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWOAnimation.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWOFileData.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWOLoader.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\LWSLoader.h">
+      <Filter>LWS</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\M3Importer.h">
+      <Filter>M3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD2FileData.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD2Loader.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD2NormalTable.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD3FileData.h">
+      <Filter>MD3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD3Loader.h">
+      <Filter>MD3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD5Loader.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD5Parser.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDCFileData.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDCLoader.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDCNormalTable.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDLDefaultColorMap.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDLFileData.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MDLLoader.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MaterialSystem.h">
+      <Filter>MaterialSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\NFFLoader.h">
+      <Filter>NFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OFFLoader.h">
+      <Filter>OFFFormat</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjFileData.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjFileImporter.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjFileMtlImporter.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjFileParser.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjTools.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\ObjExporter.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OgreImporter.hpp">
+      <Filter>Ogre</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\OgreXmlHelper.hpp">
+      <Filter>Ogre</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PlyLoader.h">
+      <Filter>Ply</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PlyParser.h">
+      <Filter>Ply</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\PlyExporter.h">
+      <Filter>Ply</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3DLoader.h">
+      <Filter>Q3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3BSPFileData.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3BSPFileParser.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3BSPFileImporter.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\Q3BSPZipArchive.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\RawLoader.h">
+      <Filter>Raw</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\SMDLoader.h">
+      <Filter>SMD</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\STLLoader.h">
+      <Filter>STL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\STLExporter.h">
+      <Filter>STL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\UnrealLoader.h">
+      <Filter>Unreal</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\XFileHelper.h">
+      <Filter>XFile</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\XFileImporter.h">
+      <Filter>XFile</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\XFileParser.h">
+      <Filter>XFile</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MD4FileData.h">
+      <Filter>Extra</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\MS3DLoader.h">
+      <Filter>MS3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\COBLoader.h">
+      <Filter>COB</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\COBScene.h">
+      <Filter>COB</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderLoader.h">
+      <Filter>BLENDER</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderDNA.h">
+      <Filter>BLENDER</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderDNA.inl">
+      <Filter>BLENDER</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderScene.h">
+      <Filter>BLENDER</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderSceneGen.h">
+      <Filter>BLENDER</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderIntermediate.h">
+      <Filter>BLENDER</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BlenderModifier.h">
+      <Filter>BLENDER</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\NDOLoader.h">
+      <Filter>NDO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCLoader.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCReaderGen.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\IFCUtil.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\STEPFile.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\STEPFileReader.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\XGLLoader.h">
+      <Filter>XGL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\irrXMLWrapper.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\irrXML\CXMLReaderImpl.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\irrXML\heapsort.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\irrXML\irrArray.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\irrXML\irrString.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\irrXML\irrTypes.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\irrXML\irrXML.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\ConvertUTF\ConvertUTF.h">
+      <Filter>ConvertUTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\unzip\crypt.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\unzip\ioapi.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\unzip\unzip.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\common\shapes.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\common\utils.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\sweep\advancing_front.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\sweep\cdt.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\sweep\sweep.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\poly2tri\poly2tri\sweep\sweep_context.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\contrib\clipper\clipper.hpp">
+      <Filter>Clipper</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\math\common_factor_rt.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\foreach.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\format.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\scoped_array.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\scoped_ptr.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\shared_array.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\shared_ptr.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\make_shared.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\static_assert.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\BoostWorkaround\boost\tuple\tuple.hpp">
+      <Filter>Boost</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\ai_assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\color4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\color4.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\cfileio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\material.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\matrix3x3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\matrix3x3.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\matrix4x4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\matrix4x4.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\postprocess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\quaternion.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\vector2.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\vector3.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\cimport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\importerdesc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\Importer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\ProgressHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\IOSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\cexport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\Exporter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\Compiler\pushpack1.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\include\assimp\Compiler\poppack1.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\pstdint.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\external\assimp-3.0.1270\code\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6BEC2B8A-556B-33AE-84E4-BCFE65E124D5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BFA8AB97-93C0-37F1-897A-0936913E384F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Compiler">
+      <UniqueIdentifier>{CC595081-686B-3B14-9C4B-751D9A5E00F8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Boost">
+      <UniqueIdentifier>{E140E7D0-3CB7-3577-98DE-76546CCFA246}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{A4FF2082-5D05-38DE-8C40-0342A9B8D652}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{BD88F55A-7311-3FB7-A96D-651B218C155D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DS">
+      <UniqueIdentifier>{18C906B7-4DA5-3C5B-9199-A3DA460770B5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AC">
+      <UniqueIdentifier>{DCE3F5B1-35AF-3479-8187-979F01D107C1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASE">
+      <UniqueIdentifier>{1124A9FE-754C-3B1C-9AFB-0F8C7F47CB2C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="B3D">
+      <UniqueIdentifier>{7D21F200-B2B8-3C8D-9538-FF0BA82B378E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BVH">
+      <UniqueIdentifier>{43F14B24-CFD9-3F38-985E-52ECED692AE9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collada">
+      <UniqueIdentifier>{2A84B1A9-E87A-36B3-BE72-67B513DD35A3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DXF">
+      <UniqueIdentifier>{04D3F992-F27A-3E60-8905-52AF7F36B5C3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSM">
+      <UniqueIdentifier>{040437A5-B98C-3F83-927D-FB9871AFC5AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HMP">
+      <UniqueIdentifier>{1A120539-BAEF-3378-AFB5-7821AA38C14C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Irr">
+      <UniqueIdentifier>{FE951A38-29EA-31AE-9F52-F5DCF983FD7F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LWO">
+      <UniqueIdentifier>{2AA9811D-05A9-3942-915A-41A360692A80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LWS">
+      <UniqueIdentifier>{50C54FD8-62B6-3C85-A5E8-F8BACD9846DE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="M3">
+      <UniqueIdentifier>{9A7FF51B-A9A4-33FE-BA97-C4896B3D91F3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD2">
+      <UniqueIdentifier>{AAB472F5-4932-3DC5-A4FA-24740CC8A160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD3">
+      <UniqueIdentifier>{5C79D6DB-DAA7-301A-81FF-22DE2DE0D2AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{BA69AD19-55B6-3AA2-ACF9-EF1F5DCF289A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MDC">
+      <UniqueIdentifier>{5ADE7AB0-D1B5-306F-AB65-EC83154352E8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MDL">
+      <UniqueIdentifier>{4C20019D-979C-3F3C-B256-81E52A213B89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MaterialSystem">
+      <UniqueIdentifier>{4DA1F861-4025-3FD2-A624-30A3880E2155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NFF">
+      <UniqueIdentifier>{CDA77837-F98C-3C67-8A5F-AF2CCDA5169E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NDO">
+      <UniqueIdentifier>{FACCCCB8-D1DF-3BCA-A9F9-2A3D12071C3B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OFFFormat">
+      <UniqueIdentifier>{97B36974-7C30-3EE9-BFFC-173B95D57B03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Obj">
+      <UniqueIdentifier>{2E10E600-F27D-3568-866E-2B71BFC15EE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ogre">
+      <UniqueIdentifier>{C9F92B42-D4A0-3D70-A0CE-70BB2B51FD04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ply">
+      <UniqueIdentifier>{59A4ECA3-56C4-32DB-8E40-79BE51057441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MS3D">
+      <UniqueIdentifier>{67865656-B8A7-35FB-AD03-4C0C5E6A1ECE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COB">
+      <UniqueIdentifier>{CDAAC327-6C93-3EED-8E2B-E809745F7B8B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BLENDER">
+      <UniqueIdentifier>{4A75A268-5714-32DE-A7EB-14C86B5AE5F0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IFC">
+      <UniqueIdentifier>{D6E6C790-82BA-3C53-8D66-5D4DAE7F63ED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XGL">
+      <UniqueIdentifier>{DC218BA3-C13C-3FE0-B0DD-71890983B611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PostProcessing">
+      <UniqueIdentifier>{4AC323DA-324A-3FE4-B798-27D617641B8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Q3D">
+      <UniqueIdentifier>{73ED1AF2-0E88-3CDD-8523-B80E6BFBE008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Q3BSP">
+      <UniqueIdentifier>{C68A72D2-6443-3180-A43B-C926623EF6A4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Raw">
+      <UniqueIdentifier>{811BAD2B-4DF9-37A2-8C8D-AA3B633A314D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SMD">
+      <UniqueIdentifier>{6036633A-07D2-3A11-93E4-F9F42F994E86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STL">
+      <UniqueIdentifier>{9216984F-04CC-3639-87A9-32F9C326BFF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Unreal">
+      <UniqueIdentifier>{6D6AB575-45AF-3F00-8F26-6E55837BF462}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XFile">
+      <UniqueIdentifier>{63C12A30-8102-386E-B019-EEB7F08DB147}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter">
+      <UniqueIdentifier>{23680D36-F25F-35E6-B24C-5F13B7A743DF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Extra">
+      <UniqueIdentifier>{5F1EFA98-5791-3774-BEAF-8E1932C81D15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IrrXML">
+      <UniqueIdentifier>{947F3DA4-07A1-3D1F-B8D3-D56C399DFE18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConvertUTF">
+      <UniqueIdentifier>{6645C17E-2344-3CCF-A9DB-8A169523DEA5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Clipper">
+      <UniqueIdentifier>{41B563D0-74B3-348A-94A3-D5944A19A81F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Poly2Tri">
+      <UniqueIdentifier>{562F3696-75C8-3E23-B0F2-E477EA710AF6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unzip">
+      <UniqueIdentifier>{4A40F3AE-4073-37C9-B602-7F26B618D900}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

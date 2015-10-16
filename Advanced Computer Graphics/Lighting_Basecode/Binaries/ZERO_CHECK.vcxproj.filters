@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\Lighting_Basecode\Binaries\CMakeFiles\489458d231c907a3122617a6168a4f8f\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E59CF8F1-9579-344A-BAC6-F2B19944EC8A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
