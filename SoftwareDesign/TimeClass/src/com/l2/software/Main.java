@@ -11,10 +11,10 @@ import org.junit.runners.Suite.SuiteClasses;
 public class Main
 {
 
+	// by Gustav Dahl (IM 2015)
+	
 	public static void main(String[] args)
 	{
-		// TestingTimers();
-
 		Result result = JUnitCore.runClasses(MyTimerTest.class);
 		for (Failure failure : result.getFailures())
 		{

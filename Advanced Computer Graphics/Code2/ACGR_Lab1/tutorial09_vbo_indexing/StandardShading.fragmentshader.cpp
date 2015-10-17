@@ -17,6 +17,9 @@ uniform vec3 LightPosition_worldspace;
 
 void main(){
 
+	//gl_FragColor = vec4(cos(1.0), 0.2, 0.5, 1.0);
+	
+
 	// Light emission properties
 	// You probably want to put them as uniforms
 	vec3 LightColor = vec3(1,1,1);

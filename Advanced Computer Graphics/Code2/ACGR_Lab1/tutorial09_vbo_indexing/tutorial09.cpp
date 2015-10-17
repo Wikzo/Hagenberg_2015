@@ -329,6 +329,8 @@ int main( void )
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
+
+
 	} // Check if the ESC key was pressed or the window was closed
 	while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
 		   glfwWindowShouldClose(window) == 0 );

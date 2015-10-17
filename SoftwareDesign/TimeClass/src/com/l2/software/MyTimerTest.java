@@ -8,56 +8,76 @@ import org.junit.runner.Result;
 
 public class MyTimerTest
 {
-	
-	// QUESTION: Is there a way to do multiple assertEquals check?
-	// right now, it seems like it automatically breaks on each check,
-	// so I have to manually comment out the checks by hand
+
+	// QUESTION: Is there a way to do multiple assertEquals checks without breaking each time?
+	// Right now I manually have to comment/outcomment each of the checks.
+	// Can you automatically jump to the next error in Eclipse or something?
 
 	@Test
 	public void TestingTimers()
 	{
-		// making a new Timer object ... passing in hours and minutes to
-		// constructor
-		// "potential problem": does the constructor take (hours, minutes) or
-		// (minutes, hours)?
+		// NOTE: manually comment out each assertEquals test (indicated with arrow <--)
+		
+		Time t_temp;
+
+		// TEST 0
+		//assertNotNull(t_temp); // <-- (Eclipse won't allow me to do this ...)
+		// Checking if t is null (not really needed, since Eclipse automatically checks for this anyway
+
+		// TEST 1
+		// Making a new Timer object ... passing in hours and minutes to the constructor
 		Time t1 = new Time(1, 2);
+		assertEquals("t1 minutes", 2, t1.getMinutes()); // <--
+		// Assumption: the first parameter is hours, the second parameter is minutes
+		// Results:
+		// TestingTimers(com.l2.software.MyTimerTest): t1 minutes expected:<2> but was:<1>
 
-		// Time t_temp;
-		// checking if t is null (not really needed, since Eclipse automatically
-		// checks for this
-		// assertNotNull(t_temp);
-
-		// CHECK 1
-		// test if hours is now 1
-		//assertEquals("Testing if hours are correct", 1, t.getHours());
-		// result:
-		// Testing are hours is correct expected:<1> but was:<2>
+		// TEST 2
+		assertEquals("Testing if hours are correct", 1, t1.getHours()); // <--
+		// Results:
+		// Testing if hours are correct expected:<1> but was:<2>
 		
-		// CHECK 2
+		// TEST 3
+		assertEquals("Testing the toString() method of t1", "2:1", t1.toString()); // <--
+		// Assumption: toString() prints out the time separated by a dot (.) without further modifications
+		// Results:
+		// TestingTimers(com.l2.software.MyTimerTest): Testing the toString() method of t1 expected:<[2:]1> but was:<[02:0]1>
+		
+		// TEST 4
 		t1.setMinutes(65);
-		//assertEquals("Testing if minutes are correct", 65, t.getMinutes());
-		// result:
+		assertEquals("Testing if minutes are correct", 65, t1.getMinutes()); // <--
+		// Assumption: minutes are 65, since this is what it was set to
+		// Results:
 		// Testing if minutes are correct expected:<65> but was:<5>
-		
-		// CHECK 3
-		// test if hours now is still 2
-		//assertEquals("Testing if hours are correct", 2, t.getHours());
-		// result:
+
+		// TEST 5
+		assertEquals("Testing if hours are correct", 2, t1.getHours()); // <--
+		// Assumption: t1's hours are still 2
+		// Results:
 		// Testing if hours are correct expected:<2> but was:<3>
 
+		// TEST 6
 		// add a new timer to the original timer
-		Time t2 = new Time(2,3);
+		Time t2 = new Time(2, 13);
 		t1.AddTimer(t2);
-		System.out.println(t1.toString());
+		assertEquals("Adding timer t2 to t1, testing t1 hours:", 15, t1.getHours()); // <--
+		// Results:
+		// TestingTimers(com.l2.software.MyTimerTest): Adding timer t2 to t1, testing t1 hours: expected:<15> but was:<16>
 
-		// CHECK 4
-		// test if hours is now 1+2 = 3
-		//assertEquals("Testing if hours are still correct after adding", 3, t1.getHours());
-		// result:
-		// Testing are hours is still correct after adding expected:<3> but was:<5>
-		
-		// calculating time difference between t1 and t2
-		Time tDiff = Time.CalculateDifferenceBetweenTimers(t1, t2);
-		System.out.println(tDiff.toString());
+		// TEST 7
+		assertEquals("Testing hour-to-minutes calculation", 700, t2.GetTotalTimeInMinutes()); // <--
+		// Results:
+		// TestingTimers(com.l2.software.MyTimerTest): Testing hour-to-minutes calculation expected:<700> but was:<782>
+
+		// TEST 8
+		assertEquals("Calculating minute differences between t1 and t2", 250, Time.CalculateMinuteDifference(t1, t2)); // <--
+		// Results:
+		// TestingTimers(com.l2.software.MyTimerTest): Calculating minute differences between t1 and t2 expected:<250> but was:<185>
+
+		// TEST 9
+		assertEquals("t1 time since midnight", 900, t1.TimeInMinutesSinceMidnight()); // <--
+		// Results:
+		// TestingTimers(com.l2.software.MyTimerTest): t1 time since midnight expected:<900> but was:<967>
+
 	}
 }
