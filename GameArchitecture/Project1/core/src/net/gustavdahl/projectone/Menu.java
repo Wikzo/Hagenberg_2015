@@ -76,16 +76,24 @@ public class Menu implements Screen
 		float y = 0f;
 		for (int i = 0; i < labels.size(); i++)
 		{
+			
+			angle += (360f / labels.size());
 			x = (float) Math.sin(Math.toRadians(angle)) * multiplier;
 			y = (float) Math.cos(Math.toRadians(angle)) * multiplier;
 
 			labels.get(i).setPosition(x, y);
 
-			angle += (360f / labels.size());
+			
 
-			// System.out.println(x + ", " + y);
+			//System.out.println(x + ", " + y);
 
 		}
+		
+		//labels.get(0).setPosition(200f, 300f);
+		
+		//System.out.println(labels.get(0).getX() + ", " + labels.get(0).getY());
+		
+		labels.get(highlightIndex).setColor(Color.WHITE);
 
 	}
 
@@ -98,66 +106,56 @@ public class Menu implements Screen
 		Assets.Stage.act(delta);
 		Assets.Stage.draw();
 
+		// TODO: continous pressing down
 		if (Gdx.input.isKeyJustPressed(Keys.LEFT))
-			MenuMove("left");
+			MenuMove(-1);
 		else if (Gdx.input.isKeyJustPressed(Keys.RIGHT))
-			MenuMove("right");
+			MenuMove(1);
 
 	}
 
 	int highlightIndex = 0;
 
-	void MenuMove(String direction)
+	void MenuMove(int direction)
 	{
-		System.out.println("moving " + direction);
+		//System.out.println("moving " + direction);
 
+		// white = selected; black = not selected
 		
-
-		highlightIndex++;
-		
-		System.out.println(highlightIndex);
-
-		if (highlightIndex > labels.size() - 1)
-			highlightIndex = 0;
-
-		if (highlightIndex > 0)
+		switch(direction)
 		{
-			labels.get(highlightIndex - 1).setColor(Color.BLACK);
+		case 1: // clockwise
+			highlightIndex++;
+			
+			if (highlightIndex > labels.size() - 2) // last menu is just dummy
+				highlightIndex = 0;
+			
 			labels.get(highlightIndex).setColor(Color.WHITE);
-
-		} else
-		{
-			labels.get(labels.size() - 1).setColor(Color.BLACK);
-			labels.get(highlightIndex+1).setColor(Color.WHITE);
+			
+			if (highlightIndex != 0)
+				labels.get(highlightIndex-1).setColor(Color.BLACK);
+			else
+				labels.get(labels.size()-2).setColor(Color.BLACK);
+			
+			break;
+			
+		case -1: // counter-clockwise
+			highlightIndex--;
+			
+			if (highlightIndex < 0)
+				highlightIndex = labels.size() - 2;
+			
+			labels.get(highlightIndex).setColor(Color.WHITE);
+			
+			if (highlightIndex != labels.size()-2)
+				labels.get(highlightIndex+1).setColor(Color.BLACK);
+			else
+				labels.get(0).setColor(Color.BLACK);
+			break;
 		}
 
-		/*
-		 * float multiplier = 400f; float angle = 0f; float x = 0f; float y =
-		 * 0f; for (int i = 0; i < labels.size(); i++) { //x = (float)
-		 * Math.sin(Math.toRadians(angle)) * multiplier; //y = (float)
-		 * Math.cos(Math.toRadians(angle)) * multiplier; int index = i;
-		 * 
-		 * System.out.println(index);
-		 * 
-		 * if (index + 1 > labels.size()-1) index = 0; //else if (index -1 < 0)
-		 * //index = labels.size();
-		 * 
-		 * 
-		 * System.out.println(index);
-		 * 
-		 * //float prevX = labels.get(index-1).getX(); //float prevY =
-		 * labels.get(index-1).getY(); float nextX = labels.get(index+1).getX();
-		 * float nextY = labels.get(index+1).getY();
-		 * 
-		 * if (direction == "right") labels.get(i).setPosition( nextX, nextY);
-		 * //else //labels.get(i).setPosition( prevX, prevY);
-		 * 
-		 * //angle += (360f/labels.size());
-		 * 
-		 * //System.out.println(x + ", " + y);
-		 * 
-		 * }
-		 */
+		
+		//System.out.println(highlightIndex);
 	}
 
 	@Override
