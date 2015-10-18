@@ -29,8 +29,9 @@ import javafx.scene.shape.MoveTo;
 public class SplashScreen implements Screen
 {
 
-	final Project1 game;
+	final MyGame game;
 	private OrthographicCamera camera;
+	private Viewport viewport;
 
 	private float displayTime;
 	private float fadeInTime = 1f;
@@ -38,11 +39,15 @@ public class SplashScreen implements Screen
 	private float DisplayTime = 1f;
 	private Stage stage;
 
-	public SplashScreen(Project1 project)
+	public SplashScreen(MyGame project)
 	{
 		// TODO Auto-generated constructor stub
 		this.game = project;
+		
 		camera = new OrthographicCamera();
+		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+		viewport = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
+		
 		displayTime = 2f;
 		stage = new Stage();
 	}

@@ -26,20 +26,29 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.List;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class CircleMenuList implements Screen
 {
 
-	final Project1 game;
+	final MyGame game;
 	private OrthographicCamera camera;
+	private Viewport viewport;
+
 	private ArrayList<Label> labels = new ArrayList<Label>();
 	private Stage stage;
 
-	public CircleMenuList(Project1 project)
+	private int highlightIndex = 0;
+
+	public CircleMenuList(MyGame project)
 	{
 		// TODO Auto-generated constructor stub
 		this.game = project;
+
 		camera = new OrthographicCamera();
+		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+		viewport = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
+
 		stage = new Stage();
 
 	}
@@ -59,9 +68,41 @@ public class CircleMenuList implements Screen
 		// Label label1 = new Label("1", labelStyle);
 
 		// create labels
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 7; i++)
 		{
-			Label l = new Label("Menu " + Integer.toString(i), labelStyle);
+			String menuName = "";
+
+			switch (i)
+			{
+			case 0:
+				menuName = "Start Game";
+				break;
+			
+			case 1:
+				menuName = "Gameplay Options";
+				break;
+
+			case 2:
+				menuName = "Control Options";
+				break;
+
+			case 3:
+				menuName = "Video Options";
+				break;
+
+			case 4:
+				menuName = "Audio Options";
+				break;
+
+			case 5:
+				menuName = "About & Credits";
+				break;
+				
+			case 6:
+				menuName = "Exit Game";
+				break;
+			}
+			Label l = new Label(menuName, labelStyle);
 			l.setColor(Color.BLACK);
 			l.setPosition(l.getWidth() * i + 50, 0, Align.left);
 
@@ -71,18 +112,17 @@ public class CircleMenuList implements Screen
 		}
 
 		// make circle
-		float multiplier = 400;
 		float angle = 0f;
 		float x = 0f;
 		float y = 0f;
 		for (int i = 0; i < labels.size(); i++)
 		{
 
-			angle += (360f / labels.size());
-			x = (float) Math.sin(Math.toRadians(angle)) * multiplier;
-			y = (float) Math.cos(Math.toRadians(angle)) * multiplier;
+			x = (float) Math.sin(Math.toRadians(angle)) * 400;
+			y = (float) Math.cos(Math.toRadians(angle)) * 350;
 
 			labels.get(i).setPosition(x, y);
+			angle += (360f / labels.size());
 
 			// System.out.println(x + ", " + y);
 
@@ -123,12 +163,42 @@ public class CircleMenuList implements Screen
 
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER))
 		{
-			game.setScreen(new MenuScreen(game, "Menu text hejsa"));
+			SetActiveMenu(MenuItemType.values()[highlightIndex]);
 		}
 
 	}
-
-	int highlightIndex = 0;
+	
+	public void SetActiveMenu(MenuItemType type)
+	{
+		switch (type)
+		{
+		case About:
+			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			break;
+		case Audio:
+			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			break;
+		case Control:
+			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			break;
+		case Exit:
+			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			break;
+		case Gameplay:
+			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			break;
+		case StartGame:
+			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			break;
+		case Video:
+			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			break;
+		default:
+			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			break;
+			
+		}
+	}
 
 	void MenuMove(int direction)
 	{
@@ -141,7 +211,7 @@ public class CircleMenuList implements Screen
 		case 1: // clockwise
 			highlightIndex++;
 
-			if (highlightIndex > labels.size() - 2) // last menu is just dummy
+			if (highlightIndex > labels.size() - 1)
 				highlightIndex = 0;
 
 			labels.get(highlightIndex).setColor(Color.WHITE);
@@ -149,7 +219,7 @@ public class CircleMenuList implements Screen
 			if (highlightIndex != 0)
 				labels.get(highlightIndex - 1).setColor(Color.BLACK);
 			else
-				labels.get(labels.size() - 2).setColor(Color.BLACK);
+				labels.get(labels.size() - 1).setColor(Color.BLACK);
 
 			break;
 
@@ -157,11 +227,11 @@ public class CircleMenuList implements Screen
 			highlightIndex--;
 
 			if (highlightIndex < 0)
-				highlightIndex = labels.size() - 2;
+				highlightIndex = labels.size() - 1;
 
 			labels.get(highlightIndex).setColor(Color.WHITE);
 
-			if (highlightIndex != labels.size() - 2)
+			if (highlightIndex != labels.size() - 1)
 				labels.get(highlightIndex + 1).setColor(Color.BLACK);
 			else
 				labels.get(0).setColor(Color.BLACK);
@@ -175,21 +245,23 @@ public class CircleMenuList implements Screen
 	public void resize(int width, int height)
 	{
 
-		float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
-
-		float aspect = w / h;
-
-		// https://github.com/libgdx/libgdx/wiki/Viewports
-
-		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT / aspect);
-		camera.position.set(0, 0, 0);
-		camera.update();
-
 		/*
+		 * float w = Gdx.graphics.getWidth(); float h =
+		 * Gdx.graphics.getHeight();
+		 * 
+		 * float aspect = w / h;
+		 * 
+		 * // https://github.com/libgdx/libgdx/wiki/Viewports
+		 * 
+		 * camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT / aspect);
+		 * camera.position.set(0, 0, 0); camera.update();
+		 * 
+		 * 
 		 * float ar = (float) Gdx.graphics.getWidth() /
 		 * Gdx.graphics.getHeight(); cam.setToOrtho(false, project1.V_WIDTH,
 		 * project1.V_WIDTH / ar); cam.position.set(0, 0, 0); cam.update();
+		 * 
+		 * viewport.update(width, height);
 		 */
 
 		stage.getViewport().update(width, height);

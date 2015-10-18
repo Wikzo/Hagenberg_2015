@@ -11,25 +11,39 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class MenuScreen implements Screen
+public abstract class MenuItem implements Screen
 {
 
-	final Project1 game;
+	final MyGame game;
+
+	CircleMenuList circleMenu;
+
+	MenuItemType MyType;
+
 	private OrthographicCamera camera;
+	private Viewport viewport;
 
 	String MenuText = "";
 
 	ArrayList<Label> labels = new ArrayList<Label>();
 
-	private Stage stage;
+	protected Stage stage;
 
-	public MenuScreen(Project1 project1, String menuText)
+	public MenuItem(MyGame project1, CircleMenuList circleMenu, MenuItemType type)
 	{
 		this.game = project1;
-		this.MenuText = menuText;
+		this.circleMenu = circleMenu;
+		this.MyType = type;
+
 		camera = new OrthographicCamera();
+		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+		viewport = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
+
 		stage = new Stage();
+
+		//System.out.println("New menu screen with type: " + MyType);
 	}
 
 	@Override
@@ -37,7 +51,7 @@ public class MenuScreen implements Screen
 	{
 		// label style
 		LabelStyle labelStyle = new Label.LabelStyle(Assets.ArialFont, Color.WHITE);
-		Label label1 = new Label(this.MenuText, labelStyle);
+		Label label1 = new Label("Menu item 1", labelStyle);
 
 		stage.addActor(label1);
 
@@ -53,7 +67,7 @@ public class MenuScreen implements Screen
 
 		camera.update();
 		game.batch.setProjectionMatrix(camera.combined);
-		
+
 		stage.act(delta);
 		stage.draw();
 
@@ -62,19 +76,7 @@ public class MenuScreen implements Screen
 	@Override
 	public void resize(int width, int height)
 	{
-		/*
-		 * float w = Gdx.graphics.getWidth(); float h =
-		 * Gdx.graphics.getHeight();
-		 * 
-		 * float aspect = w / h;
-		 * 
-		 * // https://github.com/libgdx/libgdx/wiki/Viewports
-		 * 
-		 * cam.setToOrtho(false, project1.V_WIDTH, project1.V_HEIGHT / aspect);
-		 * cam.position.set(0, 0, 0); cam.update();
-		 * 
-		 * stage.getViewport().update(width, height);
-		 */
+
 		stage.getViewport().update(width, height);
 	}
 
