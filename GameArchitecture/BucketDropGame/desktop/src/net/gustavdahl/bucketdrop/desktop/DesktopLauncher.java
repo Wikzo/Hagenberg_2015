@@ -2,7 +2,7 @@ package net.gustavdahl.bucketdrop.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import net.gustavdahl.bucketdrop.BucketDrop;
+import net.gustavdahl.bucketdrop.Drop;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
@@ -12,6 +12,6 @@ public class DesktopLauncher {
 		config.width = 800;
 		config.height = 480;
 		
-		new LwjglApplication(new BucketDrop(), config);
+		new LwjglApplication(new Drop(), config);
 	}
 }

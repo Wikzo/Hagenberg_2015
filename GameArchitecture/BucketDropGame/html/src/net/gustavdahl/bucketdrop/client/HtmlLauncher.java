@@ -5,7 +5,7 @@ import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 
 
-import net.gustavdahl.bucketdrop.BucketDrop;
+import net.gustavdahl.bucketdrop.GameScreen;
 
 
 public class HtmlLauncher extends GwtApplication {
@@ -16,6 +16,6 @@ public class HtmlLauncher extends GwtApplication {
 
    @Override
    public ApplicationListener getApplicationListener () {
-      return new BucketDrop();
+      return new GameScreen();
    }
 }
