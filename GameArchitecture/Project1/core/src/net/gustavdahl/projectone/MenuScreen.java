@@ -15,7 +15,8 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 public class MenuScreen implements Screen
 {
 
-	Project1 project1;
+	final Project1 game;
+	private OrthographicCamera camera;
 
 	String MenuText = "";
 
@@ -25,9 +26,9 @@ public class MenuScreen implements Screen
 
 	public MenuScreen(Project1 project1, String menuText)
 	{
-		this.project1 = project1;
+		this.game = project1;
 		this.MenuText = menuText;
-
+		camera = new OrthographicCamera();
 		stage = new Stage();
 	}
 
@@ -40,7 +41,7 @@ public class MenuScreen implements Screen
 
 		stage.addActor(label1);
 
-		stage.setViewport(new FitViewport(project1.V_WIDTH, project1.V_HEIGHT));
+		stage.setViewport(new FitViewport(game.V_WIDTH, game.V_HEIGHT));
 
 	}
 
@@ -50,6 +51,9 @@ public class MenuScreen implements Screen
 		Gdx.gl.glClearColor(1.0f, 0f, 0.8f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+		camera.update();
+		game.batch.setProjectionMatrix(camera.combined);
+		
 		stage.act(delta);
 		stage.draw();
 

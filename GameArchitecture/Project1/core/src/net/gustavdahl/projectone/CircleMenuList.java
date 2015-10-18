@@ -30,16 +30,16 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 public class CircleMenuList implements Screen
 {
 
-	private Project1 project1;
-	private OrthographicCamera cam;
+	final Project1 game;
+	private OrthographicCamera camera;
 	private ArrayList<Label> labels = new ArrayList<Label>();
 	private Stage stage;
 
 	public CircleMenuList(Project1 project)
 	{
 		// TODO Auto-generated constructor stub
-		this.project1 = project;
-		cam = new OrthographicCamera();
+		this.game = project;
+		camera = new OrthographicCamera();
 		stage = new Stage();
 
 	}
@@ -95,7 +95,7 @@ public class CircleMenuList implements Screen
 
 		labels.get(highlightIndex).setColor(Color.WHITE);
 
-		stage.setViewport(new FitViewport(project1.V_WIDTH, project1.V_HEIGHT));
+		stage.setViewport(new FitViewport(game.V_WIDTH, game.V_HEIGHT));
 
 	}
 
@@ -104,6 +104,13 @@ public class CircleMenuList implements Screen
 	{
 		Gdx.gl.glClearColor(0.1f, 1f, 0.8f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+		// tell the camera to update its matrices.
+		camera.update();
+
+		// tell the SpriteBatch to render in the
+		// coordinate system specified by the camera.
+		game.batch.setProjectionMatrix(camera.combined);
 
 		stage.act(delta);
 		stage.draw();
@@ -116,7 +123,7 @@ public class CircleMenuList implements Screen
 
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER))
 		{
-			project1.setScreen(new MenuScreen(project1, "Menu text hejsa"));
+			game.setScreen(new MenuScreen(game, "Menu text hejsa"));
 		}
 
 	}
@@ -175,9 +182,9 @@ public class CircleMenuList implements Screen
 
 		// https://github.com/libgdx/libgdx/wiki/Viewports
 
-		cam.setToOrtho(false, project1.V_WIDTH, project1.V_HEIGHT / aspect);
-		cam.position.set(0, 0, 0);
-		cam.update();
+		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT / aspect);
+		camera.position.set(0, 0, 0);
+		camera.update();
 
 		/*
 		 * float ar = (float) Gdx.graphics.getWidth() /

@@ -29,8 +29,8 @@ import javafx.scene.shape.MoveTo;
 public class SplashScreen implements Screen
 {
 
-	private Project1 project1;
-	private OrthographicCamera cam;
+	final Project1 game;
+	private OrthographicCamera camera;
 
 	private float displayTime;
 	private float fadeInTime = 1f;
@@ -41,8 +41,8 @@ public class SplashScreen implements Screen
 	public SplashScreen(Project1 project)
 	{
 		// TODO Auto-generated constructor stub
-		this.project1 = project;
-		cam = new OrthographicCamera();
+		this.game = project;
+		camera = new OrthographicCamera();
 		displayTime = 2f;
 		stage = new Stage();
 	}
@@ -71,7 +71,7 @@ public class SplashScreen implements Screen
 		// Gdx.input
 
 		// configure viewport
-		stage.setViewport(new FitViewport(project1.V_WIDTH, project1.V_HEIGHT));
+		stage.setViewport(new FitViewport(game.V_WIDTH, game.V_HEIGHT));
 
 	}
 
@@ -93,8 +93,8 @@ public class SplashScreen implements Screen
 	void EndOfState()
 	{
 
-		project1.setScreen(new CircleMenuList(project1));
-		// System.out.println("New state");
+		game.setScreen(new CircleMenuList(game));
+		dispose();
 	}
 
 	@Override
@@ -102,6 +102,9 @@ public class SplashScreen implements Screen
 	{
 		Gdx.gl.glClearColor(0.1f, 1f, 0.8f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
+		camera.update();
+		game.batch.setProjectionMatrix(camera.combined);
 
 		stage.act(delta);
 		stage.draw();
