@@ -54,7 +54,7 @@ public class Assets
 		for (Texture t : textures)
 			t.dispose();
 
-		//System.out.println("All assets have been disposed by " + name);
+		// System.out.println("All assets have been disposed by " + name);
 
 	}
 

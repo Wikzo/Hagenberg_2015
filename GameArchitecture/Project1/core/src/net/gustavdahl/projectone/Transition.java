@@ -49,7 +49,7 @@ public class Transition implements Screen
 	public void hide()
 	{
 		// TODO Auto-generated method stub
-		Assets.Stage.clear();
+		//Assets.Stage.clear();
 		
 	}
 

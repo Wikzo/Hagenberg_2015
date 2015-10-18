@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class Project1 extends Game
 {
 
-	// virtual resoltuion
+	// virtual resolution
 	public static final float V_WIDTH = 1366;
 	public static final float V_HEIGHT = 768;
 

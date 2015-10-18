@@ -36,14 +36,15 @@ public class SplashScreen implements Screen
 	private float fadeInTime = 1f;
 	private float fadeOutTime = 1f;
 	private float DisplayTime = 1f;
+	private Stage stage;
 
 	public SplashScreen(Project1 project)
 	{
 		// TODO Auto-generated constructor stub
 		this.project1 = project;
-		this.cam = new OrthographicCamera();
-
-		this.displayTime = 2f;
+		cam = new OrthographicCamera();
+		displayTime = 2f;
+		stage = new Stage();
 	}
 
 	@Override
@@ -53,7 +54,6 @@ public class SplashScreen implements Screen
 		img.setPosition(0, 0, Align.center);
 		img.getColor().a = 0f;
 		img.setName("Splash");
-
 
 		img.addAction(Actions.sequence(
 				// Actions.show(),
@@ -66,18 +66,18 @@ public class SplashScreen implements Screen
 					}
 				})));
 
-		Assets.Stage.addActor(img);
+		stage.addActor(img);
 
 		// Gdx.input
 
 		// configure viewport
-		Assets.Stage.setViewport(new FitViewport(project1.V_WIDTH, project1.V_HEIGHT));
+		stage.setViewport(new FitViewport(project1.V_WIDTH, project1.V_HEIGHT));
 
 	}
 
 	private void fadeOut(float fadeTime)
 	{
-		Actor img = Assets.Stage.getRoot().findActor("Splash");
+		Actor img = stage.getRoot().findActor("Splash");
 		assert(img != null);
 		img.clearActions();
 		img.addAction(Actions.sequence(Actions.fadeOut(fadeTime), Actions.run(new Runnable()
@@ -93,7 +93,7 @@ public class SplashScreen implements Screen
 	void EndOfState()
 	{
 
-		project1.setScreen(new Menu(project1));
+		project1.setScreen(new CircleMenuList(project1));
 		// System.out.println("New state");
 	}
 
@@ -103,9 +103,9 @@ public class SplashScreen implements Screen
 		Gdx.gl.glClearColor(0.1f, 1f, 0.8f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		Assets.Stage.act(delta);
-		Assets.Stage.draw();
-		
+		stage.act(delta);
+		stage.draw();
+
 		if (Gdx.input.isKeyPressed(Keys.ANY_KEY) || Gdx.input.isTouched())
 			fadeOut(0.1f);
 
@@ -114,7 +114,7 @@ public class SplashScreen implements Screen
 	@Override
 	public void resize(int width, int height)
 	{
-		Assets.Stage.getViewport().update(width, height);
+		stage.getViewport().update(width, height);
 
 	}
 
