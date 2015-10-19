@@ -12,7 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class Assets
 {
 
-	// TODO: make use of AssetManager
+	// TODO: make use of 
+// SKIN (visibile things)
 	// https://github.com/libgdx/libgdx/wiki/Managing-your-assets
 	private static ArrayList<BitmapFont> fonts;
 	public static BitmapFont ArialFont;
@@ -45,6 +46,8 @@ public class Assets
 
 		// System.out.println("AssetManager initialized");
 	}
+	
+	// common, menu, gameplay (assets)
 
 	public static void DisposeAllAssets(String name)
 	{

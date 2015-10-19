@@ -24,6 +24,7 @@ public class MyGame extends Game
 	public void create()
 	{
 		batch = new SpriteBatch();
+		Assets.InitializeAssets();
 		setScreen(new SplashScreen(this));
 	}
 

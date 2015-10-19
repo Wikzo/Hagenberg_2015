@@ -12,6 +12,7 @@ public class Main
 {
 
 	// by Gustav Dahl (IM 2015)
+	// (Originally pair-programmed together with Anne Juhler Hansen, but later the code projects deviated quite a bit)
 	
 	public static void main(String[] args)
 	{

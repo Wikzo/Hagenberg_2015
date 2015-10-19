@@ -2,8 +2,8 @@ package net.gustavdahl.projectone;
 
 public enum MenuItemType
 {
-StartGame,
-Gameplay,
+StartGame, // 0
+Gameplay, // 1
 Control,
 Video,
 Audio,

@@ -56,6 +56,8 @@ public abstract class MenuItem implements Screen
 		stage.addActor(label1);
 
 		stage.setViewport(new FitViewport(game.V_WIDTH, game.V_HEIGHT));
+		
+		System.exit(-1);//.println("show");
 
 	}
 

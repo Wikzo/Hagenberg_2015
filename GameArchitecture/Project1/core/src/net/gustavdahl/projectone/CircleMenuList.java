@@ -18,6 +18,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -154,6 +155,13 @@ public class CircleMenuList implements Screen
 
 		stage.act(delta);
 		stage.draw();
+		
+		if (current != null)
+		{
+			current.stage.act(delta);
+			current.stage.draw();
+			current.render(delta);
+		}
 
 		// TODO: continuous pressing down
 		if (Gdx.input.isKeyJustPressed(Keys.LEFT))
@@ -168,8 +176,14 @@ public class CircleMenuList implements Screen
 
 	}
 	
+	
+	// TODO: use 1 stage!
+	
+	MenuItem current;
 	public void SetActiveMenu(MenuItemType type)
 	{
+		// TODO: keep the old screen as well
+		
 		switch (type)
 		{
 		case About:
@@ -185,7 +199,13 @@ public class CircleMenuList implements Screen
 			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
 			break;
 		case Gameplay:
-			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			
+			current = new MenuGameplay(game, this, MenuItemType.Gameplay);
+			current.show();
+			Group g = new Group();
+			g
+			
+			//game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
 			break;
 		case StartGame:
 			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));

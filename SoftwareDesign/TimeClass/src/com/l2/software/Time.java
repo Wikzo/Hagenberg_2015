@@ -15,16 +15,61 @@ public class Time
 	{
 		setMinutes(minutes);
 		setHours(hours);
+		ModulusSafeCheck2(); // this is the fool-proof version that can handle multiple additional hours
 	}
 
-	private void ModulusSafeCheck()
+	public Time(int minutes, int hours, int modulusCheck)
 	{
+		setMinutes(minutes);
+		setHours(hours);
+
+		switch (modulusCheck)
+		{
+			case 1:
+				ModulusSafeCheck1();
+				break;
+			case 2:
+				ModulusSafeCheck2();
+				break;
+			default:
+				System.out.println("ERROR - please use '1' or '2' for modulus safe check!");
+		}
+	}
+
+	public void ModulusSafeCheck1() // initial approach [not working with more than 199 minutes]
+	{
+		// I originally made this simple modulus check
+		// Then I realized that it only works for 1 additional hour, not multiple hours
+		// That's why I also created ModulusSafeCheck2()
+		
 		// add one hour for each 60 minutes
 		if (this.minutes % 60 != this.minutes)
 			this.hours++;
 
 		this.minutes %= 60;
 		this.hours %= 24;
+	}
+
+	public void ModulusSafeCheck2() // second approach [working]
+	{
+		if (this.minutes > 119)
+			this.hours = RecursivelyCheckMinutes(this.minutes, this.hours);
+
+		this.minutes %= 60;
+		this.hours %= 24;
+	}
+
+	private int RecursivelyCheckMinutes(int minutesLeft, int hoursToAdd)
+	{
+		minutesLeft -= 60;
+		hoursToAdd++;
+
+		if (minutesLeft < 119) // only check if there are more than 2 hours (120 minutes)
+		{
+			hoursToAdd++; // extra hour (when less than 119 minutes)
+			return hoursToAdd;
+		}
+		return RecursivelyCheckMinutes(minutesLeft, hoursToAdd);
 	}
 
 	public int getMinutes()
@@ -34,9 +79,12 @@ public class Time
 
 	public void setMinutes(int minutes)
 	{
-		this.minutes = minutes;
-
-		ModulusSafeCheck();
+		// You could probably do some fancy subtraction of the hours when negative minutes are provided,
+		// but I decided just to use the absolute value and give an error warning instead.
+		if (minutes < 0)
+			System.out.println("WARNING! Cannot use negative minutes. Will use the absolute minute value instead");
+		
+		this.minutes = Math.abs(minutes);
 	}
 
 	public int getHours()
@@ -46,9 +94,11 @@ public class Time
 
 	public void setHours(int hours)
 	{
-		this.hours = hours;
-
-		ModulusSafeCheck();
+		// Uses absolute value
+		if (hours < 0)
+			System.out.println("WARNING! Cannot use negative hours. Will use the absolute hour value instead");
+		
+		this.hours = Math.abs(hours);
 	}
 
 	public void PrintTime()
@@ -60,10 +110,8 @@ public class Time
 	@Override
 	public String toString()
 	{
-		String extraZeroMinutes = ""; // add extra zero for 24-hour style (eg.
-										// 10:04)
-		String extraZeroHours = ""; // add extra zero for 24-hour style (eg.
-									// 02:14)
+		String extraZeroMinutes = ""; // adds extra zero for 24-hour style (eg. 10:04)
+		String extraZeroHours = ""; // adds extra zero for 24-hour style (eg. 02:14)
 
 		if (this.minutes < 10)
 			extraZeroMinutes = "0";
@@ -90,11 +138,9 @@ public class Time
 	{
 		return Math.abs(t1.GetTotalTimeInMinutes() - t2.GetTotalTimeInMinutes());
 	}
-	
+
 	public int TimeInMinutesSinceMidnight()
 	{
-		// not sure if there is a difference between converting time into total minutes
-		// or calculating time in minutes since midnight?
 		return this.GetTotalTimeInMinutes();
 	}
 
