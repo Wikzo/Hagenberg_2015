@@ -52,6 +52,7 @@ indexList[[2]] # see all words
 position = match("of", indexList[[2]]) # position of word in total words
 position
 
+# 1) Write a query for your index that returns all documents comntaining the searchterm
 # retrive the document IDs in that position: document 1+2+3+4+5
 indexList[[c(1,position)]]
 
@@ -66,6 +67,22 @@ indexList[[c(1,371)]]
 
 # simple test ---------------- end
 
+## --- 2) extend your query for AND a OR
+positionA = match("million", indexList[[2]]) # position of word in total words
+positionB = match("Reuters", indexList[[2]]) # position of word in total words
+
+
+A = indexList[[c(1,positionA)]] # document IDs with word "million"
+B = indexList[[c(1,positionB)]] # document IDs with word "Reuters"
+
+# OR comparsion
+AB_OR = union(A,B);
+
+# AND comparison
+AB_AND = intersect(A,B);
+
+## --------------- end
+
 # SORTING THE LISTS ACCORDING TO THE FREQUENCY COUNT -------------
 
 # rename the columns
@@ -76,7 +93,12 @@ names(indexList)[3] = "Freq";
 
 
 
+### TODO:
+#1) Write a query for your index that returns all documents comntaining the searchterm
 
+#2) extend your query for AND a OR
+
+#3) extending index to "positindonal" Index
 
 
 
