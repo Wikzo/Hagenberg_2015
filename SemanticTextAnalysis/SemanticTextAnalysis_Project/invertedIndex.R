@@ -50,6 +50,7 @@ indexList[[2]] # see all words
 # simple tests ----------------
 # find the dictionary entry that contains word "of"
 position = match("of", indexList[[2]]) # position of word in total words
+position
 
 # retrive the document IDs in that position: document 1+2+3+4+5
 indexList[[c(1,position)]]
@@ -58,7 +59,7 @@ indexList[[c(1,position)]]
 indexList[[c(2,371)]]
 
 # how many times does the word "respectively" occur? 1 time
-length(indexList[[1]])
+indexList[[c(3,371)]]
 
 # what document(s) includes the word "respectively"? document 2
 indexList[[c(1,371)]]
