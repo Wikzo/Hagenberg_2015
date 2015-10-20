@@ -73,6 +73,20 @@ names(indexList)[1] = "ID";
 names(indexList)[2] = "Word";
 names(indexList)[3] = "Freq";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+### OLD ---------------------------------------------------
 # sort by freq, then id, then word
 # inspired by: http://www.ats.ucla.edu/stat/r/faq/sort.htm
 # this does not work?
