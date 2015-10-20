@@ -43,6 +43,41 @@ for (i in 1:length(allWords)) # loop through all words
 indexList[[2]] =  allWords;
 indexList[[3]] = countList[[1]];
 
+## SET POSITIONAL LISTS STUFF -----------
+
+positionList = list(rep(list(c()), times=length(allWords)));
+
+# look through all words and set document ID
+for (i in 1:length(allWords)) # loop through all words
+{
+  for (j in 1:length(newsArticles)) # loop through all articles
+  {
+    if (is.element(allWords[[i]], newsArticles[[j]])) # check if word matches article
+    {
+      position <- c();
+      
+      for (k in 1:length(newsArticles[[j]]))
+      {
+        if (is.element(allWords[[i]], newsArticles[[j]][[k]]))
+        {
+          position = c(position, k);
+        }
+      }
+      # Store document ID j in extra column
+      positionList[[1]][[i]] = c(positionList[[1]][[i]],j,list(position));
+    }
+    
+  }
+}
+
+#ultimateList = union(indexList,positionList );
+
+#positionList[[1]][[1]]
+
+#newsArticles[[1]][[1]][[4]]
+
+## end --------------------
+
 # NOTE: list is too long to be shown in Environment list
 indexList[[1]] # see all document IDs
 indexList[[2]] # see all words
@@ -50,7 +85,6 @@ indexList[[2]] # see all words
 # simple tests ----------------
 # find the dictionary entry that contains word "of"
 position = match("of", indexList[[2]]) # position of word in total words
-position
 
 # 1) Write a query for your index that returns all documents comntaining the searchterm
 # retrive the document IDs in that position: document 1+2+3+4+5
