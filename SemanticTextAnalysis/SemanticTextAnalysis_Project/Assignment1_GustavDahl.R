@@ -1,7 +1,7 @@
 ## --- Created by Gustav Dahl, IM 2015 (October) --- ###
 
 # remove all variables
-#rm(list=ls(all=TRUE))
+rm(list=ls(all=TRUE))
 
 # load in the files
 news1 = scan("news1.txt", what="character")
