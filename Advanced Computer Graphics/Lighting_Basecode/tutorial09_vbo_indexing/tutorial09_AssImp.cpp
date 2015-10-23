@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-// Include GLEW
+// Include GLEW - window handling
 #include <GL/glew.h>
 
 //#define MINGW_COMPILER
@@ -331,7 +331,7 @@ int main( void )
 
 	check_gl_error();
 
-// ########### Load the textures ################
+// ########### Load the textures ################ // choose textures HERE
 	GLuint Texture1 = loadSoil("spongebob.DDS", contentPath.c_str());
 	check_gl_error();
 

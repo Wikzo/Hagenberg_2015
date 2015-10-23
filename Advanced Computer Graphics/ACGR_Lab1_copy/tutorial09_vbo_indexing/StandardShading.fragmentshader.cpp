@@ -41,6 +41,16 @@ void main()
 	//  - light is perpendicular to the triangle -> 0
 	//  - light is behind the triangle -> 0
 	float cosTheta = clamp(dot(n, l), 0, 1);
+	
+	// SIMPLE TOON SHADING: https://www.udacity.com/course/viewer#!/c-cs291/l-124106597/e-176585808/m-176613108
+	/*float cosTheta = dot(n, l);
+	
+	float border = 0.2;
+	if (cosTheta > border)
+		cosTheta = 1.0;
+	else
+		cosTheta = 0.5;
+	*/
 
 	// Eye vector (towards the camera)
 	vec3 E = normalize(EyeDirection_cameraspace);
