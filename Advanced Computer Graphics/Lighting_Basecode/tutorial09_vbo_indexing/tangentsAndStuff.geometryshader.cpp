@@ -17,6 +17,7 @@ out vec3 Normal_worldspace;
 out vec3 Normal_cameraspace;
 out vec3 EyeDirection_cameraspace;
 out vec3 LightDirection_cameraspace;
+out vec4 myLightUV;
 
 // Values that stay constant for the whole mesh.
 uniform mat4 MVP;
@@ -40,6 +41,10 @@ void main(void)
 		
 		// Position of the vertex, in worldspace : M * position
 		Position_worldspace = (M * vec4(position_modelspace[i],1)).xyz;
+
+		// HERE
+		myLightUV = worldToLightProjectionMatrix * vec4(Position_worldspace, 1.0);
+		//myLightUV = worldToLightProjectionMatrix*vec4(position_modelspace[i], 1);
 		
 		// Vector that goes from the vertex to the camera, in camera space.
 		// In camera space, the camera is at the origin (0,0,0).
@@ -57,6 +62,7 @@ void main(void)
 		// UV of the vertex. No special space for this one.
 		//UV = position_modelspace[i].xy;
 		UV = uvs[i];//position_modelspace[i].yz;
+
 		EmitVertex();
 	}
 	EndPrimitive();

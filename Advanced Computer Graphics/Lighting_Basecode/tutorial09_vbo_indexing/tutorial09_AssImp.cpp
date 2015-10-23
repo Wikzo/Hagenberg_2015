@@ -338,7 +338,8 @@ int main( void )
 	GLuint Texture2 = loadSoil("lichenStone.dds", contentPath.c_str());
 	check_gl_error();
 
-	GLuint ndotl_ndotv = loadSoil("ndotl_ndotv.png", contentPath.c_str()); // original: ndotl_ndotv.png
+	// HERE
+	GLuint ndotl_ndotv = loadSoil("smiley.jpg", contentPath.c_str()); // original: ndotl_ndotv.png
 	check_gl_error();
 
     GLuint ndotl_ndoth = loadSoil("ndotl_ndoth.png", contentPath.c_str()); // original: ndotl_ndoth.png"
