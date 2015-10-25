@@ -1,0 +1,75 @@
+\section*{Task 2: Violation of a design principle --- Single Responsibility Principle}
+As an example of violating the \textit{Single Responsibility Principle}, I have chosen the class \texttt{GameManager}. We were three guys working on a game, and we had a tight deadline, meaning that we didn't spend a lot of time planning on how to implement the classes. The initial idea behind the \texttt{GameManager} class was to have a singleton-like class that stored references to the different game objects, almost like a middle-man (it is very difficult to use static classes in Unity, so it's often preferred to use a singleton).
+
+As the name suggests, the \texttt{GameManager} class is responsible for a lot of system-like things that were needed to be configured in order for the game to work. However, the class turned out to be  a go-to place for everything that was not directly related with a game entity (e.g., the player characters). Said in another way: when unsure where to put code, the programmers used the \texttt{GameManager} as a "garbage bin". The \texttt{GameManager} class ended up being very big and containing a lot of responsibilities, including: storing references to all player characters; handling input; handling the camera movement; keeping track of player scores; as well as scene handling. Needless to say, this made the class very fragile, which often created a cascading domino-effect whenever we needed to make a tiny change in the code. Instead, we should have delegated each of the responsibilities out to a separate class, say, for input handling or keeping track of the players.
+
+The class became very big and difficult to navigate in, with more than 1000 lines of code and no real structure. At the time of developing the game, most things made sense to us, but looking back at it now, it's a gigantic mess with lots of convoluted code. One sign of this is the extensive use of comments, which was/is necessary to keep track of what's happening.
+
+\begin{lstlisting}
+public class GameManager : MonoBehaviour
+{
+	// prefabs
+	public Transform mainCamera;
+	public GameObject VikingPrefab;
+	public GameObject HammerPrefab;
+
+	// input
+	private bool TopLeftPressed, TopRightPressed, BottomLeftPressed, BottomRightPressed;
+	public bool UseKeyboardInsteadOfTouch = true;
+	private Vector2 ScreenCenter;
+
+	// powerups
+	private float powerUpSpawnCounter = 1;
+
+	// characters and sprites
+	public Transform TopLeftSpawn, TopRightSpawn, BottomLeftSpawn, BottomRightSpawn;
+	int NumberOfPlayers;
+	private List<GameObject> PlayerObjects;
+
+	public Sprite DonutBody, DonutArm, DonutPortrait;
+	public Sprite EyeBody, EyeArm, EyePortrait;
+
+	private int[] spritesUsed;
+	public VikingPlayer TopLeftPlayer, TopRightPlayer, BottomLeftPlayer, BottomRightPlayer;
+	public Transform DeadPosition;
+	public float selectCooldownTopLeft, selectCooldownTopRight, selectCooldownBottomLeft, selectCooldownBottomRight;
+	public GameObject StartButton;
+	public Text ChooseUniqueCharacter;
+	
+	// scores
+	public int PlayersAlive;
+	private bool canPlayNextRound = false;
+	public GameObject WinnerButton;
+
+	// camera
+	private Camera MainCamera;
+	private float[] xPositions;
+	private float[] yPositions;
+	private float shakeAmount;
+
+	// collision
+	public List<Collider2D> boundaryColliders = new List<Collider2D>();
+
+	// sounds
+	public MusicPlayer MusicPlayer;
+	private AudioSource audioSource;
+    public AlertSound AlertSound;
+    public GameObject SmackSound;
+
+
+    //Round timer
+    public bool UseShrinkingLevel = true;
+    public float RoundTimer = 30f;
+
+	// ... a lot of code has been omitted, but here are examples of some of the methods:
+	Start() {...}
+	Update(){...}
+	StartGame(){...}
+	FixedUpdate(){...}
+	GetInputs(){...}
+	AddPlayer(){...}
+	ShowScoreBoard(){...}
+	PlayNextRound{...}
+	
+	
+\end{lstlisting}

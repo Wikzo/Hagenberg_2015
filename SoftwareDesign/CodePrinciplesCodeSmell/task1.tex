@@ -1,0 +1,153 @@
+All of the following code is written in C\# and using the Unity game engine. Unity invites developers to use an object-oriented design approach via an Entity Component System. Every class derives from the base class \texttt{MonoBehaviour}.
+
+\section*{Task 1: Following a design principle --- Dependency Inversion Principle}
+Some years ago I developed a multiplayer game. In the game, players received different missions (with different ways to accomplish the required goal(s)). Each of the missions have some common functionality, which was implemented in the following abstract class called \texttt{MissionBase}. Each mission class inherits from this base class. Also, they have to implement the abstract method \texttt{MissionAccomplished()}.
+
+\begin{lstlisting}
+public abstract class MissionBase : MonoBehaviour
+{
+    public int Points;
+
+    protected bool _missionIsActive;
+    public bool MissionIsActive { get { return _missionIsActive; } }
+
+    public MissionType MissionType;
+
+	// Omitted methods:
+	public virtual void InitializeMission(GameObject player, MissionBase Template) {...}
+	public virtual void UpdateSpecificMissionStuff() {...}
+
+    public abstract bool MissionAccomplished();
+
+}
+\end{lstlisting}
+
+Then the singleton class \texttt{MissionManager} loops through all active missions and checks if any of them have been accomplished. If so, certain things are triggered, such as audio cues and GUI text popups. Also, each time a mission has been accomplished, a random door will either open or close. This is triggered by the use of delegates and events, as shown in the \texttt{MissionManager} (lines 9-11 and 42-57).
+
+\begin{lstlisting}
+public class MissionManager : MonoBehaviour
+{
+    // Singleton itself
+    private static MissionManager _instance;
+    
+    public List<MissionBase> AllAvailableMissionsTotal;
+    public List <GameObject> Players;
+
+    public delegate void MissionCompleted();
+    public static event MissionCompleted OnMissionCompletedDoorsUpper;
+    public static event MissionCompleted OnMissionCompletedDoorsLower;
+
+    void Update()
+    {
+		// only check if game is playing
+        if (GameManager.Instance.PlayingState != PlayingState.Playing) 
+            return;
+
+        for (int i = InstantiatedMissions.Count - 1; i >= 0; i--)
+        {
+            MissionBase m = InstantiatedMissions[i];
+            if (m != null)
+            {
+            	// dont look into inactive missions
+                if (!m.MissionIsActive)
+                
+                    return;
+				// look if mission has been accomplished
+                if (m.MissionAccomplished()) 
+                {
+                    GameObject g = (GameObject)Instantiate(MissionIsCompletedPrefab);
+                    
+                    g.CreateMissionAccomplishedText();
+                    m.GivePointsToPlayer();
+
+                    DoorGoUpDown();
+                }
+            }
+        }
+    }
+
+    public void DoorGoUpDown()
+    {
+        int random = Random.Range(0, 2);
+
+        switch (random)
+        {
+            case 0:
+                if (OnMissionCompletedDoorsLower != null)
+                    OnMissionCompletedDoorsUpper();
+                break;
+            case 1:
+                if (OnMissionCompletedDoorsLower != null)
+                    OnMissionCompletedDoorsLower();
+                break;
+        }
+    }
+}
+
+\end{lstlisting}
+
+Each door then subscribes to these events, as shown in the \texttt{Door} class.
+
+\begin{lstlisting}
+public enum DoorLocation
+{
+    Upper,
+    Lower
+}
+
+public class Door : MonoBehaviour
+{
+    private Vector3 doorOpenScale;
+    private Vector3 doorOpenPos;
+    private goingUp, goingDown;
+
+    public DoorLocation DoorLocation;
+
+    void OnEnable()
+    {
+        if (this.DoorLocation == DoorLocation.Upper)
+            MissionManager.OnMissionCompletedDoorsUpper += DoorGoDown;
+        else if (this.DoorLocation == DoorLocation.Lower)
+            MissionManager.OnMissionCompletedDoorsLower += DoorGoDown;
+    }
+
+    void OnDisable()
+    {
+        if (this.DoorLocation == DoorLocation.Upper)
+            MissionManager.OnMissionCompletedDoorsUpper -= DoorGoDown;
+        else if (this.DoorLocation == DoorLocation.Lower)
+            MissionManager.OnMissionCompletedDoorsLower -= DoorGoDown;
+
+        if (this.DoorLocation == DoorLocation.Upper)
+            MissionManager.OnMissionCompletedDoorsUpper -= DoorGoUp;
+        else if (this.DoorLocation == DoorLocation.Lower)
+            MissionManager.OnMissionCompletedDoorsLower -= DoorGoUp;
+    }
+
+    void DoorGoUp()
+    {
+        StartCoroutine(OpenDoor());
+    }
+
+    void DoorGoDown()
+    {
+        StartCoroutine(CloseDoor());
+    }
+
+    // Coroutines in Unity make it easier to time events
+    IEnumerator CloseDoor()
+    {
+        // Different things happens here to open the door
+        // eg. enabling the renderer and changing local scale via Vector3.Lerp()
+    }
+
+    // Coroutines in Unity make it easier to time events
+    IEnumerator OpenDoor()
+    {
+        // Different things happens here to open the door
+        // eg. enabling the renderer and changing local scale via Vector3.Lerp()
+    }
+}
+\end{lstlisting}
+
+I would argue that this way of using delegates and events is related to the \textit{Dependency Inversion Principle}, following the Hollywood principle of "Don't call us, we'll call you!" The abstraction (mission accomplished) should not depend on the details (doors open/close), but vice versa. This is done via the \texttt{MissionManager} class that acts as a link between the missions and the doors. The \texttt{MissionManager} and the \texttt{Mission} classes don't care what happens when \texttt{DoorGoUpDown()} gets called; it's up to the \texttt{Door} class to put in functionality to the events.

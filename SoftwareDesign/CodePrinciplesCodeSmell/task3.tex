@@ -1,0 +1,225 @@
+\section*{Task 3: Two design smells}
+\subsection*{1) Rigidity}
+I once developed a 2D platformer game in C\#. The game had a lot of tweakable parameters. The goal was to measure the influence on the player's perception of the game when these parameters were changed. Therefore, it was important to be able to save the parameters to a format that could then be send to a MySQL database. All of the parameters were stored in the class \texttt{TweakableParameters}. However, since there were so many parameters, adding/removing a single parameter required changes in multiple places in the same file. This would often result in errors, because I sometimes forgot to add new parameter code in all of the appropriate places.
+
+It was very cumbersome to change any of the parameters. First of all, there are static fields for each parameter that define the range of a given value. This is used so that an outside class can choose a random value within a given range. Then there is the constructor class itself, which takes in a lot of parameters. For debug purpose, I decided that it would be possible to pass in a NULL parameter, which would result in the system using the default parameters defined in the fields themselves. The most problematic method was \texttt{ToStringDatabaseFormat()}, which has the purpose of printing the parameters out in the correct format and order. It was very hard to make any changes here, since the order has to be the exact same as defined in a Javascript file on a server. Just a single mistake in this method would result in unusable data. I dread every time I had to make a tiny adjustment in the code --- it was very rigid and fragile. Especially \texttt{string.Format()} in the method \texttt{ToStringDatabaseFormat()} was painful to use, since it was impossible to spot if I wrote a small mistake in the long string (line 124).
+
+\begin{lstlisting}
+
+public class TweakableParameters
+{
+    // Ranges (used for random choosing)
+    static public Vector2 GravityRange = new Vector2(-5f,-30.1f);
+    static public Vector2 TerminalVelocityRange = new Vector2(-5,-60.1f);
+    static public Vector2 JumpPowerRange = new Vector2(2f,30.1f);
+    static public Vector2 AirFrictionHorizontalPercentageRange = new Vector2(0, 99.1f);
+    static public Vector2 GhostJumpTimeRange = new Vector2(0f,2.1f);
+    static public Vector2 MinimumJumpHeightRange = new Vector2(0.1f, 5.1f);
+    static public Vector2 ReleaseEarlyJumpVelocityRange = new Vector2(0f, 3.1f);
+    static public Vector2 ApexGravityMultiplierRange = new Vector2(1f, 15.1f);
+    static public Vector2 MaxVelocityXRange = new Vector2(1, 20.1f);
+    static public Vector2 GroundFrictionPercentageRange = new Vector2(0f, 99.1f);
+    static public Vector2 ReleaseTimeRange = new Vector2(0.001f, 3.1f);
+    static public Vector2 AttackTimeRange = new Vector2(0.001f, 3.1f);
+    static public Vector2 TurnAroundBoostPercentRange = new Vector2(100f, 400.1f);
+    static public Vector2 AnimationMaxSpeedRange = new Vector2(50f, 150f);
+
+    // Constructor to set new parameters
+    public TweakableParameters(float? gravity, float? jumpPower, bool? useAirFriction, bool? keepGroundMomentumAfterJump, float? airFrictionHorizontal,
+        float? terminalVelocity, float? ghostJumpTime, float? minimumJumpHeight, float? releaseEarlyJumpVelocity,
+        float? apexGravityMultiplier, float? maxVelocityX, bool? useGroundFriction, float? groundFrictionPercentage,
+        float? releaseTime, float? attackTime, float? turnAroundBoostPercent,
+        bool? useAnimation, float? animationMaxSpeed, int? isDuplicate)
+    {
+
+        if (gravity.HasValue)
+            Gravity = new Vector3(0, gravity.Value, 0);
+        if (jumpPower.HasValue)
+            JumpPower = jumpPower.Value;
+    
+        if (useAirFriction.HasValue)
+            UseAirFriction = useAirFriction.Value;
+
+        if (airFrictionHorizontal.HasValue)
+            AirFrictionHorizontalPercentage = airFrictionHorizontal.Value;
+
+        if (keepGroundMomentumAfterJump.HasValue)
+            KeepGroundMomentumAfterJump = keepGroundMomentumAfterJump.Value;
+
+        if (terminalVelocity.HasValue)
+            TerminalVelocity = terminalVelocity.Value;
+
+        if (ghostJumpTime.HasValue)
+            GhostJumpTime = ghostJumpTime.Value;
+
+        if (minimumJumpHeight.HasValue)      
+            MinimumJumpHeight = minimumJumpHeight.Value;
+
+        if (releaseEarlyJumpVelocity.HasValue)      
+            ReleaseEarlyJumpVelocity = releaseEarlyJumpVelocity.Value;
+
+        if (apexGravityMultiplier.HasValue)      
+            ApexGravityMultiplier = apexGravityMultiplier.Value;
+
+        if (maxVelocityX.HasValue)      
+            MaxVelocityX = maxVelocityX.Value;
+
+        if (useGroundFriction.HasValue)      
+            UseGroundFriction = useGroundFriction.Value;
+
+        if (groundFrictionPercentage.HasValue)      
+            GroundFrictionPercentage = groundFrictionPercentage.Value;
+
+        if (releaseTime.HasValue)      
+            ReleaseTime = releaseTime.Value;
+
+        if (attackTime.HasValue)      
+            AttackTime = attackTime.Value;
+
+        if (turnAroundBoostPercent.HasValue)      
+            TurnAroundBoostPercent = turnAroundBoostPercent.Value;
+
+        if (useAnimation.HasValue)      
+            UseAnimation = useAnimation.Value;
+
+        if (animationMaxSpeed.HasValue)      
+            AnimationMaxSpeed = animationMaxSpeed.Value;
+
+        if (isDuplicate.HasValue)
+            IsDuplicate = 1;
+        else
+            IsDuplicate = 0;
+    }
+
+    // FIELDS
+
+    // air
+    public Vector3 Gravity = new Vector3(0, -30f, 0);
+    public float JumpPower = 20;
+    public bool UseAirFriction = false;
+    public float AirFrictionHorizontalPercentage = 90f;
+    public bool KeepGroundMomentumAfterJump = false;
+    public float TerminalVelocity = -30f;
+    public float GhostJumpTime = 0.2f;
+    public float MinimumJumpHeight = 2f;
+    public float ReleaseEarlyJumpVelocity = 0.5f;
+    public float ApexGravityMultiplier = 3;
+
+    // ground
+    public float MaxVelocityX = 15f;
+    public bool UseGroundFriction = false;
+    public float GroundFrictionPercentage = 50f;
+    public float ReleaseTime = 0.4f;
+    public float AttackTime = 0.4f;
+    public float TurnAroundBoostPercent = 0f;
+
+    // animation
+    public bool UseAnimation = true;
+    public float AnimationMaxSpeed = 100f;
+
+    // extra
+    public int IsDuplicate;
+
+    // stage
+    public int Level = 0;
+    public int Deaths = 0;
+    public float TimeSpentOnLevel = 0;
+
+    // Print to MySQL database
+    public string ToStringDatabaseFormat()
+    {
+            return string.Format("&Gravity={0}&JumpPower={1}&AirFrictionHorizontalPercentage={2}&TerminalVelocity={3}&GhostJumpTime={4}&MinimumJumpHeight={5}&ReleaseEarlyJumpVelocity={6}&ApexGravityMultiplier={7}&MaxVelocityX={8}&ReleaseTime={9}&AttackTime={10}&AnimationMaxSpeed={11}&Level={12}&Deaths={13}&TimeSpentOnLevel={14}",
+                Gravity.y,
+                JumpPower,
+                AirFrictionHorizontalPercentage,
+                TerminalVelocity,
+                GhostJumpTime,
+                MinimumJumpHeight,
+                ReleaseEarlyJumpVelocity,
+                ApexGravityMultiplier,
+                MaxVelocityX,
+                ReleaseTime,
+                AttackTime,
+                AnimationMaxSpeed,
+                ParameterManager.Instance.Level + 1,
+                StateManager.Instance.DeathsOnThisLevel,
+                StateManager.Instance.TimeSpentOnLevel);
+    }
+}
+
+\end{lstlisting}
+
+\subsection*{2) Needless Repetition}
+I wrote the following code as one of my first bigger game projects in Unity. It's a game where you control one or more monsters. Depending on what mode the game is in, different events are triggered. The \texttt{MonsterHighlightSound} class is responsible for playing an audio clip depending on the monster's distance to a record player. In this class, there are three given monster objects. In the \texttt{Update()} method, the system checks each of the three monsters with some very basic if-else statements. The problem here is that the code is basically repeated three times, which on a larger scale (more than three monsters) could create some significant maintenance problems. A more clever approach would be to generalize the functionality into a method. Then every monster object could be added to a list and iterated through in a foreach loop.
+
+\begin{lstlisting}
+public class MonsterHighlightSound : MonoBehaviour {
+
+    public GameObject monster1_origin;
+    public GameObject monster2_origin;
+    public GameObject monster3_origin;
+
+    private float minVolumeDistance = 0.5f;
+
+    public int distanceToMove = 10;
+
+    private bool monster1_activate;
+    private bool monster2_activate;
+    private bool monster3_activate;
+
+	void Update ()
+    {
+        if (GameMode.MyGameMode == Mode.Zooming)
+        {
+            //////// MONSTER 1 /////////////////////////
+
+            float volumeMonster1 = 1 - (Mathf.Abs(transform.position.x - monster1_origin.transform.position.x));
+            monster1_origin.GetComponent<AudioSource>().volume = volumeMonster1;
+
+            if (volumeMonster1 >= minVolumeDistance && monster1_activate == false)
+            {
+                monster1_activate = true;
+                monster1_origin.GetComponent<AudioSource>().Play();
+            }
+            else if (volumeMonster1 < minVolumeDistance && monster1_activate == true)
+            {
+                monster1_activate = false;
+                monster1_origin.GetComponent<AudioSource>().Stop();
+            }
+
+            //////// MONSTER 2 /////////////////////////
+
+            float volumeMonster2 = 1 - (Mathf.Abs(transform.position.x - monster2_origin.transform.position.x));
+            monster2_origin.GetComponent<AudioSource>().volume = volumeMonster2;
+
+            if (volumeMonster2 >= minVolumeDistance && monster2_activate == false)
+            {
+                monster2_activate = true;
+                monster2_origin.GetComponent<AudioSource>().Play();
+            }
+            else if (volumeMonster2 < minVolumeDistance && monster2_activate == true)
+            {
+                monster2_activate = false;
+                monster2_origin.GetComponent<AudioSource>().Stop();
+            }
+
+            //////// MONSTER 3 /////////////////////////
+
+            float volumeMonster3 = 1 - (Mathf.Abs(transform.position.x - monster3_origin.transform.position.x));
+            monster3_origin.GetComponent<AudioSource>().volume = volumeMonster3;
+
+            if (volumeMonster3 >= minVolumeDistance && monster3_activate == false)
+            {
+                monster3_activate = true;
+                monster3_origin.GetComponent<AudioSource>().Play();
+            }
+            else if (volumeMonster3 < minVolumeDistance && monster3_activate == true)
+            {
+                monster3_activate = false;
+                monster3_origin.GetComponent<AudioSource>().Stop();
+            }
+        }
+    }
+}
+
+\end{lstlisting}
