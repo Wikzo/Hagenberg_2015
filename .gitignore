@@ -465,3 +465,5 @@ pip-log.txt
 OpenGL-GLFW/debug.txt
 *.o
 tree
+
+*.zip
