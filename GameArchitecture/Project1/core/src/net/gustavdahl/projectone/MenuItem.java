@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -58,7 +59,12 @@ public abstract class MenuItem implements Screen
 	public void RemoveSubMenu()
 	{
 		Group.setVisible(false);
-		Group.remove();
+		
+		// better to remove the actor LATER:
+		// https://stackoverflow.com/questions/22121467/remove-actors-from-stage
+		Group.addAction(Actions.removeActor());
+		//Group.remove();
+		
 		dispose();
 	}
 
