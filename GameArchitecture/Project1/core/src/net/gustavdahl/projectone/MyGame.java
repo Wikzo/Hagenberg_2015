@@ -17,14 +17,13 @@ public class MyGame extends Game
 	public static final float V_WIDTH = 1366;
 	public static final float V_HEIGHT = 768;
 	
-	SpriteBatch batch;
-	BitmapFont font;
 
 	@Override
 	public void create()
 	{
-		batch = new SpriteBatch();
-		Assets.InitializeAssets();
+		Assets.InitializeCommonAssets();
+		Assets.InitializeMenuAssets();
+		
 		setScreen(new SplashScreen(this));
 	}
 

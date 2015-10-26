@@ -151,17 +151,11 @@ public class CircleMenuList implements Screen
 
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
-		game.batch.setProjectionMatrix(camera.combined);
+		Assets.SpriteBatch.setProjectionMatrix(camera.combined);
 
 		stage.act(delta);
 		stage.draw();
 		
-		if (current != null)
-		{
-			current.stage.act(delta);
-			current.stage.draw();
-			current.render(delta);
-		}
 
 		// TODO: continuous pressing down
 		if (Gdx.input.isKeyJustPressed(Keys.LEFT))
@@ -183,41 +177,41 @@ public class CircleMenuList implements Screen
 	public void SetActiveMenu(MenuItemType type)
 	{
 		// TODO: keep the old screen as well
+		if (current != null)
+			current.RemoveSubMenu();
+		
+		 //System.out.println("highlight index " + highlightIndex);
 		
 		switch (type)
 		{
 		case About:
-			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Audio:
-			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Control:
-			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Exit:
-			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Gameplay:
-			
-			current = new MenuGameplay(game, this, MenuItemType.Gameplay);
-			current.show();
-			Group g = new Group();
-			g
-			
-			//game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case StartGame:
-			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Video:
-			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			current = new MenuVideo(stage, game, this, MenuItemType.Video);
 			break;
 		default:
-			game.setScreen(new MenuGameplay(game, this, MenuItemType.Gameplay));
+			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 			
 		}
+		
+		current.InitializeSubMenu();
 	}
 
 	void MenuMove(int direction)

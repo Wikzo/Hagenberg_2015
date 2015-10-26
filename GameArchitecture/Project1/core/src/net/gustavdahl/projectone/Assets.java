@@ -12,8 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 public class Assets
 {
 
-	// TODO: make use of 
-// SKIN (visibile things)
+	// TODO: make use of SKIN (visible things)
+	
 	// https://github.com/libgdx/libgdx/wiki/Managing-your-assets
 	private static ArrayList<BitmapFont> fonts;
 	public static BitmapFont ArialFont;
@@ -24,30 +24,30 @@ public class Assets
 	public static SpriteBatch SpriteBatch;
 	public static Stage Stage;
 
-	// static initializer -
-	// https://stackoverflow.com/questions/335311/static-initializer-in-java
-	static
-	{
-		InitializeAssets();
-	}
 
-	static void InitializeAssets()
+	// common, menu, gameplay (assets)
+	
+	public static void InitializeMenuAssets()
 	{
 		ArialFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
 		fonts = new ArrayList<BitmapFont>();
 		fonts.add(ArialFont);
-
+		
 		SplashTexture = new Texture("splash.png");
 		textures = new ArrayList<Texture>();
 		textures.add(SplashTexture);
-
-		SpriteBatch = new SpriteBatch();
-		Stage = new Stage();
-
-		// System.out.println("AssetManager initialized");
 	}
 	
-	// common, menu, gameplay (assets)
+	public static void InitializeCommonAssets()
+	{
+		SpriteBatch = new SpriteBatch();
+		Stage = new Stage();
+	}
+	
+	public static void InitializeGamePlayAssets()
+	{
+		
+	}
 
 	public static void DisposeAllAssets(String name)
 	{
