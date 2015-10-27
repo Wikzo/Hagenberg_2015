@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XNAEntityComponents", "XNAEntityComponents\XNAEntityComponents\XNAEntityComponents.csproj", "{04C8A126-D937-43A3-A5C5-60719BA56C9B}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "XNAEntityComponentsContent", "XNAEntityComponents\XNAEntityComponentsContent\XNAEntityComponentsContent.contentproj", "{6F58A89A-E1C0-4BC2-B271-B39280634FBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04C8A126-D937-43A3-A5C5-60719BA56C9B}.Debug|x86.ActiveCfg = Debug|x86
+		{04C8A126-D937-43A3-A5C5-60719BA56C9B}.Debug|x86.Build.0 = Debug|x86
+		{04C8A126-D937-43A3-A5C5-60719BA56C9B}.Release|x86.ActiveCfg = Release|x86
+		{04C8A126-D937-43A3-A5C5-60719BA56C9B}.Release|x86.Build.0 = Release|x86
+		{6F58A89A-E1C0-4BC2-B271-B39280634FBE}.Debug|x86.ActiveCfg = Debug|x86
+		{6F58A89A-E1C0-4BC2-B271-B39280634FBE}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

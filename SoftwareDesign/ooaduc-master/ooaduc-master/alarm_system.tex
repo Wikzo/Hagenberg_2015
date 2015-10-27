@@ -1,0 +1,62 @@
+%% Example for the 
+%% Object-Oriented Analysis and Design (OOAD): Use Cases (UC)
+%% Style File
+%%---------------------------------------------------------------------------
+%%
+%% T. Kopetzky
+%% Date: 20/10/2014
+%%
+% This work may be distributed and/or modified under the conditions of the 
+% GNU General Public License version 3 GPLv3
+% (see http://www.gnu.org/licenses/gpl-3.0.html).
+\documentclass[a4paper, 10pt, oneside]{article}
+
+\usepackage[dvipsnames]{xcolor}
+\definecolor{webgreen}{rgb}{0,.5,0}
+\definecolor{webbrown}{rgb}{.6,0,0}
+
+%include the usecases package
+\usepackage{ooaduc}
+
+%-------------------------------------------------------------------------------
+%	HYPERREFERENCES
+%-------------------------------------------------------------------------------
+\usepackage[hyphens]{url}
+\usepackage[pdftex,hyperfootnotes=false,plainpages=false,pdfpagelabels=true]{hyperref}\pdfcompresslevel=9
+\pdfadjustspacing=1
+
+\hypersetup{
+% Uncomment the line below to remove all links (to references, figures, tables, etc)
+%draft, 
+colorlinks=true, linktocpage=true, pdfstartpage=1, pdfstartview=FitV,
+% Uncomment the line below if you want to have black links (e.g. for printing black and white)
+%colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartview=FitV, 
+breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,
+plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,
+hypertexnames=true, pdfhighlight=/O, urlcolor=webbrown, linkcolor=RoyalBlue, citecolor=webgreen,
+%------------------------------------------------
+% PDF file meta-information
+pdftitle={A sample Use Case Document},
+pdfauthor={theoky},
+pdfsubject={},
+pdfkeywords={},
+pdfcreator={pdfLaTeX},
+pdfproducer={LaTeX with hyperref}
+%------------------------------------------------
+} 
+
+\begin{document}
+
+This is a small example of how the ooaduc.sty file can be used. It contains 
+two use cases, the first one being more or less a template. The second one actually contains the data describing the use case of disarming an alarm system.
+
+\listofusecase
+
+\include{uc1_arm}
+\include{uc2_disarm}
+
+\appendix
+\listofIssues
+\printindex
+
+\end{document}

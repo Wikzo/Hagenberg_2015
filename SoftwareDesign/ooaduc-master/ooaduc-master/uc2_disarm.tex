@@ -1,0 +1,63 @@
+%% Example for the 
+%% Object-Oriented Analysis and Design (OOAD): Use Cases (UC)
+%% Style File
+%%---------------------------------------------------------------------------
+%%
+%% T. Kopetzky
+%% Date: 20/10/2014
+%%
+% This work may be distributed and/or modified under the conditions of the 
+% GNU General Public License version 3 GPLv3
+% (see http://www.gnu.org/licenses/gpl-3.0.html).
+\begin{usecase}{Disarm Alarm System} 
+
+\scope{Authentication and system disabling}
+\level{Primary Task}
+
+\goal{Quick, safe and straight forward disarming of the alarm system}
+
+\primaryactor{House Owner}
+\secondaryactor{Police}
+
+\preconditions{
+\item Alarm system is armed and active (see UC\ref{uc:arm} on page~\pageref{uc:arm}).
+\item User knows the disarming procedure and remembers the password.
+}
+
+\successfuloutcome{System is disarmed.}
+\failureoutcomes{
+	\failureoutcome{Password has been entered too slowly.}
+	{System resp. alarm goes off.}
+}
+
+\mainsuccess{
+\item User enters house.
+\item System starts timer for alarm to go off.
+\item User enters 4 digit password.\label{uc2:return1}
+\item System recognizes password and disarms alarm.\label{uc2:alt1}
+\item Use case ends successfully.
+}
+
+\extensions{
+	\item[\ref{uc2:alt1}.a] Password wrong:
+		\begin{enumerate*}
+		\item System recognizes wrong password and signals wrong password.
+		\item Use case continues with step~\ref{uc2:return1}
+		\end{enumerate*}
+	\item[\ref{uc2:alt1}.b] Timer goes off.
+		\begin{enumerate*}
+		\item System recognizes that time to enter password is over and sets off the alarm.
+		\item Use case ends with failure.
+		\end{enumerate*}
+}
+
+\miscellaneous{
+	\item It takes user approx. 1 minute to reach kitchen after entering through front door and taking off shoes and coat.
+	\item Definition:
+	Alarm goes off = sound siren at the house and notify police
+}
+
+\openissues{
+\issue{Should the alarm go off immediately if house is entered through back door?}
+}
+\end{usecase}

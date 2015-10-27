@@ -1,0 +1,94 @@
+%% Example for the 
+%% Object-Oriented Analysis and Design (OOAD): Use Cases (UC)
+%% Style File
+%%---------------------------------------------------------------------------
+%%
+%% T. Kopetzky
+%% Date: 20/10/2014
+%%
+% This work may be distributed and/or modified under the conditions of the 
+% GNU General Public License version 3 GPLv3
+% (see http://www.gnu.org/licenses/gpl-3.0.html).
+\begin{usecase}{Arm Alarm System}\label{uc:arm}
+
+%Scope: the system under design
+\scope{System-wide}
+
+%Level: "user-goal" or "subfunction"
+\level{User-goal}
+
+%Primary Actor: Calls on the system to deliver its services.
+\primaryactor{House Owner}
+
+%Stakeholders and Interests: Who cares about this use case and what do they want?
+\stakeholders{
+	\item Stakeholder 1 name: his interests
+	\item Stakeholder 2 name: his interests
+}
+
+%Preconditions: What must be true on start and worth telling the reader?
+\preconditions{
+\item Precond 1
+\item Precond 2
+}
+%when multiple
+%\additemizedfield{Preconditions:}{} 
+
+\successfuloutcome{A successful outcome.}
+\failureoutcomes{
+	\failureoutcome{Failure 1}{Result of Failure 1}
+	\failureoutcome{Failure 2}{Result of Failure 2}
+}
+
+%Postconditions: What must be true on successful completion and worth telling the reader
+\postconditions{
+\item Post cond 1
+\item Post cond 2
+}
+%when multiple
+%\additemizedfield{Preconditions:}{}
+
+%Main Success Scenario: A typical, unconditional happy path scenario of success.
+\mainsuccess{
+	\item The first action
+	\item The second action
+}
+
+%Extensions: Alternate scenarios of success or failure.
+\extensions{
+	\item[2.a] Invalid login data:
+		\begin{enumerate*}
+		\item[1.] System shows failure message
+		\item[2.] User returns to step 1
+		\end{enumerate*}
+	\item[5.a] Invalid subscriber data:
+		\begin{enumerate*}
+		\item[1.] System shows failure message
+		\item[2.] User returns to step 2 and corrects the errors
+		\end{enumerate*}
+}
+
+%Special Requirements: Related non-functional requirements.
+\requirements{
+	\item first applicable non-functional requirement
+	\item second applicable non-functional requirement
+}
+
+%Technology and Data Variations List: Varying I/O methods and data formats.
+\technology{
+	\item[1a.] Alternative first action with other technology
+}
+
+%Frequency of Occurrence: Influences investigation, testing and timing of implementation.
+\frequency{often}
+
+%Miscellaneous: Such as open issues/questions
+\openissues{
+\issue{There is an issue\ldots}
+\resolvedissue{Another longer issue with multiple, one meaningless word
+after another just to make a very long sentence\ldots}
+{has been resolved with some information and is no longer in the list
+of open issues.}
+}
+
+\end{usecase}
