@@ -71,71 +71,72 @@ head(list.files("Gamasutra")) #first or last part of object
 tmp <- readLines("Gamasutra/1.html")
 tmp <- str_c(tmp, collapse = "")
 tmp <- htmlParse(tmp)
+release = NULL
 release <- xpathSApply(tmp, "//td[@class='newsText']/p", xmlValue)
+release = str_c(release ,collapse=',')  # make into a single string
 
 # Get meta information (organisation and date of publication)
-
-## DIFFERENT WAY TO GET META DATA:
 ## https://stackoverflow.com/questions/22342501/how-to-get-information-within-meta-name-tag-in-html-using-htmlparse-and-xpa
 
-# does not work!
-keywords = xpathSApply(tmp, "//meta[@name='keywords']", xmlValue)
-
+# keywords
 keywords = tmp["//meta/@name"]
 content = tmp["//meta/@content"]
-cbind(names,content)
+#cbind(keywords,content)
+keys = content[3]
 
-#library(XML)
-#url <- "http://stackoverflow.com/questions/22342501/"
-#doc <- htmlParse(url, useInternalNodes=T)
-#names   <- doc["//meta/@name"]
-#content <- doc["//meta/@content"]
-#cbind(names,content)
-#
-
-
-
-organisation <- xpathSApply(tmp, "//a[@class='organisation-link']", xmlValue)
-organisation
-publication <- xpathSApply(tmp, "//time[@class='date']", xmlValue)
-publication
+# publication date
+date <- xpathSApply(tmp, "//td[@class='newsDate']", xmlValue)
 
 # Create a corpus from a vector
+release_corpus = NULL;
 release_corpus <- Corpus(VectorSource(release))
+head(release_corpus)
 
 # Setting the meta information
-meta(release_corpus[[1]], "organisation") <- organisation[1]
-meta(release_corpus[[1]], "publication") <- publication[1]
+meta(release_corpus[[1]], "keywords") <- keys
+meta(release_corpus[[1]], "publication_date") <- date
 meta(release_corpus[[1]])
+
 n <- 1
 ## make corpus of all articles
-for(i in 2:length(list.files("Press_Releases/"))){
-  tmp <- readLines(str_c("Press_Releases/", i, ".html"))
+for(i in 2:length(list.files("Gamasutra/"))){
+  tmp <- readLines(str_c("Gamasutra/", i, ".html"))
   tmp <- str_c(tmp, collapse = "")
   tmp <- htmlParse(tmp)
-  release <- xpathSApply(tmp, "//div[@class='block-4']", xmlValue)
-  organisation <- xpathSApply(tmp, "//a[@class='organisation-link']", xmlValue)
-  publication <- xpathSApply(tmp, "//time[@class='date']", xmlValue)
+  
+  # article content
+  release <- xpathSApply(tmp, "//td[@class='newsText']/p", xmlValue)
+  release = str_c(release ,collapse=',')  # make into a single string
+  
+  # meta data: keywords
+  content = tmp["//meta/@content"]
+  keys = content[3]
+  
+  # meta data: publication date
+  date <- xpathSApply(tmp, "//td[@class='newsDate']", xmlValue)
+
+  
   if(length(release) != 0){
     n <- n + 1
     tmp_corpus <- Corpus(VectorSource(release))
     release_corpus <- c(release_corpus, tmp_corpus)
-    meta(release_corpus[[n]], "organisation") <- organisation[1]
-    meta(release_corpus[[n]], "publication") <- publication[1]
+    meta(release_corpus[[n]], "keywords") <- keys
+    meta(release_corpus[[n]], "publication_date") <- date
   }
 }
 release_corpus
 
 # Inspect meta data
-meta_organisation <- meta(release_corpus, type = "local", tag = "organisation")
-meta_publication <- meta(release_corpus, type = "local", tag = "publication")
+meta_keywords <- meta(release_corpus, type = "local", tag = "keywords")
+meta_publication_date <- meta(release_corpus, type = "local", tag = "publication_date")
 
 meta_data <- data.frame(
-  organisation = unlist(meta_organisation), 
-  publication = unlist(meta_publication)
+  keywords = unlist(meta_keywords), 
+  publication_date = unlist(meta_publication_date)
 )
-table(as.character(meta_data[, "organisation"]))
+table(as.character(meta_data[, "keywords"]))
 
+# NOT SURE TO USE THIS?
 # Filtering the corpus (only those with enought sources; for supervised learning)
 release_corpus <- release_corpus[
   meta(release_corpus, tag = "organisation") == "Department for Business, Innovation & Skills" |
@@ -146,7 +147,7 @@ release_corpus <- release_corpus[
     meta(release_corpus, tag = "organisation") == "Wales Office"        
   ]
 release_corpus
-tm_filter(release_corpus, FUN = function(x) any(grep("Afghanistan", content(x))))
+tm_filter(release_corpus, FUN = function(x) any(grep("Nintendo", content(x))))
 
 ### 10.2.2 Building a term-document matrix
 ### --------------------------------------------------------------
@@ -204,7 +205,7 @@ tdm_bigram <- TermDocumentMatrix(release_corpus, control = list(tokenize = Bigra
 tdm_bigram
 
 # Find associations
-findAssocs(tdm, "nuclear", .7)
+findAssocs(tdm, "metal", .7)
 
 ### 10.3 Supervised Learning Techniques
 ### --------------------------------------------------------------
