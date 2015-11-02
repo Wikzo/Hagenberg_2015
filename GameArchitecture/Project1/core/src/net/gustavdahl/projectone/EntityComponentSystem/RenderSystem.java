@@ -45,7 +45,13 @@ public class RenderSystem implements ISystem
 	public void Update()
 	{
 		// TODO Auto-generated method stub
+		Render();
 		
+		
+	}
+	
+	public void Render()
+	{
 		for (int i = 0; i < _componentList.size(); i++)
 		{
 			if (!_componentList.get(i).IsActive())
@@ -55,12 +61,6 @@ public class RenderSystem implements ISystem
 			_componentList.get(i).Render();
 			_spriteBatch.end();
 		}
-		
-	}
-	
-	public void Render()
-	{
-		//Update();
 	}
 	
 	public void AddToRenderSystem(SpriteComponent c)

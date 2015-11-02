@@ -58,10 +58,6 @@ public class SpriteComponent extends Component implements IRenderable
 		
 	}
 	
-	@Override
-	public String Name()
-	{
-		return "SpriteComponent";
-	}
+
 
 }

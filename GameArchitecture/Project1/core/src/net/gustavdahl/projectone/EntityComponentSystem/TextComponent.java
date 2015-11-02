@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class TextComponent extends SpriteComponent
 {
 
+	public static String Name = "TextComponent";
+	
 	public TextComponent(SpriteBatch spriteBatch)
 	{
 		super(spriteBatch);
@@ -18,11 +20,7 @@ public class TextComponent extends SpriteComponent
 		System.out.println(_text);
 	}
 	
-	@Override
-	public String Name()
-	{
-		return "TextComponent";
-	}
+
 	
 	@Override
 	public void Render()
@@ -30,7 +28,7 @@ public class TextComponent extends SpriteComponent
 		// TODO Auto-generated method stub
 		//super.Render();
 		
-		PrintText();
+		//PrintText();
 	}
 
 }

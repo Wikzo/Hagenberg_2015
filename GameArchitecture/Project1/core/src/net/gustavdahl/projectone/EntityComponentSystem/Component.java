@@ -50,7 +50,7 @@ public  class Component implements IComponent, IUpdatable
 
 	public String Name()
 	{
-		return "ComponentNameNotSetYet";
+		return this.getClass().getSimpleName();
 	}
 
 	
