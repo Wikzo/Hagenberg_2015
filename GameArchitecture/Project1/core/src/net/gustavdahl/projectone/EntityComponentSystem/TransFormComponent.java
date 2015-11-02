@@ -2,16 +2,18 @@ package net.gustavdahl.projectone.EntityComponentSystem;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Transform extends Component
+public class TransFormComponent extends Component
 {
 
 	Vector2 Position;
 	float Rotation;
 	Vector2 Scale;
-	
-	public Transform()
+
+	public TransFormComponent()
 	{
-		
+		Position = new Vector2(0,0);
+		Rotation = 0f;
+		Scale = new Vector2(1,1);
 	}
 	
 	@Override

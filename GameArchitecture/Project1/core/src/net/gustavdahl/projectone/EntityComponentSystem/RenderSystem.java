@@ -1,27 +1,37 @@
 package net.gustavdahl.projectone.EntityComponentSystem;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class RenderSystem implements ISystem
 {
 
-	public RenderSystem()
+	private ArrayList<SpriteComponent> _componentList;
+	private SpriteBatch _spriteBatch;
+	
+	public RenderSystem(SpriteBatch spriteBatch)
 	{
 		// TODO Auto-generated constructor stub
+		_spriteBatch = spriteBatch;
+		
+		_componentList = new ArrayList<SpriteComponent>();
 	}
 
-	@Override
-	public List<Component> ComponentList()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+
 
 	@Override
 	public void Initialize()
 	{
-		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < _componentList.size(); i++)
+		{
+			if (_componentList.get(i).HasBeenInitialized())
+				continue;
+			
+			_componentList.get(i).Initialize();
+		}
 	}
 
 	@Override
@@ -36,13 +46,26 @@ public class RenderSystem implements ISystem
 	{
 		// TODO Auto-generated method stub
 		
+		for (int i = 0; i < _componentList.size(); i++)
+		{
+			if (!_componentList.get(i).IsActive())
+				continue;
+			
+			_spriteBatch.begin();
+			_componentList.get(i).Render();
+			_spriteBatch.end();
+		}
+		
 	}
 	
 	public void Render()
 	{
-		Update();
+		//Update();
 	}
 	
-	public void AddToRenderSystem() {}
+	public void AddToRenderSystem(SpriteComponent c)
+	{
+		_componentList.add(c);
+	}
 
 }

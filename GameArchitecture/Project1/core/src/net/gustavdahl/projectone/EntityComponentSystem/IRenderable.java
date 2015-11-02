@@ -2,9 +2,9 @@ package net.gustavdahl.projectone.EntityComponentSystem;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public interface IDrawable
+public interface IRenderable
 {
 	int DrawOrder();
-	void Render(SpriteBatch spriteBatch);
-	void DebugRender(SpriteBatch spriteBatch);
+	void Render();
+	void DebugRender();
 }

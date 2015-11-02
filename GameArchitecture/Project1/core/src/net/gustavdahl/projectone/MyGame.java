@@ -10,6 +10,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+import net.gustavdahl.projectone.EntityComponentSystem.Entity;
+import net.gustavdahl.projectone.EntityComponentSystem.RenderSystem;
+import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
+import net.gustavdahl.projectone.EntityComponentSystem.TextComponent;
+
 public class MyGame extends Game
 {
 
@@ -21,16 +26,19 @@ public class MyGame extends Game
 	@Override
 	public void create()
 	{
-		Assets.InitializeCommonAssets();
+		/*Assets.InitializeCommonAssets();
 		Assets.InitializeMenuAssets();
 		
-		setScreen(new SplashScreen(this));
+		setScreen(new SplashScreen(this));*/
+		
+		
+		setScreen(new ComponentTester());
 	}
 
 	@Override
 	public void dispose()
 	{
-		Assets.DisposeAllAssets(this.toString());
+		//Assets.DisposeAllAssets(this.toString());
 	}
 	
 	public void render()

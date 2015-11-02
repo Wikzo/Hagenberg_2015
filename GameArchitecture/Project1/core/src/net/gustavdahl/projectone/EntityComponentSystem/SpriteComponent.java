@@ -5,26 +5,27 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-public class SpriteComponent extends Component implements IDrawable
+public class SpriteComponent extends Component implements IRenderable
 {
 
+	SpriteBatch _spriteBatch;
 	Texture Texture;
 	Color Color;
 	int SortingLayer;
 	Vector2 RenderOffset;
 	boolean IsVisible;
 	
-	private Transform _transform;
+	private TransFormComponent _transform;
 	
 	@Override
 	public void GetExternalReferences()
 	{
-		_transform = Owner.GetTransform();
+		// grab spritebatch?
 	}
 	
-	public SpriteComponent()
+	public SpriteComponent(SpriteBatch spriteBatch)
 	{
-		// TODO Auto-generated constructor stub
+		this._spriteBatch = spriteBatch;
 	}
 	
 	public void LoadContent()
@@ -39,22 +40,28 @@ public class SpriteComponent extends Component implements IDrawable
 		return 0;
 	}
 
-
+	
 	@Override
-	public void Render(SpriteBatch spriteBatch)
+	public void Render()
 	{
 		if (!IsVisible)
 			return;
 		
 		// TODO: use offset, rotation, size, etc...
-		spriteBatch.draw(this.Texture, this._transform.Position.x, this._transform.Position.y);
+		_spriteBatch.draw(this.Texture, this._transform.Position.x, this._transform.Position.y);
 	}
 
 	@Override
-	public void DebugRender(SpriteBatch spriteBatch)
+	public void DebugRender()
 	{
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public String Name()
+	{
+		return "SpriteComponent";
 	}
 
 }

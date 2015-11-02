@@ -7,15 +7,18 @@ public  class Component implements IComponent, IUpdatable
 	public boolean CanHaveMultipleComponentsOfThisType;
 	
 	private boolean _isActive;
+	private boolean _hasBeenInitialized;
 	
-	public Component()
-	{
-		// TODO Auto-generated constructor stub
-	}
+	private TransFormComponent _transform;
 	
 	public void Enable()
 	{
+		Initialize();
+		GetExternalReferences();
+		
+		_hasBeenInitialized = true;
 		_isActive = true;
+		
 	}
 	
 	public void Disable()
@@ -47,20 +50,30 @@ public  class Component implements IComponent, IUpdatable
 
 	public String Name()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return "ComponentNameNotSetYet";
 	}
 
-	public void InitializeInternal()
+	
+	public void Initialize() // this is for internal stuff for this class only
 	{
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void GetExternalReferences()
 	{
-		// TODO Auto-generated method stub
+		_transform = Owner.GetTransform();
 		
 	}
+
+	public boolean IsActive()
+	{
+		return _isActive;
+	}
+	
+	public boolean HasBeenInitialized()
+	{
+		return _hasBeenInitialized;
+	}
+
 
 }
