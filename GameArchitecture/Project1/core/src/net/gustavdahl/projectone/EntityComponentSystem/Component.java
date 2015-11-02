@@ -11,6 +11,13 @@ public  class Component implements IComponent, IUpdatable
 	
 	private TransFormComponent _transform;
 	
+	public Component()
+	{
+		CanHaveMultipleComponentsOfThisType = true;
+		
+		//System.out.println("[" + Name() + " created]");
+	}
+	
 	public void Enable()
 	{
 		Initialize();
@@ -33,7 +40,9 @@ public  class Component implements IComponent, IUpdatable
 
 	public void Destroy()
 	{
-		// remove from owner's list
+		// TODO: make sure that the object is destroyed/diposed of!
+		_isActive = false;
+		//System.out.println("[" + Name() + " destroyed]");
 	}
 	
 	public int UpdateOrder()

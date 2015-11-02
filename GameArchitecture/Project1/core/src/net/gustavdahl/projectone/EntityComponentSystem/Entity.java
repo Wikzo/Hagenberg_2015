@@ -33,12 +33,19 @@ public class Entity
 
 		boolean removedComponent = false;
 
-		for (int i = _components.size(); i > 0; i--)
+		for (int i = _components.size() - 1; i >= 0; i--)
 		{
+			
+			//System.out.println(i);
 			if (_components.get(i).getClass() == componentClass)
-			{
-				_components.get(i).Destroy();
+			{		
+				_components.get(i).Destroy();	
+				_components.remove(i);
+				
+				System.gc();
+				
 				removedComponent = true;
+				
 			}
 		}
 
@@ -50,8 +57,12 @@ public class Entity
 		if (_components.size() <= 0)
 			return false;
 
-		for (int i = _components.size(); i > 0; i--)
+		for (int i = _components.size() - 1; i >= 0; i--)
+		{
 			_components.get(i).Destroy();
+			_components.remove(i);
+			System.gc();
+		}
 
 		return true;
 	}
@@ -70,6 +81,14 @@ public class Entity
 
 	public void AddComponent(Component c)
 	{
+		//System.out.println(GetComponent(c.getClass()));
+		
+		if (GetComponent(c.getClass()) != null && !c.CanHaveMultipleComponentsOfThisType)
+		{
+			System.err.println("ERROR: Cannot have more than one " + c.Name() + " on this entity!");
+			c.Destroy();
+			return;
+		}
 		_components.add(c);
 		c.Enable();
 	}
@@ -95,6 +114,11 @@ public class Entity
 		}
 
 		return components;
+	}
+	
+	public List<Component> GetAllComponents()
+	{
+		return _components;
 	}
 
 	public TransFormComponent GetTransform()

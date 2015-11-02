@@ -25,7 +25,9 @@ public class SpriteComponent extends Component implements IRenderable
 	
 	public SpriteComponent(SpriteBatch spriteBatch)
 	{
+		super();
 		this._spriteBatch = spriteBatch;
+		
 	}
 	
 	public void LoadContent()

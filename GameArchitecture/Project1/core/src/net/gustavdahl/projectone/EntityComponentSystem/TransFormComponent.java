@@ -9,11 +9,15 @@ public class TransFormComponent extends Component
 	float Rotation;
 	Vector2 Scale;
 
+	
 	public TransFormComponent()
 	{
+		super();
 		Position = new Vector2(0,0);
 		Rotation = 0f;
 		Scale = new Vector2(1,1);
+		
+		CanHaveMultipleComponentsOfThisType = false;
 	}
 	
 	@Override

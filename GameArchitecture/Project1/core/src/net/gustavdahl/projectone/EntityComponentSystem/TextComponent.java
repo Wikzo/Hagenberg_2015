@@ -5,19 +5,24 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class TextComponent extends SpriteComponent
 {
 
-	public static String Name = "TextComponent";
+	private String _text = "";
+	
+	public TextComponent(SpriteBatch spriteBatch, String text)
+	{
+		super(spriteBatch);
+		_text = text;
+	}
 	
 	public TextComponent(SpriteBatch spriteBatch)
 	{
-		super(spriteBatch);
-		// TODO Auto-generated constructor stub
+		this(spriteBatch, "DummyText");
 	}
 
-	private String _text = "test text";
 	
-	void PrintText()
+	
+	public void PrintText(String text)
 	{
-		System.out.println(_text);
+		System.out.println(text);
 	}
 	
 
@@ -26,9 +31,9 @@ public class TextComponent extends SpriteComponent
 	public void Render()
 	{
 		// TODO Auto-generated method stub
-		//super.Render();
+		super.Render();
 		
-		//PrintText();
+		PrintText(_text);
 	}
 
 }
