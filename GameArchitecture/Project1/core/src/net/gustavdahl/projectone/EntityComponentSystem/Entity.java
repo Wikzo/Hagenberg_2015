@@ -51,6 +51,13 @@ public class Entity
 
 		return removedComponent;
 	}
+	
+	public boolean RemoveComponentOfTypeUsingBase(Class baseClass)
+	{
+
+		// TODO: be able to retrieve all subclasses, e.g. by specifying "RenderComponent" and then get all sub-components
+		return false;
+	}
 
 	public boolean RemoveAllComponents()
 	{
@@ -129,6 +136,11 @@ public class Entity
 	public void SetTransform(TransFormComponent transform)
 	{
 		_transform = transform;
+	}
+	
+	public void DestroyEntity()
+	{
+		// TODO: destroy this (garbage collector?)
 	}
 
 }

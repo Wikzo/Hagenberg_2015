@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>240</x>
-      <y>1000</y>
+      <y>960</y>
       <w>330</w>
       <h>260</h>
     </coordinates>
@@ -29,11 +29,11 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>620</x>
-      <y>1160</y>
+      <y>1120</y>
       <w>210</w>
       <h>90</h>
     </coordinates>
-    <panel_attributes>Transform
+    <panel_attributes>TransformComponent
 --
 Position : Vector2
 Rotation : Float
@@ -46,14 +46,15 @@ layer=-1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1410</x>
-      <y>930</y>
+      <y>890</y>
       <w>320</w>
       <h>170</h>
     </coordinates>
     <panel_attributes>/Component/
 --
 Owner : Entity
-Active : bool
+IsActive : bool
+HasBeenInitialized : bool
 CanHaveMultipleComponentsOfThisType : bool
 --
 Enable()
@@ -67,7 +68,7 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1040</x>
-      <y>1400</y>
+      <y>1360</y>
       <w>210</w>
       <h>160</h>
     </coordinates>
@@ -87,24 +88,31 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>2650</x>
-      <y>90</y>
+      <y>50</y>
       <w>290</w>
       <h>230</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Static&gt;&gt;
 ServiceLocator
 --
-SystemManager : SystemManager
 EntityManager : EntityManager
 AssetManager : AssetManager
+Systems : List&lt;ISystem&gt;
+--
+RegisterSystem()
+UnregisterSystem()
+SetActive(System s, bool b)
+InitializeSystems()
+StartSystems()
+UpdateSystems()
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2140</x>
-      <y>550</y>
+      <x>2190</x>
+      <y>510</y>
       <w>210</w>
       <h>140</h>
     </coordinates>
@@ -121,7 +129,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>560</x>
-      <y>1110</y>
+      <y>1070</y>
       <w>80</w>
       <h>100</h>
     </coordinates>
@@ -132,7 +140,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1730</x>
-      <y>1590</y>
+      <y>1550</y>
       <w>130</w>
       <h>80</h>
     </coordinates>
@@ -146,8 +154,8 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2600</x>
-      <y>560</y>
+      <x>2640</x>
+      <y>520</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
@@ -160,8 +168,8 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2370</x>
-      <y>560</y>
+      <x>2410</x>
+      <y>520</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
@@ -177,7 +185,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1410</x>
-      <y>1420</y>
+      <y>1380</y>
       <w>210</w>
       <h>150</h>
     </coordinates>
@@ -199,7 +207,7 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1660</x>
-      <y>1420</y>
+      <y>1380</y>
       <w>210</w>
       <h>150</h>
     </coordinates>
@@ -220,7 +228,7 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1580</x>
-      <y>1590</y>
+      <y>1550</y>
       <w>140</w>
       <h>80</h>
     </coordinates>
@@ -235,7 +243,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1650</x>
-      <y>1560</y>
+      <y>1520</y>
       <w>140</w>
       <h>50</h>
     </coordinates>
@@ -246,7 +254,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1760</x>
-      <y>1560</y>
+      <y>1520</y>
       <w>60</w>
       <h>50</h>
     </coordinates>
@@ -256,18 +264,17 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1910</x>
-      <y>1430</y>
+      <x>2390</x>
+      <y>1200</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
-    <panel_attributes>InputComponent
+    <panel_attributes>MoveComponent
 --
-KeysDown : List&lt;Keys&gt;
+Velocity : Vector2
+Acceleration : float
 --
-GetKey(string key)
-GetKeyDown(string key)
-GetKeyUp(string key)
+Translate()
 
 bg=orange</panel_attributes>
     <additional_attributes/>
@@ -276,7 +283,7 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1870</x>
-      <y>1590</y>
+      <y>1550</y>
       <w>120</w>
       <h>80</h>
     </coordinates>
@@ -291,7 +298,7 @@ bg=orange</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1760</x>
-      <y>1560</y>
+      <y>1520</y>
       <w>200</w>
       <h>50</h>
     </coordinates>
@@ -302,7 +309,7 @@ bg=orange</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>3070</x>
-      <y>280</y>
+      <y>240</y>
       <w>230</w>
       <h>140</h>
     </coordinates>
@@ -320,20 +327,20 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2600</x>
-      <y>170</y>
-      <w>70</w>
-      <h>260</h>
+      <x>2590</x>
+      <y>130</y>
+      <w>80</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=1</panel_attributes>
-    <additional_attributes>50.0;10.0;10.0;240.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>2140</x>
-      <y>40</y>
+      <x>2190</x>
+      <y>0</y>
       <w>1170</w>
       <h>660</h>
     </coordinates>
@@ -346,7 +353,7 @@ layer=-1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>560</x>
-      <y>980</y>
+      <y>940</y>
       <w>870</w>
       <h>130</h>
     </coordinates>
@@ -358,7 +365,7 @@ m1=0..n</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1040</x>
-      <y>750</y>
+      <y>710</y>
       <w>370</w>
       <h>130</h>
     </coordinates>
@@ -366,7 +373,7 @@ m1=0..n</panel_attributes>
 IComponent
 --
 Name() : string
-InitializeInternal()
+Initialize()
 GetExternalReferences() // used to grab reference to other components
 bg=blue</panel_attributes>
     <additional_attributes/>
@@ -375,7 +382,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1460</x>
-      <y>750</y>
+      <y>710</y>
       <w>210</w>
       <h>100</h>
     </coordinates>
@@ -391,7 +398,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1290</x>
-      <y>870</y>
+      <y>830</y>
       <w>280</w>
       <h>80</h>
     </coordinates>
@@ -402,12 +409,12 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1060</x>
-      <y>1230</y>
+      <y>1190</y>
       <w>180</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
-IDrawable
+IRenderable
 --
 DrawOrder() : int
 Render()
@@ -419,7 +426,7 @@ bg=blue</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>210</x>
-      <y>730</y>
+      <y>690</y>
       <w>620</w>
       <h>540</h>
     </coordinates>
@@ -432,7 +439,7 @@ layer=-2</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>890</x>
-      <y>700</y>
+      <y>660</y>
       <w>1730</w>
       <h>1230</h>
     </coordinates>
@@ -445,7 +452,7 @@ layer=-1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1550</x>
-      <y>840</y>
+      <y>800</y>
       <w>30</w>
       <h>110</h>
     </coordinates>
@@ -456,7 +463,7 @@ layer=-1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1140</x>
-      <y>1090</y>
+      <y>1050</y>
       <w>440</w>
       <h>330</h>
     </coordinates>
@@ -467,7 +474,7 @@ layer=-1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1130</x>
-      <y>1320</y>
+      <y>1280</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -478,7 +485,7 @@ layer=-1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1510</x>
-      <y>1090</y>
+      <y>1050</y>
       <w>70</w>
       <h>350</h>
     </coordinates>
@@ -489,7 +496,7 @@ layer=-1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1550</x>
-      <y>1090</y>
+      <y>1050</y>
       <w>230</w>
       <h>350</h>
     </coordinates>
@@ -500,18 +507,18 @@ layer=-1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1550</x>
-      <y>1090</y>
-      <w>480</w>
-      <h>360</h>
+      <y>1050</y>
+      <w>960</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;460.0;340.0</additional_attributes>
+    <additional_attributes>10.0;10.0;940.0;150.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>2140</x>
-      <y>1430</y>
+      <y>1390</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -532,7 +539,7 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1540</x>
-      <y>1090</y>
+      <y>1050</y>
       <w>710</w>
       <h>360</h>
     </coordinates>
@@ -543,7 +550,7 @@ layer=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>2370</x>
-      <y>1420</y>
+      <y>1380</y>
       <w>210</w>
       <h>150</h>
     </coordinates>
@@ -562,7 +569,7 @@ layer=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1130</x>
-      <y>1630</y>
+      <y>1590</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -586,7 +593,7 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1550</x>
-      <y>1090</y>
+      <y>1050</y>
       <w>950</w>
       <h>350</h>
     </coordinates>
@@ -597,7 +604,7 @@ layer=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>990</x>
-      <y>1630</y>
+      <y>1590</y>
       <w>130</w>
       <h>130</h>
     </coordinates>
@@ -612,7 +619,7 @@ layer=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>3100</x>
-      <y>70</y>
+      <y>30</y>
       <w>210</w>
       <h>200</h>
     </coordinates>
@@ -636,7 +643,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1010</x>
-      <y>1790</y>
+      <y>1750</y>
       <w>130</w>
       <h>130</h>
     </coordinates>
@@ -654,7 +661,7 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1050</x>
-      <y>1750</y>
+      <y>1710</y>
       <w>40</w>
       <h>60</h>
     </coordinates>
@@ -665,7 +672,7 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1050</x>
-      <y>1550</y>
+      <y>1510</y>
       <w>90</w>
       <h>100</h>
     </coordinates>
@@ -676,7 +683,7 @@ layer=1</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1160</x>
-      <y>1790</y>
+      <y>1750</y>
       <w>110</w>
       <h>130</h>
     </coordinates>
@@ -691,7 +698,7 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1050</x>
-      <y>1750</y>
+      <y>1710</y>
       <w>190</w>
       <h>60</h>
     </coordinates>
@@ -702,7 +709,7 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1110</x>
-      <y>1550</y>
+      <y>1510</y>
       <w>130</w>
       <h>100</h>
     </coordinates>
@@ -713,7 +720,7 @@ layer=1</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>660</x>
-      <y>1590</y>
+      <y>1550</y>
       <w>140</w>
       <h>90</h>
     </coordinates>
@@ -725,7 +732,7 @@ bg=blue</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>400</x>
-      <y>1430</y>
+      <y>1390</y>
       <w>160</w>
       <h>130</h>
     </coordinates>
@@ -738,7 +745,7 @@ bg=blue</panel_attributes>
     <id>UMLPackage</id>
     <coordinates>
       <x>380</x>
-      <y>1400</y>
+      <y>1360</y>
       <w>480</w>
       <h>300</h>
     </coordinates>
@@ -752,7 +759,7 @@ layer=-1</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>580</x>
-      <y>1470</y>
+      <y>1430</y>
       <w>140</w>
       <h>90</h>
     </coordinates>
@@ -764,7 +771,7 @@ bg=blue</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>420</x>
-      <y>1590</y>
+      <y>1550</y>
       <w>210</w>
       <h>90</h>
     </coordinates>
@@ -777,7 +784,7 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>710</x>
-      <y>1090</y>
+      <y>1050</y>
       <w>870</w>
       <h>90</h>
     </coordinates>
@@ -788,7 +795,7 @@ bg=blue</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>1300</y>
+      <y>1260</y>
       <w>230</w>
       <h>90</h>
     </coordinates>
@@ -803,7 +810,7 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1350</x>
-      <y>1630</y>
+      <y>1590</y>
       <w>160</w>
       <h>130</h>
     </coordinates>
@@ -819,7 +826,7 @@ layer=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1120</x>
-      <y>1550</y>
+      <y>1510</y>
       <w>330</w>
       <h>100</h>
     </coordinates>
@@ -829,60 +836,61 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2400</x>
-      <y>360</y>
+      <x>2390</x>
+      <y>220</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Interface&gt;&gt;
 ISystem
 --
-ComponentList()
---
+//ComponentList()
+// have Map AND List
 Initialize()
 Start()
 Update()
+Enable(bool t)
 bg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2240</x>
-      <y>470</y>
-      <w>280</w>
-      <h>100</h>
+      <x>2290</x>
+      <y>330</y>
+      <w>220</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>260.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>200.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2480</x>
-      <y>470</y>
-      <w>30</w>
-      <h>110</h>
+      <x>2470</x>
+      <y>330</y>
+      <w>80</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2480</x>
-      <y>470</y>
-      <w>240</w>
-      <h>110</h>
+      <x>2470</x>
+      <y>330</y>
+      <w>290</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;220.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;270.0;190.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2930</x>
-      <y>180</y>
+      <y>140</y>
       <w>160</w>
       <h>200</h>
     </coordinates>
@@ -894,7 +902,7 @@ m1=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>2930</x>
-      <y>170</y>
+      <y>130</y>
       <w>190</w>
       <h>50</h>
     </coordinates>
@@ -905,35 +913,31 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3060</x>
-      <y>430</y>
-      <w>230</w>
-      <h>170</h>
+      <x>1900</x>
+      <y>1380</y>
+      <w>210</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;Static&gt;&gt;
-SystemManager
+    <panel_attributes>InputComponent
 --
-Systems : List&lt;ISystem&gt;
+KeysDown : List&lt;Keys&gt;
 --
-RegisterSystem()
-UnregisterSystem()
-SetActive(System s, bool b)
-InitializeSystems()
-StartSystems()
-UpdateSystems()
-bg=blue</panel_attributes>
+GetKey(string key)
+GetKeyDown(string key)
+GetKeyUp(string key)
+
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2930</x>
-      <y>180</y>
-      <w>150</w>
-      <h>340</h>
+      <x>1550</x>
+      <y>1040</y>
+      <w>460</w>
+      <h>360</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;320.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;440.0;340.0</additional_attributes>
   </element>
 </diagram>

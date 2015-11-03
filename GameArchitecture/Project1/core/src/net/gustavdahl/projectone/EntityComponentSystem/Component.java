@@ -15,7 +15,7 @@ public  class Component implements IComponent, IUpdatable
 	{
 		CanHaveMultipleComponentsOfThisType = true;
 		
-		//System.out.println("[" + Name() + " created]");
+		System.out.println("[" + Name() + " created]");
 	}
 	
 	public void Enable()
@@ -40,9 +40,9 @@ public  class Component implements IComponent, IUpdatable
 
 	public void Destroy()
 	{
-		// TODO: make sure that the object is destroyed/diposed of!
+		// TODO: make sure that the object is destroyed/disposed of!
 		_isActive = false;
-		//System.out.println("[" + Name() + " destroyed]");
+		System.out.println("[" + Name() + " destroyed]");
 	}
 	
 	public int UpdateOrder()

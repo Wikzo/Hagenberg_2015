@@ -6,10 +6,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
-public class MenuGameplay extends MenuItem
+public class MenuItemGameplay extends MenuItem
 {
 
-	public MenuGameplay(Stage stage, MyGame project1, CircleMenuList circleMenu, MenuItemType type)
+	public MenuItemGameplay(Stage stage, MyGame project1, CircleMenuList circleMenu, MenuItemType type)
 	{
 		super(stage, project1, circleMenu, type);
 	}

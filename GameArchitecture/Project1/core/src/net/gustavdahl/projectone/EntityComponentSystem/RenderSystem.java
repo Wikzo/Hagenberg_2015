@@ -68,4 +68,26 @@ public class RenderSystem implements ISystem
 		_componentList.add(c);
 	}
 
+
+
+
+	@Override
+	public void Destroy()
+	{
+		System.out.println("[Destroying " + this.getClass().getSimpleName() + "]");
+		
+		for (int i = 0; i < _componentList.size(); i++)
+		{
+			//_componentList.get(i).Owner.RemoveComponentOfType(_componentList.get(i).getClass());
+			//_componentList.get(i).Owner.RemoveAllComponents();
+			// TODO: also destroy the entity itself! (maybe?)
+		}
+		
+		//_componentList.clear();
+		//_componentList = null;
+		
+	}
+	
+	
+
 }

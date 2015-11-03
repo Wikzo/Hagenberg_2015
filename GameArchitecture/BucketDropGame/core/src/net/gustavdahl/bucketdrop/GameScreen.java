@@ -177,6 +177,8 @@ public class GameScreen implements Screen
 		bucketImage.dispose();
 		dropSound.dispose();
 		rainMusic.dispose();
+		
+		System.out.println("Dispose");
 	}
 
 }

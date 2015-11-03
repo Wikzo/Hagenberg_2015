@@ -7,4 +7,5 @@ public interface ISystem
 	void Initialize();
 	void Start();
 	void Update();
+	void Destroy();
 }

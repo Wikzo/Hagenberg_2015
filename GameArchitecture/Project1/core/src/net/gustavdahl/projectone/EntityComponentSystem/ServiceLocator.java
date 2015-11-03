@@ -15,7 +15,7 @@ public class ServiceLocator
 	
 	public ServiceLocator(Assets assetManager, EntityManager entityManager)
 	{
-		//this.AssetManager = assetManager;
+		this.AssetManager = assetManager;
 		//this.EntityManager = entityManager;
 		
 		Systems = new ArrayList<ISystem>();
@@ -54,6 +54,13 @@ public class ServiceLocator
 	{
 		for (int i = 0; i < Systems.size(); i++)
 			Systems.get(i).Update();
+	}
+	
+	public void DestroyAllSystems()
+	{
+		System.out.println("[Destroying all systems]");
+		for (int i = 0; i < Systems.size(); i++)
+			Systems.get(i).Destroy();
 	}
 
 }

@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import net.gustavdahl.projectone.EntityComponentSystem.Entity;
+import net.gustavdahl.projectone.EntityComponentSystem.EntityManager;
 import net.gustavdahl.projectone.EntityComponentSystem.RenderSystem;
 import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
 import net.gustavdahl.projectone.EntityComponentSystem.TextComponent;
@@ -22,23 +23,33 @@ public class MyGame extends Game
 	public static final float V_WIDTH = 1366;
 	public static final float V_HEIGHT = 768;
 	
+	private static ServiceLocator _serviceLocator;
+	private static Assets _assetManager;
+	//private static EntityManager _entityManager;
+	
 
 	@Override
 	public void create()
 	{
-		/*Assets.InitializeCommonAssets();
-		Assets.InitializeMenuAssets();
+		_assetManager = new Assets();
+		_assetManager.InitializeCommonAssets();
+		_assetManager.InitializeMenuAssets();
 		
-		setScreen(new SplashScreen(this));*/
+		_serviceLocator = new ServiceLocator(_assetManager, null);
+		setScreen(new GameTest(this, _serviceLocator));
 		
 		
-		setScreen(new ComponentTester());
+		
+		//setScreen(new ComponentTester()); old test
+		
+		//setScreen(new SplashScreen(this)); old menu stuff
 	}
 
 	@Override
 	public void dispose()
 	{
-		//Assets.DisposeAllAssets(this.toString());
+		_serviceLocator.DestroyAllSystems();
+		Assets.DisposeAllAssets();
 	}
 	
 	public void render()

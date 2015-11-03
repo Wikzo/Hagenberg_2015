@@ -185,28 +185,28 @@ public class CircleMenuList implements Screen
 		switch (type)
 		{
 		case About:
-			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Audio:
-			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Control:
-			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Exit:
-			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Gameplay:
-			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case StartGame:
-			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 		case Video:
 			current = new MenuVideo(stage, game, this, MenuItemType.Video);
 			break;
 		default:
-			current = new MenuGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
 			break;
 			
 		}

@@ -49,8 +49,11 @@ public class Assets
 		
 	}
 
-	public static void DisposeAllAssets(String name)
+	public static void DisposeAllAssets()
 	{
+		
+		System.out.println("[All assets have been disposed]");
+		
 		for (BitmapFont f : fonts)
 			f.dispose();
 
