@@ -9,11 +9,15 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g3d.utils.BaseAnimationController.Transform;
+import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.projectone.EntityComponentSystem.Entity;
 import net.gustavdahl.projectone.EntityComponentSystem.RenderSystem;
 import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
+import net.gustavdahl.projectone.EntityComponentSystem.SpriteComponent;
 import net.gustavdahl.projectone.EntityComponentSystem.TextComponent;
+import net.gustavdahl.projectone.EntityComponentSystem.TransFormComponent;
 
 public class GameTest implements Screen
 {
@@ -60,17 +64,30 @@ public class GameTest implements Screen
 
 		_entity = new Entity();
 		assertNotNull(_entity);
+		assertNotNull(_entity.GetTransform());
 
 		TextComponent component1 = new TextComponent(_serviceLocator.AssetManager.SpriteBatch, "Comp1");
 		assertNotNull(component1);
+		
 
 		TextComponent component2 = new TextComponent(_serviceLocator.AssetManager.SpriteBatch, "Comp2");
 		assertNotNull(component2);
 
-		_entity.AddComponent(component1);
-		_entity.AddComponent(component2);
+		assertNotNull(_entity.GetTransform());
 		
-		_renderSystem.AddToRenderSystem(component1);
+		_entity.AddComponent(component1);
+		assertNotNull(component1.Owner);
+
+		//_entity.GetComponent(TextComponent.class).Disable();
+		//_entity.AddComponent(component2);
+			
+		//_renderSystem.AddToRenderSystem(component1);
+		//_renderSystem.AddToRenderSystem(component2);
+		
+		 _entity.AddComponent(new SpriteComponent(_assetManager.SpriteBatch, _assetManager.DummyTexture));
+		_renderSystem.AddToRenderSystem((SpriteComponent) _entity.GetComponent(SpriteComponent.class));
+		//System.out.println("Size: "+ _renderSystem.ActiveComponents());
+		
 		
 	}
 
@@ -86,6 +103,12 @@ public class GameTest implements Screen
 	    Assets.SpriteBatch.setProjectionMatrix(_camera.combined);
 	    
 	    _serviceLocator.UpdateSystems();
+	    
+	    _entity.GetTransform().Translate(new Vector2(1,0));
+	    
+	    //_renderSystem.IsActive = false;
+	   
+
 	}
 	
 	@Override

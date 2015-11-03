@@ -29,7 +29,7 @@ public class ServiceLocator
 		
 	}
 	
-	void UnregisterSystem(ISystem s)
+	public static void UnregisterSystem(ISystem s)
 	{
 		Systems.remove(s);
 	}

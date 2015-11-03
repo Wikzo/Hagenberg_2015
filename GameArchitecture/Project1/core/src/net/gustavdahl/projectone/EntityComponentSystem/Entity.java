@@ -9,7 +9,7 @@ public class Entity
 {
 
 	private String _ID;
-	private TransFormComponent _transform;
+	public TransFormComponent _transform;
 	private List<Component> _components;
 
 	private boolean _isActive;
@@ -97,7 +97,8 @@ public class Entity
 			return;
 		}
 		_components.add(c);
-		c.Enable();
+		System.out.println("[" + c.Name() + " added to entity]");
+		c.Enable(this);
 	}
 
 	public Component GetComponent(Class componentClass)

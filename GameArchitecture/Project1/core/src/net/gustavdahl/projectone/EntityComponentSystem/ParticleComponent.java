@@ -2,13 +2,14 @@ package net.gustavdahl.projectone.EntityComponentSystem;
 
 import java.util.List;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class ParticleComponent extends SpriteComponent
 {
-	public ParticleComponent(SpriteBatch spriteBatch)
+	public ParticleComponent(SpriteBatch spriteBatch, Texture t)
 	{
-		super(spriteBatch);
+		super(spriteBatch, t);
 		// TODO Auto-generated constructor stub
 	}
 

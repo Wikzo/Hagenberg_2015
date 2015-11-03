@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
+import net.gustavdahl.projectone.Assets;
+
 public class SpriteComponent extends Component implements IRenderable
 {
 
@@ -14,25 +16,25 @@ public class SpriteComponent extends Component implements IRenderable
 	int SortingLayer;
 	Vector2 RenderOffset;
 	boolean IsVisible;
+
 	
-	private TransFormComponent _transform;
-	
-	@Override
-	public void GetExternalReferences()
-	{
-		// grab spritebatch?
-	}
-	
-	public SpriteComponent(SpriteBatch spriteBatch)
+	public SpriteComponent(SpriteBatch spriteBatch, Texture t)
 	{
 		super();
+		IsVisible = true;
 		this._spriteBatch = spriteBatch;
+		LoadContent(t);
+
 		
 	}
 	
-	public void LoadContent()
+	public void LoadContent(Texture t)
 	{
 		// load via asset manager...
+		if (t != null)
+			Texture = t;
+		
+	//_transform = Owner._transform;
 	}
 
 	@Override
@@ -48,8 +50,12 @@ public class SpriteComponent extends Component implements IRenderable
 	{
 		if (!IsVisible)
 			return;
-		
+		//_transform = Owner._transform;
 		// TODO: use offset, rotation, size, etc...
+		//System.out.println("Texture: " + this.Texture);
+		//System.out.println("trans: " + this.Owner._transform);
+		//System.out.println("PosX: " + this._transform.Position.x);
+
 		_spriteBatch.draw(this.Texture, this._transform.Position.x, this._transform.Position.y);
 	}
 

@@ -25,5 +25,10 @@ public class TransFormComponent extends Component
 	{
 		return "Transform";
 	}
+	
+	public void Translate(Vector2 translation)
+	{
+		Position = Position.add(translation);
+	}
 
 }

@@ -6,10 +6,10 @@ public  class Component implements IComponent, IUpdatable
 	public Entity Owner;
 	public boolean CanHaveMultipleComponentsOfThisType;
 	
-	private boolean _isActive;
-	private boolean _hasBeenInitialized;
+	protected boolean _isActive;
+	protected boolean _hasBeenInitialized;
 	
-	private TransFormComponent _transform;
+	protected TransFormComponent _transform;
 	
 	public Component()
 	{
@@ -18,13 +18,18 @@ public  class Component implements IComponent, IUpdatable
 		System.out.println("[" + Name() + " created]");
 	}
 	
-	public void Enable()
+	public void Enable(Entity owner)
 	{
+		this.Owner = owner;
+		
+		System.out.println("[" + Name() + " enabled]");
 		Initialize();
-		GetExternalReferences();
+		
 		
 		_hasBeenInitialized = true;
 		_isActive = true;
+		
+		GetExternalReferences();
 		
 	}
 	
