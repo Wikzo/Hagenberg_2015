@@ -21,23 +21,23 @@ public class Assets
 	// https://github.com/libgdx/libgdx/wiki/Managing-your-assets
 	
 	// SPRITES ///////////////////////////////////////////////////////
-	private static ArrayList<Texture> textures;
-	public static Texture SplashTexture;
-	public static Texture DummyTexture;
+	private ArrayList<Texture> textures;
+	public Texture SplashTexture;
+	public Texture DummyTexture;
 	
 	// SPRITES end //////////////////////////////////////////////////
 
-	private static ArrayList<BitmapFont> fonts;
-	public static BitmapFont ArialFont;
+	private ArrayList<BitmapFont> fonts;
+	public BitmapFont ArialFont;
 	
 	
-	public static SpriteBatch SpriteBatch;
-	public static Stage Stage;
+	public SpriteBatch SpriteBatch;
+	public Stage Stage;
 
 
 	// common, menu, gameplay (assets)
 	
-	public static void InitializeMenuAssets()
+	public void InitializeMenuAssets()
 	{
 		ArialFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
 		fonts = new ArrayList<BitmapFont>();
@@ -50,7 +50,7 @@ public class Assets
 		textures.add(DummyTexture);
 	}
 	
-	public static void InitializeCommonAssets()
+	public void InitializeCommonAssets()
 	{
 		SpriteBatch = new SpriteBatch();
 		Stage = new Stage();
@@ -58,12 +58,12 @@ public class Assets
 		
 	}
 	
-	public static void InitializeGamePlayAssets()
+	public void InitializeGamePlayAssets()
 	{
 		
 	}
 
-	public static void DisposeAllAssets()
+	public void DisposeAllAssets()
 	{
 		
 		System.out.println("[All assets have been disposed]");

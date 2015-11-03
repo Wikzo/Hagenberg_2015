@@ -5,6 +5,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 
+import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
+
 public class MenuVideo extends MenuItem
 {
 
@@ -59,7 +61,7 @@ public class MenuVideo extends MenuItem
 	protected void CreateMenus()
 	{
 		// label style
-		LabelStyle labelStyle = new Label.LabelStyle(Assets.ArialFont, Color.WHITE);
+		LabelStyle labelStyle = new Label.LabelStyle(ServiceLocator.AssetManager.ArialFont, Color.WHITE);
 		Label label1 = new Label("FOV: LARGE", labelStyle);
 		Label label2 = new Label("Anti-alisasing: ENABLED", labelStyle);
 		Label label3 = new Label("Subtitles: DISABLED", labelStyle);

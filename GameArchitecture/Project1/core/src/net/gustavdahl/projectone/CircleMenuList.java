@@ -29,6 +29,8 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
+
 public class CircleMenuList implements Screen
 {
 
@@ -65,7 +67,7 @@ public class CircleMenuList implements Screen
 	{
 
 		// label style
-		LabelStyle labelStyle = new Label.LabelStyle(Assets.ArialFont, Color.WHITE);
+		LabelStyle labelStyle = new Label.LabelStyle(ServiceLocator.AssetManager.ArialFont, Color.WHITE);
 		// Label label1 = new Label("1", labelStyle);
 
 		// create labels
@@ -151,7 +153,7 @@ public class CircleMenuList implements Screen
 
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
-		Assets.SpriteBatch.setProjectionMatrix(camera.combined);
+		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(camera.combined);
 
 		stage.act(delta);
 		stage.draw();

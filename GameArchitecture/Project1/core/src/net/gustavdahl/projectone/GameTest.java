@@ -38,7 +38,7 @@ public class GameTest implements Screen
 		_assetManager = serviceLocator.AssetManager;
 		
 		_serviceLocator = serviceLocator;
-		_renderSystem = new RenderSystem(Assets.SpriteBatch); // TODO: make render system part of the ServiceLocator!
+		_renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch); // TODO: make render system part of the ServiceLocator!
 		
 		_serviceLocator.RegisterSystem(_renderSystem);
 		_serviceLocator.InitializeSystems();
@@ -100,7 +100,7 @@ public class GameTest implements Screen
 		
 		_camera.update();
 
-	    Assets.SpriteBatch.setProjectionMatrix(_camera.combined);
+		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(_camera.combined);
 	    
 	    _serviceLocator.UpdateSystems();
 	    
@@ -115,7 +115,7 @@ public class GameTest implements Screen
 	public void dispose()
 	{
 		_serviceLocator.DestroyAllSystems();
-		Assets.DisposeAllAssets();
+		ServiceLocator.AssetManager.DisposeAllAssets();
 	}
 
 	@Override

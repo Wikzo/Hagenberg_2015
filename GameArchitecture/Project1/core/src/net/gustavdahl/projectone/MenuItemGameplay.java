@@ -6,6 +6,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
+import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
+
 public class MenuItemGameplay extends MenuItem
 {
 
@@ -22,7 +24,7 @@ public class MenuItemGameplay extends MenuItem
 		// System.exit(-1);//.println("show");
 		
 		// label style
-		LabelStyle labelStyle = new Label.LabelStyle(Assets.ArialFont, Color.WHITE);
+		LabelStyle labelStyle = new Label.LabelStyle(ServiceLocator.AssetManager.ArialFont, Color.WHITE);
 		Label label1 = new Label("In-game hints: ENABLED", labelStyle);
 		Label label2 = new Label("Difficulty: MEDIUM", labelStyle);
 		Label label3 = new Label("Share data online: DISABLED", labelStyle);

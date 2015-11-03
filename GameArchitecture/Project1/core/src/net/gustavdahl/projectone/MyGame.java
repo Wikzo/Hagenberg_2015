@@ -24,7 +24,7 @@ public class MyGame extends Game
 	public static final float V_HEIGHT = 768;
 	
 	private static ServiceLocator _serviceLocator;
-	private static Assets _assetManager;
+	private Assets _assetManager;
 	//private static EntityManager _entityManager;
 	
 
@@ -49,7 +49,7 @@ public class MyGame extends Game
 	public void dispose()
 	{
 		_serviceLocator.DestroyAllSystems();
-		Assets.DisposeAllAssets();
+		ServiceLocator.AssetManager.DisposeAllAssets();
 	}
 	
 	public void render()

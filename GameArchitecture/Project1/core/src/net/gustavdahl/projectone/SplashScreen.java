@@ -25,6 +25,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import javafx.scene.shape.MoveTo;
+import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
 
 public class SplashScreen implements Screen
 {
@@ -55,7 +56,7 @@ public class SplashScreen implements Screen
 	@Override
 	public void show()
 	{
-		Image img = new Image(Assets.SplashTexture);
+		Image img = new Image(ServiceLocator.AssetManager.SplashTexture);
 		img.setPosition(0, 0, Align.center);
 		img.getColor().a = 0f;
 		img.setName("Splash");
@@ -109,7 +110,7 @@ public class SplashScreen implements Screen
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		camera.update();
-		Assets.SpriteBatch.setProjectionMatrix(camera.combined);
+		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(camera.combined);
 
 		stage.act(delta);
 		stage.draw();
