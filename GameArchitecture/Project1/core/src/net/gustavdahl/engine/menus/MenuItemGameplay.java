@@ -1,4 +1,4 @@
-package net.gustavdahl.engine;
+package net.gustavdahl.engine.menus;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
+import net.gustavdahl.engine.MyGame;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class MenuItemGameplay extends MenuItem

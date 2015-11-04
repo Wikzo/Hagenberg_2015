@@ -25,10 +25,10 @@ import net.gustavdahl.engine.systems.ServiceLocator;
 
 import static org.junit.Assert.*;
 
-public class ComponentTester implements Screen
+public class ComponentTester_old implements Screen
 {
 
-	public ComponentTester()
+	public ComponentTester_old()
 	{
 
 		UnitTests();

@@ -1,6 +1,7 @@
 package net.gustavdahl.engine.components;
 
 import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public  class Component implements IComponent, IUpdatable
 {
@@ -13,6 +14,10 @@ public  class Component implements IComponent, IUpdatable
 	
 	protected TransFormComponent _transform;
 	
+	public String DefaultSystem = "PhysicsSystem";
+	
+	public int UpdatePriority = 1;
+	
 	public Component()
 	{
 		CanHaveMultipleComponentsOfThisType = true;
@@ -20,7 +25,7 @@ public  class Component implements IComponent, IUpdatable
 		System.out.println("[" + Name() + " created]");
 	}
 	
-	public void Enable(Entity owner)
+	public void Enable(Entity owner, String systemName)
 	{
 		this.Owner = owner;
 		
@@ -30,6 +35,10 @@ public  class Component implements IComponent, IUpdatable
 		
 		_hasBeenInitialized = true;
 		_isActive = true;
+		
+		//ServiceLocator.AddComponentToSystem(this, systemName);
+		ServiceLocator.GetSystem(systemName).AddToSystem(this);
+		//System.out.println("Component successfully added to appropriate system: " + added);
 		
 		GetExternalReferences();
 		
@@ -51,12 +60,7 @@ public  class Component implements IComponent, IUpdatable
 		_isActive = false;
 		System.out.println("[" + Name() + " destroyed]");
 	}
-	
-	public int UpdateOrder()
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
+
 
 	public void Update()
 	{
@@ -72,7 +76,7 @@ public  class Component implements IComponent, IUpdatable
 	
 	public void Initialize() // this is for internal stuff for this class only
 	{
-		
+		GetExternalReferences();
 	}
 
 	public void GetExternalReferences()

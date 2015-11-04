@@ -1,6 +1,8 @@
-package net.gustavdahl.engine.entities;
+package net.gustavdahl.engine.systems;
 
 import java.util.ArrayList;
+
+import net.gustavdahl.engine.entities.Entity;
 
 public class EntityManager
 {

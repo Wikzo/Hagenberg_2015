@@ -1,4 +1,4 @@
-package net.gustavdahl.engine;
+package net.gustavdahl.engine.menus;
 
 import com.badlogic.gdx.Screen;
 

@@ -8,7 +8,6 @@ import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import net.gustavdahl.engine.components.Component;
 import net.gustavdahl.engine.components.IRenderable;
-import net.gustavdahl.engine.components.ISystem;
 
 public class RenderSystem implements ISystem
 {
@@ -22,20 +21,14 @@ public class RenderSystem implements ISystem
 
 	public RenderSystem(SpriteBatch spriteBatch)
 	{
-		// TODO Auto-generated constructor stub
 		_spriteBatch = spriteBatch;
 
 		_componentList = new ArrayList<IRenderable>();
 	}
 
 	@Override
-	public void Initialize()
-	{
-		//System.out.println(s);
-		
-		//User user = obj instanceof User ? (User) obj : null;
-
-		
+	public void Start()
+	{		
 		for (int i = 0; i < _componentList.size(); i++)
 		{
 			if (((Component) _componentList.get(i)).HasBeenInitialized())
@@ -45,12 +38,7 @@ public class RenderSystem implements ISystem
 		}
 	}
 
-	@Override
-	public void Start()
-	{
-		// TODO Auto-generated method stub
 
-	}
 
 	@Override
 	public void Update()

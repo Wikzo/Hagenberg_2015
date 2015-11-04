@@ -17,6 +17,9 @@ import net.gustavdahl.engine.components.SpriteComponent;
 import net.gustavdahl.engine.components.TextComponent;
 import net.gustavdahl.engine.components.TransFormComponent;
 import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.systems.Assets;
+import net.gustavdahl.engine.systems.GameLogicSystem;
+import net.gustavdahl.engine.systems.PhysicsSystem;
 import net.gustavdahl.engine.systems.RenderSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
@@ -26,7 +29,6 @@ public class GameTest implements Screen
 	private OrthographicCamera  _camera;
 	private SpriteBatch _spriteBatch;
 	private ServiceLocator _serviceLocator;
-	private RenderSystem _renderSystem;
 	private Assets _assetManager;
 	
 	Game _game;
@@ -39,11 +41,15 @@ public class GameTest implements Screen
 		_assetManager = serviceLocator.AssetManager;
 		
 		_serviceLocator = serviceLocator;
-		_renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch); // TODO: make render system part of the ServiceLocator!
+		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch); // TODO: make render system part of the ServiceLocator!
+		PhysicsSystem _physicsSystem = new PhysicsSystem();
+		GameLogicSystem _gameLogicSystem = new GameLogicSystem();
 		
 		_serviceLocator.RegisterNewSystem(_renderSystem);
+		_serviceLocator.RegisterNewSystem(_physicsSystem);
+		_serviceLocator.RegisterNewSystem(_gameLogicSystem);
+		
 		_serviceLocator.InitializeSystems();
-		_serviceLocator.StartSystems();
 		
 		_camera = new OrthographicCamera();
 		_camera.setToOrtho(false, 800, 480);
@@ -61,7 +67,7 @@ public class GameTest implements Screen
 
 		assertNotNull(_serviceLocator);
 		
-		assertNotNull(_renderSystem);
+		//assertNotNull(_renderSystem);
 
 		_entity = new Entity();
 		assertNotNull(_entity);
@@ -76,7 +82,7 @@ public class GameTest implements Screen
 
 		assertNotNull(_entity.GetTransform());
 		
-		_entity.AddComponent(component1);
+		_entity.AddComponent(component1, GameLogicSystem.SystemName);
 		assertNotNull(component1.Owner);
 
 		//_entity.GetComponent(TextComponent.class).Disable();
@@ -85,10 +91,13 @@ public class GameTest implements Screen
 		//_renderSystem.AddToRenderSystem(component1);
 		//_renderSystem.AddToRenderSystem(component2);
 		
-		 _entity.AddComponent(new SpriteComponent(_assetManager.SpriteBatch, _assetManager.DummyTexture));
+		 //_entity.AddComponent(new SpriteComponent(_assetManager.SpriteBatch, _assetManager.DummyTexture));
+		 _entity.AddComponent(
+				 new SpriteComponent(_assetManager.SpriteBatch, _assetManager.DummyTexture),
+				 RenderSystem.SystemName);
 		//_renderSystem.AddToRenderSystem((SpriteComponent) _entity.GetComponent(SpriteComponent.class));
 		
-		_serviceLocator.AddComponentToSystem(_entity.GetComponent(SpriteComponent.class), RenderSystem.SystemName);
+		//_serviceLocator.AddComponentToSystem(_entity.GetComponent(SpriteComponent.class), RenderSystem.SystemName);
 		//System.out.println("Size: "+ _renderSystem.ActiveComponents());
 		
 		

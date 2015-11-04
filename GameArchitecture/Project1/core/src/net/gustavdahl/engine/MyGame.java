@@ -12,7 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import net.gustavdahl.engine.components.TextComponent;
 import net.gustavdahl.engine.entities.Entity;
-import net.gustavdahl.engine.entities.EntityManager;
+import net.gustavdahl.engine.systems.Assets;
+import net.gustavdahl.engine.systems.EntityManager;
 import net.gustavdahl.engine.systems.RenderSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
 

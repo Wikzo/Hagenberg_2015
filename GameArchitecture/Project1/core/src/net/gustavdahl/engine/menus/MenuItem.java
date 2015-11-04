@@ -1,4 +1,4 @@
-package net.gustavdahl.engine;
+package net.gustavdahl.engine.menus;
 
 import java.util.ArrayList;
 
@@ -14,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+import net.gustavdahl.engine.MyGame;
 
 public abstract class MenuItem implements Screen
 {

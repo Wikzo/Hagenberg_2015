@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-import net.gustavdahl.engine.Assets;
+import net.gustavdahl.engine.systems.Assets;
 
 public class SpriteComponent extends Component implements IRenderable
 {

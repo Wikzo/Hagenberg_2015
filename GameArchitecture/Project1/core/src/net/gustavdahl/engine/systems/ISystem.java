@@ -1,10 +1,11 @@
-package net.gustavdahl.engine.components;
+package net.gustavdahl.engine.systems;
 
 import java.util.List;
 
+import net.gustavdahl.engine.components.Component;
+
 public interface ISystem
 {
-	void Initialize();
 	void Start();
 	void Update();
 	void Destroy();

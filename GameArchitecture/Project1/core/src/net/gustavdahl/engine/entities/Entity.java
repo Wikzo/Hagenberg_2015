@@ -7,6 +7,8 @@ import java.util.Map;
 
 import net.gustavdahl.engine.components.Component;
 import net.gustavdahl.engine.components.TransFormComponent;
+import net.gustavdahl.engine.systems.GameLogicSystem;
+import net.gustavdahl.engine.systems.PhysicsSystem;
 
 public class Entity
 {
@@ -22,7 +24,7 @@ public class Entity
 	{
 		_components = new ArrayList<Component>();
 		_transform = new TransFormComponent();
-		_transform.Enable(this);
+		_transform.Enable(this, GameLogicSystem.SystemName);
 
 		_components.add(_transform);
 	}
@@ -90,7 +92,7 @@ public class Entity
 	 * _components.get(c.Name()); }
 	 */
 
-	public void AddComponent(Component c)
+	public void AddComponent(Component c, String systemName)
 	{
 		//System.out.println(GetComponent(c.getClass()));
 		
@@ -102,7 +104,12 @@ public class Entity
 		}
 		_components.add(c);
 		System.out.println("[" + c.Name() + " added to entity]");
-		c.Enable(this);
+		c.Enable(this, systemName);
+	}
+	
+	public void AddComponent(Component c)
+	{
+		AddComponent(c, c.DefaultSystem);
 	}
 
 	public Component GetComponent(Class componentClass)

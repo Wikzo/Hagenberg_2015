@@ -4,21 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.gustavdahl.engine.components.Component;
-import net.gustavdahl.engine.components.ISystem;
+import net.gustavdahl.engine.components.IRenderable;
+import net.gustavdahl.engine.components.PhysicsComponent;
 
 public class PhysicsSystem implements ISystem
 {
-	private List<Component> _componentList;
+	public static final String SystemName = PhysicsSystem.class.getSimpleName();
+	
+	private List<PhysicsComponent> _componentList;
+	private float deltaTime = 1f;
 	
 	public boolean IsActive = true;
 
 	public PhysicsSystem()
 	{
-		_componentList = new ArrayList<Component>();
+		_componentList = new ArrayList<PhysicsComponent>();
 	}
 
 	@Override
-	public void Initialize()
+	public void Start()
 	{
 		for (int i = 0; i < _componentList.size(); i++)
 		{
@@ -29,12 +33,6 @@ public class PhysicsSystem implements ISystem
 		}
 	}
 
-	@Override
-	public void Start()
-	{
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void Update()
@@ -53,10 +51,6 @@ public class PhysicsSystem implements ISystem
 
 	}
 
-	public void AddToPhysicsSystem(Component c)
-	{
-		_componentList.add(c);
-	}
 
 	public int ActiveComponents()
 	{
@@ -83,8 +77,29 @@ public class PhysicsSystem implements ISystem
 	@Override
 	public boolean AddToSystem(Component c)
 	{
-		// TODO Auto-generated method stub
-		return false;
+		boolean succesfullyAdded = false;
+		
+		if (c instanceof PhysicsComponent)
+		{
+			succesfullyAdded = true;
+			_componentList.add((PhysicsComponent) c);
+			
+		}
+		else
+		{
+            try
+			{
+				throw new Exception("ERROR - component " + c.getClass().getSimpleName() + " doesn't implement PhysicsComponent interface!");
+			} catch (Exception e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
+		
+		//System.out.println(added);
+		
+		return succesfullyAdded;
 	}
 
 }
