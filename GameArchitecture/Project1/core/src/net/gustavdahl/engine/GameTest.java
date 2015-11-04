@@ -1,4 +1,4 @@
-package net.gustavdahl.projectone;
+package net.gustavdahl.engine;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -13,12 +13,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.utils.BaseAnimationController.Transform;
 import com.badlogic.gdx.math.Vector2;
 
-import net.gustavdahl.projectone.EntityComponentSystem.Entity;
-import net.gustavdahl.projectone.EntityComponentSystem.RenderSystem;
-import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
-import net.gustavdahl.projectone.EntityComponentSystem.SpriteComponent;
-import net.gustavdahl.projectone.EntityComponentSystem.TextComponent;
-import net.gustavdahl.projectone.EntityComponentSystem.TransFormComponent;
+import net.gustavdahl.engine.components.SpriteComponent;
+import net.gustavdahl.engine.components.TextComponent;
+import net.gustavdahl.engine.components.TransFormComponent;
+import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.systems.RenderSystem;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class GameTest implements Screen
 {

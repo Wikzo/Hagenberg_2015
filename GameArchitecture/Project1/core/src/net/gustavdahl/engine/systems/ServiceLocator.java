@@ -1,9 +1,12 @@
-package net.gustavdahl.projectone.EntityComponentSystem;
+package net.gustavdahl.engine.systems;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import net.gustavdahl.projectone.Assets;
+import net.gustavdahl.engine.Assets;
+import net.gustavdahl.engine.components.Component;
+import net.gustavdahl.engine.components.ISystem;
+import net.gustavdahl.engine.entities.EntityManager;
 
 public class ServiceLocator
 {

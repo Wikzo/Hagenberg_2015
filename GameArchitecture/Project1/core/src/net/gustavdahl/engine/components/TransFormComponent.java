@@ -1,4 +1,4 @@
-package net.gustavdahl.projectone.EntityComponentSystem;
+package net.gustavdahl.engine.components;
 
 import com.badlogic.gdx.math.Vector2;
 

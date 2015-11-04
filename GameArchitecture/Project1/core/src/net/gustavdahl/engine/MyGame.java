@@ -1,4 +1,4 @@
-package net.gustavdahl.projectone;
+package net.gustavdahl.engine;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
@@ -10,11 +10,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-import net.gustavdahl.projectone.EntityComponentSystem.Entity;
-import net.gustavdahl.projectone.EntityComponentSystem.EntityManager;
-import net.gustavdahl.projectone.EntityComponentSystem.RenderSystem;
-import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
-import net.gustavdahl.projectone.EntityComponentSystem.TextComponent;
+import net.gustavdahl.engine.components.TextComponent;
+import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.entities.EntityManager;
+import net.gustavdahl.engine.systems.RenderSystem;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class MyGame extends Game
 {

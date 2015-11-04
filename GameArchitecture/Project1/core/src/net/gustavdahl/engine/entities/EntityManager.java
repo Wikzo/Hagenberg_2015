@@ -1,4 +1,4 @@
-package net.gustavdahl.projectone.EntityComponentSystem;
+package net.gustavdahl.engine.entities;
 
 import java.util.ArrayList;
 

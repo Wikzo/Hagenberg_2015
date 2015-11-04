@@ -1,4 +1,6 @@
-package net.gustavdahl.projectone.EntityComponentSystem;
+package net.gustavdahl.engine.components;
+
+import net.gustavdahl.engine.entities.Entity;
 
 public  class Component implements IComponent, IUpdatable
 {

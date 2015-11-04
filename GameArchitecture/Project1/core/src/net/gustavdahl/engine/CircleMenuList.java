@@ -1,4 +1,4 @@
-package net.gustavdahl.projectone;
+package net.gustavdahl.engine;
 
 import java.sql.Time;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class CircleMenuList implements Screen
 {

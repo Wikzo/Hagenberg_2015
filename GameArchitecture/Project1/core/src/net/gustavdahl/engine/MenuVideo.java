@@ -1,11 +1,11 @@
-package net.gustavdahl.projectone;
+package net.gustavdahl.engine;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 
-import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class MenuVideo extends MenuItem
 {

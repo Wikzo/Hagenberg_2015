@@ -1,4 +1,4 @@
-package net.gustavdahl.projectone;
+package net.gustavdahl.engine;
 
 public enum MenuItemType
 {

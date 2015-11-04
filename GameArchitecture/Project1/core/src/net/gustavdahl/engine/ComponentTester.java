@@ -1,4 +1,4 @@
-package net.gustavdahl.projectone;
+package net.gustavdahl.engine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +15,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.utils.BaseAnimationController.Transform;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text;
 
-import net.gustavdahl.projectone.EntityComponentSystem.Component;
-import net.gustavdahl.projectone.EntityComponentSystem.Entity;
-import net.gustavdahl.projectone.EntityComponentSystem.RenderSystem;
-import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
-import net.gustavdahl.projectone.EntityComponentSystem.SpriteComponent;
-import net.gustavdahl.projectone.EntityComponentSystem.TextComponent;
-import net.gustavdahl.projectone.EntityComponentSystem.TransFormComponent;
+import net.gustavdahl.engine.components.Component;
+import net.gustavdahl.engine.components.SpriteComponent;
+import net.gustavdahl.engine.components.TextComponent;
+import net.gustavdahl.engine.components.TransFormComponent;
+import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.systems.RenderSystem;
+import net.gustavdahl.engine.systems.ServiceLocator;
+
 import static org.junit.Assert.*;
 
 public class ComponentTester implements Screen

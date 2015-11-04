@@ -1,9 +1,12 @@
-package net.gustavdahl.projectone.EntityComponentSystem;
+package net.gustavdahl.engine.entities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import net.gustavdahl.engine.components.Component;
+import net.gustavdahl.engine.components.TransFormComponent;
 
 public class Entity
 {

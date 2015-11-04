@@ -1,11 +1,11 @@
-package net.gustavdahl.projectone.EntityComponentSystem;
+package net.gustavdahl.engine.components;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-import net.gustavdahl.projectone.Assets;
+import net.gustavdahl.engine.Assets;
 
 public class SpriteComponent extends Component implements IRenderable
 {

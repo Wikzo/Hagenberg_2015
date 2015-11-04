@@ -1,4 +1,4 @@
-package net.gustavdahl.projectone;
+package net.gustavdahl.engine;
 
 import java.sql.Time;
 
@@ -25,7 +25,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import javafx.scene.shape.MoveTo;
-import net.gustavdahl.projectone.EntityComponentSystem.ServiceLocator;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class SplashScreen implements Screen
 {

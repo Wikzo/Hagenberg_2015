@@ -1,10 +1,14 @@
-package net.gustavdahl.projectone.EntityComponentSystem;
+package net.gustavdahl.engine.systems;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+
+import net.gustavdahl.engine.components.Component;
+import net.gustavdahl.engine.components.IRenderable;
+import net.gustavdahl.engine.components.ISystem;
 
 public class RenderSystem implements ISystem
 {

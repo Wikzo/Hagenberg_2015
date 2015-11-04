@@ -3,7 +3,8 @@ package net.gustavdahl.projectone.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import net.gustavdahl.projectone.MyGame;
+
+import net.gustavdahl.engine.MyGame;
 
 public class HtmlLauncher extends GwtApplication {
 

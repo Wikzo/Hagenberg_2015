@@ -1,7 +1,10 @@
-package net.gustavdahl.projectone.EntityComponentSystem;
+package net.gustavdahl.engine.systems;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import net.gustavdahl.engine.components.Component;
+import net.gustavdahl.engine.components.ISystem;
 
 public class PhysicsSystem implements ISystem
 {
