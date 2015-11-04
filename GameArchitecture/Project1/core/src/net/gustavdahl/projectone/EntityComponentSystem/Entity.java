@@ -19,6 +19,7 @@ public class Entity
 	{
 		_components = new ArrayList<Component>();
 		_transform = new TransFormComponent();
+		_transform.Enable(this);
 
 		_components.add(_transform);
 	}

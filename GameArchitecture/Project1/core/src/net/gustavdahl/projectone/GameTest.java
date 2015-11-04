@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -40,7 +41,7 @@ public class GameTest implements Screen
 		_serviceLocator = serviceLocator;
 		_renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch); // TODO: make render system part of the ServiceLocator!
 		
-		_serviceLocator.RegisterSystem(_renderSystem);
+		_serviceLocator.RegisterNewSystem(_renderSystem);
 		_serviceLocator.InitializeSystems();
 		_serviceLocator.StartSystems();
 		
@@ -85,7 +86,9 @@ public class GameTest implements Screen
 		//_renderSystem.AddToRenderSystem(component2);
 		
 		 _entity.AddComponent(new SpriteComponent(_assetManager.SpriteBatch, _assetManager.DummyTexture));
-		_renderSystem.AddToRenderSystem((SpriteComponent) _entity.GetComponent(SpriteComponent.class));
+		//_renderSystem.AddToRenderSystem((SpriteComponent) _entity.GetComponent(SpriteComponent.class));
+		
+		_serviceLocator.AddComponentToSystem(_entity.GetComponent(SpriteComponent.class), RenderSystem.SystemName);
 		//System.out.println("Size: "+ _renderSystem.ActiveComponents());
 		
 		
@@ -106,8 +109,19 @@ public class GameTest implements Screen
 	    
 	    _entity.GetTransform().Translate(new Vector2(1,0));
 	    
+	    if (Gdx.input.isKeyJustPressed(Keys.P))
+	    	_entity.GetTransform().SetActive(!_entity.GetTransform().IsActive());
+	    
 	    //_renderSystem.IsActive = false;
 	   
+	    
+	    // TODO: remember to apply stage viewport for camera
+	    
+	    // TODO: get PickRay (for mouse input editor) via camera
+	    
+	    // TODO: make camera system independt of render system
+	    
+	    // TODO: physics (box-aligned vs. axis-aligned bounding box)
 
 	}
 	

@@ -36,6 +36,7 @@ public class ComponentTester implements Screen
 
 	Entity entity;
 
+	// OLD
 	@Test
 	void UnitTests()
 	{
@@ -48,7 +49,7 @@ public class ComponentTester implements Screen
 		RenderSystem renderSystem = new RenderSystem(sb);
 		assertNotNull(renderSystem);
 
-		ServiceLocator.RegisterSystem(renderSystem);
+		//ServiceLocator.RegisterSystem(renderSystem);
 
 		entity = new Entity();
 		assertNotNull(entity);
@@ -64,8 +65,8 @@ public class ComponentTester implements Screen
 
 		// QUESTION: should the component/entity be responsible for adding it to
 		// the system instead of manually doing it like this?
-		renderSystem.AddToRenderSystem(component1);
-		renderSystem.AddToRenderSystem(component2);
+		//renderSystem.AddToRenderSystem(component1);
+		//renderSystem.AddToRenderSystem(component2);
 
 		Component c_temp1 = entity.GetComponent(TextComponent.class);
 		assertNotNull(c_temp1);

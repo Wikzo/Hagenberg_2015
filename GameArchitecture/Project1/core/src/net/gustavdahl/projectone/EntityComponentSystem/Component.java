@@ -79,6 +79,11 @@ public  class Component implements IComponent, IUpdatable
 		
 	}
 
+	public void SetActive(boolean active)
+	{
+		_isActive = active;
+	}
+	
 	public boolean IsActive()
 	{
 		return _isActive;

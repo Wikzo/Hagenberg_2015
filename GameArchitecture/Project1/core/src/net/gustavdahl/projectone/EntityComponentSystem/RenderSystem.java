@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 public class RenderSystem implements ISystem
 {
 
-	private ArrayList<SpriteComponent> _componentList;
+	public static final String SystemName = RenderSystem.class.getSimpleName();
+	
+	private List<IRenderable> _componentList;
 	private SpriteBatch _spriteBatch;
 	
 	public boolean IsActive = true;
@@ -18,18 +21,23 @@ public class RenderSystem implements ISystem
 		// TODO Auto-generated constructor stub
 		_spriteBatch = spriteBatch;
 
-		_componentList = new ArrayList<SpriteComponent>();
+		_componentList = new ArrayList<IRenderable>();
 	}
 
 	@Override
 	public void Initialize()
 	{
+		//System.out.println(s);
+		
+		//User user = obj instanceof User ? (User) obj : null;
+
+		
 		for (int i = 0; i < _componentList.size(); i++)
 		{
-			if (_componentList.get(i).HasBeenInitialized())
+			if (((Component) _componentList.get(i)).HasBeenInitialized())
 				continue;
 
-			_componentList.get(i).Initialize();
+			((Component) _componentList.get(i)).Initialize();
 		}
 	}
 
@@ -55,7 +63,7 @@ public class RenderSystem implements ISystem
 		
 		for (int i = 0; i < _componentList.size(); i++)
 		{
-			if (!_componentList.get(i).IsActive())
+			if (!((Component) _componentList.get(i)).IsActive())
 				continue;
 
 			_spriteBatch.begin();
@@ -64,10 +72,6 @@ public class RenderSystem implements ISystem
 		}
 	}
 
-	public void AddToRenderSystem(SpriteComponent c)
-	{
-		_componentList.add(c);
-	}
 
 	public int ActiveComponents()
 	{
@@ -89,6 +93,34 @@ public class RenderSystem implements ISystem
 		// _componentList.clear();
 		// _componentList = null;
 
+	}
+
+	@Override
+	public boolean AddToSystem(Component c)
+	{
+		boolean succesfullyAdded = false;
+		
+		if (c instanceof IRenderable)
+		{
+			succesfullyAdded = true;
+			_componentList.add((IRenderable) c);
+			
+		}
+		else
+		{
+            try
+			{
+				throw new Exception("ERROR - component doesn't implement IRenderable interface!");
+			} catch (Exception e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		}
+		
+		//System.out.println(added);
+		
+		return succesfullyAdded;
 	}
 
 }

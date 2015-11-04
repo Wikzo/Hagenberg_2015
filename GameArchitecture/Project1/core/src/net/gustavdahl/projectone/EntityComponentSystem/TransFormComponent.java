@@ -28,6 +28,9 @@ public class TransFormComponent extends Component
 	
 	public void Translate(Vector2 translation)
 	{
+		if (!IsActive())
+			return;
+		
 		Position = Position.add(translation);
 	}
 

@@ -50,6 +50,10 @@ public class SpriteComponent extends Component implements IRenderable
 	{
 		if (!IsVisible)
 			return;
+		
+		if (!IsActive())
+			return;
+		
 		//_transform = Owner._transform;
 		// TODO: use offset, rotation, size, etc...
 		//System.out.println("Texture: " + this.Texture);

@@ -11,27 +11,39 @@ public class ServiceLocator
 	public static Assets AssetManager; // TODO: change type to AssetManager
 	public static EntityManager EntityManager;
 	
-	static ArrayList<ISystem> Systems; 
+	private static ArrayList<ISystem> _systems; 
 	
 	public ServiceLocator(Assets assetManager, EntityManager entityManager)
 	{
 		this.AssetManager = assetManager;
 		//this.EntityManager = entityManager;
 		
-		Systems = new ArrayList<ISystem>();
+		_systems = new ArrayList<ISystem>();
 	}
 	
 
 	
-	public static void RegisterSystem(ISystem s)
+	public static void RegisterNewSystem(ISystem system)
 	{
-		Systems.add(s);
+		
+			_systems.add(system);
 		
 	}
 	
-	public static void UnregisterSystem(ISystem s)
+	public static void RemoveSystem(ISystem s)
 	{
-		Systems.remove(s);
+		_systems.remove(s);
+	}
+	
+	public static void AddComponentToSystem(Component c, String systemName)
+	{
+		//if (_components.get(i).getClass().getSimpleName().equalsIgnoreCase(componentType))
+
+			for (int i = 0; i < _systems.size(); i++)
+			{
+				if (_systems.get(i).getClass().getSimpleName().equalsIgnoreCase(systemName))
+					_systems.get(i).AddToSystem(c);
+			}
 	}
 	
 	void SetActive(ISystem s, boolean active) {}
@@ -40,27 +52,27 @@ public class ServiceLocator
 	
 	public static void InitializeSystems()
 	{
-		for (int i = 0; i < Systems.size(); i++)
-			Systems.get(i).Initialize();
+		for (int i = 0; i < _systems.size(); i++)
+			_systems.get(i).Initialize();
 	}
 	
 	public static void StartSystems()
 	{
-		for (int i = 0; i < Systems.size(); i++)
-			Systems.get(i).Start();
+		for (int i = 0; i < _systems.size(); i++)
+			_systems.get(i).Start();
 	}
 	
 	public static void UpdateSystems()
 	{
-		for (int i = 0; i < Systems.size(); i++)
-			Systems.get(i).Update();
+		for (int i = 0; i < _systems.size(); i++)
+			_systems.get(i).Update();
 	}
 	
 	public void DestroyAllSystems()
 	{
 		System.out.println("[Destroying all systems]");
-		for (int i = 0; i < Systems.size(); i++)
-			Systems.get(i).Destroy();
+		for (int i = 0; i < _systems.size(); i++)
+			_systems.get(i).Destroy();
 	}
 
 }
