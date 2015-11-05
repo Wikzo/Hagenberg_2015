@@ -107,6 +107,10 @@ public class GameTest implements Screen
 	@Override
 	public void render(float delta)
 	{
+		
+		// TODO: maybe make this class an IUpdatable as well
+		// then GameLogicSystem will class this update
+		
 		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		

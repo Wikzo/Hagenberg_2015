@@ -48,7 +48,7 @@ while(pageNumber < 3){
 all_links[1]
 length(all_links)
 
-# Download all press releases (748 articles)
+# Download all press releases (40 articles)
 for(i in 1:length(all_links)){
   #url <- str_c("http://gamasutra.com/", all_links[i])
   url = all_links[i];
@@ -83,6 +83,7 @@ keywords = tmp["//meta/@name"]
 content = tmp["//meta/@content"]
 #cbind(keywords,content)
 keys = content[3]
+keys = str_c(keys ,collapse=',')  # make into a single string NOT SURE IF THIS WORKS?
 
 # publication date
 date <- xpathSApply(tmp, "//td[@class='newsDate']", xmlValue)
@@ -106,11 +107,12 @@ for(i in 2:length(list.files("Gamasutra/"))){
   
   # article content
   release <- xpathSApply(tmp, "//td[@class='newsText']/p", xmlValue)
-  release = str_c(release ,collapse=',')  # make into a single string
+  release = str_c(release ,collapse=',')  # make into a single string 
   
   # meta data: keywords
   content = tmp["//meta/@content"]
   keys = content[3]
+  keys = str_c(keys ,collapse=',')  # make into a single string NOT SURE IF THIS WORKS?
   
   # meta data: publication date
   date <- xpathSApply(tmp, "//td[@class='newsDate']", xmlValue)
@@ -135,6 +137,12 @@ meta_data <- data.frame(
   publication_date = unlist(meta_publication_date)
 )
 table(as.character(meta_data[, "keywords"]))
+table(as.character(meta_data[, "publication_date"]))
+
+head(meta_data["keywords"])
+head(meta_data["publication_date"])
+
+######
 
 # NOT SURE TO USE THIS?
 # Filtering the corpus (only those with enought sources; for supervised learning)
@@ -205,7 +213,7 @@ tdm_bigram <- TermDocumentMatrix(release_corpus, control = list(tokenize = Bigra
 tdm_bigram
 
 # Find associations
-findAssocs(tdm, "metal", .7)
+findAssocs(tdm, "nintendo", .7)
 
 ### 10.3 Supervised Learning Techniques
 ### --------------------------------------------------------------
@@ -218,7 +226,7 @@ dtm <- removeSparseTerms(dtm, 1-(10/length(release_corpus)))
 dtm
 
 # Labels
-org_labels <- unlist(meta(release_corpus, "organisation"))
+org_labels <- unlist(meta(release_corpus, "keywords"))
 org_labels[1:3]
 
 # Create container
@@ -226,8 +234,8 @@ N <- length(org_labels)
 container <- create_container(
   dtm,
   labels = org_labels,
-  trainSize = 1:400,
-  testSize = 401:N,
+  trainSize = 1:30,
+  testSize = 31:N,
   virgin = F
 )
 slotNames(container)
