@@ -188,24 +188,25 @@ dtm
 # Labels
 org_labels <- unlist(meta(release_corpus, "organisation"))
 org_labels[1:3]
+#head(org_labels)
 
 # Create container
 N <- length(org_labels)
 container <- create_container(
   dtm,
   labels = org_labels,
-  trainSize = 1:400,
-  testSize = 401:N,
+  trainSize = 1:400, # training data (~80%)
+  testSize = 401:N, # testing data (~20%)
   virgin = F
 )
 slotNames(container)
 
-# Train models
-svm_model <- train_model(container, "SVM")
-tree_model <- train_model(container, "TREE")
-maxent_model <- train_model(container, "MAXENT")
+# Train models - training
+svm_model <- train_model(container, "SVM") # support vector machine [focus on this]
+tree_model <- train_model(container, "TREE") # classification tree
+maxent_model <- train_model(container, "MAXENT") # maximum entropy method
 
-# Classify models
+# Classify models - testing(?)
 svm_out <- classify_model(container, svm_model)
 tree_out <- classify_model(container, tree_model)
 maxent_out <- classify_model(container, maxent_model)
@@ -231,6 +232,8 @@ table(labels_out[,1] == labels_out[,3])
 table(labels_out[,1] == labels_out[,4])
 
 prop.table(table(labels_out[,1] == labels_out[,4]))
+
+## STOP HERE ##
 
 ### 10.4 Unsupervised Learning Techniques
 ### --------------------------------------------------------------

@@ -194,23 +194,22 @@ head(meta_data["publication_date"])
 
 
 
-# NOT SURE TO USE THIS?
 # Filtering the corpus (only those with enought sources; for supervised learning)
 release_corpus <- release_corpus[
   meta(release_corpus, tag = "section") == "Accessories" | #22
     meta(release_corpus, tag = "section") == "Android OS" | #10
-    meta(release_corpus, tag = "section") == "Android TV" | #6
+    #meta(release_corpus, tag = "section") == "Android TV" | #6
     meta(release_corpus, tag = "section") == " Android Wear " | #11
-    meta(release_corpus, tag = "section") == "APK Teardown " | #6
+    #meta(release_corpus, tag = "section") == "APK Teardown " | #6
     meta(release_corpus, tag = "section") == "Applications" | #145
     meta(release_corpus, tag = "section") == "AT&T" | #11
-    meta(release_corpus, tag = "section") == "Chromecast" | #5
+    #meta(release_corpus, tag = "section") == "Chromecast" | #5
     meta(release_corpus, tag = "section") == "Deals" | #37
-    meta(release_corpus, tag = "section") == "Development" | #6
+    #meta(release_corpus, tag = "section") == "Development" | #6
     meta(release_corpus, tag = "section") == "Device Updates" | #10
     meta(release_corpus, tag = "section") == "Games" | #27
     meta(release_corpus, tag = "section") == "Google" | #29
-    meta(release_corpus, tag = "section") == "Leaks" | #6
+    #meta(release_corpus, tag = "section") == "Leaks" | #6
     meta(release_corpus, tag = "section") == "Marshmallow 6.0" | #20
     meta(release_corpus, tag = "section") == "News" #54
   ]
