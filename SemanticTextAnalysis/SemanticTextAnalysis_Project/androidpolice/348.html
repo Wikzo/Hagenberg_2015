@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en-US" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en-US" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en-US" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en-US" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/Article"> <!--<![endif]-->
+<head>
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="pingback" href="http://www.androidpolice.com/xmlrpc.php"/>
+<meta property="og:site_name" content="Android Police"/>
+<meta name="theme-color" content="#0041C8">
+<link rel="publisher" href="https://plus.google.com/103876278794381402383"/>
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+ 
+<link href='http://fonts.googleapis.com/css?family=Oswald|Roboto:700,500,400|Roboto+Slab' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+ 
+<link rel="shortcut icon" type="image/gif" href="http://www.androidpolice.com/wp-content/themes/ap2/images/favicon.gif">
+<link rel="apple-touch-icon" href="http://www.androidpolice.com/wp-content/themes/ap2/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="http://www.androidpolice.com/wp-content/themes/ap2/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="http://www.androidpolice.com/wp-content/themes/ap2/images/apple-touch-icon-114x114.png">
+<script src="//tags-cdn.deployads.com/a/androidpolice.com.js?f8353d" async></script>
+<script>
+  var ap_naag_timeset = parseFloat(localStorage['naag-timeset']),
+                  ap_naag_expiry  = ap_naag_timeset + 600000,
+                  ap_naag_article_count = parseFloat(localStorage['naag-article-count']),
+                  naag_d = new Date(),
+                  naag_time = naag_d.getTime();
+
+              console.log('APDEBUG ARTICLE COUNT: ' + ap_naag_article_count );</script>
+ 
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-6275685-2', 'auto');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
+
+  </script>
+<script type="text/javascript">var postid = 340764;</script><script type="text/javascript">var aphDir = "http://www.androidpolice.com/wp-content/plugins/ap-hotness"</script>
+ 
+<title>Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown]</title>
+<meta name="description" content="The Google app was treated to an update late yesterday, bringing the version number up to 5.4. This bump seems to be mostly dedicated to bug fixes, but a c... by Cody Toombs in APK Teardown, Applications, Downloads, News"/>
+<link rel="canonical" href="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/"/>
+<link rel="publisher" href="https://plus.google.com/103876278794381402383"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown]"/>
+<meta property="og:description" content="The Google app was treated to an update late yesterday, bringing the version number up to 5.4. This bump seems to be mostly dedicated to bug fixes, but a c... by Cody Toombs in APK Teardown, Applications, Downloads, News"/>
+<meta property="og:url" content="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/"/>
+<meta property="og:site_name" content="Android Police - Android News, Apps, Games, Phones, Tablets"/>
+<meta property="article:publisher" content="https://www.facebook.com/AndroidPolice"/>
+<meta property="article:tag" content="apk,apk download,apk teardown,app,download,downloads,h2g2,teardown"/>
+<meta property="article:section" content="APK Teardown"/>
+<meta property="article:published_time" content="2015-10-09T06:00:00-07:00"/>
+<meta property="article:modified_time" content="2015-10-09T03:53:54-07:00"/>
+<meta property="og:updated_time" content="2015-10-09T03:53:54-07:00"/>
+<meta property="og:image" content="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_Search_thumb.png"/>
+<meta property="og:image" content="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.45.32_thumb.png"/>
+<meta property="og:image" content="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.46.14_thumb.png"/>
+<meta property="og:image" content="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.01.25_thumb.png"/>
+<meta property="og:image" content="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.01_thumb.png"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:description" content="The Google app was treated to an update late yesterday, bringing the version number up to 5.4. This bump seems to be mostly dedicated to bug fixes, but a c... by Cody Toombs in APK Teardown, Applications, Downloads, News"/>
+<meta name="twitter:title" content="Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown]"/>
+<meta name="twitter:site" content="@AndroidPolice"/>
+<meta name="twitter:domain" content="Android Police - Android News, Apps, Games, Phones, Tablets"/>
+<meta name="twitter:image:src" content="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_Search_thumb.png"/>
+<meta name="twitter:creator" content="@Cody_Toombs"/>
+ 
+<link rel="alternate" type="application/rss+xml" title="Android Police - Android News, Apps, Games, Phones, Tablets &raquo; Feed" href="http://www.androidpolice.com/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="Android Police - Android News, Apps, Games, Phones, Tablets &raquo; Comments Feed" href="http://www.androidpolice.com/comments/feed/"/>
+<link rel="alternate" type="application/rss+xml" title="Android Police - Android News, Apps, Games, Phones, Tablets &raquo; Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown] Comments Feed" href="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/feed/"/>
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.androidpolice.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.1"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+<style type="text/css">img.wp-smiley,img.emoji{display:inline!important;border:none!important;box-shadow:none!important;height:1em!important;width:1em!important;margin:0 .07em!important;vertical-align:-0.1em!important;background:none!important;padding:0!important;}</style>
+<link rel='stylesheet' id='wp-polls-css' href="http://www.androidpolice.com/wp-content/plugins/wp-polls/polls-css.css?f8353d" type='text/css' media='all'/>
+<style id='wp-polls-inline-css' type='text/css'>.wp-polls .pollbar{margin:1px;font-size:6px;line-height:8px;height:8px;background-image:url('http://www.androidpolice.com/wp-content/plugins/wp-polls/images/default/pollbg.gif');border:1px solid #c8c8c8;}</style>
+<link rel='stylesheet' id='layout-css' href="http://www.androidpolice.com/wp-content/themes/ap2/stylesheets/layout.css?cachebust=1234567896&#038;ver=4.3.1&amp;f8353d" type='text/css' media='all'/>
+<link rel='stylesheet' id='tablepress-default-css' href="http://www.androidpolice.com/wp-content/plugins/tablepress/css/default.min.css?f8353d" type='text/css' media='all'/>
+<link rel='stylesheet' id='jetpack_css-css' href="http://www.androidpolice.com/wp-content/plugins/jetpack/css/jetpack.css?f8353d" type='text/css' media='all'/>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-includes/js/jquery/jquery.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-includes/js/jquery/jquery-migrate.min.js?f8353d"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.androidpolice.com/xmlrpc.php?rsd"/>
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.androidpolice.com/wp-includes/wlwmanifest.xml"/>
+<meta name="generator" content="WordPress 4.3.1"/>
+<link rel='shortlink' href='http://www.androidpolice.com/?p=340764'/>
+ 
+<script type="text/javascript">
+      (function() {
+          function async_load(script_url){
+              var protocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+              var s = document.createElement('script'); s.src = protocol + script_url;
+              var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+          }
+          bm_website_code = 'ADCF24FB71BE47D4';
+          jQuery(document).ready(function(){async_load('asset.pagefair.com/measure.min.js')});
+          jQuery(document).ready(function(){async_load('asset.pagefair.net/ads.min.js')});
+      })();
+  </script>
+ 
+</head>
+<body class="single single-post postid-340764 single-format-image">
+ 
+<div id="tip-us">
+<div id="tip-us-container" class="container">
+<div class="sixteen columns">
+<div class="tip-us-wrapper">
+<div class="tip-us-header">
+<a href="#" class="btn-close" title="Close"><i class="icon-exit"></i></a>
+<h2 class="modal-heading">Tip Us</h2>
+</div>
+<div class="tip-us-body">
+<div class="ap-loader"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="band header hidden-phone">
+<div class="container">
+<div class="sixteen columns">
+<a href="http://www.androidpolice.com"><h1 class="logo">Android Police</h1></a>
+<div id="header-ad-wrapper">
+<div id="ap2_header_1" class="adslot" data-mapping="header" data-dfp="ap2_header_1" data-cids="7956726685" data-sizes="0,0,0,728,728,728"></div>
+<script>(deployads = window.deployads || []).push({});</script> </div>
+</div>
+</div>
+</div> 
+<div class="band nav">
+<div class="ap-nav-wrapper">
+<div class="container">
+<ul class="mobile-nav list-unstyled">
+<li class="depth-priority">
+<a id="ap-menu-button" href="#" class="menu">
+<span class="ap-bar"></span>
+<span class="ap-bar"></span>
+<span class="ap-bar"></span>
+</a>
+<a class="search-box-close visible-handheld hidden">
+<i class="icon-backarrow"></i>
+</a>
+</li>
+<li>
+<a href="http://www.androidpolice.com" id="ap-logo-small">
+<i class="icon-ap"></i>
+</a>
+</li>
+<li>
+<a href="#" class="search-btn depth-priority"><i class="icon-search"></i></a>
+<div class="search-box" id="search-box">
+<form role="search" method="get" id="searchform" action="http://www.androidpolice.com/" autocomplete="off">
+<input class="textfield" type="search" name="s" id="s" placeholder="Search or select a category" value="" autocomplete="off"/>
+<div class="cat-select">
+<ul class="cat-ul list-unstyled">
+</ul>
+</div>
+</form>
+</div>
+</li>
+<li class="ap-new-articles">
+<a class="ap-new-articles-btn ap-btn-red" href="#">
+<span id="ap-new-articles-num" class="ap-new-articles-num"></span>
+<script>
+              apNewArticlesNum = document.getElementById("ap-new-articles-num");
+              console.log('APDEBUG EL: ' + apNewArticlesNum);
+              console.log('APDEBUG ARTICLE COUNT: naag_time = ' + naag_time + ', ap_naag_expiry = ' + ap_naag_expiry);
+              if ( !isNaN(ap_naag_article_count) && naag_time < ap_naag_expiry ) {
+                apNewArticlesNum.innerHTML = ap_naag_article_count;
+                console.log('APDEBUG ARTICLE COUNT: updating content with ' + ap_naag_article_count);
+              }
+              else {
+                console.log('APDEBUG ARTICLE COUND: DID NOT UPDATE');
+              }
+            </script>
+<span class="ap-new-articles-lable">New<br>Articles</span>
+<i class="icon-sort-down"></i>
+</a>
+</li>
+</ul>
+<ul id="menu-primary-nav" class="primary-nav ap-panel" role="navigation">
+<li id="nav-menu-item-294419" rel="news"><a class='ap-nav-primary' href="http://www.androidpolice.com/topics/news/">News<i class="icon-caret-right"></i></a>
+<div class='drop-down light' data-parent-id='nav-menu-item-294419'><div class='container'><ul class='sub-cat list-unstyled'>
+<li id="nav-menu-item-294423" rel="news"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/news/">Latest news</a></li>
+<li id="nav-menu-item-320013" rel="android-m"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/android-os/android-m/">Marshmallow 6.0</a></li>
+<li id="nav-menu-item-294427" rel="l"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/android-os/l/">Lollipop 5.0/5.1</a></li>
+<li id="nav-menu-item-294428" rel="android-os"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/android-os/">Android OS</a></li>
+<li id="nav-menu-item-294429" rel="wearables"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/wearables/">Wearables</a></li>
+<li id="nav-menu-item-294598" rel="android-tv-android-os"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/android-os/android-tv-android-os/">Android TV</a></li>
+<li id="nav-menu-item-294597" rel="android-auto"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/android-os/android-auto/">Android Auto</a></li>
+<li id="nav-menu-item-294426" rel="dev-development"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/dev-development/">Development</a></li>
+</ul><div id='article-list'></div><a class='more-btn' href='http://www.androidpolice.com/topics/news/'>More News...</a></div></div>
+</li>
+<li id="nav-menu-item-294420" rel="applications-games"><a class='ap-nav-primary' href="http://www.androidpolice.com/topics/applications-games/">Apps/Games<i class="icon-caret-right"></i></a>
+<div class='drop-down light' data-parent-id='nav-menu-item-294420'><div class='container'><ul class='sub-cat list-unstyled'>
+<li id="nav-menu-item-294425" rel="games"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/applications-games/games/">Games</a></li>
+<li id="nav-menu-item-294424" rel="applications"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/applications-games/applications/">Applications</a></li>
+<li id="nav-menu-item-294430" rel="roundups"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/roundups/">Roundups</a></li>
+<li id="nav-menu-item-294431" rel="app-reviews"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/reviews/app-reviews/">App Reviews</a></li>
+<li id="nav-menu-item-294432" rel="game-reviews"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/reviews/game-reviews/">Game Reviews</a></li>
+</ul><div id='article-list'></div><a class='more-btn' href='http://www.androidpolice.com/topics/applications-games/'>More Apps/Games...</a></div></div>
+</li>
+<li id="nav-menu-item-294421" rel="reviews"><a class='ap-nav-primary' href="http://www.androidpolice.com/topics/reviews/">Reviews<i class="icon-caret-right"></i></a>
+<div class='drop-down light' data-parent-id='nav-menu-item-294421'><div class='container'><ul class='sub-cat list-unstyled'>
+<li id="nav-menu-item-294435" rel="reviews"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/reviews/">All reviews</a></li>
+<li id="nav-menu-item-294434" rel="phone-reviews"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/reviews/phone-reviews/">Phone Reviews</a></li>
+<li id="nav-menu-item-294436" rel="tablet-reviews"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/reviews/tablet-reviews/">Tablet Reviews</a></li>
+<li id="nav-menu-item-294437" rel="wearable-reviews"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/reviews/wearable-reviews/">Wearable Reviews</a></li>
+<li id="nav-menu-item-294433" rel="other-reviews"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/reviews/other-reviews/">Other Reviews</a></li>
+</ul><div id='article-list'></div><a class='more-btn' href='http://www.androidpolice.com/topics/reviews/'>More Reviews...</a></div></div>
+</li>
+<li id="nav-menu-item-294422" rel="phones-devices"><a class='ap-nav-primary' href="http://www.androidpolice.com/topics/phones-devices/">Devices<i class="icon-caret-right"></i></a>
+<div class='drop-down light' data-parent-id='nav-menu-item-294422'><div class='container'><ul class='sub-cat list-unstyled'>
+<li id="nav-menu-item-297470" rel="nexus-google-phones-devices"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/phones-devices/google-phones-devices/nexus-google-phones-devices/">Nexus Devices</a></li>
+<li id="nav-menu-item-294438" rel="samsung"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/phones-devices/samsung/">Samsung</a></li>
+<li id="nav-menu-item-294439" rel="htc"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/phones-devices/htc/">HTC</a></li>
+<li id="nav-menu-item-294440" rel="motorola"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/phones-devices/motorola/">Motorola</a></li>
+<li id="nav-menu-item-294441" rel="sony"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/phones-devices/sony/">Sony</a></li>
+<li id="nav-menu-item-294594" rel="lg"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/phones-devices/lg/">LG</a></li>
+<li id="nav-menu-item-294442" rel="nvidia-phones-devices"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/phones-devices/nvidia-phones-devices/">NVIDIA</a></li>
+<li id="nav-menu-item-294595" rel="huawei"><a class='ap-nav-sub' href="http://www.androidpolice.com/topics/phones-devices/huawei/">Huawei</a></li>
+</ul><div id='article-list'></div><a class='more-btn' href='http://www.androidpolice.com/topics/phones-devices/'>More Devices...</a></div></div>
+</li>
+<li id="menu-item-294411" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294411"><a href="http://www.androidpolice.com/topics/news/leak/">Leaks</a></li>
+<li id="menu-item-294412" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294412"><a href="http://www.androidpolice.com/topics/news/exclusive/">Exclusives</a></li>
+<li id="menu-item-294413" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-294413"><a href="http://www.androidpolice.com/topics/downloads/">Downloads</a></li>
+<li id="menu-item-294414" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294414"><a href="http://www.androidpolice.com/topics/deals/">Deals</a></li>
+<li id="menu-item-294415" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294415"><a href="http://www.androidpolice.com/topics/contests/">Giveaways</a></li>
+<li id="menu-item-294416" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-294416"><a href="http://www.androidpolice.com/topics/features/">Features</a></li>
+<li id="menu-item-294417" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294417"><a href="http://www.androidpolice.com/topics/editorials/">Editorials</a></li>
+<li id="menu-item-294418" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294418"><a href="http://www.androidpolice.com/topics/podcast/">Podcast</a></li>
+<li><a class="tip-us" href="http://www.androidpolice.com/contact">Tip Us</a></li> </ul>
+</div>
+<div class="ap-panel ap-panel-news">
+<div class="container">
+<div id="news-slider"></div>
+<div class="fs-navigation">
+<a href="" class="fs-control fs-control-prev"><i class='icon-caret-left'></i> Prev</a>
+<div class="fs-control fs-control-filters disabled">
+<span>Posts in the last </span>
+<div class="ap-dropdown ap-filter-time">
+<a class="ap-dropdown-trigger active" href=""><span>24 Hours</span><i class="icon-sort-down"></i></a>
+<ul class="list-unstyled ap-dropdown-content ap-dropdown-content-bottom depth3">
+<li><a class="active" href="" data-function="ap_news_updater" data-time="24">24 Hours</a></li>
+<li><a href="" data-function="ap_news_updater" data-time="48">48 Hours</a></li>
+<li><a href="" data-function="ap_news_updater" data-time="72">72 Hours</a></li>
+</ul>
+</div>
+<span>sorted by </span>
+<div class="ap-dropdown ap-filter-criteria">
+<a class="ap-dropdown-trigger active" href="#"><span>Hottest</span><i class="icon-sort-down"></i></a>
+<ul class="list-unstyled ap-dropdown-content ap-dropdown-content-bottom depth3">
+<li><a class="active" href="" data-function="ap_news_updater" data-criteria="hottest">Hottest</a></li>
+<li><a href="" data-function="ap_news_updater" data-criteria="latest">Latest</a></li>
+<li><a href="" data-function="ap_news_updater" data-criteria="comments">Comments</a></li>
+</ul>
+</div>
+</div>
+<a href="" class="fs-control fs-control-next">Next <i class='icon-caret-right'></i></a>
+</div> 
+</div>
+</div>
+</div>
+ 
+</div> 
+<div class="band sub-nav main">
+<div class="container">
+<div class="sixteen columns">
+<nav>
+<ul id="menu-quick-menu-1" class="sub-nav"><li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294411"><a href="http://www.androidpolice.com/topics/news/leak/">Leaks</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294412"><a href="http://www.androidpolice.com/topics/news/exclusive/">Exclusives</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-294413"><a href="http://www.androidpolice.com/topics/downloads/">Downloads</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294414"><a href="http://www.androidpolice.com/topics/deals/">Deals</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294415"><a href="http://www.androidpolice.com/topics/contests/">Giveaways</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-294416"><a href="http://www.androidpolice.com/topics/features/">Features</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294417"><a href="http://www.androidpolice.com/topics/editorials/">Editorials</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-294418"><a href="http://www.androidpolice.com/topics/podcast/">Podcast</a></li>
+<li class="fl-right"><a class="tip-us ap-btn-red" href="http://www.androidpolice.com/contact" data-lightbox-type="ajax">Tip Us</a></li></ul>
+</nav>
+</div>
+</div>
+</div> 
+<div class="band content main single">
+<div class="container" id="ap-body">
+<div id="ap-mobile-1" class="lv-wrapper lv-wrapper-above-post visible-phone">
+<div id="ap2_header_2" class="adslot" data-mapping="smallWide" data-dfp="ap2_header_2" data-sizes="300,336,468,0,0,0"></div>
+<script>(deployads = window.deployads || []).push({});</script> </div>
+<div class="primary column">
+<div class="large-post single post-340764 post type-post status-publish format-image hentry category-apk-teardown category-applications category-downloads category-news tag-apk tag-apk-download tag-apk-teardown-2 tag-app tag-download tag-downloads tag-h2g2 tag-teardown post_format-post-format-image" id="post-340764">
+<header class="post-header">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/#disqus_thread">...</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-70" style="width:67.600193458011%;"></div>
+</div>
+<h2 itemprop="name"><a href="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/">Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown]</a></h2><div class="post-meta">
+<a class="author-pic hidden-phone" href="http://www.androidpolice.com/author/cody-toombs/"><img src="https://lh4.googleusercontent.com/-BHZ8LY9nMWk/AAAAAAAAAAI/AAAAAAAACRQ/Ludw527D6To/photo.jpg?sz=50"/></a>
+<span class="post-author"><a class="author-name" href="http://www.androidpolice.com/author/cody-toombs/ ">Cody Toombs</a></span><div class="card card-small card-popup card-author depth3">
+<div class="card-inner">
+</div>
+<div class="card-action"><div class="fl-left"><div class="g-follow" data-annotation="none" data-height="20" data-href="https://plus.google.com/113320858444397755860/posts" data-rel="author"></div></div><a href="https://twitter.com/https://twitter.com/Cody_Toombs" class="twitter-follow-button fl-left" data-show-count="false" data-size="medium" data-show-screen-name="false">Follow</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js?f8353d";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><a href="http://www.androidpolice.com/author/cody-toombs/" class="card-action-btn fl-right">View All Posts</a>
+</div>
+</div><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/09 6:00am PST</time><time class="timeago" datetime="2015-10-09T06:00:00-07:00">Oct 9, 2015</time></div> </div><div class="share-box">
+<ul class="share-btns list-unstyled">
+<li>
+<a class="share-btn-gplus"><i class="icon-google-plus"></i><span>455</span></a>
+<div class="share-btn gplus-widget">
+<a href="https://plus.google.com/share?url=http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/" class="socialite googleplus-one" data-text="Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown]" data-href="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/" data-size="medium" data-align="right" rel="nofollow" target="_blank">
+Plus 1 on G+
+</a>
+</div>
+</li>
+<li>
+<a><i class="icon-twitter"></i><span>56</span></a>
+<div class="share-btn">
+<a href="http://twitter.com/share" class="socialite twitter-share" data-text="Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown]" data-url="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/" data-align="right" rel="nofollow" target="_blank">
+Share on Twitter
+</a>
+</div>
+</li>
+<li>
+<a><i class="icon-facebook"></i><span>55</span></a>
+<div class="share-btn">
+<a class="socialite facebook-like" data-layout="button_count" data-show-faces="false" href="http://www.facebook.com/sharer.php?u=http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/&amp;t=Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown]" data-href="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/" target="_blank">
+Share on Facebook
+</a>
+</div>
+</li>
+</ul>
+<div class="shares">
+<span>Total Shares</span><span class="count">566</span>
+</div>
+</div></header><div class="categories"><ul class="post-categories list-unstyled"><li><a class="cat cat-apk-teardown" href="http://www.androidpolice.com/topics/features/apk-teardown/" title="View all posts in APK Teardown"><i class="icon-apk-teardown"></i>APK Teardown</a></li><li><a class="cat cat-applications" href="http://www.androidpolice.com/topics/applications-games/applications/" title="View all posts in Applications"><i class="icon-applications"></i>Applications</a></li><li><a class="cat cat-downloads" href="http://www.androidpolice.com/topics/downloads/" title="View all posts in Downloads">Downloads</a></li><li><a class="cat cat-news" href="http://www.androidpolice.com/topics/news/" title="View all posts in News"><i class="icon-news"></i>News</a></li></ul></div><a class="post-hero post-hero-single" href="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_Search_thumb.png"><img class="img-hero" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_Search_thumb.png&w=728"></a>
+<div class="post-content">
+<div id="ap-in-post-1" class="ip-wrapper">
+<div id="ap2_in_post_1" class="adslot" data-mapping="allWide320" data-dfp="ap2_in_post_1" data-sizes="320,320,468,320,468,728"></div>
+<script>(deployads = window.deployads || []).push({});</script> </div>
+<div id="toc_container" class="no_bullets"><p class="toc_title">Article Contents</p><ul class="toc_list"><li><a href="#Whats_New"><span class="toc_number toc_depth_1">1</span> What's New</a><ul><li><a href="#Fixed_Card_Swipe_Animation"><span class="toc_number toc_depth_2">1.1</span> Fixed Card Swipe Animation</a></li><li><a href="#Accessible_Settings_For_Places"><span class="toc_number toc_depth_2">1.2</span> Accessible Settings For Places</a></li></ul></li><li><a href="#Teardown"><span class="toc_number toc_depth_1">2</span> Teardown</a><ul><li><a href="#New_Wear_App"><span class="toc_number toc_depth_2">2.1</span> New Wear App</a></li></ul></li><li><a href="#Download"><span class="toc_number toc_depth_1">3</span> Download</a></li></ul></div>
+<p align="center"><a href="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_Search.png" class=" no-style"></a></p>
+<p>The Google app was treated to an update late yesterday, bringing the version number up to 5.4. This bump seems to be mostly dedicated to bug fixes, but a couple of changes deserve to be mentioned. A previously screwy animation has been restored to its original beauty, and we now have a more convenient way to set Home and Work locations. Evidence also turned up that suggests the Google app will play host to its own mini-app for Android Wear.</p>
+<h2><span id="Whats_New">What's New</span></h2>
+<h3><span id="Fixed_Card_Swipe_Animation">Fixed Card Swipe Animation</span></h3>
+<p align="center"><a href="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.45.32.png" class=" no-style"><img title="2015-10-09 09.45.32" style="margin: 0px 5px 0px 0px; display: inline" alt="2015-10-09 09.45.32" src="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.45.32_thumb.png" width="329" height="585"></a><a href="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.46.14.png" class=" no-style"><img title="2015-10-09 09.46.14" style="display: inline" alt="2015-10-09 09.46.14" src="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.46.14_thumb.png" width="329" height="585"></a></p>
+<p align="center"><em><sup><strong>Left:</strong> previous version. <strong>Right:</strong> latest version.</sup></em></p>
+<p>Last month's v5.3 update introduced a very unsightly bug into the Google Now stream. A dark gray box was revealed anytime a card was swiped away. The box remained in place until its card was fully dismissed, at which point it simply disappeared and any cards below it were shifted up to fill the space. The latest release fixes this oversight and restores the behavior of older versions.</p>
+<h3><span id="Accessible_Settings_For_Places">Accessible Settings For Places</span></h3>
+<p align="center"><a href="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.01.25.png" class=" no-style"><img title="2015-10-09 09.01.25" style="margin: 0px 5px 0px 0px; display: inline" alt="2015-10-09 09.01.25" src="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.01.25_thumb.png" width="329" height="394"></a><a href="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.01.png" class=" no-style"><img title="2015-10-09-09.01" style="display: inline" alt="2015-10-09-09.01" src="http://www.androidpolice.com/wp-content/uploads/2015/10/nexus2cee_2015-10-09-09.01_thumb.png" width="329" height="394"></a></p>
+<p>A more functional change was made to the configuration side of the Google app. If you open the navigation drawer and tap on Customize, there is a new section at the top of the screen with options to set the location of your home and work. The settings themselves aren't new; they've long been a part of the Google Maps service. The addresses here are used by Google for estimating commute times and accident reports, not to mention a few other helpful features. It's likely users were confused about how and where to set these fields, so Google put them front and center for easy access.</p>
+<h2><span id="Teardown">Teardown</span></h2>
+<div class="note-wrapper"><div class="note note-warning"><div class="note-heading"><i class="icon-warning"></i></div>Disclaimer: Teardowns are necessarily speculative and usually based on incomplete evidence. It's possible that the guesses made here are totally and completely wrong. There is always a chance that details may change or plans may be cancelled prior to the launch of a new feature discovered in a teardown. Much like rumors, nothing is certain until it's officially announced.</div></div>
+<h3><span id="New_Wear_App">New Wear App</span></h3>
+<p>After all this time, it seemed like Google had mostly ironed out which apps would provide their own additions to Android Wear. Aside from some <a href="http://www.androidpolice.com/2015/09/03/inbox-v1-12-shows-signs-of-new-snooze-options-contact-tags-and-its-own-app-for-android-wear-apk-teardown-download/#Dedicated_Android_Wear_App">late bloomers</a>, there was little reason to expect any of the remaining apps to contribute their own native apps, but that's exactly what the Google app is going to do.</p>
+<p>A new file with the name "wear_app_desc" appeared in the resources under the /xml folder. This file is used to determine if a particular apk should be installed to a paired Android Wear device. Unfortunately, the contents of the file are useless for conveying what the app would do, and there's no micro-apk to examine or install.</p>
+<div class="note-wrapper"><div class="note note-tip"><div class="note-heading"><i class="icon-tip"></i></div>
+<p><em><u>Contents of the wear_app_desc.xml file:</u></em></p>
+<p>&lt;wearableApp package="<strong>com.google.android.googlequicksearchbox</strong>"&gt;<br>&lt;versionCode&gt;<strong>1</strong>&lt;/versionCode&gt;<br>&lt;versionName&gt;<strong>1.0</strong>&lt;/versionName&gt;<br>&lt;rawPathResId&gt;<strong>gsa_wearable</strong>&lt;/rawPathResId&gt;<br>&lt;/wearableApp&gt;</p>
+</div></div>
+<p>The only other reference to the Wear app appears in some strings where a "capability" of the app is described as a "card sync provider" &ndash; but that's not really helpful, either.</p>
+<div class="note-wrapper"><div class="note note-tip"><div class="note-heading"><i class="icon-tip"></i></div>
+<p>&lt;string-array name="<strong>android_wear_capabilities</strong>"&gt;<br>&lt;item&gt;<strong>card_sync_provider</strong>&lt;/item&gt;<br>&lt;/string-array&gt;</p>
+</div></div>
+<p>The safe guess is that this app will take over the responsibility for the card stream on Wear, which was previously included with the firmware for each watch. Like most things, this means Google won't have to ship firmware updates just to change card stream behavior. Things like speech recognition and Smart Lock functions may also be covered by new updates. For now, it's hard to predict exactly what Google has in mind, but we can probably expect to see it when Wear devices receive an Android 6.0 update, whenever that may be.</p>
+<h2><span id="Download">Download</span></h2>
+<div id="ap-in-post-3" class="sc-ad-wrapper post-ad">
+<div id="ap2_in_post_3" class="adslot" data-mapping="shortcodeVariant" data-dfp="ap2_in_post_3" data-sizes="300,320,336,336,336,336"></div>
+<script>(deployads = window.deployads || []).push({});</script></div>
+<p>The APK is signed by Google and upgrades your existing app. The cryptographic signature guarantees that the file is safe to install and was not tampered with in any way. Rather than wait for Google to push this download to your devices, which can take days, download and install it just like any other APK.</p>
+<p><strong>File Name:</strong> com.google.android.googlequicksearchbox_5.4.24.19.arm-300522076_minAPI19(armeabi-v7a)(nodpi).apk</p>
+<p><strong>Version:</strong> 5.4.24.19.arm (300522076)</p>
+<ul><li><a href="http://www.apkmirror.com/apk/google-inc/google-search/google-app-5-4-24-19-arm-android-apk-download/">APK Mirror</a></li>
+</ul>
+</div>
+<div class="post-footer-meta">
+<ul class="horizontal-boxes list-unstyled horizontal-boxes-tags"><li class="title green-border header-bg green-bg">Tags</li><li><a href="http://www.androidpolice.com/tags/apk/" rel="tag">apk</a></li><li><a href="http://www.androidpolice.com/tags/apk-download/" rel="tag">apk download</a></li><li><a href="http://www.androidpolice.com/tags/apk-teardown-2/" rel="tag">apk teardown</a></li><li><a href="http://www.androidpolice.com/tags/app/" rel="tag">app</a></li><li><a href="http://www.androidpolice.com/tags/download/" rel="tag">download</a></li><li><a href="http://www.androidpolice.com/tags/downloads/" rel="tag">downloads</a></li><li><a href="http://www.androidpolice.com/tags/h2g2/" rel="tag">h2g2</a></li><li><a href="http://www.androidpolice.com/tags/teardown/" rel="tag">teardown</a></li></ul>
+<a href="#" class="btn btn-small btn-pb btn-subscribe" data-trigger="reveal" data-target="card-pb" data-function="apLoadPushbullet"><i class="icon-pushbullet"></i>subscribe</a>
+<div class="clear"></div>
+<div id="card-pb" class="card card-popup card-pb depth3">
+<div class="card-inner">
+</div>
+</div>
+</div>
+<div class="OUTBRAIN" data-src="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/" data-widget-id="AR_1" data-ob-template="IllogicalRobot"></div>
+<script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+</div> 
+<div class="post-footer">
+<div class="article-nav">
+<div class="article-nav-box ">
+<a href="http://www.androidpolice.com/2015/10/08/deal-alert-huawei-p8-lite-on-sale-for-199-50-off-through-amazon/#disqus_thread" class="comment-btn">...</a>
+<a href="http://www.androidpolice.com/2015/10/08/deal-alert-huawei-p8-lite-on-sale-for-199-50-off-through-amazon/">
+<div class="article-nav-box-content">
+<h4 class="first-heading"><span>Previous</span> Story</h4>
+<div class="article-nav-box-title">
+<div class="ellipsize">
+<h5>[Deal Alert] Huawei P8 Lite On Sale For $199 ($50 Off) Through Amazon</h5>
+</div>
+</div>
+</div>
+<div class="frame">
+<div class="frame-image-wrapper">
+<img class="centered animate" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_Screenshot-2015-10-08-at-9.20.15-PM-728x383.png&h=129&zc=3" alt="">
+</div>
+<img class="bg animate" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_Screenshot-2015-10-08-at-9.20.15-PM-728x383.png&w=150&h=85&zc=1&f=8|8|8|8|8|8|8|8|8|8|8|8|8" alt="">
+</div>
+</a>
+</div>
+<div class="article-nav-box ">
+<a href="http://www.androidpolice.com/2015/10/09/opera-max-now-compresses-audio-from-pandora-soundcloud-and-slacker/#disqus_thread" class="comment-btn">...</a>
+<a href="http://www.androidpolice.com/2015/10/09/opera-max-now-compresses-audio-from-pandora-soundcloud-and-slacker/">
+<div class="article-nav-box-content">
+<h4 class="first-heading"><span>Next</span> Story</h4>
+<div class="article-nav-box-title">
+<div class="ellipsize">
+<h5>Opera Max Now Compresses Audio From Pandora, SoundCloud, And Slacker</h5>
+</div>
+</div>
+</div>
+<div class="frame">
+<div class="frame-image-wrapper">
+<img class="centered animate" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F05%2Fnexus2cee_image-1_thumb1.png&h=129&zc=3" alt="">
+</div>
+<img class="bg animate" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F05%2Fnexus2cee_image-1_thumb1.png&w=150&h=85&zc=1&f=8|8|8|8|8|8|8|8|8|8|8|8|8" alt="">
+</div>
+</a>
+</div>
+</div>
+<div class="post-footer-inner">
+<div class="single-post-widget">
+<li id="appopularposts-7" class="red widget ap-popular-posts"><header class="section-header"><h4 class="header-bg">Trending</h4></header><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/a-google-engineer-who-works-on-usb-type-c-products-is-reviewing-and-identifying-out-of-spec-potentially-dangerous-third-party-cables-and-adapters/#comments">115</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.999565105116%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/a-google-engineer-who-works-on-usb-type-c-products-is-reviewing-and-identifying-out-of-spec-potentially-dangerous-third-party-cables-and-adapters/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_iorang-usb-typec-cable-728x462.jpg&w=54&h=54">
+<div class="cell-content">
+<h4>A Google Engineer Who Works On USB Type-C Products Is Reviewing And Identifying Out-Of-Spec Potentially Dangerous Third-Party Cables And Adapters</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 5:30am PST</time><time class="timeago" datetime="2015-11-04T05:30:36-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/#comments">6</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.969472059719%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_auto_thumb.png&w=54&h=54">
+<div class="cell-content">
+<h4>Android Auto v1.4 Cleans Up The Companion App Interface And Adds Granular Control For Previously Connected Cars [APK Download]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 6:57pm PST</time><time class="timeago" datetime="2015-11-04T18:57:00-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/03/s/#comments">380</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.917513261332%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/03/s/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_hero2-728x410.png&w=54&h=54">
+<div class="cell-content">
+<h4>[Freak Out] Contrary To Popular Belief, The Nexus 6P Is Not Unbreakable</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/03 11:08pm PST</time><time class="timeago" datetime="2015-11-03T23:08:19-08:00">Nov 3, 2015</time></div></div>
+</div>
+</a>
+</li></ul></section><div id="ap-mobile-trending" class="pop-ad-wrapper">
+<div class="adslot" id="ap2_popular_posts_1" data-mapping="popular" data-dfp="ap2_popular_posts_1" data-sizes="300,336,336,336,300,300"></div>
+<script>(deployads = window.deployads || []).push({});</script>
+</div></li> </div>
+<div id="comments">
+<header class="section-header ">
+<h4 class="header-bg blue-bg">Comments</h4>
+</header>
+<a name="comments"></a>
+<section>
+<div id="disqus_thread">
+<div id="dsq-content">
+<ul id="dsq-comments">
+<li class="comment even thread-even depth-1" id="dsq-comment-1116749">
+<div id="dsq-comment-header-1116749" class="dsq-comment-header">
+<cite id="dsq-cite-1116749">
+<span id="dsq-author-user-1116749">1100</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116749" class="dsq-comment-body">
+<div id="dsq-comment-message-1116749" class="dsq-comment-message"><p>Still can't use a pintpoint to well, pint point the 'home' :/</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-1116762">
+<div id="dsq-comment-header-1116762" class="dsq-comment-header">
+<cite id="dsq-cite-1116762">
+<span id="dsq-author-user-1116762">Backseat Designer</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116762" class="dsq-comment-body">
+<div id="dsq-comment-message-1116762" class="dsq-comment-message"><p>This. I work on a large campus with a single address, and Google maps puts the address location centrally on the campus, nowhere near the building in which I work. This renders "at work" reminders useless. I'd like to be able to use a location picker like in smart lock settings to select the actual building.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-1116784">
+<div id="dsq-comment-header-1116784" class="dsq-comment-header">
+<cite id="dsq-cite-1116784">
+<span id="dsq-author-user-1116784">Vlad</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116784" class="dsq-comment-body">
+<div id="dsq-comment-message-1116784" class="dsq-comment-message"><p>You can also set it by coordinates from the link on the PC. It takes a few minutes to refresh and show the new location, so it seems like it doesn't work at first...</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-4" id="dsq-comment-1116950">
+<div id="dsq-comment-header-1116950" class="dsq-comment-header">
+<cite id="dsq-cite-1116950">
+<span id="dsq-author-user-1116950">Paul_Werner</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116950" class="dsq-comment-body">
+<div id="dsq-comment-message-1116950" class="dsq-comment-message"><p>Do you have the PC link? I'll search but I'm at work so I may not get the time to</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-5" id="dsq-comment-1116960">
+<div id="dsq-comment-header-1116960" class="dsq-comment-header">
+<cite id="dsq-cite-1116960">
+<span id="dsq-author-user-1116960">Vlad</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116960" class="dsq-comment-body">
+<div id="dsq-comment-message-1116960" class="dsq-comment-message"><p>You go to maps.google.com</p>
+<p>Pinpoint the location you want </p>
+<p>Grab the coordinates (eg "44.413021, 25.953788")</p>
+<p>Search for home/work and when asked to say the address/city/building you put the coordinates in.</p>
+<p>Don't expect for the change to take effect instantly. It took anywhere from 10 seconds to 1 day for them to happen to me.</p>
+<p>FYI: My home and work address also have names on the map, but they are usually obscure, setting home and work is bugged.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-5" id="dsq-comment-1117013">
+<div id="dsq-comment-header-1117013" class="dsq-comment-header">
+<cite id="dsq-cite-1117013">
+<span id="dsq-author-user-1117013">Paul_Werner</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117013" class="dsq-comment-body">
+<div id="dsq-comment-message-1117013" class="dsq-comment-message"><p>Sweet, thanks. Now I have it set to my Parking spot nearby my job so I don't have to kill the GPS each time I am parked but didn't walk to the building</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-5" id="dsq-comment-1117143">
+<div id="dsq-comment-header-1117143" class="dsq-comment-header">
+<cite id="dsq-cite-1117143">
+<span id="dsq-author-user-1117143">1100</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117143" class="dsq-comment-body">
+<div id="dsq-comment-message-1117143" class="dsq-comment-message"><p>THANK YOU!</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-1116757">
+<div id="dsq-comment-header-1116757" class="dsq-comment-header">
+<cite id="dsq-cite-1116757">
+<span id="dsq-author-user-1116757">WestIndiesKING</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116757" class="dsq-comment-body">
+<div id="dsq-comment-message-1116757" class="dsq-comment-message"><p>Does anyone else miss being able to just save images after using the google search on the home screen? Now you either have to screen shot or click on the link below the image and then save the image from the website. I dont know if this changed because of a patent dispute or what but i hate the extra step i have to take that i didnt have to before.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-1116761">
+<div id="dsq-comment-header-1116761" class="dsq-comment-header">
+<cite id="dsq-cite-1116761">
+<span id="dsq-author-user-1116761">John Q</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116761" class="dsq-comment-body">
+<div id="dsq-comment-message-1116761" class="dsq-comment-message"><p>Yes! I used that feature so much. Now I have to open chrome and redo the search to save an image.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-1116804">
+<div id="dsq-comment-header-1116804" class="dsq-comment-header">
+<cite id="dsq-cite-1116804">
+<span id="dsq-author-user-1116804">ki77erb</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116804" class="dsq-comment-body">
+<div id="dsq-comment-message-1116804" class="dsq-comment-message"><p>Another thing that bugs me is "search tools" is not available if you do a search from the home screen. Like if you want to do a google search and limit it to the last month, or last year. That option is only available in Chrome.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-1116921">
+<div id="dsq-comment-header-1116921" class="dsq-comment-header">
+<cite id="dsq-cite-1116921">
+<span id="dsq-author-user-1116921">Paul_Werner</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116921" class="dsq-comment-body">
+<div id="dsq-comment-message-1116921" class="dsq-comment-message"><p>Yep, because of this a lot of my searches are still done in Chrome instead of Google Now or the search on the home screen</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-4" id="dsq-comment-1116931">
+<div id="dsq-comment-header-1116931" class="dsq-comment-header">
+<cite id="dsq-cite-1116931">
+<span id="dsq-author-user-1116931">John Monks</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116931" class="dsq-comment-body">
+<div id="dsq-comment-message-1116931" class="dsq-comment-message"><p>Oh god, so much this.<br/>
+I almost never want results from more than a year ago, particuarly anything related to android because so much can change so quickly, but everytime I use the google app to look something up it always offers me something from 2011.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment even depth-3" id="dsq-comment-1117458">
+<div id="dsq-comment-header-1117458" class="dsq-comment-header">
+<cite id="dsq-cite-1117458">
+<span id="dsq-author-user-1117458">Gerjannn</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117458" class="dsq-comment-body">
+<div id="dsq-comment-message-1117458" class="dsq-comment-message"><p>If you use Nova or so you could save <a href="http://www.google.com" rel="nofollow" class="external" target="_blank">http://www.google.com</a> to your homescreen and replace the icon with the Google App icon, but well, that's not the most beautiful thing. But it's something. I guess.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-1116834">
+<div id="dsq-comment-header-1116834" class="dsq-comment-header">
+<cite id="dsq-cite-1116834">
+https://twitter.com/MikeOghia <span id="dsq-author-user-1116834">Michael Oghia</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116834" class="dsq-comment-body">
+<div id="dsq-comment-message-1116834" class="dsq-comment-message"><p>YES! It's so annoying!</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-2" id="dsq-comment-1116837">
+<div id="dsq-comment-header-1116837" class="dsq-comment-header">
+<cite id="dsq-cite-1116837">
+https://twitter.com/MikeOghia <span id="dsq-author-user-1116837">Michael Oghia</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116837" class="dsq-comment-body">
+<div id="dsq-comment-message-1116837" class="dsq-comment-message"><p>I really liked the old way Google Now presented trip information. It used to have a really nice photo of wherever you were going, but now it's just boring text. Not only does it not stand out, but 1. It's a downgrade, and 2. It's not nearly as exciting. I left a comment on the Play Store, but I doubt anyone from the team will read it.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-1116956">
+<div id="dsq-comment-header-1116956" class="dsq-comment-header">
+<cite id="dsq-cite-1116956">
+<span id="dsq-author-user-1116956">Karan Shah</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116956" class="dsq-comment-body">
+<div id="dsq-comment-message-1116956" class="dsq-comment-message"><p>email feedback works it seems</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-1116967">
+<div id="dsq-comment-header-1116967" class="dsq-comment-header">
+<cite id="dsq-cite-1116967">
+https://twitter.com/MikeOghia <span id="dsq-author-user-1116967">Michael Oghia</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116967" class="dsq-comment-body">
+<div id="dsq-comment-message-1116967" class="dsq-comment-message"><p>Done, thanks!</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-1117445">
+<div id="dsq-comment-header-1117445" class="dsq-comment-header">
+<cite id="dsq-cite-1117445">
+<span id="dsq-author-user-1117445">WORPspeed</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117445" class="dsq-comment-body">
+<div id="dsq-comment-message-1117445" class="dsq-comment-message"><p>it is why I prefer searching in Chrome over Googles actual search app, unless I'm searching for something on my phone or know I just want a quick look up of info without storing any of it somewhere</p>
+<p>Sometimes I wish I could change the behavior of OK google commands and the search bar, to just search with Chrome instead of the native app</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-1116758">
+<div id="dsq-comment-header-1116758" class="dsq-comment-header">
+<cite id="dsq-cite-1116758">
+<span id="dsq-author-user-1116758">irishrally</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116758" class="dsq-comment-body">
+<div id="dsq-comment-message-1116758" class="dsq-comment-message"><p>Dominated my stats after the update yesterday</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-1117360">
+<div id="dsq-comment-header-1117360" class="dsq-comment-header">
+<cite id="dsq-cite-1117360">
+<span id="dsq-author-user-1117360">DirkBelig</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117360" class="dsq-comment-body">
+<div id="dsq-comment-message-1117360" class="dsq-comment-message"><p>Me too. My Nexus 7 2013 is bleeding power like a emo hemophiliac. Google App was holding it awake so badly I uninstalled updates. Now the wifi bug is killing the battery. I had it drop 15% in 100 minutes not even being used. It died overnight. They should've call it Doze; they should've called it Insomnia.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-1116759">
+<div id="dsq-comment-header-1116759" class="dsq-comment-header">
+<cite id="dsq-cite-1116759">
+https://plus.google.com/+VictorSouzaGMBR <span id="dsq-author-user-1116759">Victor Souza</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116759" class="dsq-comment-body">
+<div id="dsq-comment-message-1116759" class="dsq-comment-message"><p>"Fixed Card Swipe Animation"<br/>
+I thought it was a feature</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-1116760">
+<div id="dsq-comment-header-1116760" class="dsq-comment-header">
+<cite id="dsq-cite-1116760">
+<span id="dsq-author-user-1116760">Imparus</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116760" class="dsq-comment-body">
+<div id="dsq-comment-message-1116760" class="dsq-comment-message"><p>Yeah I also thought it was on purpose :S</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-1117069">
+<div id="dsq-comment-header-1117069" class="dsq-comment-header">
+<cite id="dsq-cite-1117069">
+<span id="dsq-author-user-1117069">mattcoz</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117069" class="dsq-comment-body">
+<div id="dsq-comment-message-1117069" class="dsq-comment-message"><p>I wasn't sure, it seemed too obvious to be left in unintentionally. Glad they fixed it though.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-1116766">
+<div id="dsq-comment-header-1116766" class="dsq-comment-header">
+<cite id="dsq-cite-1116766">
+<span id="dsq-author-user-1116766">Not That Drunk</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116766" class="dsq-comment-body">
+<div id="dsq-comment-message-1116766" class="dsq-comment-message"><p>I wish they'd have left swipe up on the home button for Now cards, and hold for On Tap. The current implementation is mildy annoying. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-1116799">
+<div id="dsq-comment-header-1116799" class="dsq-comment-header">
+<cite id="dsq-cite-1116799">
+<span id="dsq-author-user-1116799">Tubsy</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116799" class="dsq-comment-body">
+<div id="dsq-comment-message-1116799" class="dsq-comment-message"><p>at least an option would be nice</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-1116802">
+<div id="dsq-comment-header-1116802" class="dsq-comment-header">
+<cite id="dsq-cite-1116802">
+<span id="dsq-author-user-1116802">Jason Pagliaro</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116802" class="dsq-comment-body">
+<div id="dsq-comment-message-1116802" class="dsq-comment-message"><p>Agreed. The extra steps are causing me to use Now way less, even if it barely takes longer. I'm so used to having super fast access to it.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-2" id="dsq-comment-1116815">
+<div id="dsq-comment-header-1116815" class="dsq-comment-header">
+<cite id="dsq-cite-1116815">
+<span id="dsq-author-user-1116815">Clubber</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116815" class="dsq-comment-body">
+<div id="dsq-comment-message-1116815" class="dsq-comment-message"><p>Exactly. Swipe up doesn't work even if Now on Tap is off.</p>
+<p>I've been trained to swipe up since 2012 and now it's gone. Bring it back and just have long press for Now on Tap.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-1116975">
+<div id="dsq-comment-header-1116975" class="dsq-comment-header">
+<cite id="dsq-cite-1116975">
+<span id="dsq-author-user-1116975">person</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116975" class="dsq-comment-body">
+<div id="dsq-comment-message-1116975" class="dsq-comment-message"><p>Devices with physical keys can only have one or the other. Guess they're going for consistency and figured the Now shortcut at the bottom would suffice.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-1116767">
+<div id="dsq-comment-header-1116767" class="dsq-comment-header">
+<cite id="dsq-cite-1116767">
+http://www.twitter.com/b_boogey_xl <span id="dsq-author-user-1116767">b_boogey_xl</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116767" class="dsq-comment-body">
+<div id="dsq-comment-message-1116767" class="dsq-comment-message"><p>Wow. All those screen shots were done with full WiFi, full signal, full battery, and all exactly at 6:00!</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-1116773">
+<div id="dsq-comment-header-1116773" class="dsq-comment-header">
+<cite id="dsq-cite-1116773">
+<span id="dsq-author-user-1116773">Andrew Palmer</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116773" class="dsq-comment-body">
+<div id="dsq-comment-message-1116773" class="dsq-comment-message"><p>Thats cause whoever took them enabled demo mode which does this. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-1116785">
+<div id="dsq-comment-header-1116785" class="dsq-comment-header">
+<cite id="dsq-cite-1116785">
+<span id="dsq-author-user-1116785">mfr118</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116785" class="dsq-comment-body">
+<div id="dsq-comment-message-1116785" class="dsq-comment-message"><p>I think that was sarcasm on his part</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-4" id="dsq-comment-1116902">
+<div id="dsq-comment-header-1116902" class="dsq-comment-header">
+<cite id="dsq-cite-1116902">
+<span id="dsq-author-user-1116902">kris</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116902" class="dsq-comment-body">
+<div id="dsq-comment-message-1116902" class="dsq-comment-message"><p>Or ignorance.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-1116775">
+<div id="dsq-comment-header-1116775" class="dsq-comment-header">
+<cite id="dsq-cite-1116775">
+<span id="dsq-author-user-1116775">Andrew Palmer</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116775" class="dsq-comment-body">
+<div id="dsq-comment-message-1116775" class="dsq-comment-message"><p>Does anyone else that upgraded to 6.0 from 5.1.1 on a Nexus 5 that the location based smart lock doesn't work anymore? My phone used to be unlocked when I was at home but now it's always locked. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-1116782">
+<div id="dsq-comment-header-1116782" class="dsq-comment-header">
+<cite id="dsq-cite-1116782">
+<span id="dsq-author-user-1116782">Aaron Jaeger</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116782" class="dsq-comment-body">
+<div id="dsq-comment-message-1116782" class="dsq-comment-message"><p>Locations work for me. I flashed fresh, though.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-2" id="dsq-comment-1116787">
+<div id="dsq-comment-header-1116787" class="dsq-comment-header">
+<cite id="dsq-cite-1116787">
+<span id="dsq-author-user-1116787">mfr118</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116787" class="dsq-comment-body">
+<div id="dsq-comment-message-1116787" class="dsq-comment-message"><p>hasn't worked for me since the developer previews. It's mildly annoying</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-1116788">
+<div id="dsq-comment-header-1116788" class="dsq-comment-header">
+<cite id="dsq-cite-1116788">
+<span id="dsq-author-user-1116788">Good_Ole_Pinocchio</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116788" class="dsq-comment-body">
+<div id="dsq-comment-message-1116788" class="dsq-comment-message"><p>YES. I just posted about that up top.... It works but it doesn't remember when you get back to that location</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-2" id="dsq-comment-1116791">
+<div id="dsq-comment-header-1116791" class="dsq-comment-header">
+<cite id="dsq-cite-1116791">
+<span id="dsq-author-user-1116791">D Stro</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116791" class="dsq-comment-body">
+<div id="dsq-comment-message-1116791" class="dsq-comment-message"><p>Same thing as well, waiting for the OTA on Nexus 6 to see if its happening on that phone too.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-1116813">
+<div id="dsq-comment-header-1116813" class="dsq-comment-header">
+<cite id="dsq-cite-1116813">
+<span id="dsq-author-user-1116813">UKTK8</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116813" class="dsq-comment-body">
+<div id="dsq-comment-message-1116813" class="dsq-comment-message"><p>I flashed factory image on my Nexus 6 and my work location will not work anymore. I even tried adding another pinpoint manually to widen the area but still no dice. My home location for smart lock works flawlessly though. Not sure what's up with that.</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-2" id="dsq-comment-1116927">
+<div id="dsq-comment-header-1116927" class="dsq-comment-header">
+<cite id="dsq-cite-1116927">
+<span id="dsq-author-user-1116927">redragn5</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116927" class="dsq-comment-body">
+<div id="dsq-comment-message-1116927" class="dsq-comment-message"><p>Location based smart lock has only ever worked for me about 5% of the time, even when I pinpoint my location as being at home (in something like maps) it still usually doesn't work. I wish Google would stop being stubborn and just give us WiFi based smart unlock without having it tied to location based options but I know that's a pipe dream...</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-1116932">
+<div id="dsq-comment-header-1116932" class="dsq-comment-header">
+<cite id="dsq-cite-1116932">
+<span id="dsq-author-user-1116932">Paul_Werner</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116932" class="dsq-comment-body">
+<div id="dsq-comment-message-1116932" class="dsq-comment-message"><p>Yep, I've had the same issue on my N5. Also this issue:</p>
+<p><a href="https://plus.google.com/+PaulWerner/posts/LLBLfvcsKqH" rel="nofollow" class="external" target="_blank">https://plus.google.com/+PaulWerner/posts/LLBLfvcsKqH</a></p>
+<p>I've posted about it in different Communites on G+ and have yet to find a fix for it, really annoying</p>
+</div>
+</div>
+</li> 
+<li class="comment even depth-2" id="dsq-comment-1116941">
+<div id="dsq-comment-header-1116941" class="dsq-comment-header">
+<cite id="dsq-cite-1116941">
+<span id="dsq-author-user-1116941">John Monks</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116941" class="dsq-comment-body">
+<div id="dsq-comment-message-1116941" class="dsq-comment-message"><p>It works, but its incredibly temperamental, I've had to drop 3 additional pins around my home for it to work and even then it's usually face unlock that lets me in (assuming it can connect to the camera)</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt depth-2" id="dsq-comment-1117449">
+<div id="dsq-comment-header-1117449" class="dsq-comment-header">
+<cite id="dsq-cite-1117449">
+<span id="dsq-author-user-1117449">WORPspeed</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117449" class="dsq-comment-body">
+<div id="dsq-comment-message-1117449" class="dsq-comment-message"><p>Maybe something to do with re-granting permissions? (just spitballing here)</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-1116777">
+<div id="dsq-comment-header-1116777" class="dsq-comment-header">
+<cite id="dsq-cite-1116777">
+<span id="dsq-author-user-1116777">JD</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116777" class="dsq-comment-body">
+<div id="dsq-comment-message-1116777" class="dsq-comment-message"><p>That was a bug? I just thought it was a terrible design decision. I can't tell the rest of Material design is just as awful.</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-1116786">
+<div id="dsq-comment-header-1116786" class="dsq-comment-header">
+<cite id="dsq-cite-1116786">
+<span id="dsq-author-user-1116786">Good_Ole_Pinocchio</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116786" class="dsq-comment-body">
+<div id="dsq-comment-message-1116786" class="dsq-comment-message"><p>Speaking of home and work locations...anyone else having issues with Trusted Places not remembering.... trusted places? It'll work at my desk.... I go to lunch, come back and it no longer thinks I'm at my desk... Same for when I'm home.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-1116803">
+<div id="dsq-comment-header-1116803" class="dsq-comment-header">
+<cite id="dsq-cite-1116803">
+<span id="dsq-author-user-1116803">ki77erb</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116803" class="dsq-comment-body">
+<div id="dsq-comment-message-1116803" class="dsq-comment-message"><p>Its always been buggy for me at home. I tried some of the tricks like adding my neighbors houses to increase the area size. It works sometimes, but not every time. I wish I could add a "trusted WiFi" network, because I am always on my home WiFi.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-1116789">
+<div id="dsq-comment-header-1116789" class="dsq-comment-header">
+<cite id="dsq-cite-1116789">
+<span id="dsq-author-user-1116789">Ian Fay</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116789" class="dsq-comment-body">
+<div id="dsq-comment-message-1116789" class="dsq-comment-message"><p>I'd really love the ability to set a few more "saved" locations in Maps.</p>
+<p>I've got several often-visited places I'd love to be able to use that shorthand for in Maps and other apps like Uber.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-1116948">
+<div id="dsq-comment-header-1116948" class="dsq-comment-header">
+<cite id="dsq-cite-1116948">
+<span id="dsq-author-user-1116948">Paul_Werner</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116948" class="dsq-comment-body">
+<div id="dsq-comment-message-1116948" class="dsq-comment-message"><p>Not sure if this is exactly what you'd want but besides Star-ing a place they have this:</p>
+<p><a href="http://arstechnica.com/gadgets/2015/07/google-maps-for-android-finally-adds-custom-names-for-places/" rel="nofollow" class="external" target="_blank">http://arstechnica.com/gadgets/2015/07/google-maps-for-android-finally-adds-custom-names-for-places/</a></p>
+<p>I had to do this for a Meijer that showed up a few months ago near me that has yet to show up in Google Maps</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-1116951">
+<div id="dsq-comment-header-1116951" class="dsq-comment-header">
+<cite id="dsq-cite-1116951">
+<span id="dsq-author-user-1116951">Ian Fay</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116951" class="dsq-comment-body">
+<div id="dsq-comment-message-1116951" class="dsq-comment-message"><p>That might do it. Be curious to see if Uber and other apps can read that, but it's a start.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-1116800">
+<div id="dsq-comment-header-1116800" class="dsq-comment-header">
+<cite id="dsq-cite-1116800">
+<span id="dsq-author-user-1116800">wickets</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116800" class="dsq-comment-body">
+<div id="dsq-comment-message-1116800" class="dsq-comment-message"><p>Stories to read has become a total PITA. Way back when, you could swipe individual stories or the entire card, however, these days, you can only swipe individual stories.....start searching around goog for stuff and before you know it, your stories card is 34 pages long :)</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-2" id="dsq-comment-1116942">
+<div id="dsq-comment-header-1116942" class="dsq-comment-header">
+<cite id="dsq-cite-1116942">
+<span id="dsq-author-user-1116942">Paul_Werner</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116942" class="dsq-comment-body">
+<div id="dsq-comment-message-1116942" class="dsq-comment-message"><p>That and the "not interested in this story" in the 3 dot menu does pull away the card but it comes back with the same story after a refresh. I figured that option would prevent the type of story showing up again but NOPE</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-3" id="dsq-comment-1117093">
+<div id="dsq-comment-header-1117093" class="dsq-comment-header">
+<cite id="dsq-cite-1117093">
+http://www.gregorsmith.com <span id="dsq-author-user-1117093">Gregor Smith</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117093" class="dsq-comment-body">
+<div id="dsq-comment-message-1117093" class="dsq-comment-message"><p>THIS! I'm not interested in (urgh) Donald Trump, but stories relating to him appear on the daily... Kinda like Weird al said, I only watched Will and Grace, one time, one day. Wish I hadn't cause TiVo now thinks I'm gay</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-4" id="dsq-comment-1117117">
+<div id="dsq-comment-header-1117117" class="dsq-comment-header">
+<cite id="dsq-cite-1117117">
+<span id="dsq-author-user-1117117">NinoBr0wn</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117117" class="dsq-comment-body">
+<div id="dsq-comment-message-1117117" class="dsq-comment-message"><p>He said that? Haha</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-5" id="dsq-comment-1117133">
+<div id="dsq-comment-header-1117133" class="dsq-comment-header">
+<cite id="dsq-cite-1117133">
+http://www.gregorsmith.com <span id="dsq-author-user-1117133">Gregor Smith</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117133" class="dsq-comment-body">
+<div id="dsq-comment-message-1117133" class="dsq-comment-message"><p>Yep <a href="http://genius.com/1269739" rel="nofollow" class="external" target="_blank">http://genius.com/1269739</a></p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-1116824">
+<div id="dsq-comment-header-1116824" class="dsq-comment-header">
+<cite id="dsq-cite-1116824">
+<span id="dsq-author-user-1116824">senor_heisenberg</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116824" class="dsq-comment-body">
+<div id="dsq-comment-message-1116824" class="dsq-comment-message"><p>I'm still not getting voice responses in Google Now. It makes using it hands free impossible. I can no longer ask Google a question while driving either because of this. It's been like this for a couple of months now and it's extremely f'n annoying.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-1116876">
+<div id="dsq-comment-header-1116876" class="dsq-comment-header">
+<cite id="dsq-cite-1116876">
+<span id="dsq-author-user-1116876">Anton Voloshin</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116876" class="dsq-comment-body">
+<div id="dsq-comment-message-1116876" class="dsq-comment-message"><p>It uses the same volume as music and other media. Are you sure you're not keeping it at 0?</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-1116895">
+<div id="dsq-comment-header-1116895" class="dsq-comment-header">
+<cite id="dsq-cite-1116895">
+<span id="dsq-author-user-1116895">senor_heisenberg</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116895" class="dsq-comment-body">
+<div id="dsq-comment-message-1116895" class="dsq-comment-message"><p>100 percent. I never have any of the different volumes at 0, especially media, since I'm always listening to music. I don't know what the cause is, but I seem to be the only person I know of with this issue. I've used the in app feedback feature to let Google know several times, but no dice. </p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-1116945">
+<div id="dsq-comment-header-1116945" class="dsq-comment-header">
+<cite id="dsq-cite-1116945">
+<span id="dsq-author-user-1116945">Paul_Werner</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116945" class="dsq-comment-body">
+<div id="dsq-comment-message-1116945" class="dsq-comment-message"><p>I've had the same issue for a while on my N5. It's not at media volume 0 but Google Now voice volume is really really low. I can't figure it out either</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-5" id="dsq-comment-1117619">
+<div id="dsq-comment-header-1117619" class="dsq-comment-header">
+<cite id="dsq-cite-1117619">
+<span id="dsq-author-user-1117619">Simon Belmont</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117619" class="dsq-comment-body">
+<div id="dsq-comment-message-1117619" class="dsq-comment-message"><p>Weird. No problems with voice feedback on my N5 (running stock 5.1.1 and now 6.0).</p>
+<p>Wonder what the problem is. I just wish swipe up for Google Now would come back.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment even depth-3" id="dsq-comment-1117521">
+<div id="dsq-comment-header-1117521" class="dsq-comment-header">
+<cite id="dsq-cite-1117521">
+<span id="dsq-author-user-1117521">vwnut13</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117521" class="dsq-comment-body">
+<div id="dsq-comment-message-1117521" class="dsq-comment-message"><p>On my Moto G it uses the same volumes as Ringer/Notifications, which is really damn annoying.</p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-1116830">
+<div id="dsq-comment-header-1116830" class="dsq-comment-header">
+<cite id="dsq-cite-1116830">
+<span id="dsq-author-user-1116830">ddh819</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116830" class="dsq-comment-body">
+<div id="dsq-comment-message-1116830" class="dsq-comment-message"><p>i wish it would let you set reminders for new tv show episodes</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-1116928">
+<div id="dsq-comment-header-1116928" class="dsq-comment-header">
+<cite id="dsq-cite-1116928">
+<span id="dsq-author-user-1116928">John Monks</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116928" class="dsq-comment-body">
+<div id="dsq-comment-message-1116928" class="dsq-comment-message"><p>I wonder if re-setting the home location in this new version will make using it as a trusted location for smart lock any more reliable?</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-1116935">
+<div id="dsq-comment-header-1116935" class="dsq-comment-header">
+<cite id="dsq-cite-1116935">
+<span id="dsq-author-user-1116935">Paul_Werner</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116935" class="dsq-comment-body">
+<div id="dsq-comment-message-1116935" class="dsq-comment-message"><p>Not directly related (I don't think) to this article but does anyone know a fix for this issue?</p>
+<p><a href="https://plus.google.com/+PaulWerner/posts/LLBLfvcsKqH" rel="nofollow" class="external" target="_blank">https://plus.google.com/+PaulWerner/posts/LLBLfvcsKqH</a></p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-odd thread-alt depth-1" id="dsq-comment-1116946">
+<div id="dsq-comment-header-1116946" class="dsq-comment-header">
+<cite id="dsq-cite-1116946">
+<span id="dsq-author-user-1116946">tylerc23</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1116946" class="dsq-comment-body">
+<div id="dsq-comment-message-1116946" class="dsq-comment-message"><p>Does it make it go back to the older, superior, Lollipop version of Now?</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-even depth-1" id="dsq-comment-1117115">
+<div id="dsq-comment-header-1117115" class="dsq-comment-header">
+<cite id="dsq-cite-1117115">
+<span id="dsq-author-user-1117115">NinoBr0wn</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117115" class="dsq-comment-body">
+<div id="dsq-comment-message-1117115" class="dsq-comment-message"><p>I'm really annoyed that you have to go through On Tap to get to Google Now. I followed all the information about Marshmallow, but I must have missed that bit. I have a swipe up gesture on Nova to open Google Now directly, but because that only works on homescreen, it's not the same as the global home button swipe. On Tap is great, but removing functionality doesn't work for me. I've been asking around about it, and everyone either gives me a workaround that I already know about, or they tell me how On Tap works. I guess it's only a big deal to me.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-2" id="dsq-comment-1117386">
+<div id="dsq-comment-header-1117386" class="dsq-comment-header">
+<cite id="dsq-cite-1117386">
+<span id="dsq-author-user-1117386">AfrodanJ</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117386" class="dsq-comment-body">
+<div id="dsq-comment-message-1117386" class="dsq-comment-message"><p>I see what you're saying but how much time does it take to press the home button and swipe left?</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment odd alt depth-3" id="dsq-comment-1117402">
+<div id="dsq-comment-header-1117402" class="dsq-comment-header">
+<cite id="dsq-cite-1117402">
+<span id="dsq-author-user-1117402">NinoBr0wn</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117402" class="dsq-comment-body">
+<div id="dsq-comment-message-1117402" class="dsq-comment-message"><p>I use Nova Launcher, not the Google Launcher. Even if I was, it's the fact that the functionality is less now than it was then. I use Google search and my Google Now feed very frequently, so having that home button swipe available globally was very convenient. Design wise, it just doesn't make sense to me to take that away, in favor of On Tap, instead of having both. Nova can't do anything about it either because it's outside the reach of the Launcher shell.</p>
+</div>
+</div>
+<ul class="children">
+<li class="comment even depth-4" id="dsq-comment-1117408">
+<div id="dsq-comment-header-1117408" class="dsq-comment-header">
+<cite id="dsq-cite-1117408">
+<span id="dsq-author-user-1117408">AfrodanJ</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117408" class="dsq-comment-body">
+<div id="dsq-comment-message-1117408" class="dsq-comment-message"><p>Oh I see. Yea I don't really understand why they took away the swipe up gesture coz On Tap isn't even accessed that way. Luckily for me I hardly ever used it. The Google Now feed isn't very populated in UK, I tend to use OK Google for most of my needs regarding Google Now </p>
+</div>
+</div>
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+</ul> 
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-1117341">
+<div id="dsq-comment-header-1117341" class="dsq-comment-header">
+<cite id="dsq-cite-1117341">
+<span id="dsq-author-user-1117341">Biga173rd</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117341" class="dsq-comment-body">
+<div id="dsq-comment-message-1117341" class="dsq-comment-message"><p>Miss the old main weather card at the top of the screen.</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-1117388">
+<div id="dsq-comment-header-1117388" class="dsq-comment-header">
+<cite id="dsq-cite-1117388">
+<span id="dsq-author-user-1117388">AfrodanJ</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117388" class="dsq-comment-body">
+<div id="dsq-comment-message-1117388" class="dsq-comment-message"><p>Anyone else getting worse battery life on their n5 since Marshmallow?</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-1117431">
+<div id="dsq-comment-header-1117431" class="dsq-comment-header">
+<cite id="dsq-cite-1117431">
+<span id="dsq-author-user-1117431">Muffy</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117431" class="dsq-comment-body">
+<div id="dsq-comment-message-1117431" class="dsq-comment-message"><p>Is there any way for retired people to convince Google Now that they have no work address?</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-1117581">
+<div id="dsq-comment-header-1117581" class="dsq-comment-header">
+<cite id="dsq-cite-1117581">
+<span id="dsq-author-user-1117581">mike shwilly</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117581" class="dsq-comment-body">
+<div id="dsq-comment-message-1117581" class="dsq-comment-message"><p>"more convenient way to set Home and Work locations"</p>
+<p>Emm.. How is that more convenient than exactly the same "Places" menu item that was always there? They didn't even bother to remove the old one so now it's just a duplicate...</p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-1117680">
+<div id="dsq-comment-header-1117680" class="dsq-comment-header">
+<cite id="dsq-cite-1117680">
+<span id="dsq-author-user-1117680">Anthony Castanza</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117680" class="dsq-comment-body">
+<div id="dsq-comment-message-1117680" class="dsq-comment-message"><p>This version also fixes the bug where reminders would always notify as "X Reminder(s)", rather than displaying the reminder text itself!</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-1117775">
+<div id="dsq-comment-header-1117775" class="dsq-comment-header">
+<cite id="dsq-cite-1117775">
+<span id="dsq-author-user-1117775">Ido N</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1117775" class="dsq-comment-body">
+<div id="dsq-comment-message-1117775" class="dsq-comment-message"><p>I'm left-handed and can't swipe cards to the left. So annoying! </p>
+</div>
+</div>
+</li> 
+<li class="comment odd alt thread-odd thread-alt depth-1" id="dsq-comment-1118196">
+<div id="dsq-comment-header-1118196" class="dsq-comment-header">
+<cite id="dsq-cite-1118196">
+http://rekzkarz.com/ <span id="dsq-author-user-1118196">REkzkaRZ</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1118196" class="dsq-comment-body">
+<div id="dsq-comment-message-1118196" class="dsq-comment-message"><p>And the *REALLY* bad news (for me &amp; maybe you) was I updated this &amp; walked away, figured I was fine.<br/>
+And then all these apps I told not to autoupdate updated! WTF?<br/>
+Apparently upgr this removed my "dont autoupdate" settings.<br/>
+#Fail Google!!</p>
+</div>
+</div>
+</li> 
+<li class="comment even thread-even depth-1" id="dsq-comment-1123544">
+<div id="dsq-comment-header-1123544" class="dsq-comment-header">
+<cite id="dsq-cite-1123544">
+<span id="dsq-author-user-1123544">Roi Horowitz</span>
+</cite>
+</div>
+<div id="dsq-comment-body-1123544" class="dsq-comment-body">
+<div id="dsq-comment-message-1123544" class="dsq-comment-message"><p>can someone help me? <a href="https://productforums.google.com/forum/#!topic/websearch/ICoinAhHmTo;context-place=forum/websearch" rel="nofollow" class="external" target="_blank">https://productforums.google.com/forum/#!topic/websearch/ICoinAhHmTo;context-place=forum/websearch</a></p>
+</div>
+</div>
+</li> 
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+var disqus_url = 'http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/';
+var disqus_identifier = '340764 http://www.androidpolice.com/?p=340764';
+var disqus_container_id = 'disqus_thread';
+var disqus_shortname = 'androidpolice';
+var disqus_title = "Google App v5.4 Adds An Easier Way To Set Home And Work Locations, Fixes The Card Swipe Animation, And Points To A New Wear App [APK Download + Teardown]";
+var disqus_config_custom = window.disqus_config;
+var disqus_config = function () {
+    /*
+    All currently supported events:
+    onReady: fires when everything is ready,
+    onNewComment: fires when a new comment is posted,
+    onIdentify: fires when user is authenticated
+    */
+    
+    
+    this.language = '';
+        this.callbacks.onReady.push(function () {
+
+        // sync comments in the background so we don't block the page
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = '?cf_action=sync_comments&post_id=340764';
+
+        var firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+    });
+    
+    if (disqus_config_custom) {
+        disqus_config_custom.call(this);
+    }
+};
+
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+</section>
+</div>
+</div>
+</div>
+</div> 
+<div id="sbar" class="secondary column">
+<ul id="sbar-content" class="list-unstyled">
+<li id="apsidebarad-2" class=" none widget ap-sidebar-ad"><div class="sb-wrapper">
+<div id="ap2_sidebar_1" class="adslot hidden-phone" data-mapping="allBox" data-dfp="ap2_sidebar_1" data-sizes="0,0,0,300,300,300"></div>
+<script>(deployads = window.deployads || []).push({});</script>
+</div></li>
+<li id="apfollowwidget-2" class="red widget ap-follow-widget"><header class="section-header"><h4 class="header-bg">Follow Android Police</h4></header>
+<section class="card">
+<div class="card-inner">
+<div class="multi-column"> <div class="one-third">
+<a class="ap-follow-btn" title="+1 Android Police on Google+" class="" href="https://plus.google.com/+AndroidPolice" target="_blank">
+<div class="ap-follow-icon google-plus-color"><i class="icon-google-plus"></i></div>
+<span class="ap-sidebar-title">1.43M</span>
+</a>
+</div>
+<div class="one-third">
+<a class="ap-follow-btn" title="Follow Android Police on Twitter" class="" href="https://twitter.com/AndroidPolice" target="_blank">
+<div class="ap-follow-icon twitter-color"><i class="icon-twitter"></i></div>
+<span class="ap-sidebar-title">362k</span>
+</a>
+</div>
+<div class="one-third">
+<a class="ap-follow-btn" title="Like Android Police on Facebook" class="" href="https://facebook.com/AndroidPolice" target="_blank">
+<div class="ap-follow-icon facebook-color"><i class="icon-facebook"></i></div>
+<span class="ap-sidebar-title">107k</span>
+</a>
+</div>
+</div><div class="multi-column"> <div class="one-third">
+<a class="ap-follow-btn" title="Subscribe on YouTube" class="" href="https://youtube.com/AndroidPolice" target="_blank">
+<div class="ap-follow-icon youtube-color"><i class="icon-youtube"></i></div>
+<span class="ap-sidebar-title">25.1k</span>
+</a>
+</div>
+<div class="one-third">
+<a class="ap-follow-btn" title="Follow on App.net" class="" href="https://alpha.app.net/AndroidPolice" target="_blank">
+<div class="ap-follow-icon app-dot-net-color"><i class="icon-app-dot-net"></i></div>
+<span class="ap-sidebar-title">1.28k</span>
+</a>
+</div>
+</div>
+</div>
+<div class="card-action">
+<a class="currents ap-follow-btn" title="Subscribe to the RSS feed" class="" href="/feed" target="_blank">
+<div class="ap-follow-icon rss-color"><i class="icon-feed"></i></div>
+</a>
+<a class="currents ap-follow-btn" title="Read on Google Play Newsstand" href="https://www.google.com/producer/editions/CAowu5gU/androidpolice" target="_blank">
+<div class="ap-follow-icon newsstand-color"><i class="icon-newsstand"></i></div>
+</a>
+<a class="pushbullet-subscribe-widget fl-right" data-channel="androidpolicefeed" data-widget="button" data-size="large"></a>
+</div>
+</section>
+</li>
+<li id="apsidebarad-3" class=" none widget ap-sidebar-ad"><div class="sb-wrapper">
+<div id="ap2_sidebar_2" class="adslot hidden-phone" data-mapping="allBox" data-dfp="ap2_sidebar_2" data-sizes="0,0,0,300,300,300"></div>
+<script>(deployads = window.deployads || []).push({});</script>
+</div></li>
+<li id="aprecentpostswidget-2" class="green widget apRecentPostsWidget"><header class="section-header"><h4 class="header-bg">Latest Deals</h4></header><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/deal-alert-aukey-5-port-50w-wall-charger-5-microusb-cables-for-just-15-on-amazon/#comments">6</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-50" style="width:49.525499130514%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/deal-alert-aukey-5-port-50w-wall-charger-5-microusb-cables-for-just-15-on-amazon/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_81GTXMIvYAL._SL1500_-728x533.jpg&w=60&h=60">
+<div class="cell-content">
+<h4>[Deal Alert] Aukey 5 Port 50W/10A Wall Charger + 5 MicroUSB Cables For Just $15 On Amazon</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 1:39pm PST</time><time class="timeago" datetime="2015-11-04T13:39:47-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/deal-alert-best-buy-is-offering-a-refurbished-kwikset-kevo-bluetooth-door-lock-for-130-70-off-today-only/#comments">5</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-30" style="width:34.50037102557%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/deal-alert-best-buy-is-offering-a-refurbished-kwikset-kevo-bluetooth-door-lock-for-130-70-off-today-only/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_kevo_thumb.png&w=60&h=60">
+<div class="cell-content">
+<h4>[Deal Alert] Best Buy Is Offering A Refurbished Kwikset Kevo Bluetooth Door Lock For $130 ($70 Off) Today Only</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 10:48am PST</time><time class="timeago" datetime="2015-11-04T10:48:00-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/03/deal-alert-tronsmart-quick-charge-2-0-wall-charger-6-99-after-8-off-coupon/#comments">15</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-30" style="width:31.813111487055%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/03/deal-alert-tronsmart-quick-charge-2-0-wall-charger-6-99-after-8-off-coupon/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_Screenshot-2015-11-03-at-7.29.41-PM-728x384.png&w=60&h=60">
+<div class="cell-content">
+<h4>[Deal Alert] Tronsmart Quick Charge 2.0 Wall Charger $6.99 On Amazon After $8 Off Coupon</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/03 7:42pm PST</time><time class="timeago" datetime="2015-11-03T19:42:06-08:00">Nov 3, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/02/deal-alert-nexus-9-on-htcs-hot-deals-promo-again-40-off-while-supplies-last/#comments">22</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-20" style="width:17.325378835069%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/02/deal-alert-nexus-9-on-htcs-hot-deals-promo-again-40-off-while-supplies-last/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_2015-11-03-00_38_03-Photos-668x320.png&w=60&h=60">
+<div class="cell-content">
+<h4>[Deal Alert] Nexus 9 On HTC's Hot Deals Promo Again—40% Off While Supplies Last</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/02 10:57pm PST</time><time class="timeago" datetime="2015-11-02T22:57:34-08:00">Nov 2, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/02/humble-mobile-bundle-16-is-live-with-space-marshals-alone-block-legend-and-more/#comments">12</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-20" style="width:17.622620676253%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/02/humble-mobile-bundle-16-is-live-with-space-marshals-alone-block-legend-and-more/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_2015-11-02-16_10_40-Humble-Mobile-Bundle-16-pay-what-you-want-and-help-charity-728x376.png&w=60&h=60">
+<div class="cell-content">
+<h4>Humble Mobile Bundle 16 Is Live With Space Marshals, ALONE, Block Legend, And More</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/02 2:13pm PST</time><time class="timeago" datetime="2015-11-02T14:13:20-08:00">Nov 2, 2015</time></div></div>
+</div>
+</a>
+</li></ul></section></li>
+<li id="wpb_widget-2" class="blue widget widget_wpb_widget"><header class="section-header"><h4 class="header-bg">Latest Poll</h4></header><section class="ap-sbar-widget-wrapper"><div id="polls-293" class="wp-polls">
+<form id="polls_form_293" class="wp-polls-form" action="/index.php" method="post">
+<p style="display: none;"><input type="hidden" id="poll_293_nonce" name="wp-polls-nonce" value="6ce9d22d11"/></p>
+<p style="display: none;"><input type="hidden" name="poll_id" value="293"/></p>
+<p style="text-align: center;"><strong>Which feature of a phone is more important to you: battery life, display quality, camera, or update support?</strong></p><div id="polls-293-ans" class="wp-polls-ans"><ul class="wp-polls-ul">
+<li><input type="radio" id="poll-answer-1455" name="poll_293" value="1455"/> <label for="poll-answer-1455">Update support - if my phone isn't getting the newest version of Android quickly, it's not going to be my phone much longer.</label></li>
+<li><input type="radio" id="poll-answer-1456" name="poll_293" value="1456"/> <label for="poll-answer-1456">Battery life - nothing else matters if I can't actually use the phone.</label></li>
+<li><input type="radio" id="poll-answer-1457" name="poll_293" value="1457"/> <label for="poll-answer-1457">Display quality - a smartphone is first and foremost a screen, and I need the best one I can get.</label></li>
+<li><input type="radio" id="poll-answer-1458" name="poll_293" value="1458"/> <label for="poll-answer-1458">Camera - I am a photo-taking machine, and I want the best camera possible.</label></li>
+</ul><p style="text-align: center;"><input type="button" name="vote" value="   Vote   " class="Buttons" onclick="poll_vote(293);"/></p><p style="text-align: center;"><a href="#ViewPollResults" onclick="poll_result(293); return false;" title="View Results Of This Poll">View Results</a></p></div>
+</form>
+</div>
+<div id="polls-293-loading" class="wp-polls-loading"><img src="http://www.androidpolice.com/wp-content/plugins/wp-polls/images/loading.gif" width="16" height="16" alt="Loading ..." title="Loading ..." class="wp-polls-image"/>&nbsp;Loading ...</div>
+<div class="center"><p><a href="http://www.androidpolice.com/2015/11/01/weekend-poll-what-is-more-important-to-you-on-a-phone-battery-life-display-camera-or-update-support/" class="primary-btn btn-widget"> Discuss This Poll</a></p></div></section></li>
+<li id="aprecentpostswidget-3" class="teal widget apRecentPostsWidget"><header class="section-header"><h4 class="header-bg">Recent Reviews</h4></header><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/30/wren-v5us-review-a-truly-great-speaker-with-bluetooth-airplay-and-play-fi-support-but-it-has-a-really-steep-price/#comments">13</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-10" style="width:12.904621852911%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/30/wren-v5us-review-a-truly-great-speaker-with-bluetooth-airplay-and-play-fi-support-but-it-has-a-really-steep-price/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F05%2Fnexus2cee_stump1_thumb.jpg&w=60&h=60">
+<div class="cell-content">
+<h4>Wren V5US Review: A Truly Great Speaker With Bluetooth, AirPlay, And Play-Fi Support, But It Has A Really Steep Price</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/30 1:00pm PST</time><time class="timeago" datetime="2015-10-30T13:00:00-07:00">Oct 30, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/30/ultimate-ears-boom-2-review-better-than-the-original-but-no-longer-the-best/#comments">34</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-30" style="width:30.050726277367%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/30/ultimate-ears-boom-2-review-better-than-the-original-but-no-longer-the-best/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_wm_IMG_6907.jpg&w=60&h=60">
+<div class="cell-content">
+<h4>Ultimate Ears BOOM 2 Review: Better Than The Original, But No Longer The Best</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/30 11:29am PST</time><time class="timeago" datetime="2015-10-30T11:29:27-07:00">Oct 30, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/28/logitech-k380-keyboard-review-one-keyboard-to-rule-them-all-at-least-in-theory/#comments">60</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-40" style="width:38.919571642999%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/28/logitech-k380-keyboard-review-one-keyboard-to-rule-them-all-at-least-in-theory/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_wm_IMG_6866.jpg&w=60&h=60">
+<div class="cell-content">
+<h4>Logitech K380 Keyboard Review: One Keyboard To Rule Them All (At Least In Theory)</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/28 9:20am PST</time><time class="timeago" datetime="2015-10-28T09:20:46-07:00">Oct 28, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/27/htc-one-a9-review-pretty-pretty-pretty-good-pretty-good/#comments">138</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:97.505449911901%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/27/htc-one-a9-review-pretty-pretty-pretty-good-pretty-good/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_DSC00349_thumb1.jpg&w=60&h=60">
+<div class="cell-content">
+<h4>HTC One A9 Review: Pretty, Pretty, Pretty Good (Pretty Good)</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/27 4:59pm PST</time><time class="timeago" datetime="2015-10-27T16:59:00-07:00">Oct 27, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/27/hands-on-these-wooden-phone-cases-from-carved-com-are-freakin-awesome/#comments">70</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-50" style="width:46.234171240917%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/27/hands-on-these-wooden-phone-cases-from-carved-com-are-freakin-awesome/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_wm_IMG_6862.jpg&w=60&h=60">
+<div class="cell-content">
+<h4>[Hands-On] These Wooden Phone Cases From Carved.com Are Freakin' Awesome</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/27 12:40pm PST</time><time class="timeago" datetime="2015-10-27T12:40:13-07:00">Oct 27, 2015</time></div></div>
+</div>
+</a>
+</li></ul></section></li>
+<li id="aprecentpostswidget-5" class="red widget apRecentPostsWidget"><header class="section-header"><h4 class="header-bg">Latest Roundups</h4></header><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/02/26-new-and-notable-and-1-wtf-android-apps-and-live-wallpapers-from-the-last-2-weeks-102015-11215/#comments">21</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-20" style="width:22.433306646982%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/02/26-new-and-notable-and-1-wtf-android-apps-and-live-wallpapers-from-the-last-2-weeks-102015-11215/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_roundup_icon_large_thumb.png&w=60&h=60">
+<div class="cell-content">
+<h4>26 New And Notable (And 1 WTF) Android Apps And Live Wallpapers From The Last 2 Weeks (10/20/15 - 11/2/15)</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/02 6:17pm PST</time><time class="timeago" datetime="2015-11-02T18:17:00-08:00">Nov 2, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/31/10-beautiful-cool-and-original-wallpaper-apps-to-dress-up-your-android-device/#comments">80</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:97.463446963191%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/31/10-beautiful-cool-and-original-wallpaper-apps-to-dress-up-your-android-device/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_roundup-wallpapers-hero-728x481.jpeg&w=60&h=60">
+<div class="cell-content">
+<h4>10 Beautiful, Cool, And Original Wallpaper Apps To Dress Up Your Android Device</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/31 9:21am PST</time><time class="timeago" datetime="2015-10-31T09:21:29-07:00">Oct 31, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/30/bonus-round-beneath-the-lighthouse-slashy-hero-zombocalypse-devious-dungeon-2-and-the-walking-dead-no-mans-land/#comments">2</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-30" style="width:25.90668182925%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/30/bonus-round-beneath-the-lighthouse-slashy-hero-zombocalypse-devious-dungeon-2-and-the-walking-dead-no-mans-land/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fcdn.androidpolice.com%2Fwp-content%2Fuploads%2F2013%2F05%2Fnexusae0_bonusicon_thumb_thumb.png&w=60&h=60">
+<div class="cell-content">
+<h4>[Bonus Round] Beneath The Lighthouse, Slashy Hero, Zombocalypse, Devious Dungeon 2, And The Walking Dead No Man's Land</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/30 5:31pm PST</time><time class="timeago" datetime="2015-10-30T17:31:00-07:00">Oct 30, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/27/34-new-and-notable-and-1-wtf-android-games-from-the-last-2-weeks-101315-102715/#comments">12</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-70" style="width:74.090353724086%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/27/34-new-and-notable-and-1-wtf-android-games-from-the-last-2-weeks-101315-102715/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_gamethumb_thumb1.png&w=60&h=60">
+<div class="cell-content">
+<h4>34 New And Notable (And 1 WTF) Android Games From The Last 2 Weeks (10/13/15 - 10/27/15)</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/27 4:30pm PST</time><time class="timeago" datetime="2015-10-27T16:30:00-07:00">Oct 27, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/27/5-android-wear-watch-faces-to-make-your-wrist-more-spooky-this-halloween/#comments">22</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-30" style="width:26.735776450271%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/27/5-android-wear-watch-faces-to-make-your-wrist-more-spooky-this-halloween/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_halloween-728x545.jpg&w=60&h=60">
+<div class="cell-content">
+<h4>5 Android Wear Watch Faces To Make Your Wrist More Spooky This Halloween</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/27 3:05pm PST</time><time class="timeago" datetime="2015-10-27T15:05:21-07:00">Oct 27, 2015</time></div></div>
+</div>
+</a>
+</li></ul></section></li>
+<li id="aprecentpostswidget-4" class="blue widget apRecentPostsWidget"><header class="section-header"><h4 class="header-bg">Recent Apps and Games</h4></header><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/#comments">6</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.969472059719%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_auto_thumb.png&w=60&h=60">
+<div class="cell-content">
+<h4>Android Auto v1.4 Cleans Up The Companion App Interface And Adds Granular Control For Previously Connected Cars [APK Download]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 6:57pm PST</time><time class="timeago" datetime="2015-11-04T18:57:00-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/bethesda-releases-the-pip-boy-fallout-4-companion-app-for-android/#comments">23</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.141696085941%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/bethesda-releases-the-pip-boy-fallout-4-companion-app-for-android/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_2015-11-04-23.04.35-728x410.png&w=60&h=60">
+<div class="cell-content">
+<h4>Bethesda Releases The Pip-Boy Fallout 4 Companion App For Android</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 3:32pm PST</time><time class="timeago" datetime="2015-11-04T15:32:41-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/cardboard-v1-7-adds-a-slick-welcome-video-and-new-demo-screen-photospheres-for-app-screenshots-drops-windy-day-apk-download/#comments">12</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-50" style="width:51.67839336064%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/cardboard-v1-7-adds-a-slick-welcome-video-and-new-demo-screen-photospheres-for-app-screenshots-drops-windy-day-apk-download/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_cardboard_thumb.png&w=60&h=60">
+<div class="cell-content">
+<h4>Cardboard v1.7 Adds A Slick Welcome Video And New Demo Screen, Photospheres For App Screenshots, Drops Windy Day [APK Download]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 1:43pm PST</time><time class="timeago" datetime="2015-11-04T13:43:44-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/verizons-go90-service-will-get-live-nba-games-and-original-programming-thanks-to-new-sponsorship-deal/#comments">5</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-30" style="width:34.674383483186%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/verizons-go90-service-will-get-live-nba-games-and-original-programming-thanks-to-new-sponsorship-deal/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_Screenshot-2015-11-04-at-3.24.29-PM-728x288.png&w=60&h=60">
+<div class="cell-content">
+<h4>Verizon's Go90 Service Will Get Live NBA Games And Original Programming Thanks To New Sponsorship Deal</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 12:25pm PST</time><time class="timeago" datetime="2015-11-04T12:25:10-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/starific-endless-reactor-bursts-into-the-play-store-for-free-with-no-iaps-and-optional-ads/#comments">17</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-30" style="width:27.409807808153%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/starific-endless-reactor-bursts-into-the-play-store-for-free-with-no-iaps-and-optional-ads/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_Starific-Logo1.png&w=60&h=60">
+<div class="cell-content">
+<h4>Starific- Endless Reactor Bursts Into The Play Store For Free With No IAP's And Optional Ads</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 11:52am PST</time><time class="timeago" datetime="2015-11-04T11:52:26-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li></ul></section></li>
+<li id="apblastfromthepast-2" class="red widget ap-blast-from-past"><header class="section-header"><h4 class="header-bg">Blast from the Past</h4></header><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2014/11/05/the-android-5-0-nexus-rollout-might-be-on-hold-because-of-a-serious-wifi-bug/#comments">165</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.476185834254%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2014/11/05/the-android-5-0-nexus-rollout-might-be-on-hold-because-of-a-serious-wifi-bug/">
+<h3 class="ap-sidebar-title"><span>1 Year Ago</span> Today</h3>
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2014%2F11%2Fnexus2cee_2014-10-15-11_18_07-Android-5.0-Lollipop_thumb_thumb_thumb.png&w=60&h=60">
+<div class="cell-content">
+<h4>[Update: Fixed] The Android 5.0 Nexus Rollout Might Be On Hold Because Of A Serious WiFi Battery Drain Bug</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2014/11/05 10:00pm PST</time><time class="timeago" datetime="2014-11-05T22:00:00-08:00">Nov 5, 2014</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2013/11/05/report-the-google-experience-launcher-from-the-nexus-5-wont-come-to-other-devices-any-time-soon/#comments">249</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-10" style="width:10%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2013/11/05/report-the-google-experience-launcher-from-the-nexus-5-wont-come-to-other-devices-any-time-soon/">
+<h3 class="ap-sidebar-title"><span>2 Years Ago</span> Today</h3>
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2013%2F11%2Fnexusae0_aa_thumb1.png&w=60&h=60">
+<div class="cell-content">
+<h4>Report: The 'Google Experience' Launcher From The Nexus 5 Won't Come To Other Devices Any Time Soon</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2013/11/05 6:06pm PST</time><time class="timeago" datetime="2013-11-05T18:06:00-08:00">Nov 5, 2013</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2012/11/05/new-game-grab-your-boomstick-army-of-darkness-defense-for-android-is-here/#comments">17</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-10" style="width:10%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2012/11/05/new-game-grab-your-boomstick-army-of-darkness-defense-for-android-is-here/">
+<h3 class="ap-sidebar-title"><span>3 Years Ago</span> Today</h3>
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2012%2F11%2Fnexusae0_1_thumb5.png&w=60&h=60">
+<div class="cell-content">
+<h4>[New Game] Grab Your Boomstick - Army Of Darkness: Defense For Android Is Here</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2012/11/05 7:16pm PST</time><time class="timeago" datetime="2012-11-05T19:16:00-08:00">Nov 5, 2012</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2011/11/05/psa-no-this-is-not-msn-2012-angry-birds-2-or-modern-warfare-for-android-what-you-can-do-if-you-see-malware-in-the-market/#comments">59</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-10" style="width:10%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2011/11/05/psa-no-this-is-not-msn-2012-angry-birds-2-or-modern-warfare-for-android-what-you-can-do-if-you-see-malware-in-the-market/">
+<h3 class="ap-sidebar-title"><span>4 Years Ago</span> Today</h3>
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2011%2F11%2Fimage_thumb11.png&w=60&h=60">
+<div class="cell-content">
+<h4>PSA: No, This Is Not MSN 2012, Angry Birds 2, Or Modern Warfare 3 For Android - What You Can Do If You See Malware In The Market</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2011/11/05 3:28pm PST</time><time class="timeago" datetime="2011-11-05T15:28:44-07:00">Nov 5, 2011</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper">
+<a class="comment-btn" href="http://www.androidpolice.com/2010/11/05/rumored-nexus-2s-rumored-to-be-delayed-by-a-rumored-hardware-problem/#comments">14</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-10" style="width:10%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2010/11/05/rumored-nexus-2s-rumored-to-be-delayed-by-a-rumored-hardware-problem/">
+<h3 class="ap-sidebar-title"><span>5 Years Ago</span> Today</h3>
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2010%2F11%2Fimage_thumb87.png&w=60&h=60">
+<div class="cell-content">
+<h4>Rumored Nexus 2/S Rumored To Be Delayed By A Rumored Hardware Problem</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2010/11/05 8:49pm PST</time><time class="timeago" datetime="2010-11-05T20:49:07-07:00">Nov 5, 2010</time></div></div>
+</div>
+</a>
+</li></ul></section></li>
+<li id="execphp-25" class=" none widget widget_execphp"> <div class="execphpwidget"><div class="OUTBRAIN" data-src="http://www.androidpolice.com/2015/10/09/google-app-v5-4-adds-an-easier-way-to-set-home-and-work-locations-fixes-the-card-swipe-animation-and-points-to-a-new-wear-app-apk-download-teardown/" data-widget-id="SB_1" data-ob-template="IllogicalRobot"></div>
+<script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script> </div>
+</li>
+</ul>
+</div> </div>
+</div> 
+<script type="text/javascript">
+var ajaxurl = 'https://www.androidpolice.com/wp-admin/admin-ajax.php';
+var postid = 340764</script>
+<div class="band footer">
+<div class="container">
+<div class="ap-hottest-content-wrapper">
+<header class="section-header"><h4>What's Hot</h4></header>
+<div class="one-third column alpha">
+<li id="appopularposts-5" class="red widget ap-popular-posts"><h3 class="ap-pp-heading">Last 24 Hours</h3><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/#comments">6</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.969472059719%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_auto_thumb.png&w=54&h=54">
+<div class="cell-content">
+<h4>Android Auto v1.4 Cleans Up The Companion App Interface And Adds Granular Control For Previously Connected Cars [APK Download]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 6:57pm PST</time><time class="timeago" datetime="2015-11-04T18:57:00-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/bethesda-releases-the-pip-boy-fallout-4-companion-app-for-android/#comments">23</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.141696085941%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/bethesda-releases-the-pip-boy-fallout-4-companion-app-for-android/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_2015-11-04-23.04.35-728x410.png&w=54&h=54">
+<div class="cell-content">
+<h4>Bethesda Releases The Pip-Boy Fallout 4 Companion App For Android</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 3:32pm PST</time><time class="timeago" datetime="2015-11-04T15:32:41-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/teamviewer-11-beta-can-access-unattended-android-devices-run-from-a-chromebook-and-more/#comments">60</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:98.629429914897%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/teamviewer-11-beta-can-access-unattended-android-devices-run-from-a-chromebook-and-more/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_TeamViewerHost-728x410.jpg&w=54&h=54">
+<div class="cell-content">
+<h4>TeamViewer 11 Beta Can Access Unattended Android Devices, Run From A Chromebook, And More</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 8:11am PST</time><time class="timeago" datetime="2015-11-04T08:11:03-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/starred-messages-make-an-appearance-in-whatsapp-perfect-for-quickly-accessing-important-texts-and-media-files/#comments">29</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-80" style="width:79.53006332981%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/starred-messages-make-an-appearance-in-whatsapp-perfect-for-quickly-accessing-important-texts-and-media-files/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_whatsapp-star-message-hero-728x587.png&w=54&h=54">
+<div class="cell-content">
+<h4>[Update: Direct Share Now Works On Marshmallow] Starred Messages Make An Appearance In WhatsApp, Perfect For Quickly Accessing Important Texts And Media Files</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 5:31am PST</time><time class="timeago" datetime="2015-11-04T05:31:37-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/google-drive-updated-with-shared-file-notifications-requestinggranting-access-and-more-apk-download/#comments">17</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-80" style="width:77.153295538726%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/google-drive-updated-with-shared-file-notifications-requestinggranting-access-and-more-apk-download/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_group_sharing-728x349.png&w=54&h=54">
+<div class="cell-content">
+<h4>Google Drive Updated With Shared File Notifications, Requesting/Granting Access, And More [APK Download]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 11:37am PST</time><time class="timeago" datetime="2015-11-04T11:37:10-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li></ul></section></li>
+</div>
+<div class="one-third column">
+<li id="appopularposts-6" class="red widget ap-popular-posts"><h3 class="ap-pp-heading">Last 7 Days</h3><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/a-google-engineer-who-works-on-usb-type-c-products-is-reviewing-and-identifying-out-of-spec-potentially-dangerous-third-party-cables-and-adapters/#comments">115</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.999565105116%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/a-google-engineer-who-works-on-usb-type-c-products-is-reviewing-and-identifying-out-of-spec-potentially-dangerous-third-party-cables-and-adapters/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_iorang-usb-typec-cable-728x462.jpg&w=54&h=54">
+<div class="cell-content">
+<h4>A Google Engineer Who Works On USB Type-C Products Is Reviewing And Identifying Out-Of-Spec Potentially Dangerous Third-Party Cables And Adapters</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 5:30am PST</time><time class="timeago" datetime="2015-11-04T05:30:36-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/29/wsj-google-reportedly-plans-to-merge-chrome-into-android-form-single-new-os-in-2017/#comments">194</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.991982538631%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/29/wsj-google-reportedly-plans-to-merge-chrome-into-android-form-single-new-os-in-2017/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_ChromeAndroidMerge-728x344.png&w=54&h=54">
+<div class="cell-content">
+<h4>WSJ: Google Plans To Merge Chrome OS Into Android, Form Single New OS In 2017 [Update]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/29 2:23pm PST</time><time class="timeago" datetime="2015-10-29T14:23:06-07:00">Oct 29, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/#comments">6</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.969472059719%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_auto_thumb.png&w=54&h=54">
+<div class="cell-content">
+<h4>Android Auto v1.4 Cleans Up The Companion App Interface And Adds Granular Control For Previously Connected Cars [APK Download]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 6:57pm PST</time><time class="timeago" datetime="2015-11-04T18:57:00-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/30/chill-out-there-is-no-nexus-6p-bendgate/#comments">409</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.969010975127%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/30/chill-out-there-is-no-nexus-6p-bendgate/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_DSC69341-728x485.jpg&w=54&h=54">
+<div class="cell-content">
+<h4>[Chill Out] There Is No Nexus 6P Bendgate</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/30 8:06pm PST</time><time class="timeago" datetime="2015-10-30T20:06:46-07:00">Oct 30, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/03/s/#comments">380</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.917513261332%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/03/s/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_hero2-728x410.png&w=54&h=54">
+<div class="cell-content">
+<h4>[Freak Out] Contrary To Popular Belief, The Nexus 6P Is Not Unbreakable</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/03 11:08pm PST</time><time class="timeago" datetime="2015-11-03T23:08:19-08:00">Nov 3, 2015</time></div></div>
+</div>
+</a>
+</li></ul></section></li>
+</div>
+<div class="one-third column omega">
+<li id="appopularposts-9" class="red widget ap-popular-posts"><h3 class="ap-pp-heading">Last 30 Days</h3><section><ul class="post-list list-unstyled">
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/a-google-engineer-who-works-on-usb-type-c-products-is-reviewing-and-identifying-out-of-spec-potentially-dangerous-third-party-cables-and-adapters/#comments">115</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.999565105116%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/a-google-engineer-who-works-on-usb-type-c-products-is-reviewing-and-identifying-out-of-spec-potentially-dangerous-third-party-cables-and-adapters/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_iorang-usb-typec-cable-728x462.jpg&w=54&h=54">
+<div class="cell-content">
+<h4>A Google Engineer Who Works On USB Type-C Products Is Reviewing And Identifying Out-Of-Spec Potentially Dangerous Third-Party Cables And Adapters</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 5:30am PST</time><time class="timeago" datetime="2015-11-04T05:30:36-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/21/google-will-not-allow-oems-to-hide-information-from-battery-stats-in-marshmallow/#comments">124</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.99716392391%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/21/google-will-not-allow-oems-to-hide-information-from-battery-stats-in-marshmallow/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_2015-10-21-15.31.28-728x410.png&w=54&h=54">
+<div class="cell-content">
+<h4>Google Will Not Allow OEMs To Hide Information From Battery Stats In Marshmallow</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/21 8:35am PST</time><time class="timeago" datetime="2015-10-21T08:35:27-07:00">Oct 21, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/29/wsj-google-reportedly-plans-to-merge-chrome-into-android-form-single-new-os-in-2017/#comments">194</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.991982538631%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/29/wsj-google-reportedly-plans-to-merge-chrome-into-android-form-single-new-os-in-2017/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_ChromeAndroidMerge-728x344.png&w=54&h=54">
+<div class="cell-content">
+<h4>WSJ: Google Plans To Merge Chrome OS Into Android, Form Single New OS In 2017 [Update]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/29 2:23pm PST</time><time class="timeago" datetime="2015-10-29T14:23:06-07:00">Oct 29, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/#comments">6</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.969472059719%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/11/04/android-auto-v1-4-cleans-up-the-companion-app-interface-and-adds-granular-control-for-previously-connected-cars-apk-download/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fnexus2cee_auto_thumb.png&w=54&h=54">
+<div class="cell-content">
+<h4>Android Auto v1.4 Cleans Up The Companion App Interface And Adds Granular Control For Previously Connected Cars [APK Download]</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/11/04 6:57pm PST</time><time class="timeago" datetime="2015-11-04T18:57:00-08:00">Nov 4, 2015</time></div></div>
+</div>
+</a>
+</li>
+<li class="cell-wrapper cell-small list-item">
+<a class="comment-btn" href="http://www.androidpolice.com/2015/10/30/chill-out-there-is-no-nexus-6p-bendgate/#comments">409</a>
+<div class="post-hotness-meter">
+<div class="hotness ap-hotness-100" style="width:99.969010975127%;"></div>
+</div>
+<a class="cell-link" href="http://www.androidpolice.com/2015/10/30/chill-out-there-is-no-nexus-6p-bendgate/">
+<img class="cell-thumb" src="http://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=http%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fnexus2cee_DSC69341-728x485.jpg&w=54&h=54">
+<div class="cell-content">
+<h4>[Chill Out] There Is No Nexus 6P Bendgate</h4>
+<div class="post-meta"><div class="post-date-time"><i class="icon-calendar"></i><time class="timeago-hover">2015/10/30 8:06pm PST</time><time class="timeago" datetime="2015-10-30T20:06:46-07:00">Oct 30, 2015</time></div></div>
+</div>
+</a>
+</li></ul></section></li>
+</div>
+</div>
+<div class="sixteen columns">
+</div>
+<div class="sixteen columns ">
+<div class="footer-notes">
+<div id='footer_signature'>
+Notice a bug? <a target="_blank" href="https://github.com/archon810/androidpolice/issues">Let us know here.</a><br>
+92 queries | 0.835s
+| nexus2 <span class="footer-break">
+<a href="http://www.androidpolice.com/androidpolice-com-privacy-policy/">Privacy Policy</a>
+| <a href="http://www.androidpolice.com/dmca-copyright-infringement-notification/">DMCA Disclaimer</a>
+| <a href="http://www.androidpolice.com/about/">About</a>
+| <a href="http://www.androidpolice.com/contact/">Contact</a></span>
+<span class="footer-break-tab">
+Android is a trademark of Google Inc.
+| &copy; Illogical Robot LLC, 2009-2015 </span>
+</div> 
+</div>
+</div>
+</div>
+</div>
+ 
+<script type="text/javascript">
+        // <![CDATA[
+        var disqus_shortname = 'androidpolice';
+        (function () {
+            var nodes = document.getElementsByTagName('span');
+            for (var i = 0, url; i < nodes.length; i++) {
+                if (nodes[i].className.indexOf('dsq-postid') != -1) {
+                    nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('data-dsqidentifier'));
+                    url = nodes[i].parentNode.href.split('#', 1);
+                    if (url.length == 1) { url = url[0]; }
+                    else { url = url[1]; }
+                    nodes[i].parentNode.href = url + '#disqus_thread';
+                }
+            }
+            var s = document.createElement('script'); 
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        // ]]>
+        </script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/plugins/ap-hotness/assets/js/aph-pvc.js?f8353d"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1","smooth_scroll_offset":"10"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/plugins/table-of-contents-plus/front.min.js?f8353d"></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/www.androidpolice.com\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"1","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/plugins/wp-polls/polls-js.js?f8353d"></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201545'></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/plugins/wp-gfycat/js/gfycat_test_.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/jquery.easing.1.3.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/socialite.min.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/nivo-lightbox.js?cachebust=1234567896&#038;ver=1.0&amp;f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/jRespond.min.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/mousetrap/mousetrap.min.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/jquery.timeago.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/jquery.flexslider.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/init.js?cachebust=1234567896&#038;ver=1.2&amp;f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/jquery.countTo.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/ap.single.js?f8353d"></script>
+<script type='text/javascript' src="http://www.androidpolice.com/wp-content/themes/ap2/js/waypoints-combined.min.js?f8353d"></script>
+<script type='text/javascript' src='http://stats.wp.com/e-201545.js' async defer></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:3.7',blog:'12245754',post:'340764',tz:'-8',srv:'www.androidpolice.com'} ]);
+	_stq.push([ 'clickTrackerInit', '12245754', '340764' ]);
+</script>
+<script type="text/javascript">
+	var templateDir = "http://www.androidpolice.com/wp-content/themes/ap2";
+  var ajaxurl = "https://www.androidpolice.com/wp-admin/admin-ajax.php";
+  var blogurl = "http://www.androidpolice.com";
+</script>
+ 
+<script type="text/javascript">(function(){var a=document.createElement('script');a.type='text/javascript';a.async=true;a.src='https://widget.pushbullet.com/dynamic.js';var b=document.getElementsByTagName('script')[0];b.parentNode.insertBefore(a,b);})();</script>
+ 
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script type="text/javascript" src="http://www.androidpolice.com/wp-content/themes/ap2/js/tablepress.search-fix.js?f8353d"></script>
+ 
+<script type="text/javascript"> (function(){ var sNew = document.createElement("script"); sNew.defer = true; sNew.src = "http://tag.crsspxl.com/s1.js?d=651"; var s0 = document.getElementsByTagName('script')[0]; s0.parentNode.insertBefore(sNew, s0); })(); </script>
+ 
+ 
+<script type="text/javascript" src="//ado.pro-market.net/ads/scripts/site-130167.js?f8353d"></script>
+ 
+ 
+<script async src="//i.simpli.fi/dpx.js?cid=28790&m=1&sifi_tuid=14740&amp;f8353d"></script>
+ 
+ 
+<img src="//pixel.quantserve.com/pixel/p-95hmrIiT9zWMo.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+ 
+ 
+<img src="http://b.scorecardresearch.com/p?c1=2&c2=15235859&cv=2.0&cj=1"/>
+ 
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+ 
+<script type="text/javascript" src="//s.skimresources.com/js/85009X1537243.skimlinks.js?f8353d"></script>
+ 
+</body>
+</html>
+ 

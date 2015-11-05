@@ -122,7 +122,7 @@ for(i in 2:length(list.files("Gamasutra/"))){
     n <- n + 1
     tmp_corpus <- Corpus(VectorSource(release))
     release_corpus <- c(release_corpus, tmp_corpus)
-    meta(release_corpus[[n]], "keywords") <- keys
+    meta(release_corpus[[2]], "keywords") <- keys
     meta(release_corpus[[n]], "publication_date") <- date
   }
 }
