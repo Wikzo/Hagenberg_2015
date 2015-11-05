@@ -94,8 +94,8 @@ release_corpus <- Corpus(VectorSource(release))
 head(release_corpus)
 
 # Setting the meta information
-meta(release_corpus[[1]], "keywords") <- keys
-meta(release_corpus[[1]], "publication_date") <- date
+meta(release_corpus[[1]], "keywords") <- "keys"
+meta(release_corpus[[1]], "publication_date") <- "date"
 meta(release_corpus[[1]])
 
 n <- 1

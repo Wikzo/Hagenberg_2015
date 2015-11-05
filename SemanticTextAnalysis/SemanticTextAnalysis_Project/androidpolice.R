@@ -192,18 +192,30 @@ head(meta_data["publication_date"])
 
 ######
 
+
+
 # NOT SURE TO USE THIS?
 # Filtering the corpus (only those with enought sources; for supervised learning)
 release_corpus <- release_corpus[
-  meta(release_corpus, tag = "organisation") == "Department for Business, Innovation & Skills" |
-    meta(release_corpus, tag = "organisation") == "Department for Communities and Local Government" |
-    meta(release_corpus, tag = "organisation") == "Department for Environment, Food & Rural Affairs" |
-    meta(release_corpus, tag = "organisation") == "Foreign & Commonwealth Office" |
-    meta(release_corpus, tag = "organisation") == "Ministry of Defence" |
-    meta(release_corpus, tag = "organisation") == "Wales Office"        
+  meta(release_corpus, tag = "section") == "Accessories" | #22
+    meta(release_corpus, tag = "section") == "Android OS" | #10
+    meta(release_corpus, tag = "section") == "Android TV" | #6
+    meta(release_corpus, tag = "section") == " Android Wear " | #11
+    meta(release_corpus, tag = "section") == "APK Teardown " | #6
+    meta(release_corpus, tag = "section") == "Applications" | #145
+    meta(release_corpus, tag = "section") == "AT&T" | #11
+    meta(release_corpus, tag = "section") == "Chromecast" | #5
+    meta(release_corpus, tag = "section") == "Deals" | #37
+    meta(release_corpus, tag = "section") == "Development" | #6
+    meta(release_corpus, tag = "section") == "Device Updates" | #10
+    meta(release_corpus, tag = "section") == "Games" | #27
+    meta(release_corpus, tag = "section") == "Google" | #29
+    meta(release_corpus, tag = "section") == "Leaks" | #6
+    meta(release_corpus, tag = "section") == "Marshmallow 6.0" | #20
+    meta(release_corpus, tag = "section") == "News" #54
   ]
 release_corpus
-tm_filter(release_corpus, FUN = function(x) any(grep("Nintendo", content(x))))
+tm_filter(release_corpus, FUN = function(x) any(grep("Google", content(x))))
 
 ### 10.2.2 Building a term-document matrix
 ### --------------------------------------------------------------
@@ -261,7 +273,7 @@ tdm_bigram <- TermDocumentMatrix(release_corpus, control = list(tokenize = Bigra
 tdm_bigram
 
 # Find associations
-findAssocs(tdm, "nintendo", .7)
+findAssocs(tdm, "Google", .7)
 
 ### 10.3 Supervised Learning Techniques
 ### --------------------------------------------------------------
@@ -274,7 +286,7 @@ dtm <- removeSparseTerms(dtm, 1-(10/length(release_corpus)))
 dtm
 
 # Labels
-org_labels <- unlist(meta(release_corpus, "keywords"))
+org_labels <- unlist(meta(release_corpus, "section"))
 org_labels[1:3]
 
 # Create container
@@ -282,8 +294,8 @@ N <- length(org_labels)
 container <- create_container(
   dtm,
   labels = org_labels,
-  trainSize = 1:30,
-  testSize = 31:N,
+  trainSize = 1:310,
+  testSize = 311:N,
   virgin = F
 )
 slotNames(container)
@@ -304,7 +316,7 @@ head(maxent_out)
 
 # Construct data frame with correct labels
 labels_out <- data.frame(
-  correct_label = org_labels[401:N],
+  correct_label = org_labels[311:N],
   svm = as.character(svm_out[,1]),
   tree = as.character(tree_out[,1]),
   maxent = as.character(maxent_out[,1]),
