@@ -5,9 +5,9 @@ import com.badlogic.gdx.math.Vector2;
 public class TransFormComponent extends Component
 {
 
-	Vector2 Position;
-	float Rotation;
-	Vector2 Scale;
+	public Vector2 Position;
+	public float Rotation;
+	public Vector2 Scale;
 
 	
 	public TransFormComponent()
