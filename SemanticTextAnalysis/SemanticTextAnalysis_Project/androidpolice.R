@@ -30,7 +30,7 @@ new_results = paste(c("page/", pageNumber), collapse = "")
 new_results = paste(c(new_results, "/"), collapse = "")
 signatures = system.file("CurlSSL", cainfo = "cacert.pem", package = "RCurl")
 
-while(pageNumber < 50){
+while(pageNumber < 120){
   new_results = paste(c("page/", pageNumber), collapse = "")
   new_results = paste(c(new_results, "/"), collapse = "")
   new_results <- str_c("http://www.androidpolice.com/", new_results)
@@ -288,13 +288,15 @@ dtm
 org_labels <- unlist(meta(release_corpus, "section"))
 org_labels[1:3]
 
+training_size = (length(release_corpus) / 100) * 80;
+test_size = training_size + 1;#(length(release_corpus) / 100) * 20;
 # Create container
 N <- length(org_labels)
 container <- create_container(
   dtm,
   labels = org_labels,
-  trainSize = 1:310,
-  testSize = 311:N,
+  trainSize = 1:training_size,
+  testSize = test_size:N,
   virgin = F
 )
 slotNames(container)
@@ -315,7 +317,7 @@ head(maxent_out)
 
 # Construct data frame with correct labels
 labels_out <- data.frame(
-  correct_label = org_labels[311:N],
+  correct_label = org_labels[test_size:N],
   svm = as.character(svm_out[,1]),
   tree = as.character(tree_out[,1]),
   maxent = as.character(maxent_out[,1]),
