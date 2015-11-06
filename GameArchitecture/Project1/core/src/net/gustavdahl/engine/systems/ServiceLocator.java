@@ -11,50 +11,55 @@ public class ServiceLocator
 	public static Assets AssetManager; // TODO: change type to AssetManager
 	public static EntityManager EntityManager;
 
-	private static ArrayList<ISystem> _systems;
+	private static ArrayList<BaseSystem> _systems;
 
 	public ServiceLocator(Assets assetManager, EntityManager entityManager)
 	{
 		this.AssetManager = assetManager;
 		// this.EntityManager = entityManager;
 
-		_systems = new ArrayList<ISystem>();
+		_systems = new ArrayList<BaseSystem>();
 	}
 
-	public static void RegisterNewSystem(ISystem system)
+	public static void RegisterNewSystem(BaseSystem system)
 	{
 
 		_systems.add(system);
 
 	}
 
-	public static void RemoveSystem(ISystem s)
+	public static void RemoveSystem(BaseSystem s)
 	{
 		_systems.remove(s);
 	}
 
-	public static boolean _AddComponentToSystem(Component c, String systemName)
+	public static boolean AddComponentToSystem(Component c, String systemName)
 	{
-		// if
-		// (_components.get(i).getClass().getSimpleName().equalsIgnoreCase(componentType))
 
 		boolean success = false;
 
 		for (int i = 0; i < _systems.size(); i++)
 		{
+			if (success)
+				break;
+			
 			// check if name of system in the list matches systemName
 			if (_systems.get(i).getClass().getSimpleName().equalsIgnoreCase(systemName))
 			{
+				
 				_systems.get(i).AddToSystem(c);
 				success = true;
-				System.out.println("Component successfully added to appropiate system: ");
 			}
 		}
+		if (success)
+			System.out.println(c.Name() + " was added to " + systemName);
+		else
+			System.out.println(c.Name() + " was NOT added to " + systemName);
 		
 		return success;
 	}
 
-	public static ISystem GetSystem(String systemName)
+	public static BaseSystem GetSystem(String systemName)
 	{
 		for (int i = 0; i < _systems.size(); i++)
 		{
@@ -68,7 +73,7 @@ public class ServiceLocator
 		return null;
 	}
 	
-	void SetActive(ISystem s, boolean active)
+	void SetActive(BaseSystem s, boolean active)
 	{
 	}
 
@@ -82,10 +87,10 @@ public class ServiceLocator
 
 
 
-	public static void UpdateSystems()
+	public static void UpdateSystems(float deltaTime)
 	{
 		for (int i = 0; i < _systems.size(); i++)
-			_systems.get(i).Update();
+			_systems.get(i).Update(deltaTime);
 	}
 
 	public void DestroyAllSystems()

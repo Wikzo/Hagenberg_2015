@@ -3,7 +3,7 @@ package net.gustavdahl.engine.components;
 import net.gustavdahl.engine.entities.Entity;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
-public  class Component implements IComponent, IUpdatable
+public class Component implements IComponent, IUpdatable
 {
 
 	public Entity Owner;
@@ -36,18 +36,15 @@ public  class Component implements IComponent, IUpdatable
 		_hasBeenInitialized = true;
 		_isActive = true;
 		
-		//ServiceLocator.AddComponentToSystem(this, systemName);
-		ServiceLocator.GetSystem(systemName).AddToSystem(this);
+		if (systemName != null)
+			ServiceLocator.AddComponentToSystem(this, systemName);
+		//ServiceLocator.GetSystem(systemName)._AddComponentToSystem(this);
 		//System.out.println("Component successfully added to appropriate system: " + added);
 		
 		GetExternalReferences();
 		
 	}
 	
-	public void Disable()
-	{
-		_isActive = false;
-	}
 	
 	public void Reset()
 	{
@@ -62,7 +59,7 @@ public  class Component implements IComponent, IUpdatable
 	}
 
 
-	public void Update()
+	public void Update(float deltaTime)
 	{
 		// TODO Auto-generated method stub
 		
