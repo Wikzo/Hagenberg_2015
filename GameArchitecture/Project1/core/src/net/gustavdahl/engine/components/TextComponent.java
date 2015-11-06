@@ -11,7 +11,7 @@ public class TextComponent extends SpriteComponent
 	
 	public TextComponent(SpriteBatch spriteBatch, String text)
 	{
-		super(spriteBatch, null);
+		super(null);
 		_text = text;
 	}
 	
@@ -30,10 +30,10 @@ public class TextComponent extends SpriteComponent
 
 	
 	@Override
-	public void Render()
+	public void Render(SpriteBatch spriteBatch, float deltaTime)
 	{
-		// TODO Auto-generated method stub
-		super.Render();
+		
+		super.Render(spriteBatch, deltaTime);
 		
 		PrintText(_text);
 	}

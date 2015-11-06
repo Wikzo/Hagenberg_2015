@@ -37,7 +37,6 @@ public class PhysicsSystem extends BaseSystem
 				throw new Exception("ERROR - component " + c.getClass().getSimpleName() + " doesn't implement PhysicsComponent interface!");
 			} catch (Exception e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 		}		

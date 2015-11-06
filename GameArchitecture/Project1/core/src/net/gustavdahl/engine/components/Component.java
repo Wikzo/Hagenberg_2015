@@ -12,9 +12,9 @@ public class Component implements IComponent, IUpdatable
 	protected boolean _isActive;
 	protected boolean _hasBeenInitialized;
 	
-	protected TransFormComponent _transform;
+	protected TransFormComponent Transform;
 	
-	public String DefaultSystem = "PhysicsSystem";
+	public String DefaultSystem = "GameLoopSystem";
 	
 	public int UpdatePriority = 1;
 	
@@ -61,7 +61,6 @@ public class Component implements IComponent, IUpdatable
 
 	public void Update(float deltaTime)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -78,7 +77,7 @@ public class Component implements IComponent, IUpdatable
 
 	public void GetExternalReferences()
 	{
-		_transform = Owner.GetTransform();
+		Transform = Owner.GetTransform();
 		
 	}
 

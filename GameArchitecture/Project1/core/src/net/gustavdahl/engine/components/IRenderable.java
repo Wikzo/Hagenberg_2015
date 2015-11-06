@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public interface IRenderable
 {
-	int DrawOrder();
-	void Render();
+	void Render(SpriteBatch spriteBatch, float deltaTime);
 	void DebugRender();
 }

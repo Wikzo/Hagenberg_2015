@@ -46,7 +46,6 @@ public class CircleMenuList implements Screen
 
 	public CircleMenuList(MyGame project)
 	{
-		// TODO Auto-generated constructor stub
 		this.game = project;
 
 		camera = new OrthographicCamera();
@@ -288,21 +287,18 @@ public class CircleMenuList implements Screen
 	@Override
 	public void pause()
 	{
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void resume()
 	{
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void hide()
 	{
-		// TODO Auto-generated method stub
 		dispose();
 
 	}
@@ -310,7 +306,6 @@ public class CircleMenuList implements Screen
 	@Override
 	public void dispose()
 	{
-		// TODO Auto-generated method stub
 	}
 
 }

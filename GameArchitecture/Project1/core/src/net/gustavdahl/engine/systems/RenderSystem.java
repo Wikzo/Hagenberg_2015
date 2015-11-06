@@ -43,10 +43,10 @@ public class RenderSystem extends BaseSystem
 	@Override
 	public void Update(float deltaTime)
 	{
-		Render();
+		Render(deltaTime);
 	}
 
-	public void Render()
+	public void Render(float deltaTime)
 	{
 		if (!IsActive)
 			return;
@@ -57,7 +57,7 @@ public class RenderSystem extends BaseSystem
 				continue;
 
 			_spriteBatch.begin();
-			_renderList.get(i).Render();
+			_renderList.get(i).Render(_spriteBatch, deltaTime);
 			_spriteBatch.end();
 		}
 	}
@@ -89,21 +89,5 @@ public class RenderSystem extends BaseSystem
 		
 	}
 
-	/*
-	 * public boolean AddToSystemRender(IRenderable t) { boolean
-	 * succesfullyAdded = false;
-	 * 
-	 * if (t instanceof IRenderable) { succesfullyAdded = true;
-	 * _renderList.add((IRenderable) t);
-	 * 
-	 * } else { try { throw new Exception(
-	 * "ERROR - component doesn't implement IRenderable interface!"); } catch
-	 * (Exception e) { // TODO Auto-generated catch block e.printStackTrace(); }
-	 * }
-	 * 
-	 * // System.out.println(added);
-	 * 
-	 * return succesfullyAdded; }
-	 */
 
 }

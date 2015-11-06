@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.sun.xml.internal.stream.events.DummyEvent;
 
-public class Assets
+public class MyAssetManager
 {
 
 	// QUESTION: should all assets be static???
@@ -24,6 +24,7 @@ public class Assets
 	private ArrayList<Texture> textures;
 	public Texture SplashTexture;
 	public Texture DummyTexture;
+	public Texture BraidSpriteSheet;
 	
 	// SPRITES end //////////////////////////////////////////////////
 
@@ -44,10 +45,16 @@ public class Assets
 		fonts.add(ArialFont);
 		
 		SplashTexture = new Texture("splash.png");
-		DummyTexture = new Texture("cat-tongue.png");
+		
 		textures = new ArrayList<Texture>();
 		textures.add(SplashTexture);
 		textures.add(DummyTexture);
+	}
+	
+	public void InitializeDebugAssets()
+	{
+		DummyTexture = new Texture("spritesheet_dummy.png");
+		BraidSpriteSheet = new Texture("braid_spritesheet_trimmed.png");
 	}
 	
 	public void InitializeCommonAssets()

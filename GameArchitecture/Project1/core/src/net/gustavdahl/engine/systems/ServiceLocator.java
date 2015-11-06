@@ -8,17 +8,21 @@ import net.gustavdahl.engine.components.Component;
 public class ServiceLocator
 {
 
-	public static Assets AssetManager; // TODO: change type to AssetManager
+	public static MyAssetManager AssetManager; // TODO: change type to AssetManager
 	public static EntityManager EntityManager;
 
 	private static ArrayList<BaseSystem> _systems;
 
-	public ServiceLocator(Assets assetManager, EntityManager entityManager)
+	public ServiceLocator(MyAssetManager assetManager, EntityManager entityManager)
 	{
 		this.AssetManager = assetManager;
 		// this.EntityManager = entityManager;
 
 		_systems = new ArrayList<BaseSystem>();
+		
+		// TODO: test
+		//TODO:test
+		//sadasd
 	}
 
 	public static void RegisterNewSystem(BaseSystem system)
@@ -28,14 +32,13 @@ public class ServiceLocator
 
 	}
 
-	public static void RemoveSystem(BaseSystem s)
+	public static void RemoveSystem(BaseSystem system)
 	{
-		_systems.remove(s);
+		_systems.remove(system);
 	}
 
 	public static boolean AddComponentToSystem(Component c, String systemName)
 	{
-
 		boolean success = false;
 
 		for (int i = 0; i < _systems.size(); i++)

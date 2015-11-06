@@ -4,13 +4,13 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class ParticleComponent extends SpriteComponent
+public class ParticleComponent extends SpriteSheetAnimatorComponent
 {
-	public ParticleComponent(SpriteBatch spriteBatch, Texture t)
+	public ParticleComponent(TextureRegion[] regions, float framerate)
 	{
-		super(spriteBatch, t);
-		// TODO Auto-generated constructor stub
+		super(regions, framerate);
 	}
 
 	int NumberOfParticles;

@@ -37,7 +37,6 @@ public class GameLoopSystem extends BaseSystem
 			throw new Exception("ERROR - cannot add " + c.Name() + " to the GameLoopSystem! Add an IUpdtable via the constructor instead.");
 		} catch (Exception e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;

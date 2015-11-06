@@ -11,7 +11,6 @@ public class EntityManager
 	
 	public EntityManager()
 	{
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void AddEntity() {}

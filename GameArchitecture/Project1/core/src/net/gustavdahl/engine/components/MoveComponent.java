@@ -22,8 +22,8 @@ public class MoveComponent extends Component implements IMovable
 	@Override
 	public void Move(float deltaTime)
 	{
-		_transform.Position.mulAdd(_velocity, deltaTime);
-		_transform.Rotation += _angularVelocity * deltaTime;
+		Transform.Position.mulAdd(_velocity, deltaTime);
+		Transform.Rotation += _angularVelocity * deltaTime;
 	}
 
 }

@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import net.gustavdahl.engine.components.TextComponent;
 import net.gustavdahl.engine.entities.Entity;
-import net.gustavdahl.engine.systems.Assets;
+import net.gustavdahl.engine.systems.MyAssetManager;
 import net.gustavdahl.engine.systems.EntityManager;
 import net.gustavdahl.engine.systems.RenderSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
@@ -25,16 +25,17 @@ public class MyGame extends Game
 	public static final float V_HEIGHT = 768;
 	
 	private static ServiceLocator _serviceLocator;
-	private Assets _assetManager;
+	private MyAssetManager _assetManager;
 	//private static EntityManager _entityManager;
 	
 
 	@Override
 	public void create()
 	{
-		_assetManager = new Assets();
+		_assetManager = new MyAssetManager();
 		_assetManager.InitializeCommonAssets();
 		_assetManager.InitializeMenuAssets();
+		_assetManager.InitializeDebugAssets();
 		
 		_serviceLocator = new ServiceLocator(_assetManager, null);
 		setScreen(new GameTest(this, _serviceLocator));

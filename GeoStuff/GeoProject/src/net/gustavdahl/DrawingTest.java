@@ -60,7 +60,7 @@ public class DrawingTest implements WindowListener, ActionListener
 
 	public static void main(String[] args)
 	{
-		// TODO Auto-generated method stub
+		
 
 		DrawingTest t = new DrawingTest();
 	}
