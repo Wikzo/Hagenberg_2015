@@ -1,6 +1,7 @@
 package net.gustavdahl.engine.components;
 
 import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.systems.PhysicsSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class Component implements IComponent, IUpdatable
@@ -14,7 +15,7 @@ public class Component implements IComponent, IUpdatable
 	
 	protected TransFormComponent Transform;
 	
-	public String DefaultSystem = "GameLoopSystem";
+	public String DefaultSystem = PhysicsSystem.SystemName;
 	
 	public int UpdatePriority = 1;
 	

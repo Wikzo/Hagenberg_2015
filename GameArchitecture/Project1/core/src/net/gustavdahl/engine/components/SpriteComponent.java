@@ -10,6 +10,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.sun.javafx.webkit.theme.Renderer;
 
 import net.gustavdahl.engine.systems.MyAssetManager;
+import net.gustavdahl.engine.systems.PhysicsSystem;
+import net.gustavdahl.engine.systems.RenderSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class SpriteComponent extends Component implements IRenderable
@@ -37,6 +39,7 @@ public class SpriteComponent extends Component implements IRenderable
 		Width(_width);
 		Heighth(_height);
 		
+		DefaultSystem = RenderSystem.SystemName;
 		//LoadContent(ServiceLocator.AssetManager.DummyTexture);
 	}
 

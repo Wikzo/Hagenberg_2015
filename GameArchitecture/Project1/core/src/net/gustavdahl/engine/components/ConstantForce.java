@@ -2,6 +2,8 @@ package net.gustavdahl.engine.components;
 
 import com.badlogic.gdx.math.Vector2;
 
+import net.gustavdahl.engine.systems.PhysicsSystem;
+
 public class ConstantForce extends PhysicsComponent
 {
 	private Vector2 _velocity;
@@ -13,6 +15,7 @@ public class ConstantForce extends PhysicsComponent
 		_angularVelocity = angularVelocity;
 		
 		CanHaveMultipleComponentsOfThisType = false;
+		DefaultSystem = PhysicsSystem.SystemName;
 	}
 
 	@Override

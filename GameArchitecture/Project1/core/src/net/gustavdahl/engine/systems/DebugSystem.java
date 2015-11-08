@@ -40,6 +40,9 @@ public class DebugSystem extends RenderSystem
 			if (!((Component) _debugRenderList.get(i)).IsActive())
 				continue;
 
+			//_spriteBatch.enableBlending();
+			//_spriteBatch.setBlendFunction(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			
 			_spriteBatch.begin();
 			_debugRenderList.get(i).DebugRender(_spriteBatch, deltaTime);
 			_spriteBatch.end();

@@ -98,7 +98,7 @@ public class ServiceLocator
 	{
 		if (_systems.size() < 1)
 		{
-			System.out.println("ERROR - no systems!");
+			System.out.println("ERROR - no systems! (InitializeSystems)");
 			return;
 		}
 		
@@ -112,7 +112,7 @@ public class ServiceLocator
 	{
 		if (_systems.size() < 1)
 		{
-			System.out.println("ERROR - no systems!");
+			System.out.println("ERROR - no systems! (UpdateSystems)");
 			return;
 		}
 		
@@ -125,7 +125,7 @@ public class ServiceLocator
 	{
 		if (_systems.size() < 1)
 		{
-			System.out.println("ERROR - no systems!");
+			System.out.println("ERROR - no systems! (DestroyAllSystems)");
 			return;
 		}
 		

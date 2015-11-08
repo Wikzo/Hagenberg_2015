@@ -2,6 +2,9 @@ package net.gustavdahl.engine.components;
 
 import com.badlogic.gdx.math.Vector2;
 
+import net.gustavdahl.engine.systems.GameLoopSystem;
+import net.gustavdahl.engine.systems.PhysicsSystem;
+
 public class TransFormComponent extends Component
 {
 
@@ -19,6 +22,7 @@ public class TransFormComponent extends Component
 		
 		CanHaveMultipleComponentsOfThisType = false;
 	}
+	
 	
 	@Override
 	public String Name()

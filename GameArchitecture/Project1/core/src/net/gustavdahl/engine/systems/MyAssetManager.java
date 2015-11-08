@@ -22,7 +22,7 @@ public class MyAssetManager
 	private ArrayList<Texture> textures;
 	public Texture SplashTexture;
 	public Texture DummyTexture;
-	public Texture BraidSpriteSheet;
+	public Texture RunningMan;
 
 	// SPRITES end //////////////////////////////////////////////////
 
@@ -58,10 +58,10 @@ public class MyAssetManager
 		fonts.add(DebugFont);
 		
 		DummyTexture = new Texture("spritesheet_dummy.png");
-		BraidSpriteSheet = new Texture("braid_spritesheet_trimmed.png");
+		RunningMan = new Texture("spriteSheet_man.png");
 
 		textures.add(DummyTexture);
-		textures.add(BraidSpriteSheet);
+		textures.add(RunningMan);
 	}
 
 	public void InitializeCommonAssets()

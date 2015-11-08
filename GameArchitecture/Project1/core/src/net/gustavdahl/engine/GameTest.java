@@ -77,7 +77,7 @@ public class GameTest implements Screen, IUpdatable
 		assertNotNull(_serviceLocator);
 
 
-		_entity = new Entity("BraidGuy");
+		_entity = new Entity("RunningMan");
 		assertNotNull(_entity);
 		assertNotNull(_entity.GetTransform());
 
@@ -105,9 +105,9 @@ public class GameTest implements Screen, IUpdatable
 
 
 
-		Texture texture = _serviceLocator.AssetManager.BraidSpriteSheet;
+		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
-        TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 27, 7, 4);
+        TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
         
         // sprite animation
        _entity.AddComponent(new SpriteAnimator(r, 0.032f)
@@ -125,7 +125,7 @@ public class GameTest implements Screen, IUpdatable
        
        _entity.AddComponent(new DebugComponent(_serviceLocator.AssetManager.DebugFont)
     		   .SetRenderPosition(true)
-    		   .SetRenderAllComponents(true),
+    		   .SetRenderName(true),
     		   DebugSystem.SystemName);
        
        
