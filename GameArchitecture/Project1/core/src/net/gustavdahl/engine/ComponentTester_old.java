@@ -69,10 +69,10 @@ public class ComponentTester_old implements Screen
 		//renderSystem.AddToRenderSystem(component1);
 		//renderSystem.AddToRenderSystem(component2);
 
-		Component c_temp1 = entity.GetComponent(TextComponent.class);
-		assertNotNull(c_temp1);
+		//Component c_temp1 = entity.GetComponent(TextComponent.class);
+		//assertNotNull(c_temp1);
 
-		Component c_temp2 = entity.GetComponent(SpriteComponent.class);
+		//Component c_temp2 = entity.GetComponent(SpriteComponent.class);
 		// assertNotNull(c_temp2);
 
 		List<Component> tempList1 = entity.GetAllComponentsOfType(TextComponent.class);
@@ -108,8 +108,8 @@ public class ComponentTester_old implements Screen
 	public void render(float delta)
 	{
 
-		if (Gdx.input.isKeyJustPressed(Keys.SPACE) && entity.GetComponent(TextComponent.class) != null)
-			((TextComponent) entity.GetComponent(TextComponent.class)).PrintText("JUMP");
+		//if (Gdx.input.isKeyJustPressed(Keys.SPACE) && entity.GetComponent(TextComponent.class) != null)
+			//((TextComponent) entity.GetComponent(TextComponent.class)).PrintText("JUMP");
 
 	}
 

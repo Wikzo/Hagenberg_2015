@@ -34,6 +34,8 @@ public class SpriteComponent extends Component implements IRenderable
 		this._textureRegion = region;
 		_width = region.getRegionWidth();
 		_height = region.getRegionHeight();
+		Width(_width);
+		Heighth(_height);
 		
 		LoadContent(ServiceLocator.AssetManager.DummyTexture);
 	}
@@ -123,7 +125,7 @@ public class SpriteComponent extends Component implements IRenderable
 		batch.setColor(_color);
 		batch.draw(_textureRegion,
 		_offsetX + Transform.Position.x - _halfWidth, // x position
-		_offsetY + Transform.Position.x - _halfHeight, // y position
+		_offsetY + Transform.Position.y - _halfHeight, // y position
 		_originX, _originY, // origin
 		_width, _height, // size in world space
 		_scaleX, _scaleY, // scaling factor

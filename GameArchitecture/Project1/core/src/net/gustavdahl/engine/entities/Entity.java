@@ -8,7 +8,7 @@ import java.util.Map;
 import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.engine.components.Component;
-import net.gustavdahl.engine.components.MoveComponent;
+import net.gustavdahl.engine.components.ConstantForce;
 import net.gustavdahl.engine.components.TransFormComponent;
 import net.gustavdahl.engine.systems.GameLoopSystem;
 import net.gustavdahl.engine.systems.PhysicsSystem;
@@ -17,7 +17,7 @@ public class Entity
 {
 
 	private String _ID;
-	public TransFormComponent _transform;
+	private TransFormComponent _transform;
 	private List<Component> _components;
 
 	private boolean _isActive;
@@ -137,7 +137,7 @@ public class Entity
 				return c;
 		}
 		
-		System.out.println("ERROR - cannot get the component " + componentClass.getClass().getSimpleName());
+		//System.out.println("ERROR - cannot get the component for " + ID + componentClass.getClass().getSimpleName());
 		
 		// TODO: make sure that using the (null)component's methods doesn't make it crash
 		// e.g._entity.GetComponent(MoveComponent.class).SetActive(true);

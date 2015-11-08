@@ -9,6 +9,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -19,7 +20,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
 import net.gustavdahl.engine.components.IUpdatable;
-import net.gustavdahl.engine.components.MoveComponent;
+import net.gustavdahl.engine.components.ConstantForce;
 import net.gustavdahl.engine.components.SpriteSheetAnimatorComponent;
 import net.gustavdahl.engine.components.SpriteComponent;
 import net.gustavdahl.engine.components.TextComponent;
@@ -105,9 +106,16 @@ public class GameTest implements Screen, IUpdatable
         TextureRegion[] r = SpriteSheetAnimatorComponent.CreateSpriteSheet(texture, 27, 7, 4);
         
 //        _entity.AddComponent(new SpriteComponent(regions[5]), RenderSystem.SystemName);
-        _entity.AddComponent(new SpriteSheetAnimatorComponent(r, 0.032f), RenderSystem.SystemName);
+       _entity.AddComponent(new SpriteSheetAnimatorComponent(r, 0.032f)
+        		.Color(Color.BLUE)
+        		.Offset(100, 0)
+        		.SetOriginCenter(), RenderSystem.SystemName);
         
-       _entity.AddComponent(new MoveComponent(Vector2.Zero, 2f), PhysicsSystem.SystemName);
+        _entity.AddComponent(new SpriteComponent(r[0])
+        		.Color(Color.RED), RenderSystem.SystemName);
+        
+       _entity.AddComponent(new ConstantForce(Vector2.Zero, 2f), PhysicsSystem.SystemName);
+       _serviceLocator.GetSystem(PhysicsSystem.SystemName).SetActive(false);
 
 	}
 
@@ -182,13 +190,12 @@ public class GameTest implements Screen, IUpdatable
 			touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
 			_camera.unproject(touchPos);
 
-			
 			_entity.SetTransform(new Vector2(touchPos.x, touchPos.y));
+			_entity.GetComponent(ConstantForce.class).SetActive(false);
 			
-			_entity.GetComponent(MoveComponent.class).SetActive(false);
 		}
 		else
-			_entity.GetComponent(MoveComponent.class).SetActive(true);
+			_entity.GetComponent(ConstantForce.class).SetActive(true);
 		
 		
 

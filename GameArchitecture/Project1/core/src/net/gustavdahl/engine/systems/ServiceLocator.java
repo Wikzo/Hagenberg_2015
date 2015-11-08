@@ -39,6 +39,12 @@ public class ServiceLocator
 
 	public static boolean AddComponentToSystem(Component c, String systemName)
 	{
+		if (_systems.size() < 1)
+		{
+			System.out.println("ERROR - no systems!");
+			return false;
+		}
+		
 		boolean success = false;
 
 		for (int i = 0; i < _systems.size(); i++)
@@ -64,6 +70,12 @@ public class ServiceLocator
 
 	public static BaseSystem GetSystem(String systemName)
 	{
+		if (_systems.size() < 1)
+		{
+			System.out.println("ERROR - no systems!");
+			return null;
+		}
+		
 		for (int i = 0; i < _systems.size(); i++)
 		{
 			// check if name of system in the list matches systemName
@@ -84,6 +96,12 @@ public class ServiceLocator
 
 	public static void InitializeSystems()
 	{
+		if (_systems.size() < 1)
+		{
+			System.out.println("ERROR - no systems!");
+			return;
+		}
+		
 		for (int i = 0; i < _systems.size(); i++)
 			_systems.get(i).Start();
 	}
@@ -92,12 +110,25 @@ public class ServiceLocator
 
 	public static void UpdateSystems(float deltaTime)
 	{
+		if (_systems.size() < 1)
+		{
+			System.out.println("ERROR - no systems!");
+			return;
+		}
+		
+		
 		for (int i = 0; i < _systems.size(); i++)
 			_systems.get(i).Update(deltaTime);
 	}
 
 	public void DestroyAllSystems()
 	{
+		if (_systems.size() < 1)
+		{
+			System.out.println("ERROR - no systems!");
+			return;
+		}
+		
 		System.out.println("[Destroying all systems]");
 		for (int i = 0; i < _systems.size(); i++)
 			_systems.get(i).Destroy();

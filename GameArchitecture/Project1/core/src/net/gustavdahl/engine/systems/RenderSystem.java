@@ -50,6 +50,12 @@ public class RenderSystem extends BaseSystem
 	{
 		if (!IsActive)
 			return;
+		
+		if (_renderList.size() < 1)
+		{
+			System.out.println("ERROR - no render components in system!");
+			return;
+		}
 
 		for (int i = 0; i < _renderList.size(); i++)
 		{

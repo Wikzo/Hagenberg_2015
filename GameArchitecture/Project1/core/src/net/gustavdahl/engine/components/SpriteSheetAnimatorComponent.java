@@ -67,16 +67,11 @@ public class SpriteSheetAnimatorComponent extends SpriteComponent
 
 			if (_index >= _spriteSheet.length)
 				_index = 0;
+			
+			this._textureRegion = _spriteSheet[_index]; // set the animation frame
 		}
 
-		batch.setColor(_color);
-		batch.draw(_spriteSheet[_index], _offsetX + Transform.Position.x - _halfWidth, // x
-																						// position
-				_offsetY + Transform.Position.x - _halfHeight, // y position
-				_originX, _originY, // origin
-				_width, _height, // size in world space
-				_scaleX, _scaleY, // scaling factor
-				MathUtils.radDeg * Transform.Rotation);
+		super.Render(batch, deltaTime);
 
 	}
 

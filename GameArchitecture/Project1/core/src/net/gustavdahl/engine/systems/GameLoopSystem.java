@@ -26,6 +26,11 @@ public class GameLoopSystem extends BaseSystem
 	@Override
 	public void Update(float deltaTime)
 	{
+		if (_gameLoop == null)
+		{
+			System.out.println("ERROR - game loop is null!");
+			return;
+		}
 		_gameLoop.Update(deltaTime);
 	}
 

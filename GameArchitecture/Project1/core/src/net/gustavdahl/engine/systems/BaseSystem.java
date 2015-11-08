@@ -36,6 +36,12 @@ public abstract class BaseSystem implements ISystem
 	{
 		if (!_isActive)
 			return;
+		
+		if (_componentList.size() < 1)
+		{
+			System.out.println("ERROR - no components in system!");
+			return;
+		}
 
 		for (int i = 0; i < _componentList.size(); i++)
 		{
