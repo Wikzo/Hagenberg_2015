@@ -6,9 +6,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class ParticleComponent extends SpriteSheetAnimatorComponent
+public class Particle extends SpriteAnimator
 {
-	public ParticleComponent(TextureRegion[] regions, float framerate)
+	public Particle(TextureRegion[] regions, float framerate)
 	{
 		super(regions, framerate);
 	}

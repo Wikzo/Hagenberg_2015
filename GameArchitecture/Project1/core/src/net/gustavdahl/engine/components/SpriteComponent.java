@@ -37,7 +37,7 @@ public class SpriteComponent extends Component implements IRenderable
 		Width(_width);
 		Heighth(_height);
 		
-		LoadContent(ServiceLocator.AssetManager.DummyTexture);
+		//LoadContent(ServiceLocator.AssetManager.DummyTexture);
 	}
 
 	public SpriteComponent Layer(int value)
@@ -133,12 +133,6 @@ public class SpriteComponent extends Component implements IRenderable
 		
 		
 		
-	}
-
-	@Override
-	public void DebugRender()
-	{
-
 	}
 
 }

@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-import net.gustavdahl.engine.components.TextComponent;
+import net.gustavdahl.engine.components.Text;
 import net.gustavdahl.engine.entities.Entity;
 import net.gustavdahl.engine.systems.MyAssetManager;
 import net.gustavdahl.engine.systems.EntityManager;

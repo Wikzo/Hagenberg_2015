@@ -16,15 +16,17 @@ import net.gustavdahl.engine.systems.PhysicsSystem;
 public class Entity
 {
 
-	private String _ID;
+	public String Name;
 	private TransFormComponent _transform;
 	private List<Component> _components;
 
 	private boolean _isActive;
 	private Entity _parent;
 
-	public Entity()
+	public Entity(String name)
 	{
+		Name = name;
+		
 		_components = new ArrayList<Component>();
 		_transform = new TransFormComponent();
 		_transform.Enable(this, null); // QUESTION: does Transform need to be

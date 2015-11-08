@@ -2,7 +2,7 @@ package net.gustavdahl.engine.components;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public interface IRenderable
+public interface IDebugRenderable
 {
-	void Render(SpriteBatch spriteBatch, float deltaTime);
+	void DebugRender(SpriteBatch spriteBatch, float deltaTime);
 }

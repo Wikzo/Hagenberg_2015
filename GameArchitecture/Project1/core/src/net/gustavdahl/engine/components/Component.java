@@ -95,6 +95,12 @@ public class Component implements IComponent, IUpdatable
 	{
 		return _hasBeenInitialized;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return this.Name();
+	}
 
 
 }

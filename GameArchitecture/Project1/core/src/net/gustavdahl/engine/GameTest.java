@@ -21,12 +21,14 @@ import com.badlogic.gdx.math.Vector3;
 
 import net.gustavdahl.engine.components.IUpdatable;
 import net.gustavdahl.engine.components.ConstantForce;
-import net.gustavdahl.engine.components.SpriteSheetAnimatorComponent;
+import net.gustavdahl.engine.components.DebugComponent;
+import net.gustavdahl.engine.components.SpriteAnimator;
 import net.gustavdahl.engine.components.SpriteComponent;
-import net.gustavdahl.engine.components.TextComponent;
+import net.gustavdahl.engine.components.Text;
 import net.gustavdahl.engine.components.TransFormComponent;
 import net.gustavdahl.engine.entities.Entity;
 import net.gustavdahl.engine.systems.MyAssetManager;
+import net.gustavdahl.engine.systems.DebugSystem;
 import net.gustavdahl.engine.systems.GameLoopSystem;
 import net.gustavdahl.engine.systems.PhysicsSystem;
 import net.gustavdahl.engine.systems.RenderSystem;
@@ -57,11 +59,13 @@ public class GameTest implements Screen, IUpdatable
 	void InitializeSystems(ServiceLocator serviceLocator)
 	{
 		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
+		DebugSystem _debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch);
 		PhysicsSystem _physicsSystem = new PhysicsSystem();
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
-
+		
 		_serviceLocator = serviceLocator;
 		_serviceLocator.RegisterNewSystem(_renderSystem);
+		_serviceLocator.RegisterNewSystem(_debugSystem);
 		_serviceLocator.RegisterNewSystem(_physicsSystem);
 		_serviceLocator.RegisterNewSystem(_gameLogicSystem);
 		_serviceLocator.InitializeSystems();
@@ -73,7 +77,7 @@ public class GameTest implements Screen, IUpdatable
 		assertNotNull(_serviceLocator);
 
 
-		_entity = new Entity();
+		_entity = new Entity("BraidGuy");
 		assertNotNull(_entity);
 		assertNotNull(_entity.GetTransform());
 
@@ -103,19 +107,29 @@ public class GameTest implements Screen, IUpdatable
 
 		Texture texture = _serviceLocator.AssetManager.BraidSpriteSheet;
 
-        TextureRegion[] r = SpriteSheetAnimatorComponent.CreateSpriteSheet(texture, 27, 7, 4);
+        TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 27, 7, 4);
         
-//        _entity.AddComponent(new SpriteComponent(regions[5]), RenderSystem.SystemName);
-       _entity.AddComponent(new SpriteSheetAnimatorComponent(r, 0.032f)
+        // sprite animation
+       _entity.AddComponent(new SpriteAnimator(r, 0.032f)
         		.Color(Color.BLUE)
         		.Offset(100, 0)
         		.SetOriginCenter(), RenderSystem.SystemName);
         
+       // static sprite
         _entity.AddComponent(new SpriteComponent(r[0])
         		.Color(Color.RED), RenderSystem.SystemName);
         
-       _entity.AddComponent(new ConstantForce(Vector2.Zero, 2f), PhysicsSystem.SystemName);
-       _serviceLocator.GetSystem(PhysicsSystem.SystemName).SetActive(false);
+        // constant force
+       //_entity.AddComponent(new ConstantForce(Vector2.Zero, 2f), PhysicsSystem.SystemName);
+       
+       
+       _entity.AddComponent(new DebugComponent(_serviceLocator.AssetManager.DebugFont)
+    		   .SetRenderPosition(true)
+    		   .SetRenderAllComponents(true),
+    		   DebugSystem.SystemName);
+       
+       
+       _serviceLocator.GetSystem(PhysicsSystem.SystemName).SetActive(true);
 
 	}
 
@@ -191,11 +205,16 @@ public class GameTest implements Screen, IUpdatable
 			_camera.unproject(touchPos);
 
 			_entity.SetTransform(new Vector2(touchPos.x, touchPos.y));
-			_entity.GetComponent(ConstantForce.class).SetActive(false);
+			
+			if (_entity.GetComponent(ConstantForce.class) != null)
+				_entity.GetComponent(ConstantForce.class).SetActive(false);
 			
 		}
 		else
-			_entity.GetComponent(ConstantForce.class).SetActive(true);
+		{
+			if (_entity.GetComponent(ConstantForce.class) != null)
+				_entity.GetComponent(ConstantForce.class).SetActive(true);
+		}
 		
 		
 

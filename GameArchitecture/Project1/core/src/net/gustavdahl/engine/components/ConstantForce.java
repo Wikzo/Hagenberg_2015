@@ -11,6 +11,8 @@ public class ConstantForce extends PhysicsComponent
 	{
 		_velocity = velocity;
 		_angularVelocity = angularVelocity;
+		
+		CanHaveMultipleComponentsOfThisType = false;
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 
-public class SpriteSheetAnimatorComponent extends SpriteComponent
+public class SpriteAnimator extends SpriteComponent
 {
 
 	private TextureRegion[] _spriteSheet;
@@ -13,7 +13,7 @@ public class SpriteSheetAnimatorComponent extends SpriteComponent
 	private float _framerate;
 	private float _frameCounter;
 
-	public SpriteSheetAnimatorComponent(TextureRegion[] regions, float framerate)
+	public SpriteAnimator(TextureRegion[] regions, float framerate)
 	{
 		super(regions[0]);
 

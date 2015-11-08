@@ -2,20 +2,20 @@ package net.gustavdahl.engine.components;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class TextComponent extends SpriteComponent
+public class Text extends SpriteComponent
 {
 	
 	// TODO: don't extend SpriteComponent (no texture)!
 
 	private String _text = "";
 	
-	public TextComponent(SpriteBatch spriteBatch, String text)
+	public Text(SpriteBatch spriteBatch, String text)
 	{
 		super(null);
 		_text = text;
 	}
 	
-	public TextComponent(SpriteBatch spriteBatch)
+	public Text(SpriteBatch spriteBatch)
 	{
 		this(spriteBatch, "DummyText");
 	}

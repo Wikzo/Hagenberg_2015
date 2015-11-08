@@ -19,7 +19,7 @@ public class PhysicsSystem extends BaseSystem
 	}
 
 
-	//@Override
+	@Override
 	public boolean AddToSystem(Component c)
 	{
 		boolean succesfullyAdded = false;

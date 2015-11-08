@@ -16,9 +16,7 @@ public class RenderSystem extends BaseSystem
 	public static final String SystemName = RenderSystem.class.getSimpleName();
 
 	private List<IRenderable> _renderList;
-	private SpriteBatch _spriteBatch;
-
-	public boolean IsActive = true;
+	protected SpriteBatch _spriteBatch;
 
 	public RenderSystem(SpriteBatch spriteBatch)
 	{
@@ -48,12 +46,12 @@ public class RenderSystem extends BaseSystem
 
 	public void Render(float deltaTime)
 	{
-		if (!IsActive)
+		if (!_isActive)
 			return;
 		
-		if (_renderList.size() < 1)
+		if (_renderList.size() < -1)
 		{
-			System.out.println("ERROR - no render components in system!");
+			System.out.println("ERROR - no render components in RenderSystem!");
 			return;
 		}
 

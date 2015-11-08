@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -27,6 +28,7 @@ public class MyAssetManager
 
 	private ArrayList<BitmapFont> fonts;
 	public BitmapFont ArialFont;
+	public BitmapFont DebugFont;
 
 	public SpriteBatch SpriteBatch;
 	public Stage Stage;
@@ -35,8 +37,9 @@ public class MyAssetManager
 
 	public void InitializeMenuAssets()
 	{
-		ArialFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
 		fonts = new ArrayList<BitmapFont>();
+		
+		ArialFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
 		fonts.add(ArialFont);
 
 		SplashTexture = new Texture("splash.png");
@@ -47,6 +50,13 @@ public class MyAssetManager
 
 	public void InitializeDebugAssets()
 	{
+		// TODO: scale font via https://github.com/libgdx/libgdx/wiki/Gdx-freetype
+		
+		DebugFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
+		DebugFont.setColor(Color.RED);
+		DebugFont.getData().setScale(0.5f,0.5f);
+		fonts.add(DebugFont);
+		
 		DummyTexture = new Texture("spritesheet_dummy.png");
 		BraidSpriteSheet = new Texture("braid_spritesheet_trimmed.png");
 
