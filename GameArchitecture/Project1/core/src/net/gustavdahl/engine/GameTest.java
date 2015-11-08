@@ -20,6 +20,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
 import net.gustavdahl.engine.components.IUpdatable;
+import net.gustavdahl.engine.components.CircleCollider;
 import net.gustavdahl.engine.components.ConstantForce;
 import net.gustavdahl.engine.components.DebugComponent;
 import net.gustavdahl.engine.components.SpriteAnimator;
@@ -42,7 +43,8 @@ public class GameTest implements Screen, IUpdatable
 	private ServiceLocator _serviceLocator;
 
 	Game _game;
-	Entity _entity;
+	Entity _entity1;
+	Entity _entity2;
 
 	public GameTest(Game game, ServiceLocator serviceLocator)
 	{
@@ -59,10 +61,11 @@ public class GameTest implements Screen, IUpdatable
 	void InitializeSystems(ServiceLocator serviceLocator)
 	{
 		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
-		DebugSystem _debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch);
+		DebugSystem _debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
+				ServiceLocator.AssetManager.ShapeRenderer);
 		PhysicsSystem _physicsSystem = new PhysicsSystem();
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
-		
+
 		_serviceLocator = serviceLocator;
 		_serviceLocator.RegisterNewSystem(_renderSystem);
 		_serviceLocator.RegisterNewSystem(_debugSystem);
@@ -76,60 +79,30 @@ public class GameTest implements Screen, IUpdatable
 
 		assertNotNull(_serviceLocator);
 
-
-		_entity = new Entity("RunningMan");
-		assertNotNull(_entity);
-		assertNotNull(_entity.GetTransform());
-
-		// TextComponent component1 = new
-		// TextComponent(_serviceLocator.AssetManager.SpriteBatch, "Comp1");
-		// assertNotNull(component1);
-
-		// TextComponent component2 = new
-		// TextComponent(_serviceLocator.AssetManager.SpriteBatch, "Comp2");
-		// assertNotNull(component2);
-
-		assertNotNull(_entity.GetTransform());
-
-		// _entity.AddComponent(component1, GameLoopSystem.SystemName);
-		// assertNotNull(component1.Owner);
-
-		// _entity.GetComponent(TextComponent.class).Disable();
-		// _entity.AddComponent(component2);
-
-		// _renderSystem.AddToRenderSystem(component1);
-		// _renderSystem.AddToRenderSystem(component2);
-
-		// _entity.AddComponent(new SpriteComponent(_assetManager.SpriteBatch,
-		// _assetManager.DummyTexture));
-
-
+		_entity1 = new Entity("RunningMan");
+		_entity2 = new Entity("StaticMan");
+		_entity2.SetTransform(new Vector2(200,200));
 
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
-        TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
-        
-        // sprite animation
-       _entity.AddComponent(new SpriteAnimator(r, 0.032f)
-        		.Color(Color.BLUE)
-        		.Offset(100, 0)
-        		.SetOriginCenter(), RenderSystem.SystemName);
-        
-       // static sprite
-        _entity.AddComponent(new SpriteComponent(r[0])
-        		.Color(Color.RED), RenderSystem.SystemName);
-        
-        // constant force
-       //_entity.AddComponent(new ConstantForce(Vector2.Zero, 2f), PhysicsSystem.SystemName);
-       
-       
-       _entity.AddComponent(new DebugComponent(_serviceLocator.AssetManager.DebugFont)
-    		   .SetRenderPosition(true)
-    		   .SetRenderName(true),
-    		   DebugSystem.SystemName);
-       
-       
-       _serviceLocator.GetSystem(PhysicsSystem.SystemName).SetActive(true);
+		TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
+
+		// sprite animation
+		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.BLUE)
+				// .Offset(100, 0)
+				.SetOriginCenter(), RenderSystem.SystemName);
+
+		// static sprite
+		_entity2.AddComponent(new SpriteComponent(r[0]).Color(Color.RED), RenderSystem.SystemName);
+
+
+		_entity1.AddComponent(
+				new DebugComponent(_serviceLocator.AssetManager.DebugFont).SetRenderPosition(true).SetRenderName(true),
+				DebugSystem.SystemName);
+
+		_entity1.AddComponent(new CircleCollider(50f), DebugSystem.SystemName);
+		
+		_entity2.AddComponent(new CircleCollider(50f), DebugSystem.SystemName);
 
 	}
 
@@ -143,9 +116,9 @@ public class GameTest implements Screen, IUpdatable
 		_camera.update();
 
 		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(_camera.combined);
+		ServiceLocator.AssetManager.ShapeRenderer.setProjectionMatrix(_camera.combined);
 
 		_serviceLocator.UpdateSystems(delta);
-
 
 		// TODO: remember to apply stage viewport for camera
 
@@ -197,26 +170,30 @@ public class GameTest implements Screen, IUpdatable
 	@Override
 	public void Update(float deltaTime)
 	{
-			
+
+		CircleCollider c1 =  (CircleCollider) _entity1.GetComponent(CircleCollider.class);
+		CircleCollider c2 =  (CircleCollider) _entity2.GetComponent(CircleCollider.class);
+		
+		((CircleCollider) _entity1.GetComponent(CircleCollider.class)).CheckCircleDistance(c2);
+		
+	
+		
 		if (Gdx.input.isTouched())
 		{
 			Vector3 touchPos = new Vector3();
 			touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
 			_camera.unproject(touchPos);
 
-			_entity.SetTransform(new Vector2(touchPos.x, touchPos.y));
-			
-			if (_entity.GetComponent(ConstantForce.class) != null)
-				_entity.GetComponent(ConstantForce.class).SetActive(false);
-			
-		}
-		else
+			_entity1.SetTransform(new Vector2(touchPos.x, touchPos.y));
+
+			if (_entity1.GetComponent(ConstantForce.class) != null)
+				_entity1.GetComponent(ConstantForce.class).SetActive(false);
+
+		} else
 		{
-			if (_entity.GetComponent(ConstantForce.class) != null)
-				_entity.GetComponent(ConstantForce.class).SetActive(true);
+			if (_entity1.GetComponent(ConstantForce.class) != null)
+				_entity1.GetComponent(ConstantForce.class).SetActive(true);
 		}
-		
-		
 
 	}
 }

@@ -70,6 +70,11 @@ public class SpriteAnimator extends SpriteComponent
 			
 			this._textureRegion = _spriteSheet[_index]; // set the animation frame
 		}
+		
+		//_offsetX = 0;
+		//_halfWidth = 0;
+		//_offsetY = 0;
+		//_halfHeight = 0;
 
 		super.Render(batch, deltaTime);
 

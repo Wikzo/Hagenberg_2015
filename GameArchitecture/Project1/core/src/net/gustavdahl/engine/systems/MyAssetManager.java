@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.sun.xml.internal.stream.events.DummyEvent;
 
@@ -32,6 +33,7 @@ public class MyAssetManager
 
 	public SpriteBatch SpriteBatch;
 	public Stage Stage;
+	public ShapeRenderer ShapeRenderer;
 
 	// common, menu, gameplay (assets)
 
@@ -57,17 +59,20 @@ public class MyAssetManager
 		DebugFont.getData().setScale(0.5f,0.5f);
 		fonts.add(DebugFont);
 		
-		DummyTexture = new Texture("spritesheet_dummy.png");
+		DummyTexture = new Texture("cat-tongue.png");
 		RunningMan = new Texture("spriteSheet_man.png");
 
 		textures.add(DummyTexture);
 		textures.add(RunningMan);
+		
+		
 	}
 
 	public void InitializeCommonAssets()
 	{
 		SpriteBatch = new SpriteBatch();
 		Stage = new Stage();
+		ShapeRenderer = new ShapeRenderer();
 
 	}
 
