@@ -16,7 +16,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.engine.systems.DebugSystem;
+import net.gustavdahl.engine.systems.MyAssetManager;
 import net.gustavdahl.engine.systems.PhysicsSystem;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class DebugComponent extends Component implements IDebugRenderable, InputProcessor
 {
@@ -43,7 +45,8 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 
 		_componentsThatCanBeRemoved = new ArrayList<Component>();
 
-		Gdx.input.setInputProcessor(this);
+		ServiceLocator.AssetManager.AddInputListener(this);
+		//Gdx.input.setInputProcessor(this);
 	}
 
 	// TODO: pass parameters (e.g. position) by reference instead of values
@@ -164,7 +167,7 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button)
 	{
-
+		
 		return false;
 	}
 

@@ -70,7 +70,7 @@ public abstract class Collider extends PhysicsComponent
 		}
 	}
 
-	public static boolean Intersect(Ray ray, Collider collider)
+	public static Collider Intersect(Ray ray, Collider collider)
 	{
 		// check for circle collider
 		if (collider instanceof CircleCollider)
@@ -83,12 +83,12 @@ public abstract class Collider extends PhysicsComponent
 			if (dst2 > r2)
 			{
 				circle.SetHitColor(false);
-				return false;
+				return null;
 			}
 			else
 			{
 				circle.SetHitColor(true);
-				return true;
+				return circle;
 			}
 			
 			
@@ -106,18 +106,23 @@ public abstract class Collider extends PhysicsComponent
 			if (x && y)
 			{
 				box.SetHitColor(true);
-				return true;
+				return box;
 			}
 			else
 			{
 				box.SetHitColor(false);
-				return false;
+				return null;
 			}
 
 		}
 
-		return false;
+		return null;
 
+	}
+	
+	void h()
+	{
+		//this.Owner
 	}
 
 }

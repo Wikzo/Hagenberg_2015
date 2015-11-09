@@ -2,6 +2,8 @@ package net.gustavdahl.engine.components;
 
 import javax.management.RuntimeErrorException;
 
+import com.badlogic.gdx.InputProcessor;
+
 import net.gustavdahl.engine.systems.EditorSystem;
 
 public class EditorComponent extends Component

@@ -46,7 +46,7 @@ import net.gustavdahl.engine.systems.ServiceLocator;
 public class MainGameLoopStuff implements Screen, IUpdatable
 {
 
-	public static OrthographicCamera _camera;
+	public static OrthographicCamera _camera; // TODO: dont make public static
 	private SpriteBatch _spriteBatch;
 	private ServiceLocator _serviceLocator;
 

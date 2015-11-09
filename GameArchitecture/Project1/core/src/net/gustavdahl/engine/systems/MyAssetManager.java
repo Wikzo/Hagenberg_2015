@@ -3,6 +3,8 @@ package net.gustavdahl.engine.systems;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -34,6 +36,8 @@ public class MyAssetManager
 	public SpriteBatch SpriteBatch;
 	public Stage Stage;
 	public ShapeRenderer ShapeRenderer;
+	
+	private InputMultiplexer _inputMultiplexer; // TODO: move this to Input System
 
 	// common, menu, gameplay (assets)
 
@@ -73,7 +77,16 @@ public class MyAssetManager
 		SpriteBatch = new SpriteBatch();
 		Stage = new Stage();
 		ShapeRenderer = new ShapeRenderer();
+		
+		_inputMultiplexer = new InputMultiplexer();
 
+	}
+	
+	public void AddInputListener(InputProcessor input)
+	{
+		_inputMultiplexer.addProcessor(input);
+		
+		Gdx.input.setInputProcessor(_inputMultiplexer);
 	}
 
 	public void InitializeGamePlayAssets()
