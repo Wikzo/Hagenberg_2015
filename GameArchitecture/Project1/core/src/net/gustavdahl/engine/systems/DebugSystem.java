@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.compression.lzma.Base;
@@ -21,11 +22,15 @@ public class DebugSystem extends BaseSystem
 
 	private SpriteBatch _spriteBatch;
 	private ShapeRenderer _shapeRenderer;
+	private BitmapFont _font;
+	private static String _debugText = "";
 
-	public DebugSystem(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer)
+	public DebugSystem(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, BitmapFont font)
 	{
 		_spriteBatch = spriteBatch;
 		_shapeRenderer = shapeRenderer;
+		_font = font;
+		
 		_debugRenderList = new ArrayList<IDebugRenderable>();
 		_isActive = false;
 	}
@@ -35,7 +40,7 @@ public class DebugSystem extends BaseSystem
 	{
 
 		// TODO: show general GUI to enable/disable systems and other things...
-		
+
 		if (Gdx.input.isKeyJustPressed(Keys.F1))
 			_isActive = !_isActive;
 
@@ -55,9 +60,23 @@ public class DebugSystem extends BaseSystem
 
 			_spriteBatch.begin();
 			_debugRenderList.get(i).DebugRender(_spriteBatch, _shapeRenderer, deltaTime);
+			
+			
+			_font.draw(_spriteBatch, "DEBUG MENU", Gdx.graphics.getWidth() / 4, 450);
+			
+			_font.draw(_spriteBatch, _debugText, 30, 400);
+			_debugText = "";
+			//_generalDebugText = "";
+			//OldDebugMenuStuff(spriteBatch, shapeRenderer);
+			
 			_spriteBatch.end();
 		}
 
+	}
+	
+	public static void AddDebugText(String text)
+	{
+		_debugText += text + "\n";
 	}
 
 	@Override
@@ -69,18 +88,12 @@ public class DebugSystem extends BaseSystem
 		{
 			succesfullyAdded = true;
 			_debugRenderList.add((IDebugRenderable) c);
+			System.out.println(c.Name() + " was added to DebugSystem");
 
 		} else
-		{
-			try
-			{
-				throw new Exception(
-						"ERROR - component " + c.getClass().getSimpleName() + " doesn't isn't a DebugComponent!");
-			} catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
+			throw new RuntimeException(
+					"ERROR - component " + c.getClass().getSimpleName() + " doesn't isn't a DebugComponent!");
+
 		return succesfullyAdded;
 	}
 

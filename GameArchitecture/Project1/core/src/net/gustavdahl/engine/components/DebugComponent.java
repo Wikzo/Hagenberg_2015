@@ -24,8 +24,9 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 {
 
 	private BitmapFont _font;
-	private String _debugText = "";
+	private String _debugText = ""; // old for "menu stuff"
 	private boolean _projectionMatrixSet;
+	private static String _generalDebugText = "";
 
 	private boolean _lookingForInputAdd;
 	private boolean _lookingForInputRemove;
@@ -76,16 +77,17 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 	@Override
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
 	{
+
+		//OldDebugMenuStuff(spriteBatch, shapeRenderer);
+
+	}
+	
+	void OldDebugMenuStuff(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer)
+	{
 		CheckInput();
 
 		// TODO: render text above rendershape
 
-		/*Gdx.gl.glEnable(GL30.GL_BLEND);
-
-		shapeRenderer.begin(ShapeType.Filled);
-		shapeRenderer.setColor(new Color(0f, 0f, 0f, 0.5f));
-		shapeRenderer.rect(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		shapeRenderer.end();*/
 
 		_font.draw(spriteBatch, _commands, 30, 450);
 		if (_lookingForInputAdd)
@@ -113,8 +115,9 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 			s += Owner.GetTransform().Position.toString() + "\n";
 
 		_font.draw(spriteBatch, s, 30, 50);
-
 	}
+	
+	// TODO: component adding stuff should be in own class/component
 
 	@Override
 	public boolean keyDown(int keycode)

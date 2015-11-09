@@ -53,6 +53,7 @@ public abstract class BaseSystem implements ISystem
 	}
 
 	public void SetActive(boolean active) {	_isActive = active; }
+	public void SetActive() {	SetActive(_isActive); }
 	public boolean GetActive() { return _isActive; }
 	public int GetUpdatePriority() { return _updatePriority; }
 	public void SetUpdatePriority(int _updatePriority) { this._updatePriority = _updatePriority; }

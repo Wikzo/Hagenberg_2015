@@ -40,7 +40,7 @@ public class ServiceLocator
 			// check if clazz and system's class match
 			if (_systems.get(i).getClass().isAssignableFrom(clazz))
 			{
-				//System.out.println(clazz.getName() + " was added to " + _systems.get(i).getClass());
+				System.out.println(clazz.getSimpleName() + " was added to " + _systems.get(i).getClass().getSimpleName());
 				return clazz.cast(_systems.get(i));
 				//return (T) _systems.get(i);
 			}

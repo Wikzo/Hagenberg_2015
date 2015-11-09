@@ -70,7 +70,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 	{
 		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
 		DebugSystem _debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
-				ServiceLocator.AssetManager.ShapeRenderer);
+				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont);
 		PhysicsSystem _physicsSystem = new PhysicsSystem();
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
 		EditorSystem _editorSystem = new EditorSystem(_camera);
@@ -90,8 +90,8 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 
 		_entity1 = new Entity("RunningMan");
 		_entity2 = new Entity("StaticMan");
-		_entity1.SetTransform(new Vector2(200,200));
-		_entity2.SetTransform(new Vector2(100,300));
+		_entity1.SetPosition(new Vector2(200,200));
+		_entity2.SetPosition(new Vector2(100,300));
 
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
@@ -119,6 +119,9 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		
 		_entity1.AddComponent(new EditorComponent(), EditorSystem.class);
 		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
+		
+		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
+
 
 	}
 

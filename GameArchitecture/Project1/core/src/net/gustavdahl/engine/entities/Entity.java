@@ -216,9 +216,24 @@ public class Entity
 		return _transform;
 	}
 
-	public void SetTransform(Vector2 pos)
+	public void SetPosition(Vector2 pos)
 	{
 		_transform.Position = pos;
+	}
+	
+	public void SetScale(Vector2 scale)
+	{
+		_transform.Scale = scale;
+	}
+	
+	public Vector2 GetScale()
+	{
+		return _transform.Scale;
+	}
+	
+	public void SetRotation(float rotation)
+	{
+		_transform.Rotation = rotation;
 	}
 
 	public void DestroyEntity()

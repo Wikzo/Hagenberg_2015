@@ -119,10 +119,5 @@ public abstract class Collider extends PhysicsComponent
 		return null;
 
 	}
-	
-	void h()
-	{
-		//this.Owner
-	}
 
 }

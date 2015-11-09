@@ -3,8 +3,12 @@ package net.gustavdahl.engine.components;
 import javax.management.RuntimeErrorException;
 
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
+import net.gustavdahl.engine.systems.DebugSystem;
 import net.gustavdahl.engine.systems.EditorSystem;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class EditorComponent extends Component
 {
