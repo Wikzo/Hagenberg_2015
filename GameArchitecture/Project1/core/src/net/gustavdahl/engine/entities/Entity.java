@@ -145,11 +145,14 @@ public class Entity
 		}
 
 		// TODO: how to return null AND throw an exception at the same time?
-		//if (!found)
+		if (!found)
 		{
 			//throw new RuntimeException("ERROR - " + Name + " does not have a " + componentClass.getName());
+			//System.out.println("ERROR - " + this.Name + " has no " + componentClass.getName());
 			return null;
 		}
+		
+		return null;
 	}
 
 	public List<Component> GetAllComponentsOfType(Class componentClass)

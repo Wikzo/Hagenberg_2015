@@ -14,16 +14,14 @@ import net.gustavdahl.engine.systems.ServiceLocator;
 public class CircleCollider extends Collider implements IDebugRenderable
 {
 
-	private float _radius = 10f;
-	private Color _noCollision = new Color(0.7f, 0.7f, 0.8f, 0.5f);
-	private Color _collision = new Color(1f, 0f ,0f, 0.5f);
-	private Color _currentColor;
+	protected float _radius = 10f;
+
 
 	public CircleCollider(float radius)
 	{
 		super();
 		_radius = radius;
-		_currentColor = _noCollision;
+		
 	}
 
 	public void CheckCircleCollision(CircleCollider other)
@@ -45,16 +43,6 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	{
 
 		Gdx.gl.glEnable(GL30.GL_BLEND);
-
-		/*if (!_projectionMatrixSet)
-		{
-			_circleRenderer.setProjectionMatrix(spriteBatch.getProjectionMatrix());
-			_projectionMatrixSet = true;
-		}*/
-		
-		//System.out.println("circle");
-		
-		//spriteBatch.draw(ServiceLocator.AssetManager.DummyTexture, Transform.Position.x, Transform.Position.y);
 
 		shapeRenderer.begin(ShapeType.Filled);
 		shapeRenderer.setColor(_currentColor);

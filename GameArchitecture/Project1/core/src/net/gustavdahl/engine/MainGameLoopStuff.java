@@ -16,11 +16,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g3d.utils.BaseAnimationController.Transform;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.math.collision.BoundingBox;
+import com.badlogic.gdx.math.collision.Ray;
+import com.badlogic.gdx.math.collision.Sphere;
 
 import net.gustavdahl.engine.components.IUpdatable;
+import net.gustavdahl.engine.components.BoxCollider;
 import net.gustavdahl.engine.components.CircleCollider;
+import net.gustavdahl.engine.components.Collider;
 import net.gustavdahl.engine.components.ConstantForce;
 import net.gustavdahl.engine.components.DebugComponent;
 import net.gustavdahl.engine.components.SpriteAnimator;
@@ -80,7 +86,8 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 
 		_entity1 = new Entity("RunningMan");
 		_entity2 = new Entity("StaticMan");
-		_entity2.SetTransform(new Vector2(200,200));
+		_entity1.SetTransform(new Vector2(200,200));
+		_entity2.SetTransform(new Vector2(100,300));
 
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
@@ -101,12 +108,15 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 				.SetRenderName(true),
 				DebugSystem.class);
 
-		_entity1.AddComponent(new CircleCollider(50f), DebugSystem.class);
+		//_entity1.AddComponent(new CircleCollider(50f), DebugSystem.class);
+		_entity1.AddComponent(new BoxCollider(200, 200), DebugSystem.class);
 		
 		_entity2.AddComponent(new CircleCollider(50f), DebugSystem.class);
 
 	}
 
+
+	
 	@Override
 	public void render(float delta)
 	{
@@ -115,6 +125,8 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		_camera.update();
+		
+
 
 		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(_camera.combined);
 		ServiceLocator.AssetManager.ShapeRenderer.setProjectionMatrix(_camera.combined);
@@ -172,20 +184,29 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 	public void Update(float deltaTime)
 	{
 
-		CircleCollider c1 =  (CircleCollider) _entity1.GetComponent(CircleCollider.class);
+		//CircleCollider c1 =  (CircleCollider) _entity1.GetComponent(CircleCollider.class);
+		BoxCollider c1 =  (BoxCollider) _entity1.GetComponent(BoxCollider.class);
 		CircleCollider c2 =  (CircleCollider) _entity2.GetComponent(CircleCollider.class);
 		
-		((CircleCollider) _entity1.GetComponent(CircleCollider.class)).CheckCircleCollision(c2);
+		//((CircleCollider) _entity1.GetComponent(CircleCollider.class)).CheckCircleCollision(c2);
 		
-	
+		
 		
 		if (Gdx.input.isTouched())
 		{
 			Vector3 touchPos = new Vector3();
 			touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-			_camera.unproject(touchPos);
 
-			_entity1.SetTransform(new Vector2(touchPos.x, touchPos.y));
+			// NOTE: ray check should happen before unprojecting the mouse position!
+			Ray ray = _camera.getPickRay(touchPos.x, touchPos.y);
+			Collider.Intersect(ray, c1);
+			Collider.Intersect(ray, c2);
+			
+			_camera.unproject(touchPos);
+			
+			
+			
+
 
 			if (_entity1.GetComponent(ConstantForce.class) != null)
 				_entity1.GetComponent(ConstantForce.class).SetActive(false);
