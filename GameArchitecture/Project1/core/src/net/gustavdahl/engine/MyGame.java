@@ -38,7 +38,7 @@ public class MyGame extends Game
 		_assetManager.InitializeDebugAssets();
 		
 		_serviceLocator = new ServiceLocator(_assetManager, null);
-		setScreen(new GameTest(this, _serviceLocator));
+		setScreen(new MainGameLoopStuff(this, _serviceLocator));
 		
 		
 		

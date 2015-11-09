@@ -19,10 +19,6 @@ public class ServiceLocator
 		// this.EntityManager = entityManager;
 
 		_systems = new ArrayList<BaseSystem>();
-		
-		// TODO: test
-		//TODO:test
-		//sadasd
 	}
 
 	public static void RegisterNewSystem(BaseSystem system)
@@ -37,55 +33,22 @@ public class ServiceLocator
 		_systems.remove(system);
 	}
 
-	public static boolean AddComponentToSystem(Component c, String systemName)
+	public static <T extends BaseSystem> T GetSystem(Class<T> clazz) 
 	{
-		if (_systems.size() < 1)
-		{
-			System.out.println("ERROR - no systems!");
-			return false;
-		}
-		
-		boolean success = false;
-
 		for (int i = 0; i < _systems.size(); i++)
 		{
-			if (success)
-				break;
-			
-			// check if name of system in the list matches systemName
-			if (_systems.get(i).getClass().getSimpleName().equalsIgnoreCase(systemName))
+			// check if clazz and system's class match
+			if (_systems.get(i).getClass().isAssignableFrom(clazz))
 			{
-				
-				_systems.get(i).AddToSystem(c);
-				success = true;
+				//System.out.println(clazz.getName() + " was added to " + _systems.get(i).getClass());
+				return clazz.cast(_systems.get(i));
+				//return (T) _systems.get(i);
 			}
 		}
-		if (success)
-			System.out.println(c.Name() + " was added to " + systemName);
-		else
-			System.out.println(c.Name() + " was NOT added to " + systemName);
 		
-		return success;
-	}
-
-	public static BaseSystem GetSystem(String systemName)
-	{
-		if (_systems.size() < 1)
-		{
-			System.out.println("ERROR - no systems!");
-			return null;
-		}
-		
-		for (int i = 0; i < _systems.size(); i++)
-		{
-			// check if name of system in the list matches systemName
-			if (_systems.get(i).getClass().getSimpleName().equalsIgnoreCase(systemName))
-			{
-				return _systems.get(i);
-			}
-		}
 		
 		return null;
+		
 	}
 	
 	void SetActive(BaseSystem s, boolean active)

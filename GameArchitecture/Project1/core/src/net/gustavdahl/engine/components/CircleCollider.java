@@ -26,7 +26,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 		_currentColor = _noCollision;
 	}
 
-	public void CheckCircleDistance(CircleCollider other)
+	public void CheckCircleCollision(CircleCollider other)
 	{
 		float distance = GetCenter().dst(other.GetCenter());
 

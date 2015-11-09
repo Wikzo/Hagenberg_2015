@@ -7,7 +7,7 @@ public class PhysicsComponent extends Component
 
 	public PhysicsComponent()
 	{
-		DefaultSystem = PhysicsSystem.SystemName;
+		DefaultSystem = PhysicsSystem.class;
 	}
 
 }

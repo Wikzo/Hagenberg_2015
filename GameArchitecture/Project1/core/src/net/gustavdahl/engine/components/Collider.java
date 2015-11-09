@@ -13,7 +13,7 @@ public abstract class Collider extends PhysicsComponent
 	{
 		super();
 		
-		DefaultSystem = PhysicsSystem.SystemName;
+		DefaultSystem = PhysicsSystem.class;
 	}
 	
 	

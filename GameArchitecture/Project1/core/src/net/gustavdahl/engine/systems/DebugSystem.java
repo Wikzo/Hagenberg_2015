@@ -7,6 +7,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 
 import net.gustavdahl.engine.components.Component;
 import net.gustavdahl.engine.components.DebugComponent;
@@ -14,22 +15,18 @@ import net.gustavdahl.engine.components.IDebugRenderable;
 import net.gustavdahl.engine.components.IRenderable;
 import net.gustavdahl.engine.components.PhysicsComponent;
 
-public class DebugSystem extends RenderSystem
+public class DebugSystem extends BaseSystem
 {
-	public static final String SystemName = DebugSystem.class.getSimpleName();
-
 	protected List<IDebugRenderable> _debugRenderList;
 
+	private SpriteBatch _spriteBatch;
 	private ShapeRenderer _shapeRenderer;
 
 	public DebugSystem(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer)
 	{
-		super(spriteBatch);
-
+		_spriteBatch = spriteBatch;
 		_shapeRenderer = shapeRenderer;
-
 		_debugRenderList = new ArrayList<IDebugRenderable>();
-
 		_isActive = false;
 	}
 

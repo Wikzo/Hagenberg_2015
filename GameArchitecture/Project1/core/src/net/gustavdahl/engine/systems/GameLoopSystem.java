@@ -8,11 +8,7 @@ import net.gustavdahl.engine.components.IUpdatable;
 import net.gustavdahl.engine.components.PhysicsComponent;
 
 public class GameLoopSystem extends BaseSystem
-{
-
-	public static final String SystemName = GameLoopSystem.class.getSimpleName();
-	
-	//private List<IUpdatable> _componentList;
+{	
 	private IUpdatable _gameLoop;
 	
 	public boolean IsActive = true;
@@ -37,14 +33,8 @@ public class GameLoopSystem extends BaseSystem
 	@Override
 	public boolean AddToSystem(Component c)
 	{
-		try
-		{
-			throw new Exception("ERROR - cannot add " + c.Name() + " to the GameLoopSystem! Add an IUpdtable via the constructor instead.");
-		} catch (Exception e)
-		{
-			e.printStackTrace();
-		}
-		return false;
+		// TODO: move away?
+		throw new RuntimeException("ERROR - cannot add " + c.Name() + " to the GameLoopSystem! Add an IUpdtable via the constructor instead.");
 	}
 
 

@@ -21,7 +21,7 @@ public class RenderSystem extends BaseSystem
 	public RenderSystem(SpriteBatch spriteBatch)
 	{
 		super();
-		
+
 		_spriteBatch = spriteBatch;
 		_renderList = new ArrayList<IRenderable>();
 	}
@@ -48,7 +48,7 @@ public class RenderSystem extends BaseSystem
 	{
 		if (!_isActive)
 			return;
-		
+
 		if (_renderList.size() < -1)
 		{
 			System.out.println("ERROR - no render components in RenderSystem!");
@@ -66,8 +66,6 @@ public class RenderSystem extends BaseSystem
 		}
 	}
 
-
-
 	@Override
 	public boolean AddToSystem(Component c)
 	{
@@ -79,19 +77,10 @@ public class RenderSystem extends BaseSystem
 			_renderList.add((IRenderable) c);
 
 		} else
-		{
-			try
-			{
-				throw new Exception("ERROR - component doesn't implement IRenderable interface!");
-			} catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
+			throw new RuntimeException("ERROR - " + c.Name() + " doesn't implement IRenderable interface!");
 
 		return succesfullyAdded;
-		
-	}
 
+	}
 
 }

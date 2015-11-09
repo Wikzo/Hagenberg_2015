@@ -35,7 +35,7 @@ import net.gustavdahl.engine.systems.PhysicsSystem;
 import net.gustavdahl.engine.systems.RenderSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
-public class GameTest implements Screen, IUpdatable
+public class MainGameLoopStuff implements Screen, IUpdatable
 {
 
 	private OrthographicCamera _camera;
@@ -46,7 +46,7 @@ public class GameTest implements Screen, IUpdatable
 	Entity _entity1;
 	Entity _entity2;
 
-	public GameTest(Game game, ServiceLocator serviceLocator)
+	public MainGameLoopStuff(Game game, ServiceLocator serviceLocator)
 	{
 		_game = game;
 
@@ -77,7 +77,6 @@ public class GameTest implements Screen, IUpdatable
 	public void create()
 	{
 
-		assertNotNull(_serviceLocator);
 
 		_entity1 = new Entity("RunningMan");
 		_entity2 = new Entity("StaticMan");
@@ -90,19 +89,21 @@ public class GameTest implements Screen, IUpdatable
 		// sprite animation
 		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.BLUE)
 				// .Offset(100, 0)
-				.SetOriginCenter(), RenderSystem.SystemName);
+				.SetOriginCenter(), RenderSystem.class);
 
 		// static sprite
-		_entity2.AddComponent(new SpriteComponent(r[0]).Color(Color.RED), RenderSystem.SystemName);
+		_entity2.AddComponent(new SpriteComponent(r[0]).Color(Color.RED), RenderSystem.class);
 
 
 		_entity1.AddComponent(
-				new DebugComponent(_serviceLocator.AssetManager.DebugFont).SetRenderPosition(true).SetRenderName(true),
-				DebugSystem.SystemName);
+				new DebugComponent(_serviceLocator.AssetManager.DebugFont)
+				.SetRenderPosition(true)
+				.SetRenderName(true),
+				DebugSystem.class);
 
-		_entity1.AddComponent(new CircleCollider(50f), DebugSystem.SystemName);
+		_entity1.AddComponent(new CircleCollider(50f), DebugSystem.class);
 		
-		_entity2.AddComponent(new CircleCollider(50f), DebugSystem.SystemName);
+		_entity2.AddComponent(new CircleCollider(50f), DebugSystem.class);
 
 	}
 
@@ -174,7 +175,7 @@ public class GameTest implements Screen, IUpdatable
 		CircleCollider c1 =  (CircleCollider) _entity1.GetComponent(CircleCollider.class);
 		CircleCollider c2 =  (CircleCollider) _entity2.GetComponent(CircleCollider.class);
 		
-		((CircleCollider) _entity1.GetComponent(CircleCollider.class)).CheckCircleDistance(c2);
+		((CircleCollider) _entity1.GetComponent(CircleCollider.class)).CheckCircleCollision(c2);
 		
 	
 		

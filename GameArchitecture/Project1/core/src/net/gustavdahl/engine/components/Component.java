@@ -2,6 +2,7 @@ package net.gustavdahl.engine.components;
 
 import net.gustavdahl.engine.entities.Entity;
 import net.gustavdahl.engine.systems.PhysicsSystem;
+import net.gustavdahl.engine.systems.RenderSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class Component implements IComponent, IUpdatable
@@ -15,7 +16,7 @@ public class Component implements IComponent, IUpdatable
 	
 	protected TransFormComponent Transform;
 	
-	public String DefaultSystem = PhysicsSystem.SystemName;
+	public Class DefaultSystem = PhysicsSystem.class;
 	
 	public int UpdatePriority = 1;
 	
@@ -26,7 +27,7 @@ public class Component implements IComponent, IUpdatable
 		System.out.println("[" + Name() + " created]");
 	}
 	
-	public void Enable(Entity owner, String systemName)
+	public void Enable(Entity owner, Class systemClass)
 	{
 		this.Owner = owner;
 		
@@ -37,10 +38,8 @@ public class Component implements IComponent, IUpdatable
 		_hasBeenInitialized = true;
 		_isActive = true;
 		
-		if (systemName != null)
-			ServiceLocator.AddComponentToSystem(this, systemName);
-		//ServiceLocator.GetSystem(systemName)._AddComponentToSystem(this);
-		//System.out.println("Component successfully added to appropriate system: " + added);
+		if (systemClass != null)
+			ServiceLocator.GetSystem(systemClass).AddToSystem(this);
 		
 		GetExternalReferences();
 		

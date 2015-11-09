@@ -37,7 +37,7 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 		super();
 		_font = f;
 
-		DefaultSystem = DebugSystem.SystemName;
+		DefaultSystem = DebugSystem.class;
 
 		_projectionMatrixSet = false;
 
@@ -64,7 +64,7 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 	{
 		if (Gdx.input.isKeyJustPressed(Keys.C))
 		{
-			Owner.AddComponent(new ConstantForce(Vector2.Zero, 2f), PhysicsSystem.SystemName);
+			Owner.AddComponent(new ConstantForce(Vector2.Zero, 2f), PhysicsSystem.class);
 			System.out.println("ConstantForce added");
 
 		}
@@ -130,7 +130,7 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 			switch (keycode)
 			{
 			case Keys.C:
-				Owner.AddComponent(new ConstantForce(Vector2.Zero, 2f), PhysicsSystem.SystemName);
+				Owner.AddComponent(new ConstantForce(Vector2.Zero, 2f), PhysicsSystem.class);
 				_lookingForInputAdd = false;
 				_lookingForInputRemove = false;
 				break;

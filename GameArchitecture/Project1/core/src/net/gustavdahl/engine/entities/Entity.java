@@ -1,5 +1,6 @@
 package net.gustavdahl.engine.entities;
 
+import java.security.acl.Owner;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -26,7 +27,7 @@ public class Entity
 	public Entity(String name)
 	{
 		Name = name;
-		
+
 		_components = new ArrayList<Component>();
 		_transform = new TransFormComponent();
 		_transform.Enable(this, null); // QUESTION: does Transform need to be
@@ -111,7 +112,7 @@ public class Entity
 	 * _components.get(c.Name()); }
 	 */
 
-	public void AddComponent(Component c, String systemName)
+	public void AddComponent(Component c, Class systemName)
 	{
 		// System.out.println(GetComponent(c.getClass()));
 
@@ -133,17 +134,22 @@ public class Entity
 
 	public Component GetComponent(Class componentClass)
 	{
+		boolean found = false;
 		for (Component c : _components)
 		{
 			if (c.getClass() == componentClass)
+			{
+				found = true;
 				return c;
+			}
 		}
-		
-		//System.out.println("ERROR - cannot get the component for " + ID + componentClass.getClass().getSimpleName());
-		
-		// TODO: make sure that using the (null)component's methods doesn't make it crash
-		// e.g._entity.GetComponent(MoveComponent.class).SetActive(true);
-		return null;
+
+		// TODO: how to return null AND throw an exception at the same time?
+		//if (!found)
+		{
+			//throw new RuntimeException("ERROR - " + Name + " does not have a " + componentClass.getName());
+			return null;
+		}
 	}
 
 	public List<Component> GetAllComponentsOfType(Class componentClass)
