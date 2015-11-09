@@ -38,4 +38,11 @@ public class TransFormComponent extends Component
 		Position = Position.add(translation);
 	}
 
+
+	@Override
+	public void Update(float deltaTime)
+	{
+		
+	}
+
 }

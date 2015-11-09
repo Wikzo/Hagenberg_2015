@@ -5,7 +5,7 @@ import net.gustavdahl.engine.systems.PhysicsSystem;
 import net.gustavdahl.engine.systems.RenderSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
-public class Component implements IComponent, IUpdatable
+public abstract class Component implements IComponent, IUpdatable
 {
 
 	public Entity Owner;
@@ -41,8 +41,6 @@ public class Component implements IComponent, IUpdatable
 		if (systemClass != null)
 			ServiceLocator.GetSystem(systemClass).AddToSystem(this);
 		
-		GetExternalReferences();
-		
 	}
 	
 	
@@ -59,10 +57,7 @@ public class Component implements IComponent, IUpdatable
 	}
 
 
-	public void Update(float deltaTime)
-	{
-		
-	}
+	public abstract void Update(float deltaTime);
 
 	public String Name()
 	{

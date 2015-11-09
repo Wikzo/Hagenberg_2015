@@ -138,4 +138,10 @@ public class SpriteComponent extends Component implements IRenderable
 		
 	}
 
+	@Override
+	public void Update(float deltaTime)
+	{
+		
+	}
+
 }

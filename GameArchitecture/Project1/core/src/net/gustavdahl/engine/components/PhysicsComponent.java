@@ -10,4 +10,10 @@ public class PhysicsComponent extends Component
 		DefaultSystem = PhysicsSystem.class;
 	}
 
+	@Override
+	public void Update(float deltaTime)
+	{
+		
+	}
+
 }

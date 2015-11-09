@@ -9,7 +9,7 @@ public abstract class BaseSystem implements ISystem
 {
 	private int _updatePriority = 1;
 	protected boolean _isActive;
-	protected List<Component> _componentList;
+	protected List<Component> _componentList; // TODO: make generic T type!
 
 	
 	public BaseSystem()
@@ -73,12 +73,6 @@ public abstract class BaseSystem implements ISystem
 
 	}
 
-	//public abstract boolean AddToSystem(Component c);
-
-	/*public <T> boolean AddToTheSystem(T t)
-	{
-		return false;
-	}*/
 	
 	protected void SuccesfullyAddedToSystem(String name, boolean success)
 	{

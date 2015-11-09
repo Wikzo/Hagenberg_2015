@@ -196,4 +196,10 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 		return false;
 	}
 
+	@Override
+	public void Update(float deltaTime)
+	{
+		
+	}
+
 }

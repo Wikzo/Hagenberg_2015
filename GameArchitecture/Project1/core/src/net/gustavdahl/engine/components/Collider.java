@@ -13,18 +13,44 @@ public abstract class Collider extends PhysicsComponent
 
 	private Vector2 _center;
 
-	protected Color _noCollision = new Color(0.7f, 0.7f, 0.8f, 0.5f);
-	protected Color _collision = new Color(1f, 0f, 0f, 0.5f);
-	protected Color _currentColor;
+	// sprite colors
+	protected Color _spriteColorNormal;
+	protected Color _spriteColorCollision = new Color(1f, 0f, 0f, 0.5f);
+	protected Color _currentSpriteColor;
+	
+	// collider colors (debug)
+	protected Color _debugColorNormal = new Color(0.9f, 0.7f, 0.3f, 0.2f);
+	protected Color _debugColorCollision = new Color(1f, 0f, 0f, 0.4f);
+
+	protected Color _currentDebugColor;
+	
+	protected SpriteComponent _sprite;
 
 	public Collider()
 	{
 		super();
 
-		_currentColor = _noCollision;
 		DefaultSystem = PhysicsSystem.class;
 	}
 
+	@Override
+	public void GetExternalReferences()
+	{
+		super.GetExternalReferences();
+		
+		if ( Owner.GetComponent(SpriteComponent.class) == null)
+			throw new RuntimeException("ERROR! - " + Owner.Name + " has no Sprite component!");
+		else
+			_sprite = (SpriteComponent) Owner.GetComponent(SpriteComponent.class);
+		
+		// NOTE: need to make a new instance of color; otherwise a reference would change the sprite's color every time
+		_spriteColorNormal = new Color(_sprite._color.r, _sprite._color.g, _sprite._color.b, _sprite._color.a);
+		_currentSpriteColor = _spriteColorNormal;
+		
+		_currentDebugColor = _debugColorNormal;
+
+	}
+	
 	public Vector2 GetCenter()
 	{
 		return new Vector2(Transform.Position.x, Transform.Position.y);
@@ -33,9 +59,15 @@ public abstract class Collider extends PhysicsComponent
 	public void SetHitColor(boolean hit)
 	{
 		if (hit)
-			_currentColor = _collision;
+		{
+			_sprite.Color(_spriteColorCollision);
+			_currentDebugColor = _debugColorCollision;
+		}
 		else
-			_currentColor = _noCollision;
+		{
+			_sprite.Color(_spriteColorNormal);
+			_currentDebugColor = _debugColorNormal;
+		}
 	}
 
 	public static boolean Intersect(Ray ray, Collider collider)

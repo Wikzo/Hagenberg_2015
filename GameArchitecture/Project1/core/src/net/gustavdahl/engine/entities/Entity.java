@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import net.gustavdahl.engine.components.Component;
 import net.gustavdahl.engine.components.ConstantForce;
 import net.gustavdahl.engine.components.TransFormComponent;
+import net.gustavdahl.engine.systems.BaseSystem;
 import net.gustavdahl.engine.systems.GameLoopSystem;
 import net.gustavdahl.engine.systems.PhysicsSystem;
 
@@ -116,12 +117,12 @@ public class Entity
 	{
 		// System.out.println(GetComponent(c.getClass()));
 
-		if (GetComponent(c.getClass()) != null && !c.CanHaveMultipleComponentsOfThisType)
+		/*if (GetComponent(c.getClass()) != null && !c.CanHaveMultipleComponentsOfThisType)
 		{
 			System.err.println("ERROR: Cannot have more than one " + c.Name() + " on this entity!");
 			c.Destroy();
 			return;
-		}
+		}*/
 		_components.add(c);
 		System.out.println("[" + c.Name() + " added to entity]");
 		c.Enable(this, systemName);
@@ -132,7 +133,7 @@ public class Entity
 		AddComponent(c, c.DefaultSystem);
 	}
 
-	public Component GetComponent(Class componentClass)
+	public Component GetComponent_old(Class componentClass)
 	{
 		boolean found = false;
 		for (Component c : _components)
@@ -154,6 +155,44 @@ public class Entity
 		
 		return null;
 	}
+	
+	public <T extends Component> T GetComponent(Class<T> clazz)
+	{
+		
+		for (int i = 0; i < _components.size(); i++)
+		{
+			//System.out.println("want: " + clazz.getName() + "; have: " + _components.get(i).Name());
+			
+			if (clazz.isAssignableFrom(_components.get(i).getClass()))
+				//if (_components.get(i).getClass().isAssignableFrom(clazz))
+			{
+				//System.out.println("got " + _components.get(i).Name());
+				return clazz.cast(_components.get(i));
+				//return (T) _components.get(i);
+			}
+		}
+		
+		return null;
+	}
+	
+	/*
+	 * 	public static <T extends BaseSystem> T GetSystem(Class<T> clazz) 
+	{
+		for (int i = 0; i < _systems.size(); i++)
+		{
+			// check if clazz and system's class match
+			if (_systems.get(i).getClass().isAssignableFrom(clazz))
+			{
+				//System.out.println(clazz.getName() + " was added to " + _systems.get(i).getClass());
+				return clazz.cast(_systems.get(i));
+				//return (T) _systems.get(i);
+			}
+		}
+		
+		return null;
+		
+	}
+	 */
 
 	public List<Component> GetAllComponentsOfType(Class componentClass)
 	{

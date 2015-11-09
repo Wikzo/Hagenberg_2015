@@ -24,19 +24,19 @@ public class CircleCollider extends Collider implements IDebugRenderable
 		
 	}
 
-	public void CheckCircleCollision(CircleCollider other)
+	/*public void CheckCircleCollision(CircleCollider other)
 	{
 		float distance = GetCenter().dst(other.GetCenter());
 
 		//float distance = other._radius;
 		
 		if (distance <= this._radius + other._radius)
-			_currentColor = _collision;
+			_currentColor = _collisionColor;
 		else
-			_currentColor = _noCollision;
+			_currentColor = _normalColor;
 
 		//return false;
-	}
+	}*/
 
 	@Override
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
@@ -45,7 +45,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 		Gdx.gl.glEnable(GL30.GL_BLEND);
 
 		shapeRenderer.begin(ShapeType.Filled);
-		shapeRenderer.setColor(_currentColor);
+		shapeRenderer.setColor(_currentDebugColor);
 		shapeRenderer.circle(Transform.Position.x, Transform.Position.y, _radius);
 		shapeRenderer.end();
 
