@@ -1,4 +1,4 @@
-package com.gustavdahl.patterns;
+package net.gustavdahl.factory;
 
 public class PepporoniPizza extends BasePizza
 {

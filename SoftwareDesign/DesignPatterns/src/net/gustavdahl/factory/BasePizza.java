@@ -1,4 +1,4 @@
-package com.gustavdahl.patterns;
+package net.gustavdahl.factory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +21,7 @@ public class BasePizza implements IMakePizza
 	@Override
 	public void Prepare()
 	{
+		System.out.println("----------------------------");
 		System.out.println("Preparing the " + Name);
 		System.out.println("Ingredients: " + Ingredients.toString());		
 	}
@@ -36,13 +37,13 @@ public class BasePizza implements IMakePizza
 	@Override
 	public void Bake()
 	{
-		System.out.println("Baking the " + Name);
+		System.out.println("Baking the " + Name + "...");
 	}
 
 	@Override
 	public void Cut()
 	{
-		System.out.println("Cutting the " + Name);
+		System.out.println("Cutting the " + Name + "...");
 	}
 
 	@Override
@@ -50,6 +51,8 @@ public class BasePizza implements IMakePizza
 	{
 		System.out.println("Delivering the " + Name);
 		System.out.println("Price: " + Price);
+		
+		System.out.println("----------------------------\n");
 	}
 
 	

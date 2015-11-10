@@ -103,7 +103,9 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 				.SetOriginCenter(), RenderSystem.class);
 
 		// static sprite
-		_entity2.AddComponent(new SpriteComponent(r[0]).Color(Color.WHITE), RenderSystem.class);
+		_entity2.AddComponent(new SpriteComponent(r[0])
+				.SetOriginCenter()
+				.Color(Color.WHITE), RenderSystem.class);
 
 
 		_entity1.AddComponent(
@@ -121,8 +123,6 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
 		
 		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
-
-
 	}
 
 

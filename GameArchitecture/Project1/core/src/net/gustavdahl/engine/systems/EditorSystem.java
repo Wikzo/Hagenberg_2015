@@ -106,7 +106,6 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 					float newY = (_mousePosition.y - 768) / (0 - 768) * (1 - 0) + 0;
 					
 					Vector2 m = new Vector2(newY*2f, newY*2f);
-					System.out.println(m);
 					_currentlySelected.SetScale(m);
 					DebugSystem.AddDebugText(_currentlySelected.GetScale().toString());
 				}
@@ -126,7 +125,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 					_currentlySelected = e;
 					_selectionState = SelectionState.Selected;
-					System.out.println("hit: " + e.Name);
+					//System.out.println("hit: " + e.Name);
 				}
 			}
 		}
@@ -189,7 +188,6 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		if (_selectionState == SelectionState.Idle)
 			return;
 
-		System.out.println("Setting IDLE");
 		_selectionState = SelectionState.Idle;
 
 		if (_currentlySelected != null)
