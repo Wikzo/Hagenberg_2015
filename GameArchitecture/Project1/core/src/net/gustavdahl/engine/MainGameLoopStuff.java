@@ -115,7 +115,9 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 				DebugSystem.class);
 
 		//_entity1.AddComponent(new CircleCollider(50f), DebugSystem.class);
-		_entity1.AddComponent(new BoxCollider(200, 200), DebugSystem.class);
+		_entity1.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
+				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
+				DebugSystem.class);
 		
 		_entity2.AddComponent(new CircleCollider(50f), DebugSystem.class);
 		

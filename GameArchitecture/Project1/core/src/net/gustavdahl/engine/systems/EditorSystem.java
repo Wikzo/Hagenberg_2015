@@ -119,9 +119,9 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 			for (int i = 0; i < _editorComponents.size(); i++)
 			{
 				Entity e = null;
-				if (Collider.Intersect(_ray, _editorComponents.get(i).GetCollider()) != null)
+				if (Collider.MouseIntersectCollider(_ray, _editorComponents.get(i).GetCollider()) != null)
 				{
-					e = Collider.Intersect(_ray, _editorComponents.get(i).GetCollider()).Owner;
+					e = Collider.MouseIntersectCollider(_ray, _editorComponents.get(i).GetCollider()).Owner;
 
 					_currentlySelected = e;
 					_selectionState = SelectionState.Selected;

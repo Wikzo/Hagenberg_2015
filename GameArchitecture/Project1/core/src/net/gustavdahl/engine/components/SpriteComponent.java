@@ -141,8 +141,15 @@ public class SpriteComponent extends Component implements IRenderable
 
 	@Override
 	public void Update(float deltaTime)
+	{	}
+	
+	public float GetWidth()
 	{
-		
+		return _width;
 	}
-
+	
+	public float GetHeight()
+	{
+		return _height;
+	}
 }
