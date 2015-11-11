@@ -31,7 +31,6 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	private List<EditorComponent> _editorComponents;
 	private Ray _ray;
 	private Vector3 _mousePosition;
-	private Entity _currentlySelected;
 	private List<Entity> _selectedEntities;
 	private IEditorSelectionState _selection;
 	private SelectionModifier _selectionModifier = SelectionModifier.Move;
@@ -68,8 +67,8 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		 */
 
 		// make mouse raycast
-		_mousePosition.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-		_ray = MainGameLoopStuff._camera.getPickRay(_mousePosition.x, _mousePosition.y);
+		_mousePosition = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+		_ray = MainGameLoopStuff._camera.getPickRay(GetMousePosition().x, GetMousePosition().y);
 
 		_selection.Update(this, this._selectionModifier);
 
@@ -78,7 +77,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 			e.Owner.GetComponent(Collider.class).SetHitColor(e.Owner.CurrentlySelectedByEditor);
 
 		DebugSystem.AddDebugText("State: " + _selection.getClass().getSimpleName());
-		DebugSystem.AddDebugText("List size: " + _selectedEntities.size());
+		DebugSystem.AddDebugText("List size: " + GetSelectedEntities().size());
 		DebugSystem.AddDebugText("Selection modifier: " + _selectionModifier);
 
 	}
@@ -87,10 +86,10 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	{
 		// System.out.println("clearing all");
 
-		for (Entity e : _selectedEntities)
+		for (Entity e : GetSelectedEntities())
 			e.CurrentlySelectedByEditor = false;
 
-		_selectedEntities.clear();
+		GetSelectedEntities().clear();
 	}
 
 	public void SetSelected(Entity entity, boolean add)
@@ -98,11 +97,11 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		if (!add) // removing from list
 		{
 			entity.CurrentlySelectedByEditor = false;
-			_selectedEntities.remove(entity);
+			GetSelectedEntities().remove(entity);
 		} else if (add) // adding to list
 		{
 			entity.CurrentlySelectedByEditor = true;
-			_selectedEntities.add(entity);
+			GetSelectedEntities().add(entity);
 		}
 
 	}
@@ -140,12 +139,31 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 	}
 
+	protected void UnprojectMouse()
+	{
+		MainGameLoopStuff._camera.unproject(GetMousePosition());
+	}
+	
+	protected List<Entity> GetSelectedEntities()
+	{
+		return _selectedEntities;
+	}
+
+	/*protected void SetSelectedEntities(List<Entity> _selectedEntities)
+	{
+		this._selectedEntities = _selectedEntities;
+	}*/
+	
+	protected Vector3 GetMousePosition()
+	{
+		return _mousePosition;
+	}
+	
 	@Override
 	public boolean keyDown(int keycode)
 	{
-		if (keycode == Keys.Q)
-			_selectionModifier = SelectionModifier.None;
-		else if (keycode == Keys.W)
+		
+		if (keycode == Keys.W)
 			_selectionModifier = SelectionModifier.Move;
 		else if (keycode == Keys.E)
 			_selectionModifier = SelectionModifier.Rotate;
@@ -157,15 +175,17 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 			_selectionModifier = SelectionModifier.Remove;
 		else if (keycode == Keys.D)
 			_selectionModifier = SelectionModifier.Duplicate;
-
+		else
+			_selectionModifier = SelectionModifier.None;
+		
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode)
 	{
-		if (keycode == Keys.CONTROL_LEFT && _selectionModifier == SelectionModifier.Control)
-			_selectionModifier = SelectionModifier.Move;
+		//if (keycode == Keys.CONTROL_LEFT && _selectionModifier == SelectionModifier.Control)
+			_selectionModifier = SelectionModifier.None;
 
 		return false;
 	}
@@ -229,5 +249,10 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	{
 		return false;
 	}
+
+
+
+
+	
 
 }
