@@ -82,11 +82,11 @@ public abstract class Collider extends PhysicsComponent
 
 			if (dst2 > r2)
 			{
-				circle.SetHitColor(false);
+				//circle.SetHitColor(false);
 				return null;
 			} else
 			{
-				circle.SetHitColor(true);
+				//circle.SetHitColor(true);
 				return circle;
 			}
 
@@ -103,11 +103,11 @@ public abstract class Collider extends PhysicsComponent
 
 			if (x && y)
 			{
-				box.SetHitColor(true);
+				//box.SetHitColor(true);
 				return box;
 			} else
 			{
-				box.SetHitColor(false);
+				//box.SetHitColor(false);
 				return null;
 			}
 

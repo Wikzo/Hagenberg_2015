@@ -24,6 +24,8 @@ public class Entity
 
 	private boolean _isActive;
 	private Entity _parent;
+	
+	public boolean CurrentlySelectedByEditor; // TODO: move this to EditorComponent
 
 	public Entity(String name)
 	{
@@ -36,6 +38,8 @@ public class Entity
 
 		_components.add(_transform);
 
+		CurrentlySelectedByEditor = false;
+		
 		_isActive = true;
 	}
 

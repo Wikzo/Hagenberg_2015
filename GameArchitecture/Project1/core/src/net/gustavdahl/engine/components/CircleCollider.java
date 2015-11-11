@@ -43,7 +43,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 
 		shapeRenderer.begin(ShapeType.Filled);
 		shapeRenderer.setColor(_currentDebugColor);
-		shapeRenderer.circle(Transform.Position.x, Transform.Position.y, Transform.Scale.x * _radius);
+		//shapeRenderer.circle(Transform.Position.x, Transform.Position.y, Transform.Scale.x * _radius);
 
 		shapeRenderer.end();
 

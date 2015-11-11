@@ -33,16 +33,21 @@ enum ActionState
 public class EditorSystem extends BaseSystem implements InputProcessor
 {
 
-	private List<EditorComponent> _editorComponents;
-	private Ray _ray;
-	private Vector3 _mousePosition;
+	protected List<EditorComponent> _editorComponents;
+	protected Ray _ray;
+	protected Vector3 _mousePosition;
 
 	// SELECTION STATES
-	private SelectionState _selectionState;
-	private Entity _currentlySelected;
+	protected SelectionState _selectionState;
+	protected Entity _currentlySelected;
+
+	protected boolean _ctrlButtonDown;
+	protected boolean _mouseDown;
+	protected List<Entity> _selectedEntities;
+	protected IEditorSelectionState _selection;
 
 	// ACTION STATES
-	private ActionState _actionState = ActionState.Moving;
+	protected ActionState _actionState = ActionState.Moving;
 
 	public EditorSystem(OrthographicCamera camera)
 	{
@@ -56,6 +61,10 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		ServiceLocator.AssetManager.AddInputListener(this);
 
 		_selectionState = SelectionState.Idle;
+
+		_selectedEntities = new ArrayList<Entity>();
+		_selection = new EditorIdleState();
+		_selection.EnterState(this);
 	}
 
 	@Override
@@ -65,77 +74,122 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		if (!_isActive)
 			return;
 
-		String stateString = "Selection: ";
-		stateString += _selectionState.toString();
-
-		if (_currentlySelected != null)
-			stateString += " [" + _currentlySelected.Name + "]";
-		DebugSystem.AddDebugText(stateString);
-
-		DebugSystem.AddDebugText("Action: " + _actionState.toString());
+		/*
+		 * String stateString = "Selection: "; stateString +=
+		 * _selectionState.toString();
+		 * 
+		 * if (_currentlySelected != null) stateString += " [" +
+		 * _currentlySelected.Name + "]"; DebugSystem.AddDebugText(stateString);
+		 * 
+		 * DebugSystem.AddDebugText("Action: " + _actionState.toString());
+		 */
 
 		_mousePosition.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-		
 
 		// Ray _ray = _camera.getPickRay(_mousePosition.x, _mousePosition.y);
-		Ray _ray = MainGameLoopStuff._camera.getPickRay(_mousePosition.x, _mousePosition.y);
+		_ray = MainGameLoopStuff._camera.getPickRay(_mousePosition.x, _mousePosition.y);
 
-		// System.out.println(_selectionState);
+		_selection.Update(this);
 
-		if (_selectionState == SelectionState.Selected)
-		{
-			if (_currentlySelected != null)
-			{
-				if (_actionState == ActionState.Moving)
-				{
-					MainGameLoopStuff._camera.unproject(_mousePosition);
-					
-					_currentlySelected.SetPosition(new Vector2(_mousePosition.x, _mousePosition.y));
-				}
-				else if (_actionState == ActionState.Rotating)
-				{
-					_currentlySelected.SetRotation(_mousePosition.y / 10f);
-				}
-				else if (_actionState == ActionState.Scaling)
-				{
-					// TODO: make mouse movement relative
-					
-					// mapping from world space to clip space (-1 to 1)
-					// new_value = (old_value - old_bottom) / (old_top - old_bottom) * (new_top - new_bottom) + new_bottom
-					
-					float newY = (_mousePosition.y - 768) / (0 - 768) * (1 - 0) + 0;
-					
-					Vector2 m = new Vector2(newY*2f, newY*2f);
-					_currentlySelected.SetScale(m);
-					DebugSystem.AddDebugText(_currentlySelected.GetScale().toString());
-				}
-
-			}
-
-		}
-
-		if (_selectionState == SelectionState.ReadyToSelect)
-		{
-			for (int i = 0; i < _editorComponents.size(); i++)
-			{
-				Entity e = null;
-				if (Collider.MouseIntersectCollider(_ray, _editorComponents.get(i).GetCollider()) != null)
-				{
-					e = Collider.MouseIntersectCollider(_ray, _editorComponents.get(i).GetCollider()).Owner;
-
-					_currentlySelected = e;
-					_selectionState = SelectionState.Selected;
-					//System.out.println("hit: " + e.Name);
-				}
-			}
-		}
+		for (EditorComponent e : _editorComponents)
+			e.Owner.GetComponent(Collider.class).SetHitColor(e.Owner.CurrentlySelectedByEditor);
+		
+		DebugSystem.AddDebugText("State: " + _selection.getClass().getSimpleName());
+		DebugSystem.AddDebugText("List size: " + _selectedEntities.size());
 
 	}
 
-	private void ClickOnObject()
+	public void ClearRemoveAllSelectedEntities()
 	{
-		// TODO: put above code from Update() into this method instead (but
-		// doesn't work??)
+		
+
+		System.out.println("clearing all");
+
+		for (Entity e : _selectedEntities)
+			e.CurrentlySelectedByEditor = false;
+
+		_selectedEntities.clear();
+	}
+
+	public boolean GetSelected(Entity entity)
+	{
+		return entity.CurrentlySelectedByEditor;
+	}
+	
+	public void SetSelected(Entity entity, boolean add)
+	{
+		if (!add) // removing from list
+		{
+			System.out.println(entity.Name + " already selected!");
+			entity.CurrentlySelectedByEditor = false;
+			_selectedEntities.remove(entity);
+		}
+		else if (add) // adding to list
+		{
+			System.out.println(entity.Name + " NOT already selected");
+			entity.CurrentlySelectedByEditor = true;
+			_selectedEntities.add(entity);
+		}
+		
+	}
+	
+	
+	public boolean SetSelectedEntities(Entity entity, boolean multiSelection)
+	{
+
+		boolean alreadySelected = false;
+
+
+		
+		if (entity == null)
+		{
+			ClearRemoveAllSelectedEntities();
+		}
+
+		else if (!entity.CurrentlySelectedByEditor)
+		{
+			if (!multiSelection)
+				ClearRemoveAllSelectedEntities();
+
+			entity.CurrentlySelectedByEditor = true;
+			_selectedEntities.add(entity);
+			
+			System.out.println("currently selected: FALSE");
+		} else if (entity.CurrentlySelectedByEditor)
+		{
+			if (!multiSelection)
+				ClearRemoveAllSelectedEntities();
+
+			entity.CurrentlySelectedByEditor = false;
+			_selectedEntities.remove(entity);
+
+			alreadySelected = true;
+			
+			System.out.println("currently selected: TRUE");
+		}
+
+		return alreadySelected;
+
+	}
+
+	protected Entity ClickSelect()
+	{
+		// List<Entity> hitEntities = new ArrayList<Entity>();
+
+		for (int i = 0; i < _editorComponents.size(); i++)
+		{
+			Entity e = null;
+			if (Collider.MouseIntersectCollider(_ray, _editorComponents.get(i).GetCollider()) != null)
+			{
+				e = Collider.MouseIntersectCollider(_ray, _editorComponents.get(i).GetCollider()).Owner;
+				//System.out.println("Hit stuff");
+				return e;
+				// hitEntities.add(e);
+			}
+		}
+
+		//System.out.println("Did NOT hit stuff");
+		return null;
 	}
 
 	@Override
@@ -166,12 +220,18 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		else if (keycode == Keys.R)
 			_actionState = ActionState.Scaling;
 
+		if (keycode == Keys.CONTROL_LEFT)
+			_ctrlButtonDown = true;
+
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode)
 	{
+		if (keycode == Keys.CONTROL_LEFT)
+			_ctrlButtonDown = false;
+
 		return false;
 	}
 
@@ -181,30 +241,21 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		return false;
 	}
 
-	boolean c = false;
-
-	private void SetIdle()
-	{
-		if (_selectionState == SelectionState.Idle)
-			return;
-
-		_selectionState = SelectionState.Idle;
-
-		if (_currentlySelected != null)
-			_currentlySelected.GetComponent(Collider.class).SetHitColor(false);
-
-		_currentlySelected = null;
-	}
-
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button)
 	{
 
-		if (_selectionState == SelectionState.Idle)
-			_selectionState = SelectionState.ReadyToSelect;
+		_mouseDown = true;
 
-		if (_selectionState == SelectionState.Selected)
-			SetIdle();
+		IEditorSelectionState temp = _selection.HandleInput(this);
+
+		if (temp != _selection)
+		{
+			_selection = null;
+			_selection = temp;
+
+			_selection.EnterState(this);
+		}
 
 		return false;
 	}
@@ -214,17 +265,19 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	{
 		super.SetActive(active);
 
-		if (active)
+		if (!active)
 		{
-			SetIdle();
+			_selection = new EditorIdleState();
+			_selection.EnterState(this);
 		}
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button)
 	{
-		if (_selectionState != SelectionState.Selected)
-			SetIdle();
+
+		_mouseDown = false;
+
 		return false;
 	}
 
