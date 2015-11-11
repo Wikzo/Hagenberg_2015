@@ -11,60 +11,35 @@ public class EditorMultiSelectionState implements IEditorSelectionState
 	}
 
 	@Override
-	public IEditorSelectionState HandleInput(EditorSystem editor)
+	public IEditorSelectionState HandleInput(EditorSystem editor, SelectionModifier modifier)
 	{
-		
-		Entity hit = editor.ClickSelect();
-		
+
+		Entity hit = editor.EntityRaycast();
+
 		if (hit == null)
 		{
 			editor.ClearRemoveAllSelectedEntities();
 			return new EditorIdleState();
-		}
-		else
+		} else
 		{
-			if (editor._ctrlButtonDown)
+			if (modifier == SelectionModifier.Control)
 			{
-				boolean alreadySelected = editor.GetSelected(hit);
+				boolean alreadySelected = hit.CurrentlySelectedByEditor;
 				editor.SetSelected(hit, !alreadySelected);
 				return this;
-			}
-			else if (!editor._ctrlButtonDown)
+			} else if (modifier != SelectionModifier.Control)
 			{
 				editor.ClearRemoveAllSelectedEntities();
 				editor.SetSelected(hit, true);
 				return new EditorSingleSelectionState();
 			}
 		}
-		/*Entity hit = editor.ClickSelect();
-
-		if (hit == null && !editor._ctrlButtonDown) // no selection
-		{
-			editor.SetSelectedEntities(null, false);
-
-			return new EditorIdleState();
-		}
-
-		if (hit != null)
-		{
-			if (editor._ctrlButtonDown) // multi selection
-			{
-				editor.SetSelectedEntities(hit, true);
-				return this;
-				
-			} else if (!editor._ctrlButtonDown) // single selection
-			{
-				editor.SetSelectedEntities(hit, true);
-					return new EditorSingleSelectionState();
-					
-			}
-		}*/
 
 		return this;
 	}
 
 	@Override
-	public void Update(EditorSystem editor)
+	public void Update(EditorSystem editor, SelectionModifier modifier)
 	{
 		// System.out.println("Multi selection state");
 

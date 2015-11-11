@@ -46,6 +46,12 @@ import net.gustavdahl.engine.systems.ServiceLocator;
 public class MainGameLoopStuff implements Screen, IUpdatable
 {
 
+	// GENERAL QUESTIONS:
+	/*
+	 * Can't use ShapeRenderer (Circle collider debug) together with font draw (DebugSystem?)
+	 * Gdx.gl.glEnable(GL30.GL_BLEND); // transparency
+	 */
+	
 	public static OrthographicCamera _camera; // TODO: dont make public static
 	private SpriteBatch _spriteBatch;
 	private ServiceLocator _serviceLocator;
@@ -53,6 +59,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 	Game _game;
 	Entity _entity1;
 	Entity _entity2;
+	Entity _entity3;
 
 	public MainGameLoopStuff(Game game, ServiceLocator serviceLocator)
 	{
@@ -86,16 +93,33 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 
 	public void create()
 	{
-
-
-		_entity1 = new Entity("RunningMan");
-		_entity2 = new Entity("StaticMan");
-		_entity1.SetPosition(new Vector2(200,200));
-		_entity2.SetPosition(new Vector2(100,300));
-
+		
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
 		TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
+
+		for (int i = 0; i < 10; i++)
+		{
+			Entity e = new Entity("Man" + i);
+			e.SetPosition(new Vector2(300 + i * 100, 300));
+			
+			e.AddComponent(new SpriteComponent(r[0])
+					.SetOriginCenter()
+					.Color(Color.WHITE), RenderSystem.class);
+			
+			e.AddComponent(new CircleCollider(50f), DebugSystem.class);
+			
+			e.AddComponent(new EditorComponent(), EditorSystem.class);
+		}
+
+		_entity1 = new Entity("RunningMan");
+		_entity2 = new Entity("StaticMan");
+		//_entity3 = new Entity("StaticMan3");
+		_entity1.SetPosition(new Vector2(100,200));
+		_entity2.SetPosition(new Vector2(200,300));
+		//_entity3.SetPosition(new Vector2(300,300));
+
+		
 
 		// sprite animation
 		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
@@ -107,6 +131,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 				.SetOriginCenter()
 				.Color(Color.WHITE), RenderSystem.class);
 
+		
 
 		_entity1.AddComponent(
 				new DebugComponent(_serviceLocator.AssetManager.DebugFont)
@@ -114,7 +139,6 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 				.SetRenderName(true),
 				DebugSystem.class);
 
-		//_entity1.AddComponent(new CircleCollider(50f), DebugSystem.class);
 		_entity1.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
 				DebugSystem.class);

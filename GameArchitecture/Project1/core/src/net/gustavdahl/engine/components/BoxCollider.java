@@ -31,6 +31,7 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	{
 		Gdx.gl.glEnable(GL30.GL_BLEND);
 
+
 		shapeRenderer.begin(ShapeType.Filled);
 		shapeRenderer.setColor(_currentDebugColor);
 		
@@ -39,8 +40,10 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		//shapeRenderer.translate(Transform.Position.x, Transform.Position.y, 0);
 		//shapeRenderer.rotate(0f, 0f, 1f, Transform.Rotation);
 		
-		//shapeRenderer.box(Bounds().x, Bounds().y, 0, Bounds().width, Bounds().height, 1);
+		shapeRenderer.box(Bounds().x, Bounds().y, 0, Bounds().width, Bounds().height, 1);
 		shapeRenderer.end();
+		
+		Gdx.gl.glDisable(GL30.GL_BLEND);
 
 	}
 

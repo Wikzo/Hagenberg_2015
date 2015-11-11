@@ -39,13 +39,14 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	@Override
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
 	{
-		Gdx.gl.glEnable(GL30.GL_BLEND);
+		//Gdx.gl.glEnable(GL30.GL_BLEND);
 
 		shapeRenderer.begin(ShapeType.Filled);
 		shapeRenderer.setColor(_currentDebugColor);
 		//shapeRenderer.circle(Transform.Position.x, Transform.Position.y, Transform.Scale.x * _radius);
 
 		shapeRenderer.end();
+		//Gdx.gl.glDisable(GL30.GL_BLEND);
 
 	}
 

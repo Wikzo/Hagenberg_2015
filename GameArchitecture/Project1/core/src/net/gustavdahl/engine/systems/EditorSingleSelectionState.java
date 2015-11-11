@@ -6,75 +6,43 @@ public class EditorSingleSelectionState implements IEditorSelectionState
 {
 
 	@Override
-	public IEditorSelectionState HandleInput(EditorSystem editor)
+	public IEditorSelectionState HandleInput(EditorSystem editor, SelectionModifier modifier)
 	{
 
-		Entity hit = editor.ClickSelect();
-		
+		Entity hit = editor.EntityRaycast();
+
 		if (hit == null)
 		{
 			editor.ClearRemoveAllSelectedEntities();
 			return new EditorIdleState();
-		}
-		else
+		} else
 		{
-			//System.out.println("Currently selected: " + editor.GetSelected(hit));
-			
-			if (!editor._ctrlButtonDown)
+			if (modifier != SelectionModifier.Control)
 			{
-				boolean alreadySelected = editor.GetSelected(hit);
+				boolean alreadySelected = hit.CurrentlySelectedByEditor;
 				editor.ClearRemoveAllSelectedEntities();
 				editor.SetSelected(hit, !alreadySelected);
-				
-				
-				if (!editor.GetSelected(hit))
+
+				if (!hit.CurrentlySelectedByEditor)
 					return new EditorIdleState();
 				else
 					return this;
-			}
-			else if (editor._ctrlButtonDown)
+			} else if (modifier == SelectionModifier.Control)
 			{
-				boolean alreadySelected = editor.GetSelected(hit);
+				boolean alreadySelected = hit.CurrentlySelectedByEditor;
 				editor.SetSelected(hit, !alreadySelected);
-				
 
-					return new EditorMultiSelectionState();
-
-			}
-		}
-		
-		/*Entity hit = editor.ClickSelect();
-
-		if (hit == null) // no selection
-		{
-			editor.SetSelectedEntities(null, false);
-
-			return new EditorIdleState();
-		}
-
-		if (hit != null)
-		{
-			if (!editor._ctrlButtonDown) // single selection
-			{
-				//editor.ClearRemoveAllSelectedEntities();
-				
-				if (editor.SetSelectedEntities(hit, false))
-					return new EditorIdleState();
-				else
-					return this;
-			} else if (editor._ctrlButtonDown) // multi selection
-			{
-				editor.SetSelectedEntities(hit, true);
 				return new EditorMultiSelectionState();
+
 			}
-		}*/
+		}
 
 		return this;
 
 	}
 
 	@Override
-	public void Update(EditorSystem editor)
+	public void Update(EditorSystem editor, SelectionModifier modifier)
 	{
 		// System.out.println("Single selection state");
 

@@ -6,7 +6,7 @@ import net.gustavdahl.engine.components.EditorComponent;
 
 public interface IEditorSelectionState
 {
-	IEditorSelectionState HandleInput(EditorSystem editor);
-	void Update(EditorSystem editor);
+	IEditorSelectionState HandleInput(EditorSystem editor, SelectionModifier modifier);
+	void Update(EditorSystem editor, SelectionModifier modifier);
 	void EnterState(EditorSystem editor);
 }

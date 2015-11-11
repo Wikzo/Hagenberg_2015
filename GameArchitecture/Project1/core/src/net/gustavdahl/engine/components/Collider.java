@@ -20,7 +20,7 @@ public abstract class Collider extends PhysicsComponent
 
 	// collider colors (debug)
 	protected Color _debugColorNormal = new Color(0.9f, 0.7f, 0.3f, 0.2f);
-	protected Color _debugColorCollision = new Color(1f, 0f, 0f, 0.4f);
+	protected Color _debugColorCollision = new Color(1f, 0f, 0f, 0.3f);
 
 	protected Color _currentDebugColor;
 

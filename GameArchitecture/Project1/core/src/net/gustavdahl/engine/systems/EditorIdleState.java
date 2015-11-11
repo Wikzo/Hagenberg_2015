@@ -17,27 +17,20 @@ public class EditorIdleState implements IEditorSelectionState
 	}
 
 	@Override
-	public IEditorSelectionState HandleInput(EditorSystem editor)
+	public IEditorSelectionState HandleInput(EditorSystem editor, SelectionModifier modifier)
 	{
 		
 		
-		Entity hit = editor.ClickSelect();
+		Entity hit = editor.EntityRaycast();
 		
 		if (hit != null)
 		{
 			
 			editor.SetSelected(hit, true);
-			if (!editor._ctrlButtonDown)
+			if (modifier != SelectionModifier.Control)
 				return new EditorSingleSelectionState();
 			else
 				return new EditorMultiSelectionState();
-			
-			/*editor.SetSelectedEntities(hit, editor._ctrlButtonDown);
-			
-			if (!editor._ctrlButtonDown)
-				return new EditorSingleSelectionState();
-			else
-				return new EditorMultiSelectionState();*/
 		}
 		
 		// idle
@@ -45,7 +38,7 @@ public class EditorIdleState implements IEditorSelectionState
 	}
 
 	@Override
-	public void Update(EditorSystem editor)
+	public void Update(EditorSystem editor, SelectionModifier modifier)
 	{
 		//
 		
