@@ -344,46 +344,56 @@ prop.table(table(labels_out[,1] == labels_out[,4]))
 short_corpus <- release_corpus[c(
   which(
     meta(
-      release_corpus, tag = "organisation"
-    ) == "Department for Business, Innovation & Skills"
+      release_corpus, tag = "section"
+    ) == "Accessories"
   )[1:20],
   which(
     meta(
-      release_corpus, tag = "organisation"
-    ) == "Wales Office"
+      release_corpus, tag = "section"
+    ) == "Applications"
   )[1:20],
   which(
     meta(
-      release_corpus, tag = "organisation"
-    ) == "Department for Environment, Food & Rural Affairs"
-  )[1:20]
+      release_corpus, tag = "section"
+    ) == "Marshmallow 6.0"
+  )[1:20],
+  which(
+    meta(
+      release_corpus, tag = "section"
+    ) == "AT&T"
+  )[1:18] # <--- this number CANNOT be lower than the actual occurences of articles (otherwise NA error)
 )]
 
-table(unlist(meta(short_corpus, "organisation")))
+table(unlist(meta(short_corpus, "section")))
 
 
 # Create shortened Document-Term-Matrix
 short_dtm <- DocumentTermMatrix(short_corpus)
 short_dtm <- removeSparseTerms(short_dtm, 1-(5/length(short_corpus)))
-rownames(short_dtm) <- c(rep("Defence", 20), rep("Wales", 20), rep("Environment", 20))
+rownames(short_dtm) <- c(rep("Accessories", 20), rep("Applications", 20), rep("Marshmallow", 20), rep("AT&T", 18))
 
 # Create dendrogram
 dist_dtm <- dist(short_dtm)
 out <- hclust(dist_dtm, method = "ward.D")
 plot(out)
 
+# draw the clusters: http://www.instantr.com/2013/02/12/performing-a-cluster-analysis-in-r/
+rect.hclust(out, 5)
+
 # Unsupervised classification
-lda_out <- LDA(dtm, 6)
+# use length of org_labels
+# length(table(org_labels))
+lda_out <- LDA(dtm, 10)
 posterior_lda <- posterior(lda_out)
 lda_topics <- data.frame(t(posterior_lda$topics))
 ## Setting up matrix for mean probabilities
 mean_topic_matrix <- matrix(
   NA,
-  nrow = 6,
-  ncol = 6,
+  nrow = 10,
+  ncol = 10,
   dimnames = list(
     names(table(org_labels)),
-    str_c("Topic_", 1:6)
+    str_c("Topic_", 1:10)
   )
 )
 ## Filling matrix
@@ -397,7 +407,7 @@ round(mean_topic_matrix, 2)
 terms(lda_out, 10)
 
 # Correlated topic model
-ctm_out <- CTM(dtm, 6)
+ctm_out <- CTM(dtm, 11)
 terms(ctm_out, 10)
 
 # Plotting the output

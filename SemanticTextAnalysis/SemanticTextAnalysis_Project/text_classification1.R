@@ -233,8 +233,6 @@ table(labels_out[,1] == labels_out[,4])
 
 prop.table(table(labels_out[,1] == labels_out[,4]))
 
-## STOP HERE ##
-
 ### 10.4 Unsupervised Learning Techniques
 ### --------------------------------------------------------------
 

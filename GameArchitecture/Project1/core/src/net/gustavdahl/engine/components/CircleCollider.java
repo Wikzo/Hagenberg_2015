@@ -17,6 +17,14 @@ public class CircleCollider extends Collider implements IDebugRenderable
 
 	protected float _radius = 10f;
 
+	/**
+	 * What it does.
+	 * More details.
+	 * Remember to have a {@link Entity}
+	 * @see Entity 
+	 * @param radius is very important
+	 * 
+	 */
 	public CircleCollider(float radius)
 	{
 		super();
