@@ -7,10 +7,10 @@
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleVertexShader.vertexshader.cpp">
+    <ClCompile Include="MySimpleVertexShader.vertexshader">
       <Filter>shaders</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleFragmentShader.fragmentshader.cpp">
+    <ClCompile Include="MySimpleFragmentShader.fragmentshader">
       <Filter>shaders</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,5 +32,13 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{93e9deab-5800-46ba-93e2-3bd03db01ba3}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\tutorial13_normal_mapping\NormalMapping.vertexshader.cpp">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\tutorial13_normal_mapping\NormalMapping.fragmentshader.cpp">
+      <Filter>shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -122,7 +122,7 @@ int main( void )
 	}
 
 	// using smooth normals
-	/*for (int i = 0; i < vertices.size(); i++)
+	for (int i = 0; i < vertices.size(); i++)
 	{
 		//create vector for smoothed normals
 		glm::vec3 smooth_normals = normals[i];
@@ -137,7 +137,9 @@ int main( void )
 			}
 		}
 		normals[i] = normalize(smooth_normals);
-	}*/
+
+		//normals[i] = vec3(1.0);
+	}
 
 
 	//printf("loop nr %i\n", i);

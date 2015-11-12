@@ -265,6 +265,7 @@ ShaderEffect::ShaderEffect(unsigned int _programId)
 	ndotl_ndothSamplerId = glGetUniformLocation(programId, "ndothSampler");
 	ndotl_vdotlSamplerId = glGetUniformLocation(programId, "vdotlSampler");
 	fluxId = glGetUniformLocation(programId, "fluxSampler");
+	myNormalMapId = glGetUniformLocation(programId, "myNormalMapSampler");
 	
 	cubeSamplerId = glGetUniformLocation(programId, "cubeSampler");
 	lightPositionId = glGetUniformLocation(programId, "LightPosition_worldspace");

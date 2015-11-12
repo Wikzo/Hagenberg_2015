@@ -108,7 +108,7 @@ void computeMatricesFromInputs(){
 	}
 		
 	if (glfwGetKey (window, GLFW_KEY_A ) == GLFW_PRESS){
-		printf("up: %f/%f/%f, at: %f/%f/%f\n", up.x, up.y, up.z, direction.x, direction.y, direction.z);
+		//printf("up: %f/%f/%f, at: %f/%f/%f\n", up.x, up.y, up.z, direction.x, direction.y, direction.z);
 	}
 
 

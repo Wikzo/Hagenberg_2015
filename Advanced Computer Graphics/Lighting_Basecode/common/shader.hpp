@@ -27,6 +27,7 @@ public:
     unsigned int constantColorId;
     unsigned int isShadowCasterId;
 	unsigned int shadowMagicNumberId;
+	unsigned int myNormalMapId;
 	ShaderEffect(unsigned int programId);
 };
 

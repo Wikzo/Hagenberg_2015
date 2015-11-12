@@ -71,7 +71,7 @@ int main( void )
 	glBindVertexArray(VertexArrayID);
 
 	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader" );
+	GLuint programID = LoadShaders( "StandardShading.vertexshader", "StandardShading.fragmentshader.cpp" );
 
 	// Get a handle for our "MVP" uniform
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
@@ -79,10 +79,16 @@ int main( void )
 	GLuint ModelMatrixID = glGetUniformLocation(programID, "M");
 
 	// Load the texture
-	GLuint Texture = loadDDS("uvmap.DDS");
-	
+	//GLuint Texture = loadDDS("uvmap.DDS");
+	GLuint Texture = loadDDS("diffuse.DDS");
+	//GLuint Texture2 = loadDDS("specular.DDS");
+	GLuint Texture2 = loadBMP_custom("normal.bmp");
+
+
 	// Get a handle for our "myTextureSampler" uniform
 	GLuint TextureID  = glGetUniformLocation(programID, "myTextureSampler");
+	GLuint TextureID2  = glGetUniformLocation(programID, "normalSampler");
+
 
 	// Read our .obj file
 	std::vector<unsigned short> indices;
@@ -161,6 +167,12 @@ int main( void )
 		glBindTexture(GL_TEXTURE_2D, Texture);
 		// Set our "myTextureSampler" sampler to user Texture Unit 0
 		glUniform1i(TextureID, 0);
+
+		// Bind our texture in Texture Unit 2
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, Texture2);
+		// Set our "myTextureSampler" sampler to user Texture Unit 0
+		glUniform1i(TextureID2, 1);
 
 		// 1rst attribute buffer : vertices
 		glEnableVertexAttribArray(0);

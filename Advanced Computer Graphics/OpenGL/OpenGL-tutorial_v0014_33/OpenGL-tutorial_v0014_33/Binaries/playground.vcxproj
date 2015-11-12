@@ -375,8 +375,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SimpleFragmentShader.fragmentshader.cpp" />
-    <ClCompile Include="SimpleVertexShader.vertexshader.cpp" />
+    <None Include="..\tutorial13_normal_mapping\NormalMapping.vertexshader.cpp" />
+    <None Include="..\tutorial13_normal_mapping\NormalMapping.fragmentshader.cpp" />
+    <ClCompile Include="MySimpleFragmentShader.fragmentshader">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="MySimpleVertexShader.vertexshader">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.hpp" />
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\playground\playground.cpp" />
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.cpp" />

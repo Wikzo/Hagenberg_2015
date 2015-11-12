@@ -60,8 +60,11 @@ void main(){
 		// Diffuse : "color" of the object
 		MaterialDiffuseColor * LightColor * LightPower * cosTheta / (distance*distance) +
 		// Specular : reflective highlight, like a mirror
-		MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5) / (distance*distance);
-
+		MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,100) / (distance*distance);
 		color.a = 1.0;
 
+		float att = (distance);
+		vec3 atten = vec3(att);
+
+		//color.xyz = atten;// MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha, 100) / (distance*distance);
 }

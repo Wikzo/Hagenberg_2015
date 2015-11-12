@@ -55,6 +55,7 @@ struct RenderState
 	unsigned int worldspacePosTexId;
 	unsigned int worldspaceNormalTexId;
 	unsigned int fluxTexId;
+	unsigned int myNormalMapTexId;
 	unsigned int cubeTexId;
 	float shininess;
 	float metalness;
@@ -154,7 +155,9 @@ void renderObjects(Scene& scene, glm::mat4x4& viewMatrix, glm::mat4x4& projectio
 		glActiveTexture(GL_TEXTURE4);
 		glBindTexture(GL_TEXTURE_2D, rs.fluxTexId);
 		glUniform1i(effect.fluxId, 4);
-        check_gl_error();
+		check_gl_error();
+
+        
 
 		// bind the cubemap texture
 		//glActiveTexture(GL_TEXTURE2);
@@ -328,18 +331,28 @@ int main( void )
     ShaderEffect bumpProgram = ShaderEffect(bumpProgramID);
 	shaderSets.push_back(bumpProgram);
 
+	GLuint location = glGetUniformLocation(bumpProgramID, "NormalSampler");
+
+	GLuint NormalMap1 = loadSoil("smiley.jpg", contentPath.c_str());
+	glActiveTexture(GL_TEXTURE5);
+	glBindTexture(GL_TEXTURE_2D, NormalMap1);
+	glUniform1i(location, 5);
+
 
 	check_gl_error();
 
 // ########### Load the textures ################ // choose textures HERE
+	//GLuint NormalMap = loadSoil("normal.png", contentPath.c_str());
+	//check_gl_error();
+	
 	GLuint Texture1 = loadSoil("spongebob.DDS", contentPath.c_str());
 	check_gl_error();
 
-	GLuint Texture2 = loadSoil("lichenStone.dds", contentPath.c_str());
+	GLuint Texture2 = loadSoil("sand.png", contentPath.c_str());
 	check_gl_error();
 
 	// HERE
-	GLuint ndotl_ndotv = loadSoil("smiley.jpg", contentPath.c_str()); // original: ndotl_ndotv.png
+	GLuint ndotl_ndotv = loadSoil("ndotl_ndotv.png", contentPath.c_str()); // original: ndotl_ndotv.png ... (also: smiley.jpg)
 	check_gl_error();
 
     GLuint ndotl_ndoth = loadSoil("ndotl_ndoth.png", contentPath.c_str()); // original: ndotl_ndoth.png"
