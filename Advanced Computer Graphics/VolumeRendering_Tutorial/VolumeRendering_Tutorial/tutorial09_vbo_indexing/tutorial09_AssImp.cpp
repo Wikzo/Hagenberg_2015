@@ -312,12 +312,13 @@ void renderSpongeBobToTexture(std::vector<Scene>& scenes, GLuint volumeFramebuff
 		// set back to main frame buffer
 		// draw quads with mesh (create new quad)
 
+		/*
 		// EXTRA TO SEE SPONGE BOB -------------
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glViewport(i % 8 * 64, i / 8 * 64, 64, 64);
 		renderObjects(scenes[1], ViewMatrix, ProjectionMatrix, glm::vec3(1.0, 0.0, 0.0), ViewMatrix);
 		glBindFramebuffer(GL_FRAMEBUFFER, volumeFramebufferId);
-		// EXTRA END -----------------
+		// EXTRA END -----------------*/
 	}
 	// set all changes back:
 
@@ -444,7 +445,7 @@ int main( void )
 
 	// TODO: load the vertex and fragment shader for cube volume rendering (CubeVolumeRendering.vertexshader 
 	// and CubeVolumeRendering.fragmentshader)
-	GLuint cubeVolumeProgramID = LoadShaders("CubeVolumeRendering.vertexshader.cpp", "CubeVolumeRendering.fragmentshader",  contentPath.c_str());
+	GLuint cubeVolumeProgramID = LoadShaders("CubeVolumeRendering.vertexshader.cpp", "CubeVolumeRendering.fragmentshader.cpp",  contentPath.c_str());
     SimpleShaderEffect* cubeVolumeProgram = new SimpleShaderEffect(cubeVolumeProgramID);
 	shaderSets.push_back(cubeVolumeProgram);
 

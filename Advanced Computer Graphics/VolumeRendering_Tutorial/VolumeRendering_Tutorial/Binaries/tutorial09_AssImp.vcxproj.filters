@@ -77,10 +77,10 @@
     <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\SchlickShading.fragmentshader">
       <Filter>shaders</Filter>
     </None>
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\CubeVolumeRendering.fragmentshader">
+    <None Include="..\tutorial09_vbo_indexing\CubeVolumeRendering.vertexshader.cpp">
       <Filter>shaders</Filter>
     </None>
-    <None Include="..\tutorial09_vbo_indexing\CubeVolumeRendering.vertexshader.cpp">
+    <None Include="..\tutorial09_vbo_indexing\CubeVolumeRendering.fragmentshader.cpp">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

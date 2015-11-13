@@ -19,19 +19,19 @@ uniform vec3 LightPosition_worldspace;
 void main(){
 
 	// TODO  calculate Modelview Matrix by multiplying model with view Matrix
-	mat4 modelViewMatrix = V * M; // <-----
+	mat4 modelViewMatrix = V*M; // <-----
 	// TODO  transposing modelview matrix
-	modelViewMatrix = transpose(modelViewMatrix); // <-----
+	//mat4 modelViewMatrix_transposed = transpose(modelViewMatrix); // <-----
 	
 	// TODO set Position_modelspace:  get the position in model space
 	//Position_modelspace = vec3(modelViewMatrix) * Position_modelspace;
-	Position_modelspace = (modelViewMatrix * vec4(vertexPosition_modelspace, 1.0)).xyz; // <----- 
+	Position_modelspace = vertexPosition_modelspace; // <----- 
 
 	// Output position of the vertex, in clip space : MVP * position
 	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
 	
 	
-	vec3 vertexPosition_cameraspace = ( M*V * vec4(vertexPosition_modelspace,1)).xyz;
+	vec3 vertexPosition_cameraspace = ( V*M * vec4(vertexPosition_modelspace,1)).xyz;
 	// TODO Vector that goes from the vertex to the camera, in camera space.
 	// In camera space, the camera is at the origin (0,0,0).
 	
@@ -39,7 +39,7 @@ void main(){
 
 	// TODO calculate EyeDirection_modelspace: eyedirection in modelspace is the eyedirection in cameraspace multiplied with the inverse inverse transposed 
 	// modelview matrix (= transposed modelview matrix because inverted twice)
-	EyeDirection_modelspace = (vec4(vertexPosition_cameraspace, 0.0) * transpose(modelViewMatrix)).xyz; // <-- 4th element of vec4 is zero, because we don't want the translation
+	EyeDirection_modelspace = (transpose(modelViewMatrix) * vec4(vertexToCamera, 0.0)).xyz; // <-- 4th element of vec4 is zero, because we don't want the translation
 
 	// position = 1.0 (we want the translation)
 	// vector = 0.0 (we don't want the translation)

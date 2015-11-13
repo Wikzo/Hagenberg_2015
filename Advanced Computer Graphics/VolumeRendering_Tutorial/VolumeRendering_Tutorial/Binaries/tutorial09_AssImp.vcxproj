@@ -399,7 +399,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\showNormalsTangentsBitangents.fragmentshader" />
     <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\SchlickShading.fragmentshader" />
     <None Include="..\tutorial09_vbo_indexing\CubeVolumeRendering.vertexshader.cpp" />
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\CubeVolumeRendering.fragmentshader" />
+    <None Include="..\tutorial09_vbo_indexing\CubeVolumeRendering.fragmentshader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/VolumeRendering_Tutorial/VolumeRendering_Tutorial/Binaries/ZERO_CHECK.vcxproj">
