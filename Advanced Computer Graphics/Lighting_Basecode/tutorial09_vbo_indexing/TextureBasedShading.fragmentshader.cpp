@@ -116,7 +116,7 @@ void main()
 				   //color.xyz = specularLight;//texture(ndothSampler, vec2(ndotL, ndotH)).rgb * 1.0;;//texture(ndothSampler, vec2(-ndotL, -ndotH)).rgb;//pow(ndotH, 6.0);;//
 
 	
-	color.xyz = colNormal.rgb;
+	color.rgb = colNormal.rgb;
 }
 
 // MY CHANGES (with smiley projection):

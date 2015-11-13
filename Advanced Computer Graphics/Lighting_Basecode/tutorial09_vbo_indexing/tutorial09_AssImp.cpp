@@ -358,6 +358,7 @@ int main( void )
     GLuint ndotl_ndoth = loadSoil("ndotl_ndoth.png", contentPath.c_str()); // original: ndotl_ndoth.png"
 	check_gl_error();
 
+	// this gives blue-black error
 	GLuint ndotl_vdotl = loadSoil("ndotl_vdotl.png", contentPath.c_str()); // original: ndotl_vdotl.png
 	check_gl_error();
 

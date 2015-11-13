@@ -1,0 +1,54 @@
+#version 330 core
+
+// Interpolated values from the vertex shaders
+in vec3 Position_modelspace;
+in vec3 EyeDirection_modelspace;
+
+
+// Ouput data
+out vec4 color;
+
+// Values that stay constant for the whole mesh.
+uniform sampler3D volumeSampler;
+
+highp float rand(vec2 co)
+{
+    highp float a = 12.9898;
+    highp float b = 78.233;
+    highp float c = 43758.5453;
+    highp float dt= dot(co.xy ,vec2(a,b));
+    highp float sn= mod(dt,3.14);
+    return fract(sin(sn) * c);
+}
+
+void main(){
+	
+	// TODO normalize eyedir
+	
+	// TODO set the start uvs to the position in modelspace of the cube
+	// TODO set the uv step size. A good size is a little bit smaller than one texel to prevent undersampling
+	
+	// TODO calculate the number of steps until we left the cube
+	
+	// TODO  BONUS: calculate a random number between -0.5 and 0.5
+	// TODO  BONUS: add this random number to the start uv coordinates to have a slightly different starting
+	// point for every ray to trade aliasing for noise
+	
+	//  a vec4 to store the running color in
+	vec4 runningCol = vec4(0);
+	// TODO  for loop over a fixed amount of steps (at least as much as uvstep fits into the
+	// diagonal of the volume texture)
+	for (float i = 0; i < 128.0; i+=1.0)
+	{	
+		// TODO  sample the volume texture at the texture coordinates
+		// TODO  mix the color of the new sample with the running color, depending on alpha
+		
+		// TODO  set alpha
+		// TODO  advance the uvs by uvStep
+		// TODO  if we are out of the cube, break
+	}
+	
+	// TODO  set the output color to the running color
+	color.rgba = vec4(1.0, 0.0, 0.0, 1.0);
+
+}

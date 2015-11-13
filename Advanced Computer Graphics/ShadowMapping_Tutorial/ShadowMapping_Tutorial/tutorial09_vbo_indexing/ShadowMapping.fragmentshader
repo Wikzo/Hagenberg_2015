@@ -1,0 +1,113 @@
+#version 330 core
+
+#define SCREENWIDTH 1280.0
+#define SCREENHEIGHT 1024.0
+
+#define SHADOWMAPWIDTH 1024.0
+
+// Interpolated values from the vertex shaders
+in vec2 UV;
+in vec2 UV2;
+in vec2 UV3;
+in vec3 textureMix;
+in vec4 lightUV;
+in vec3 Position_worldspace;
+in vec3 Normal_cameraspace;
+in vec3 Normal_worldspace;
+in vec3 EyeDirection_cameraspace;
+in vec3 LightDirection_cameraspace;
+in vec3 LightDirection_worldspace;
+
+
+// Ouput data
+layout (location = 0) out vec4 color;
+
+// Values that stay constant for the whole mesh.
+uniform sampler2D myTextureSampler;
+// TODO make the sampler2D a sampler2DShadow in order to do hardware shadow mapping
+//uniform sampler2DShadow depthSampler;
+uniform sampler2DShadow depthSampler;
+uniform sampler2D wsPosSampler;
+uniform sampler2D wsNormalSampler;
+uniform sampler2D fluxSampler;
+uniform mat4 MV;
+uniform vec3 LightPosition_worldspace;
+uniform vec3 MaterialSpecularColor;
+uniform float metalness;
+uniform float shininess;
+uniform float specularity;
+uniform int isShadowCaster;
+uniform float shadowMagicNumber;
+
+float SchlickFresnelFactor(vec3 halfwayDirection, vec3 viewDirection)
+{
+
+    float w = pow(1.0 - max(0.0,
+        dot(halfwayDirection, viewDirection)), 5.0);
+		return w;
+}
+
+
+void main(){
+
+	// Light emission properties
+	// You probably want to put them as uniforms
+	vec3 LightColor = vec3(1,1,1);
+	float LightPower = 100.0f;
+
+	// Triplanar texturing:
+	// taking three samples of the color map, for each texture projection
+	vec4 col0 = texture( myTextureSampler, UV.xy );
+	vec4 col1 = texture( myTextureSampler, UV2.xy );
+	vec4 col2 = texture( myTextureSampler, UV3.xy );
+	// calculating a texture mix value out of the worldspacenormal
+	vec3 texMix = normalize(pow(textureMix, vec3(3.0, 3.0, 3.0)));
+	// mixing the three colors together
+	vec3 MaterialDiffuseColor = texMix.x * col0.rgb + texMix.y * col1.rgb + texMix.z * col2.rgb;
+	
+	vec3 MaterialAmbientColor = vec3(0.1,0.1,0.1) * MaterialDiffuseColor;
+	vec3 specColor = mix(MaterialSpecularColor, MaterialDiffuseColor, metalness);
+	specColor = specularity * specColor;
+
+	// TODO Lighting
+	// Distance to the light
+
+     vec3 l = normalize( LightDirection_cameraspace );
+	 vec3 n = normalize( Normal_cameraspace);
+	
+	// TODO start with shadow mapping
+	// TODO divide the lightUV.xyz by lightUV.w
+	// TODO multiply the lightTexCoord with 0.5 and add 0.5 
+	// = range conversion from linear device space (-1 ... 1) to texture space (0 ... 1)
+
+	// if the surface faces the light
+	{
+		// TODO The bias:
+		// we take the tangens of the angle between n and l
+		// the tangens gives us an approximation of the slope of the surface
+		// meaning how much the depth changes when x and y change
+		// our choice of the magicnumber depends on how much we change x and y
+		// which depends on the shadow map resolution and how we sample
+
+		// TODO we subtract the calculated bias from the lightTexCoord.z
+		// this means we set a minimum amount of depth difference in 
+		// order to assume a pixel to be in shadow
+		// TODO sample the depthSampler with the lightTexCoords (.xyz)
+		
+		//vec2 fragCoord = (gl_FragCoord.xy/gl_FragCoord.w + 1.0) * vec2(512.0);
+		// TODO3 get the pixel screen coordinate with gl_FragCoord
+		// TODO3 calculate offset.xy by taking gl_FragCoord.x and y % 2
+		// TODO2 loop from e.g. -2 to 3, take several samples from the shadow map (1/SHADOWMAPWIDTH apart) and add them
+		// TODO3 add offset.xy to the lookup coordinates.xy
+		// TODO3 set step size to 2
+		// TODO2: divide by the number of samples taken
+	}
+	
+	// TODO: multiply the result of shadow mapping with the diffuse and specular component of lighting
+	// ambient should remain unaffected
+	color.rgb = MaterialDiffuseColor.rgb;
+	color.a = 1.0;
+
+
+
+}

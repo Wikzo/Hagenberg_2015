@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\tutorial09_AssImp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\controls.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\texture.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\objloader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\vboindexer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\Mesh.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\GLError.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\tangentspace.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\shader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\controls.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\texture.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\objloader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\vboindexer.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\Mesh.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\GLError.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\tangentspace.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\common\RenderState.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\passThrough.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\tangentsAndStuff.geometryshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\showNormalsTangentsBitangents.geometryshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\showNormalsTangentsBitangents.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\SchlickShading.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\VolumeRendering_Tutorial\VolumeRendering_Tutorial\tutorial09_vbo_indexing\CubeVolumeRendering.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\tutorial09_vbo_indexing\CubeVolumeRendering.vertexshader.cpp">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A846F15F-888C-3BDE-92C5-C9DB39463AE4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{603E9F65-F434-3E4A-B396-409DDD4B80FB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{06B49106-C8F0-3D43-AD37-79D23EC146D1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

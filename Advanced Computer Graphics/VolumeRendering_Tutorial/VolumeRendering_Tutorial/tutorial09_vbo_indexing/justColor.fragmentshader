@@ -1,0 +1,21 @@
+#version 330 core
+
+
+// Ouput data
+layout(location = 0) out vec3 color;
+layout(location = 1) out vec3 wsP;
+layout(location = 2) out vec3 wsN;
+
+uniform vec3 MaterialSpecularColor;
+uniform sampler2D myTextureSampler;
+
+in vec2 UV;
+in vec3 lighting;
+in vec3 vertexPos_worldSpace;
+in vec3 vertexNormal_worldSpace;
+
+void main(){
+    color.xyz = lighting * texture( myTextureSampler, UV.xy ).xyz;
+    wsP.xyz = vertexPos_worldSpace;
+    wsN = vertexNormal_worldSpace;
+}
