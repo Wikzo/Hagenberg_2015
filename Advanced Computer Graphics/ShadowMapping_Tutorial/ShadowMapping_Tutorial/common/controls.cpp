@@ -54,7 +54,7 @@ void computeMatricesFromInputs(){
 	//glfwSetCursorPos(window, 1024/2, 768/2);
 	double dx = 0.0;
 	double dy = 0.0;
-	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_1) == GLFW_PRESS)
+	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_2) == GLFW_PRESS)
 	{
 		dx = lastX - xpos ;
 		dy = lastY - ypos ;

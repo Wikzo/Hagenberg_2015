@@ -8,8 +8,8 @@
 #include <GL/glew.h>
 
 //#define MINGW_COMPILER
-#define SCREENWIDTH 1280
-#define SCREENHEIGHT 1024
+#define SCREENWIDTH 800
+#define SCREENHEIGHT 600
 
 // Include GLFW
 #include <glfw3.h>
@@ -631,10 +631,19 @@ int main( void )
         glm::mat4 lightMVPMatrix = lightProjMatrix * lightViewMatrix;
 
 		
-
+		// WE NEED TO DO THIS --------------- 
+		// (see slides Before actual rendering, render the second scene from the point of view of the light)
 		// TODO: render scene[1] to the shadow map 
 		// bind framebuffer, bind the viewport, set clearcolor and clear the screen first
 		// afterwards, bind back to the screen framebuffer (id 0) and set the screen viewport (SCREENWIDTH, SCREENHEIGHT)
+
+		glBindFramebuffer(GL_FRAMEBUFFER, lightFramebufferName);
+		glViewport(0, 0, 1024, 1024);
+		glClearColor(0.0, 0.0, 0.0, 0.0);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		renderObjects(scenes[1], lightViewMatrix, lightProjMatrix, lightPos, lightMVPMatrix);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
+		glViewport(0, 0, SCREENWIDTH, SCREENHEIGHT);
 
 		// set the scene constant variales (shadow bias and light position)
 		ShadowMappingRenderState::shadowMagicNumber = shadowMagicNumber;

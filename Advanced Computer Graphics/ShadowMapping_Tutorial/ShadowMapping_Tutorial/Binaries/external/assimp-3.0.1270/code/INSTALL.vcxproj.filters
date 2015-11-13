@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\Binaries\CMakeFiles\780e30d3b377fa5c18f349df0976a2ac\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{ED46DC64-0F6B-3DFD-9547-49AADB4C5520}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

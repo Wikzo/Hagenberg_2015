@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\tutorial09_AssImp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\controls.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\texture.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\objloader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\vboindexer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\Mesh.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\GLError.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\tangentspace.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\RenderState.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\shader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\controls.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\texture.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\objloader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\vboindexer.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\Mesh.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\GLError.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\tangentspace.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\common\RenderState.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\texturedQuad.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\texturedQuad.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\lightOutput.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\lightOutput.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\StandardShading2.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\StandardShading.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\ShadowMapping.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\ShadowMapping.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\CubeVolumeRendering.vertexshader">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\ShadowMapping_Tutorial\ShadowMapping_Tutorial\tutorial09_vbo_indexing\CubeVolumeRendering.fragmentshader">
+      <Filter>shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7E561DB4-B65F-39F7-AAF6-90A41537EC13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{32307C37-8D33-3A0E-A7E0-7727B89E7ABC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{2FEBA30A-41B1-3BC5-8C26-57996D425306}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
