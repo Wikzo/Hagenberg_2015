@@ -20,6 +20,9 @@ uniform sampler2D myNormalMapSamper;
 
 uniform sampler2D NormalSampler;
 
+// LOAD TEXTURE (1)
+uniform sampler2D TestSampler;
+
 uniform sampler2D ndothSampler;
 uniform sampler2D vdotlSampler;
 uniform sampler2D textureSampler5;
@@ -117,6 +120,8 @@ void main()
 
 	
 	color.rgb = colNormal.rgb;
+
+	color.rgb = texture(TestSampler, UV).rgb;
 }
 
 // MY CHANGES (with smiley projection):

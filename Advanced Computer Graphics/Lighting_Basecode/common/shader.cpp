@@ -276,6 +276,9 @@ ShaderEffect::ShaderEffect(unsigned int _programId)
     lightMatrixId = glGetUniformLocation(programId, "worldToLightProjectionMatrix");
     isShadowCasterId = glGetUniformLocation(programId, "isShadowCaster");
 	shadowMagicNumberId = glGetUniformLocation(programId, "shadowMagicNumber");
+
+	// LOAD TEXTURE (3)
+	TestSamplerId = glGetUniformLocation(programId, "TestSampler");
 }
 
 

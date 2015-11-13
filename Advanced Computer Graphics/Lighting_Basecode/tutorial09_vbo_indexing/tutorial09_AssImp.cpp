@@ -57,6 +57,11 @@ struct RenderState
 	unsigned int fluxTexId;
 	unsigned int myNormalMapTexId;
 	unsigned int cubeTexId;
+
+	// LOAD TEXTURE (4)
+	unsigned int testTexId;
+
+
 	float shininess;
 	float metalness;
 	float specularity;
@@ -155,9 +160,13 @@ void renderObjects(Scene& scene, glm::mat4x4& viewMatrix, glm::mat4x4& projectio
 		glActiveTexture(GL_TEXTURE4);
 		glBindTexture(GL_TEXTURE_2D, rs.fluxTexId);
 		glUniform1i(effect.fluxId, 4);
-		check_gl_error();
 
-        
+		// LOAD TEXTURE (6)
+		glActiveTexture(GL_TEXTURE5);
+		glBindTexture(GL_TEXTURE_2D, rs.testTexId);
+		glUniform1i(effect.TestSamplerId, 5);
+
+		check_gl_error();
 
 		// bind the cubemap texture
 		//glActiveTexture(GL_TEXTURE2);
@@ -342,6 +351,12 @@ int main( void )
 	check_gl_error();
 
 // ########### Load the textures ################ // choose textures HERE
+
+	// LOAD TEXTURE (5)
+	GLuint testTexture = loadSoil("ChesterfieldNormalMap.png", contentPath.c_str());
+	check_gl_error();
+
+
 	//GLuint NormalMap = loadSoil("normal.png", contentPath.c_str());
 	//check_gl_error();
 	
@@ -361,6 +376,8 @@ int main( void )
 	// this gives blue-black error
 	GLuint ndotl_vdotl = loadSoil("ndotl_vdotl.png", contentPath.c_str()); // original: ndotl_vdotl.png
 	check_gl_error();
+
+
 
 	GLuint cubeMapTex = loadSoilCubeMap(faceFile, contentPath.c_str());
 	check_gl_error();
@@ -401,6 +418,10 @@ int main( void )
 		}
 
 		RenderState obj; obj.set(i, 0, tex, ndotl_ndotv, ndotl_ndoth, ndotl_vdotl, renderTextureIds[1]);
+		
+		// LOAD TEXTURE (7)
+		obj.testTexId = testTexture;
+		
 		objects.push_back(obj);
 	}
     
