@@ -59,7 +59,7 @@ struct RenderState
 	unsigned int cubeTexId;
 
 	// LOAD TEXTURE (4)
-	unsigned int testTexId;
+	unsigned int myNormalMapId;
 
 
 	float shininess;
@@ -78,7 +78,7 @@ struct RenderState
 	}
 
 	void set(unsigned int mId, unsigned int sId, unsigned int tex1, 
-		unsigned int tex2, unsigned int wsTexId, unsigned int wsNormId, unsigned int fluxId, unsigned int testId)
+		unsigned int tex2, unsigned int wsTexId, unsigned int wsNormId, unsigned int fluxId, unsigned int myNormalMapId)
 	{
 		meshId = mId;
 		shaderEffectId = sId;
@@ -87,7 +87,9 @@ struct RenderState
 		worldspacePosTexId = wsTexId;
 		worldspaceNormalTexId = wsNormId;
 		fluxTexId = fluxId;
-		testTexId = testId;
+
+		// LOAD TEXTURE (8)
+		myNormalMapTexId = myNormalMapId;
 	}
 };
 
@@ -164,8 +166,8 @@ void renderObjects(Scene& scene, glm::mat4x4& viewMatrix, glm::mat4x4& projectio
 
 		// LOAD TEXTURE (6)
 		glActiveTexture(GL_TEXTURE5);
-		glBindTexture(GL_TEXTURE_2D, rs.testTexId);
-		glUniform1i(effect.TestSamplerId, 5);
+		glBindTexture(GL_TEXTURE_2D, rs.myNormalMapTexId);
+		glUniform1i(effect.myNormalMapId, 5);
 
 		check_gl_error();
 

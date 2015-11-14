@@ -278,7 +278,7 @@ ShaderEffect::ShaderEffect(unsigned int _programId)
 	shadowMagicNumberId = glGetUniformLocation(programId, "shadowMagicNumber");
 
 	// LOAD TEXTURE (3)
-	TestSamplerId = glGetUniformLocation(programId, "TestSampler");
+	myNormalMapId = glGetUniformLocation(programId, "MyNormalMapSampler");
 }
 
 

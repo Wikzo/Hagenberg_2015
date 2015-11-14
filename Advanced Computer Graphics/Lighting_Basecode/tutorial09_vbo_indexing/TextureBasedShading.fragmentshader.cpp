@@ -16,12 +16,9 @@ layout(location = 0) out vec4 color;
 // Values that stay constant for the whole mesh.
 uniform sampler2D myTextureSampler;
 uniform sampler2D ndotvSampler;
-uniform sampler2D myNormalMapSamper;
-
-uniform sampler2D NormalSampler;
 
 // LOAD TEXTURE (1)
-uniform sampler2D TestSampler;
+uniform sampler2D MyNormalMapSampler;
 
 uniform sampler2D ndothSampler;
 uniform sampler2D vdotlSampler;
@@ -67,7 +64,7 @@ void main()
 	LightPower /= distance*distance;
 
 	// calculating the normal map
-	vec3 TextureNormal_tangentspace = normalize(texture2D(TestSampler, vec2(UV.x, -UV.y)).rgb*2.0 - 1.0);
+	vec3 TextureNormal_tangentspace = normalize(texture2D(MyNormalMapSampler, vec2(UV.x, -UV.y)).rgb*2.0 - 1.0);
 
 	vec3 l = normalize(LightDirection_cameraspace);
 	//vec3 n = normalize(Normal_cameraspace);
@@ -116,5 +113,5 @@ void main()
 	
 	//color.rgb = colNormal.rgb;
 
-	//color.rgb = texture(myTextureSampler, UV).rgb;
+	//color.rgb = texture(MyNormalMapSampler, UV).rgb;
 }

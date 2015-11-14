@@ -27,9 +27,8 @@ public:
     unsigned int constantColorId;
     unsigned int isShadowCasterId;
 	unsigned int shadowMagicNumberId;
-	unsigned int myNormalMapId;
 	// LOAD TEXTURE (2)
-	unsigned int TestSamplerId;
+	unsigned int myNormalMapId;
 
 	ShaderEffect(unsigned int programId);
 };
