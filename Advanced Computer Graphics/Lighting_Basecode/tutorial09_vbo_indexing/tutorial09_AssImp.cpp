@@ -78,7 +78,7 @@ struct RenderState
 	}
 
 	void set(unsigned int mId, unsigned int sId, unsigned int tex1, 
-		unsigned int tex2, unsigned int wsTexId, unsigned int wsNormId, unsigned int fluxId)
+		unsigned int tex2, unsigned int wsTexId, unsigned int wsNormId, unsigned int fluxId, unsigned int testId)
 	{
 		meshId = mId;
 		shaderEffectId = sId;
@@ -87,6 +87,7 @@ struct RenderState
 		worldspacePosTexId = wsTexId;
 		worldspaceNormalTexId = wsNormId;
 		fluxTexId = fluxId;
+		testTexId = testId;
 	}
 };
 
@@ -353,17 +354,13 @@ int main( void )
 // ########### Load the textures ################ // choose textures HERE
 
 	// LOAD TEXTURE (5)
-	GLuint testTexture = loadSoil("ChesterfieldNormalMap.png", contentPath.c_str());
+	GLuint testTexture = loadSoil("stripes_normal.jpg", contentPath.c_str());
 	check_gl_error();
-
-
-	//GLuint NormalMap = loadSoil("normal.png", contentPath.c_str());
-	//check_gl_error();
 	
 	GLuint Texture1 = loadSoil("spongebob.DDS", contentPath.c_str());
 	check_gl_error();
 
-	GLuint Texture2 = loadSoil("sand.png", contentPath.c_str());
+	GLuint Texture2 = loadSoil("sand_default.png", contentPath.c_str());
 	check_gl_error();
 
 	// HERE
@@ -376,8 +373,6 @@ int main( void )
 	// this gives blue-black error
 	GLuint ndotl_vdotl = loadSoil("ndotl_vdotl.png", contentPath.c_str()); // original: ndotl_vdotl.png
 	check_gl_error();
-
-
 
 	GLuint cubeMapTex = loadSoilCubeMap(faceFile, contentPath.c_str());
 	check_gl_error();
@@ -417,10 +412,10 @@ int main( void )
 			tex = Texture1;
 		}
 
-		RenderState obj; obj.set(i, 0, tex, ndotl_ndotv, ndotl_ndoth, ndotl_vdotl, renderTextureIds[1]);
+		RenderState obj; obj.set(i, 0, tex, ndotl_ndotv, ndotl_ndoth, ndotl_vdotl, renderTextureIds[1], testTexture);
 		
 		// LOAD TEXTURE (7)
-		obj.testTexId = testTexture;
+		//obj.testTexId = testTexture;
 		
 		objects.push_back(obj);
 	}

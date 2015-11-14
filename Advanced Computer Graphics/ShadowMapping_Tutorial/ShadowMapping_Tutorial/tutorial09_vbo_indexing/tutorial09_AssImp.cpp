@@ -632,11 +632,10 @@ int main( void )
 
 		
 		// WE NEED TO DO THIS --------------- 
-		// (see slides Before actual rendering, render the second scene from the point of view of the light)
+		// (see slides "Before actual rendering, render the second scene from the point of view of the light")
 		// TODO: render scene[1] to the shadow map 
 		// bind framebuffer, bind the viewport, set clearcolor and clear the screen first
 		// afterwards, bind back to the screen framebuffer (id 0) and set the screen viewport (SCREENWIDTH, SCREENHEIGHT)
-
 		glBindFramebuffer(GL_FRAMEBUFFER, lightFramebufferName);
 		glViewport(0, 0, 1024, 1024);
 		glClearColor(0.0, 0.0, 0.0, 0.0);
