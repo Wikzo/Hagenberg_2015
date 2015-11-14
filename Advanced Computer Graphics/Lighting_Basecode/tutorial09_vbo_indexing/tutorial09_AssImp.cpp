@@ -356,7 +356,7 @@ int main( void )
 // ########### Load the textures ################ // choose textures HERE
 
 	// LOAD TEXTURE (5)
-	GLuint testTexture = loadSoil("stripes_normal.jpg", contentPath.c_str());
+	GLuint normalMapTexure1 = loadSoil("sand_normal.DDS", contentPath.c_str());
 	check_gl_error();
 	
 	GLuint Texture1 = loadSoil("spongebob.DDS", contentPath.c_str());
@@ -414,7 +414,7 @@ int main( void )
 			tex = Texture1;
 		}
 
-		RenderState obj; obj.set(i, 0, tex, ndotl_ndotv, ndotl_ndoth, ndotl_vdotl, renderTextureIds[1], testTexture);
+		RenderState obj; obj.set(i, 0, tex, ndotl_ndotv, ndotl_ndoth, ndotl_vdotl, renderTextureIds[1], normalMapTexure1);
 		
 		// LOAD TEXTURE (7)
 		//obj.testTexId = testTexture;
