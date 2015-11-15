@@ -43,6 +43,8 @@ public class EditorSingleSelectionState implements IEditorSelectionState
 
 	}
 
+	// TODO: make two State Machines: one for selection (idle, single, multi...) AND one for actions (move, scale, rotate...)
+	
 	@Override
 	public void Update(EditorSystem editor, SelectionModifier modifier)
 	{

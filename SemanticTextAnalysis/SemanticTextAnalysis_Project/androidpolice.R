@@ -41,17 +41,15 @@ while(pageNumber < 120){
   all_links <- c(all_links, xpathSApply(results_tree, "//div[@class='primary column']//h2/a", xmlGetAttr, "href"))
   
   pageNumber = pageNumber +1;
-  
-  #new_results <- xpathSApply(results_tree, "//nav[@id='show-more-documents']//[@class='pageNav']//a", xmlGetAttr, "href")
+
 }
 
 # Check the entries
 all_links[1]
 length(all_links)
 
-# Download all press releases (40 articles)
+# Download all articles (1000+ articles)
 for(i in 1:length(all_links)){
-  #url <- str_c("http://gamasutra.com/", all_links[i])
   url = all_links[i];
   tmp <- getURL(url, cainfo = signatures)
   write(tmp, str_c("androidpolice/", i, ".html"))
