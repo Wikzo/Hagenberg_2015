@@ -45,13 +45,6 @@ import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class MainGameLoopStuff implements Screen, IUpdatable
 {
-
-	// GENERAL QUESTIONS:
-	/*
-	 * Can't use ShapeRenderer (Circle collider debug) together with font draw (DebugSystem?)
-	 * Gdx.gl.glEnable(GL30.GL_BLEND); // transparency
-	 */
-	
 	public static OrthographicCamera _camera; // TODO: dont make public static
 	private SpriteBatch _spriteBatch;
 	private ServiceLocator _serviceLocator;

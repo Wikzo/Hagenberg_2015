@@ -77,45 +77,8 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 	@Override
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
 	{
-
-		//OldDebugMenuStuff(spriteBatch, shapeRenderer);
-
 	}
 	
-	void OldDebugMenuStuff(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer)
-	{
-		CheckInput();
-
-		// TODO: render text above rendershape
-
-
-		_font.draw(spriteBatch, _commands, 30, 450);
-		if (_lookingForInputAdd)
-		{
-			_font.draw(spriteBatch, "Add ...\n[c] ConstantForce", 30, 420);
-		} else if (_lookingForInputRemove)
-		{
-			_font.draw(spriteBatch, "Remove ...", 30, 420);
-
-			String remove = "";
-
-			for (int i = 0; i < _componentsThatCanBeRemoved.size(); i++)
-			{
-				remove += "[" + i + "] " + _componentsThatCanBeRemoved.get(i).toString() + " ";
-			}
-
-			_font.draw(spriteBatch, remove, 30, 400);
-		}
-
-		String s = "";
-		if (Name)
-			s += Owner.Name + "\n";
-
-		if (Position)
-			s += Owner.GetTransform().Position.toString() + "\n";
-
-		_font.draw(spriteBatch, s, 30, 50);
-	}
 	
 	// TODO: component adding stuff should be in own class/component
 

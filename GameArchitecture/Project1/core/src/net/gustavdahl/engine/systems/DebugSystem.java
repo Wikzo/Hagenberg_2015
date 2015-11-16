@@ -32,6 +32,7 @@ public class DebugSystem extends BaseSystem
 		_font = font;
 		
 		_debugRenderList = new ArrayList<IDebugRenderable>();
+		
 		_isActive = false;
 	}
 
@@ -53,23 +54,20 @@ public class DebugSystem extends BaseSystem
 			return;
 		}
 
+		// debug text
+		_spriteBatch.begin();	
+		_font.draw(_spriteBatch, "DEBUG MENU", Gdx.graphics.getWidth() / 4, 450);
+		_font.draw(_spriteBatch, _debugText, 30, 400);
+		_debugText = "";
+		_spriteBatch.end();
+		
+		// debug shapes
 		for (int i = 0; i < _debugRenderList.size(); i++)
 		{
 			if (!((Component) _debugRenderList.get(i)).IsActive())
 				continue;
-
-			_spriteBatch.begin();
+			
 			_debugRenderList.get(i).DebugRender(_spriteBatch, _shapeRenderer, deltaTime);
-			
-			
-			_font.draw(_spriteBatch, "DEBUG MENU", Gdx.graphics.getWidth() / 4, 450);
-			
-			_font.draw(_spriteBatch, _debugText, 30, 400);
-			_debugText = "";
-			//_generalDebugText = "";
-			//OldDebugMenuStuff(spriteBatch, shapeRenderer);
-			
-			_spriteBatch.end();
 		}
 
 	}

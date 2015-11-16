@@ -9,7 +9,6 @@ public class EditorMultiSelectionState implements IEditorSelectionState
 
 	public EditorMultiSelectionState()
 	{
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

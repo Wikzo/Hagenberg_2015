@@ -19,17 +19,17 @@ public class EditorSingleSelectionState implements IEditorSelectionState
 			return new EditorIdleState();
 		} else
 		{
-			if (modifier != SelectionModifier.Control)
+			if (modifier != SelectionModifier.Control) // selecting without ctrl
 			{
 				boolean alreadySelected = hit.CurrentlySelectedByEditor;
 				editor.ClearRemoveAllSelectedEntities();
 				editor.SetSelected(hit, !alreadySelected);
 
-				if (!hit.CurrentlySelectedByEditor)
+				if (!hit.CurrentlySelectedByEditor) // deselect current one
 					return new EditorIdleState();
 				else
-					return this;
-			} else if (modifier == SelectionModifier.Control)
+					return this; // select new one
+			} else if (modifier == SelectionModifier.Control) // multi selection
 			{
 				boolean alreadySelected = hit.CurrentlySelectedByEditor;
 				editor.SetSelected(hit, !alreadySelected);

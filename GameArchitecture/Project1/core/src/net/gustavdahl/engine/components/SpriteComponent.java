@@ -131,7 +131,6 @@ public class SpriteComponent extends Component implements IRenderable
 		_offsetY + Transform.Position.y - _halfHeight, // y position
 		_originX, _originY, // origin
 		_width, _height, // size in world space
-		//_scaleX, _scaleY, // scaling factor
 		Transform.Scale.x, Transform.Scale.y,
 		MathUtils.radDeg * Transform.Rotation);
 		
