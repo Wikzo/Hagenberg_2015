@@ -6,21 +6,22 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.math.collision.Sphere;
 
+import net.gustavdahl.engine.systems.ColliderSystem;
 import net.gustavdahl.engine.systems.PhysicsSystem;
 
-public abstract class Collider extends PhysicsComponent
+public abstract class Collider extends Component implements ICollider
 {
 
 	private Vector2 _center;
 
 	// sprite colors
 	protected Color _spriteColorNormal;
-	protected Color _spriteColorCollision = new Color(1f, 0f, 0f, 0.5f);
+	protected Color _spriteColorCollision = new Color(0f, 1f, 0f, 0.5f);
 	protected Color _currentSpriteColor;
 
 	// collider colors (debug)
 	protected Color _debugColorNormal = new Color(0.9f, 0.7f, 0.3f, 0.2f);
-	protected Color _debugColorCollision = new Color(1f, 0f, 0f, 0.3f);
+	protected Color _debugColorCollision = new Color(1f, 0f, 0f, 0.8f);
 
 	protected Color _currentDebugColor;
 
@@ -30,7 +31,7 @@ public abstract class Collider extends PhysicsComponent
 	{
 		super();
 
-		DefaultSystem = PhysicsSystem.class;
+		DefaultSystem = ColliderSystem.class;
 	}
 
 	@Override
@@ -62,12 +63,21 @@ public abstract class Collider extends PhysicsComponent
 		if (hit)
 		{
 			_sprite.Color(_spriteColorCollision);
-			_currentDebugColor = _debugColorCollision;
+			// _currentDebugColor = _debugColorCollision;
 		} else
 		{
 			_sprite.Color(_spriteColorNormal);
-			_currentDebugColor = _debugColorNormal;
+			// _currentDebugColor = _debugColorNormal;
 		}
+	}
+
+	public void SetHitColorDebug(boolean hit)
+	{
+		if (hit)
+			_currentDebugColor = _debugColorCollision;
+		else
+			_currentDebugColor = _debugColorNormal;
+
 	}
 
 	public static Collider MouseIntersectCollider(Ray ray, Collider collider)
@@ -82,11 +92,11 @@ public abstract class Collider extends PhysicsComponent
 
 			if (dst2 > r2)
 			{
-				//circle.SetHitColor(false);
+				// circle.SetHitColor(false);
 				return null;
 			} else
 			{
-				//circle.SetHitColor(true);
+				// circle.SetHitColor(true);
 				return circle;
 			}
 
@@ -103,11 +113,11 @@ public abstract class Collider extends PhysicsComponent
 
 			if (x && y)
 			{
-				//box.SetHitColor(true);
+				// box.SetHitColor(true);
 				return box;
 			} else
 			{
-				//box.SetHitColor(false);
+				// box.SetHitColor(false);
 				return null;
 			}
 

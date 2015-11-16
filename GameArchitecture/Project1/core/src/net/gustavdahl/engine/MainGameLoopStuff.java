@@ -36,6 +36,7 @@ import net.gustavdahl.engine.components.Text;
 import net.gustavdahl.engine.components.TransFormComponent;
 import net.gustavdahl.engine.entities.Entity;
 import net.gustavdahl.engine.systems.MyAssetManager;
+import net.gustavdahl.engine.systems.ColliderSystem;
 import net.gustavdahl.engine.systems.DebugSystem;
 import net.gustavdahl.engine.systems.EditorSystem;
 import net.gustavdahl.engine.systems.GameLoopSystem;
@@ -72,6 +73,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		DebugSystem _debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
 				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont);
 		PhysicsSystem _physicsSystem = new PhysicsSystem();
+		ColliderSystem _colliderSystem = new ColliderSystem();
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
 		EditorSystem _editorSystem = new EditorSystem(_camera);
 
@@ -79,6 +81,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		_serviceLocator.RegisterNewSystem(_renderSystem);
 		_serviceLocator.RegisterNewSystem(_debugSystem);
 		_serviceLocator.RegisterNewSystem(_physicsSystem);
+		_serviceLocator.RegisterNewSystem(_colliderSystem);
 		_serviceLocator.RegisterNewSystem(_gameLogicSystem);
 		_serviceLocator.RegisterNewSystem(_editorSystem);
 		_serviceLocator.InitializeSystems();
@@ -94,15 +97,18 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		for (int i = 0; i < 10; i++)
 		{
 			Entity e = new Entity("Man" + i);
-			e.SetPosition(new Vector2(300 + i * 100, 300));
+			e.SetPosition(new Vector2(300 + i * 110, 300));
 			
 			e.AddComponent(new SpriteComponent(r[0])
 					.SetOriginCenter()
 					.Color(Color.WHITE), RenderSystem.class);
 			
-			e.AddComponent(new CircleCollider(50f), DebugSystem.class);
+			e.AddComponent(new CircleCollider(50f), ColliderSystem.class);
+			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
 			
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
+			
+			
 		}
 
 		_entity1 = new Entity("RunningMan");
@@ -118,28 +124,22 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
 				// .Offset(100, 0)
 				.SetOriginCenter(), RenderSystem.class);
-
-		// static sprite
-		_entity2.AddComponent(new SpriteComponent(r[0])
-				.SetOriginCenter()
-				.Color(Color.WHITE), RenderSystem.class);
-
 		
 
+		// old
+		/*
 		_entity1.AddComponent(
 				new DebugComponent(_serviceLocator.AssetManager.DebugFont)
 				.SetRenderPosition(true)
 				.SetRenderName(true),
 				DebugSystem.class);
+		*/
 
 		_entity1.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
-				DebugSystem.class);
+				ColliderSystem.class);
 		
-		_entity2.AddComponent(new CircleCollider(50f), DebugSystem.class);
-		
-		_entity1.AddComponent(new EditorComponent(), EditorSystem.class);
-		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
+		_entity1.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
 		
 		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
 	}

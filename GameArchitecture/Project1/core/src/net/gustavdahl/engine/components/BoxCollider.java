@@ -61,4 +61,18 @@ public class BoxCollider extends Collider implements IDebugRenderable
 				_height * Transform.Scale.y);
 	}
 
+	@Override
+	public boolean IsHit(ICollider collider)
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void Update(float deltaTime)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 }

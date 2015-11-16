@@ -1,5 +1,7 @@
 package net.gustavdahl.engine.components;
 
+import javax.activation.UnsupportedDataTypeException;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL30;
@@ -21,7 +23,6 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	{
 		super();
 		_radius = radius;
-
 	}
 
 	/*
@@ -43,10 +44,48 @@ public class CircleCollider extends Collider implements IDebugRenderable
 
 		shapeRenderer.begin(ShapeType.Filled);
 		shapeRenderer.setColor(_currentDebugColor);
-		shapeRenderer.circle(Transform.Position.x, Transform.Position.y, Transform.Scale.x * _radius);
+		shapeRenderer.circle(Transform.Position.x, Transform.Position.y, Radius());
 
 		shapeRenderer.end();
 		Gdx.gl.glDisable(GL30.GL_BLEND);
+
+	}
+	
+	protected float Radius()
+	{
+		return _radius * Transform.Scale.x;
+	}
+
+	@Override
+	public boolean IsHit(ICollider other)
+	{
+		if (other instanceof CircleCollider)
+		{
+			CircleCollider otherCircle = (CircleCollider) other;
+
+			final float dst2 = this.GetCenter().dst(otherCircle.GetCenter());
+			final float r2 = this.Radius() + otherCircle.Radius();
+
+			if (dst2 > r2)
+				return false;
+			else
+				return true;
+
+		}
+		
+		if (other instanceof BoxCollider)
+		{
+
+
+		}
+
+		return false;
+	}
+
+	@Override
+	public void Update(float deltaTime)
+	{
+		// TODO Auto-generated method stub
 
 	}
 
