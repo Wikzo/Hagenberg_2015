@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 
 public class BoxCollider extends Collider implements IDebugRenderable
@@ -64,7 +65,38 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	@Override
 	public boolean IsHit(ICollider collider)
 	{
-		// TODO Auto-generated method stub
+		// http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/comment-page-1/
+		
+		if (collider instanceof BoxCollider)
+		{
+
+			BoxCollider otherBox = (BoxCollider) collider;
+			
+			float distance = this.GetCenter().dst(otherBox.GetCenter());
+			
+			Vector2 distances = this.GetCenter().sub(otherBox.GetCenter());
+			// absolute value
+			if (distances.x < 0)
+				distances.x = -distances.x;
+			
+			if (distances.y < 0)
+				distances.y = -distances.y;
+			
+			Vector2 halfA = new Vector2(this.Bounds().width/2, this.Bounds().height/2);
+			Vector2 halfB = new Vector2(otherBox.Bounds().width/2, otherBox.Bounds().height/2);
+			
+			Vector2 d = distances.sub(halfA.add(halfB));
+			
+			//binary overlap = D_x < 0 && D_y < 0;
+			
+			//System.out.println(d);
+			
+			if (d.x < 0 && d.y < 0)
+				return true;
+			else
+				return false;
+
+		}
 		return false;
 	}
 

@@ -43,7 +43,6 @@ public class ColliderSystem extends BaseSystem
 					((Collider) a).SetHitColorDebug(true);
 					((Collider) b).SetHitColorDebug(true);
 				}
-
 			}
 		}
 	}

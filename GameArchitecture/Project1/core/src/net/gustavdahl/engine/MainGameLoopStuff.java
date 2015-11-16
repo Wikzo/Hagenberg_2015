@@ -112,10 +112,10 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		}
 
 		_entity1 = new Entity("RunningMan");
-		_entity2 = new Entity("StaticMan");
+		_entity2 = new Entity("RunningMan2");
 		//_entity3 = new Entity("StaticMan3");
 		_entity1.SetPosition(new Vector2(100,200));
-		_entity2.SetPosition(new Vector2(200,300));
+		_entity2.SetPosition(new Vector2(200,400));
 		//_entity3.SetPosition(new Vector2(300,300));
 
 		
@@ -125,21 +125,24 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 				// .Offset(100, 0)
 				.SetOriginCenter(), RenderSystem.class);
 		
+		_entity2.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
+				// .Offset(100, 0)
+				.SetOriginCenter(), RenderSystem.class);
 
-		// old
-		/*
-		_entity1.AddComponent(
-				new DebugComponent(_serviceLocator.AssetManager.DebugFont)
-				.SetRenderPosition(true)
-				.SetRenderName(true),
-				DebugSystem.class);
-		*/
 
 		_entity1.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
 				ColliderSystem.class);
 		
+		_entity2.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
+				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
+				ColliderSystem.class);
+		
 		_entity1.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
+		_entity2.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
+		
+		_entity1.AddComponent(new EditorComponent(), EditorSystem.class);
+		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
 		
 		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
 	}

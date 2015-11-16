@@ -225,6 +225,11 @@ public class Entity
 		_transform.Position = pos;
 	}
 	
+	public void AddPosition(Vector2 pos)
+	{
+		_transform.Position.add(pos);
+	}
+	
 	public void SetScale(Vector2 scale)
 	{
 		_transform.Scale = scale;
