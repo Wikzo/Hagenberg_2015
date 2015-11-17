@@ -1136,4 +1136,46 @@ bg=blue</panel_attributes>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
   </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1640</x>
+      <y>1510</y>
+      <w>230</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+ICollider
+--
+IsHit(Collider c) : bool
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1750</x>
+      <y>1600</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>3040</x>
+      <y>680</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ColliderSystem
+--
+DeltaTime : float
+SystemName : string
+--
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>

@@ -90,7 +90,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 				
 				// TODO: can only hit/move the next one in the loop from ColliderSystem!
 				this.Owner.AddPosition(penetrationVector.scl(-1));
-				otherCircle.Owner.AddPosition(penetrationVector);
+				//otherCircle.Owner.AddPosition(penetrationVector.scl(-1));
 				
 				return true;
 			}

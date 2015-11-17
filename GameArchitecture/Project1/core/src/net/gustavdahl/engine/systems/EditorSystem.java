@@ -33,7 +33,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	private Vector3 _mousePosition;
 	private List<Entity> _selectedEntities;
 	private IEditorSelectionState _selection;
-	private SelectionModifier _selectionModifier = SelectionModifier.Move;
+	private SelectionModifier _selectionModifier = SelectionModifier.None;
 
 	public EditorSystem(OrthographicCamera camera)
 	{
@@ -45,6 +45,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		ServiceLocator.AssetManager.AddInputListener(this);
 
 		_selectedEntities = new ArrayList<Entity>();
+		_selectionModifier = SelectionModifier.None;
 		_selection = new EditorIdleState();
 		_selection.EnterState(this);
 	}

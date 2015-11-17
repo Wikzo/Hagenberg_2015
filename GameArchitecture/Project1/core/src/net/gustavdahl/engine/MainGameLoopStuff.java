@@ -24,6 +24,7 @@ import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.math.collision.Sphere;
 
 import net.gustavdahl.engine.components.IUpdatable;
+import net.gustavdahl.engine.components.PhysicsComponent;
 import net.gustavdahl.engine.components.BoxCollider;
 import net.gustavdahl.engine.components.CircleCollider;
 import net.gustavdahl.engine.components.Collider;
@@ -118,7 +119,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		_entity2.SetPosition(new Vector2(200,400));
 		//_entity3.SetPosition(new Vector2(300,300));
 
-		
+		_entity1.AddComponent(new PhysicsComponent());
 
 		// sprite animation
 		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)

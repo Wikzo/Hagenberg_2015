@@ -38,6 +38,11 @@ public class TransFormComponent extends Component
 		Position = Position.add(translation);
 	}
 
+	
+	public void AddPosition(Vector2 pos)
+	{
+		this.Position.add(pos);
+	}
 
 	@Override
 	public void Update(float deltaTime)
