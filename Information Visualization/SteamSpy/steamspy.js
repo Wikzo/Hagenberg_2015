@@ -22,20 +22,14 @@ var cheerio = require("cheerio");
 var url = "http://www.metacritic.com/game/playstation-4/call-of-duty-black-ops-iii";
 
 download(url, function(data) {
+
     if (data) {
-        // console.log(data);
+        console.log(data);
         var $ = cheerio.load(data);
-        $('span').each(function(i, e) {
-           // var link = $(e).find("ratingValue");
-            //var poster = $(e).find("username").text();
-            console.log(e);
-            var attrVal = $(e).attr("itemprop");
-            if(attrVal === "ratingValue") {
-                console.log(e);
-            }
-           // console.log(poster+": ["+link.html()+"]("+link.attr("href")+")");
-            //console.log(poster+": ["+link.html()+"]("+link.attr("href")+")");
-        });
+        console.log($);
+        console.log($("img").length);
+
+
     }
 });
 

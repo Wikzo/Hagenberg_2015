@@ -26,6 +26,8 @@ public abstract class Collider extends Component implements ICollider
 	protected Color _currentDebugColor;
 
 	protected SpriteComponent _sprite;
+	
+	protected boolean IsStatic = false;
 
 	public Collider()
 	{
@@ -78,6 +80,12 @@ public abstract class Collider extends Component implements ICollider
 		else
 			_currentDebugColor = _debugColorNormal;
 
+	}
+	
+	public Collider SetStatic(boolean s)
+	{
+		IsStatic = s;
+		return this;
 	}
 
 	public static Collider MouseIntersectCollider(Ray ray, Collider collider)

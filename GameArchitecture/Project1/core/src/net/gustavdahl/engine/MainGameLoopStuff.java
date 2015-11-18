@@ -104,10 +104,17 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 					.SetOriginCenter()
 					.Color(Color.WHITE), RenderSystem.class);
 			
-			e.AddComponent(new CircleCollider(50f), ColliderSystem.class);
+			e.AddComponent(new CircleCollider(50f).SetStatic(true), ColliderSystem.class);
 			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
 			
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
+			
+			// falling down, not static
+			if (i == 0)
+			{
+				e.GetComponent(CircleCollider.class).SetStatic(false);
+				e.AddComponent(new PhysicsComponent());
+			}
 			
 			
 		}
@@ -144,6 +151,15 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		
 		_entity1.AddComponent(new EditorComponent(), EditorSystem.class);
 		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
+		
+		
+		Entity floor = new Entity("Floor");
+		floor.AddComponent(new SpriteComponent(new TextureRegion(_serviceLocator.AssetManager.Floor)));
+		floor.SetPosition(new Vector2(20,50));
+		floor.AddComponent(new BoxCollider(floor.GetComponent(SpriteComponent.class).GetWidth(),
+				floor.GetComponent(SpriteComponent.class).GetHeight()).SetStatic(true));
+		floor.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
+		floor.AddComponent(new EditorComponent());
 		
 		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
 	}

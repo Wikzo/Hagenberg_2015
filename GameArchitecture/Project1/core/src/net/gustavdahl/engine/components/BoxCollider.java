@@ -91,9 +91,19 @@ public class BoxCollider extends Collider implements IDebugRenderable
 			
 			//System.out.println(d);
 			
+			// overlap
 			if (d.x < 0 && d.y < 0)
+			{
+				// TODO: make it stop (resolution)
+				if (!this.IsStatic)
+					this.Owner.SetPosition(Transform.Position.sub(d));
+				
+				if (!otherBox.IsStatic)
+					otherBox.Owner.SetPosition(d.scl(-1));
+				
 				return true;
-			else
+			}
+			else // no overlap
 				return false;
 
 		}

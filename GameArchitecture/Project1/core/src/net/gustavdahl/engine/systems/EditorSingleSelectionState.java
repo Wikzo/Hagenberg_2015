@@ -84,7 +84,7 @@ public class EditorSingleSelectionState implements IEditorSelectionState
 				
 				float newY = (editor.GetMousePosition().y - 768) / (0 - 768) * (1 - 0) + 0;
 				
-				Vector2 m = new Vector2(newY*2f, newY*2f);
+				Vector2 m = new Vector2(newY*2f, newY*2f); // TODO: be able to scale X and Y individually
 				System.out.println(m);
 				editor.GetSelectedEntities().get(i).SetScale(m);
 			}

@@ -89,8 +89,12 @@ public class CircleCollider extends Collider implements IDebugRenderable
 				//System.out.println("P: " + penetrationVector);
 				
 				// TODO: can only hit/move the next one in the loop from ColliderSystem!
-				this.Owner.AddPosition(penetrationVector.scl(-1));
-				//otherCircle.Owner.AddPosition(penetrationVector.scl(-1));
+				
+				if (!this.IsStatic)
+					this.Owner.AddPosition(penetrationVector.scl(-1));
+				
+				if (!otherCircle.IsStatic)
+					otherCircle.Owner.AddPosition(penetrationVector.scl(-1));
 				
 				return true;
 			}

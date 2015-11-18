@@ -22,6 +22,8 @@ public class SpriteAnimator extends SpriteComponent
 
 	}
 
+	// TODO: make repeatable sprites
+	
 	public static TextureRegion[] CreateSpriteSheet(Texture texture, int numberOfPictures, int columns, int rows)
 	{
 		// number of pictures can be used if there are more rows/columns than actual pictures

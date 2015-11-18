@@ -26,6 +26,7 @@ public class MyAssetManager
 	public Texture SplashTexture;
 	public Texture DummyTexture;
 	public Texture RunningMan;
+	public Texture Floor;
 
 	// SPRITES end //////////////////////////////////////////////////
 
@@ -65,9 +66,11 @@ public class MyAssetManager
 		
 		DummyTexture = new Texture("cat-tongue.png");
 		RunningMan = new Texture("spriteSheet_man.png");
+		Floor = new Texture("floor.png");
 
 		textures.add(DummyTexture);
 		textures.add(RunningMan);
+		textures.add(Floor);
 		
 		
 	}
