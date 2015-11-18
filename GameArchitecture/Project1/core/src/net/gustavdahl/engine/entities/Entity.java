@@ -222,7 +222,7 @@ public class Entity
 
 	public void SetPosition(Vector2 pos)
 	{
-		_transform.Position = pos;
+		_transform.Position.set(pos);
 	}
 	
 	public void AddPosition(Vector2 pos)

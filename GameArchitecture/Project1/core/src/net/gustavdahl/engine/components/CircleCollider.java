@@ -114,7 +114,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	@Override
 	public void Update(float deltaTime)
 	{
-		// TODO Auto-generated method stub
+		
 
 	}
 

@@ -69,6 +69,9 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	{
 		// http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/comment-page-1/
 		
+		if (IsStatic)
+			return false;
+		
 		if (collider instanceof BoxCollider)
 		{
 
@@ -91,65 +94,37 @@ public class BoxCollider extends Collider implements IDebugRenderable
 			
 			//binary overlap = D_x < 0 && D_y < 0;
 			
-			//System.out.println(d);
-			
-			System.out.println(d);
-			
 			// TODO: store last valid position and reset it back if they overlap
 			
 			// overlap
 			if (d.x < 0 && d.y < 0)
 			{
-				float abs_x = d.x;
-				float abs_y = d.y;
-				
-				if (abs_x < 0)
-					abs_x *= -1;
-				
-				if (abs_y < 0)
-					abs_y *= -1;
-				
-				Vector2 abs = new Vector2(abs_x, abs_y);
-				
-				//float smaller = Math.min(d.x, d.y);
-				Vector2 original = Transform.Position;
-				
-				float newX, newY;
-				
-				if (abs.x > abs.y)
-					newX = original.x;
-				else
-					newX = abs.x;
-				
-				if (abs.x < abs.y)
-					newY = original.y;
-				else
-					newY = abs.y;
-				
-				Vector2 newVector = new Vector2(newX, newY);
-				
-				DebugSystem.AddDebugText(newVector.toString());
-				
-				// TODO: make it stop (resolution)
 				//if (!this.IsStatic)
-					this.Owner.SetPosition(newVector);
+					this.Owner.SetPosition(lastPosition);
 				
 				if (!otherBox.IsStatic)
 					otherBox.Owner.SetPosition(d.scl(-1));
 				
+				System.out.println("Collision: " + lastPosition + ", " + Owner.Name);
+				
 				return true;
 			}
 			else // no overlap
+			{
+				lastPosition.set(Transform.Position);
+				System.out.println("NO Collision: " + lastPosition + ", " + Owner.Name);
 				return false;
+			}
 
 		}
 		return false;
 	}
 
+	Vector2 lastPosition = new Vector2(0,0);
+	
 	@Override
 	public void Update(float deltaTime)
 	{
-		// TODO Auto-generated method stub
 		
 	}
 

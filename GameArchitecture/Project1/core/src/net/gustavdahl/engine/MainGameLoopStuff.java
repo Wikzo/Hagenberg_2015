@@ -142,15 +142,15 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
 				ColliderSystem.class);
 		
-		_entity2.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
+		/*_entity2.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
-				ColliderSystem.class);
+				ColliderSystem.class);*/
 		
 		_entity1.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		_entity2.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
+		//_entity2.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
 		
 		_entity1.AddComponent(new EditorComponent(), EditorSystem.class);
-		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
+		//_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
 		
 		
 		Entity floor = new Entity("Floor");
