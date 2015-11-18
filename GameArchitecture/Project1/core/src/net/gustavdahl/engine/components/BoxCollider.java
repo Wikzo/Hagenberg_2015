@@ -9,6 +9,8 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 
+import net.gustavdahl.engine.systems.DebugSystem;
+
 public class BoxCollider extends Collider implements IDebugRenderable
 {
 
@@ -91,12 +93,46 @@ public class BoxCollider extends Collider implements IDebugRenderable
 			
 			//System.out.println(d);
 			
+			System.out.println(d);
+			
+			// TODO: store last valid position and reset it back if they overlap
+			
 			// overlap
 			if (d.x < 0 && d.y < 0)
 			{
+				float abs_x = d.x;
+				float abs_y = d.y;
+				
+				if (abs_x < 0)
+					abs_x *= -1;
+				
+				if (abs_y < 0)
+					abs_y *= -1;
+				
+				Vector2 abs = new Vector2(abs_x, abs_y);
+				
+				//float smaller = Math.min(d.x, d.y);
+				Vector2 original = Transform.Position;
+				
+				float newX, newY;
+				
+				if (abs.x > abs.y)
+					newX = original.x;
+				else
+					newX = abs.x;
+				
+				if (abs.x < abs.y)
+					newY = original.y;
+				else
+					newY = abs.y;
+				
+				Vector2 newVector = new Vector2(newX, newY);
+				
+				DebugSystem.AddDebugText(newVector.toString());
+				
 				// TODO: make it stop (resolution)
-				if (!this.IsStatic)
-					this.Owner.SetPosition(Transform.Position.sub(d));
+				//if (!this.IsStatic)
+					this.Owner.SetPosition(newVector);
 				
 				if (!otherBox.IsStatic)
 					otherBox.Owner.SetPosition(d.scl(-1));
