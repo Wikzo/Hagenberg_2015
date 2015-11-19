@@ -356,15 +356,15 @@ int main( void )
 // ########### Load the textures ################ // choose textures HERE
 
 	// LOAD TEXTURE (5)
-	//GLuint normalMapTexure1 = loadSoil("rock_n.png", contentPath.c_str());
-	GLuint normalMapTexure1 = loadSoil("ChesterfieldNormalMap.png", contentPath.c_str());
+	GLuint normalMapTexure1 = loadSoil("rock_n.png", contentPath.c_str());
+	//GLuint normalMapTexure1 = loadSoil("ChesterfieldNormalMap.png", contentPath.c_str());
 	check_gl_error();
 	
 	GLuint Texture1 = loadSoil("spongebob.DDS", contentPath.c_str());
 	check_gl_error();
 
-	//GLuint Texture2 = loadSoil("rock.png", contentPath.c_str());
-	GLuint Texture2 = loadSoil("sand_default.png", contentPath.c_str());
+	GLuint Texture2 = loadSoil("rock.png", contentPath.c_str());
+	//GLuint Texture2 = loadSoil("sand_default.png", contentPath.c_str());
 	check_gl_error();
 
 	// HERE

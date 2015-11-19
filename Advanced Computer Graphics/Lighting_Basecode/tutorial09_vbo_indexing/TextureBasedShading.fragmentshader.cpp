@@ -66,7 +66,7 @@ void main()
 	vec3 LightColor = vec3(1, 1, 1);
 	float LightPower = 50.0f;
 
-	vec2 uvs = UV.xy; // minus or not??
+	vec2 uvs = -UV.xy; // minus or not??
 	uvs.y = uvs.y;
 	// Material properties
 	vec4 col0 = texture(myTextureSampler, uvs.xy);
@@ -115,36 +115,38 @@ void main()
 		float ndotL = dot(n, l);
 
 
-		ndotL = pow(ndotL, 10.0);
-		ndotL = clamp(ndotL, 0.0, 1.0);
+//		ndotL = pow(ndotL, 10.0);
+//		ndotL = clamp(ndotL, 0.0, 1.0);
+//
+//		float ndotV = dot(n, E);
+//		ndotV = pow(ndotV, 10.0);
+//		ndotV = clamp(ndotV, 0.0, 1.0);
+//
+//		// blin
+//		float ndotH = dot(n, halfwayDirection);
+//		ndotH = pow(ndotH, 10.0);
+//		ndotH = clamp(ndotH, 0.0, 1.0);
+//
+//		float vdotL = dot(E, l);
+//		vdotL = pow(vdotL, 10.0);
+//		vdotL = clamp(vdotL, 0.0, 1.0);
 
-		float ndotV = dot(n, E);
-		ndotV = pow(ndotV, 10.0);
-		ndotV = clamp(ndotV, 0.0, 1.0);
 
-		// blin
 		float ndotH = dot(n, halfwayDirection);
-		ndotH = pow(ndotH, 10.0);
-		ndotH = clamp(ndotH, 0.0, 1.0);
-
-		float vdotL = dot(E, l);
-		vdotL = pow(vdotL, 10.0);
-		vdotL = clamp(vdotL, 0.0, 1.0);
-
-		vec3 diffuseLight = texture(ndotvSampler, vec2(ndotL, ndotV)).rgb;
-		vec3 specularLight = texture(ndothSampler, vec2(ndotL, ndotH)).rgb * 4.0;
-		vec3 retroreflectiveLight = texture(vdotlSampler, vec2(ndotL, vdotL)).rgb*2.0;
+		vec3 diffuseLight = vec3(ndotL);
+		vec3 specularLight = vec3(ndotH);
+		//vec3 retroreflectiveLight = texture(vdotlSampler, vec2(ndotL, vdotL)).rgb*2.0;
 
 		diffuseLight = LightPower*  MaterialDiffuseColor * diffuseLight;
 
 
-		diffuseLight = texture2D(myTextureSampler, uvs).rgb * ndotL;
+		//diffuseLight = texture2D(myTextureSampler, uvs).rgb * ndotL;
 
 
 		specularLight = LightPower * vec3(LightColor) * vec3(specColor)
 			//* mix(vec3(specColor), vec3(1.0), w)
 			* specularLight;
-		retroreflectiveLight = vec3(0.0);//;LightPower * retroreflectiveLight;
+		//retroreflectiveLight = vec3(0.0);//;LightPower * retroreflectiveLight;
 
 
 		// CALCULATING FRESNEL SPECULARITY
@@ -154,12 +156,13 @@ void main()
 
 		float lightingMul = 1.0;//pow(max(ndotL, 0.0), 0.5);
 
-		//color.rgb =
-			//(MaterialAmbientColor +	(diffuseLight + specularLight) * lightingMul);
+		color.rgb =
+			(MaterialAmbientColor +	(diffuseLight + specularLight) * lightingMul);
 
 		color.rgb = diffuseLight;
+		color.a = 1.0;
 
-		color.a = 1.0f;
+		//color.a = 1.0f;
 		//color.rgb = vec3(fresnel);
 
 		//color.rgb = texture(MyNormalMapSampler, UV).rgb;
