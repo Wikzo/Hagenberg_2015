@@ -1,0 +1,17 @@
+Double dispatch idiom (type reflection)
+
+Polymorphism:
+Hit type can be changed
+Parameters can not be determined
+
+eg. xxx.hit(collider other)
+
+COLLISION CHECK:
+grid
+quad tree
+
+
+bitwise comparrison
+mask and layer
+
+Resolution = collision result, bouncing back

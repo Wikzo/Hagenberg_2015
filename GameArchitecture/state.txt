@@ -1,0 +1,21 @@
+Selecting entities:
+One state for selection method (single/multi, select, deselect)
+
+One state for action:
+- Move
+- Rotate
+- Scale
+- Duplicate
+- Delete
+
+Wobble component (for selected)
+
+IsHit(Collider)
+--> should figure out if it is box-circle or circle-circle
+(don't use instanceof operator)
+
+Managing entities:
+- Entity Manager
+- Entity Factory (service/system) - states (editor state vs. playable state)
+	- Editor Entity Factory
+	- Playable Entity Factory

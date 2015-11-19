@@ -14,6 +14,8 @@ out vec3 normal_modelspace;
 out vec3 tangent_modelspace;
 out vec3 biTangent_modelspace;
 
+
+
 // Values that stay constant for the whole mesh.
 uniform mat4 MVP;
 uniform mat4 V;
@@ -26,5 +28,7 @@ void main(){
 	normal_modelspace = vertexNormal_modelspace;
 	tangent_modelspace = vertexTangent_modelspace;
 	biTangent_modelspace = vertexBiTangent_modelspace;
+
+	
 }
 

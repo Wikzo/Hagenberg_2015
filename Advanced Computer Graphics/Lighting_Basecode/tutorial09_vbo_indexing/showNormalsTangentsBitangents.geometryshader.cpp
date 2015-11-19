@@ -9,6 +9,10 @@ in vec3 normal_modelspace[];
 in vec3 tangent_modelspace[];
 in vec3 biTangent_modelspace[];
 
+// mine
+//in vec3 EyeDirection_tangentSpace[];
+//in vec3 LightDirection_tangentSpace[];
+
 // Output data ; will be interpolated for each fragment.
 out vec3 vertexCol;
 //out vec2 UV;
@@ -24,6 +28,9 @@ uniform mat4 MVP;
 uniform mat4 V;
 uniform mat4 M;
 uniform vec3 LightPosition_worldspace;
+
+
+// THIS IS NOT USED!
 
 void main(void)
 {

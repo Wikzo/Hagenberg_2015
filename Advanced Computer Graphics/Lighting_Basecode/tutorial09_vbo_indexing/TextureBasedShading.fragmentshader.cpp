@@ -10,6 +10,10 @@ in vec3 Normal_worldspace;
 in vec3 EyeDirection_cameraspace;
 in vec3 LightDirection_cameraspace;
 
+// mine:
+in vec3 EyeDirection_tangentSpace;
+in vec3 LightDirection_tangentSpace;
+
 // Ouput data
 layout(location = 0) out vec4 color;
 
@@ -62,8 +66,8 @@ void main()
 	vec3 LightColor = vec3(1, 1, 1);
 	float LightPower = 50.0f;
 
-	vec2 uvs = UV.xy;
-	uvs.y = -uvs.y;
+	vec2 uvs = UV.xy; // minus or not??
+	uvs.y = uvs.y;
 	// Material properties
 	vec4 col0 = texture(myTextureSampler, uvs.xy);
 
@@ -78,15 +82,17 @@ void main()
 	LightPower /= distance*distance;
 
 	// CALCULATING NORMALS VIA NORMAL MAP TEXTURE
+	// Need to use tangent space.
 	// color goes from 0 to 1
 	// normal goes from -1 to +1
 	// to convert: Normal = (Color*2) - 1
 	vec3 normalMap = normalize(texture2D(MyNormalMapSampler, uvs.xy).rgb*2.0 - 1.0);
 
-	vec3 l = normalize(LightDirection_cameraspace);
+	vec3 l = normalize(LightDirection_tangentSpace);
 
 	//vec3 n = normalize(Normal_cameraspace);
 	vec3 n = normalMap; // <--- applying the normal map
+	//n = vec3(0.0);
 
 	// anisotropic reflective normals - does not work...
 	// https://www.udacity.com/course/viewer#!/c-cs291/l-124106597/e-176585825/m-176585827
@@ -101,11 +107,14 @@ void main()
 	}*/
 
 		// Eye vector (towards the camera)
-		vec3 E = normalize(EyeDirection_cameraspace);
+		vec3 E = normalize(EyeDirection_tangentSpace);
 
 		vec3 halfwayDirection = normalize(l + E);
 
+		// lambert
 		float ndotL = dot(n, l);
+
+
 		ndotL = pow(ndotL, 10.0);
 		ndotL = clamp(ndotL, 0.0, 1.0);
 
@@ -113,6 +122,7 @@ void main()
 		ndotV = pow(ndotV, 10.0);
 		ndotV = clamp(ndotV, 0.0, 1.0);
 
+		// blin
 		float ndotH = dot(n, halfwayDirection);
 		ndotH = pow(ndotH, 10.0);
 		ndotH = clamp(ndotH, 0.0, 1.0);
@@ -126,24 +136,34 @@ void main()
 		vec3 retroreflectiveLight = texture(vdotlSampler, vec2(ndotL, vdotL)).rgb*2.0;
 
 		diffuseLight = LightPower*  MaterialDiffuseColor * diffuseLight;
+
+
+		diffuseLight = texture2D(myTextureSampler, uvs).rgb * ndotL;
+
+
 		specularLight = LightPower * vec3(LightColor) * vec3(specColor)
 			//* mix(vec3(specColor), vec3(1.0), w)
 			* specularLight;
 		retroreflectiveLight = vec3(0.0);//;LightPower * retroreflectiveLight;
 
+
 		// CALCULATING FRESNEL SPECULARITY
-		float fresnel = SchlickFresnelFactor(halfwayDirection, E, 5.0);
-		specularLight *= fresnel; // <-- applying fresnell effect
+		//float fresnel = SchlickFresnelFactor(halfwayDirection, E, 5.0);
+		//specularLight *= fresnel; // <-- applying fresnell effect
 
 
 		float lightingMul = 1.0;//pow(max(ndotL, 0.0), 0.5);
 
-		color.rgb =
-			(MaterialAmbientColor +	(diffuseLight + specularLight) * lightingMul);
+		//color.rgb =
+			//(MaterialAmbientColor +	(diffuseLight + specularLight) * lightingMul);
+
+		color.rgb = diffuseLight;
 
 		color.a = 1.0f;
 		//color.rgb = vec3(fresnel);
 
 		//color.rgb = texture(MyNormalMapSampler, UV).rgb;
+
+		//color.rgb = vec3(ndotL);
 	
 }

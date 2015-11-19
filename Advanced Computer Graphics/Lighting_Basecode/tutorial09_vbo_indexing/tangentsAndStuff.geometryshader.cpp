@@ -9,6 +9,7 @@ in vec3 normal_modelspace[];
 in vec3 tangent_modelspace[];
 in vec3 biTangent_modelspace[];
 
+
 // Output data ; will be interpolated for each fragment.
 out vec2 UV;
 
@@ -18,6 +19,12 @@ out vec3 Normal_cameraspace;
 out vec3 EyeDirection_cameraspace;
 out vec3 LightDirection_cameraspace;
 out vec4 myLightUV;
+
+// mine:
+out vec3 EyeDirection_tangentSpace;
+out vec3 LightDirection_tangentSpace;
+
+// USE THIS GEOMETRY SHADER!
 
 // Values that stay constant for the whole mesh.
 uniform mat4 MVP;
@@ -62,6 +69,28 @@ void main(void)
 		// UV of the vertex. No special space for this one.
 		//UV = position_modelspace[i].xy;
 		UV = uvs[i];//position_modelspace[i].yz;
+		
+		// mine:
+		mat4 worldToModelSpaceMatrix = inverse(M);
+		mat4 viewToModelSpaceMatrix = inverse(V*M);
+		vec4 LightPosition_modelspace = worldToModelSpaceMatrix * vec4(LightPosition_worldspace, 1);
+
+		vec3 LightDirection_modelspace = LightPosition_modelspace.xyz - position_modelspace[i];
+
+		// vec3 or vec4?
+		vec3 EyeDirection_modelspace = (viewToModelSpaceMatrix * vec4(EyeDirection_cameraspace, 0)).xyz;
+
+		mat3 modelTangentSpaceMatrix = mat3(tangent_modelspace[i], biTangent_modelspace[i], normal_modelspace[i]);
+
+		modelTangentSpaceMatrix = inverse(modelTangentSpaceMatrix);
+
+		EyeDirection_tangentSpace = modelTangentSpaceMatrix * EyeDirection_modelspace;
+		LightDirection_tangentSpace = modelTangentSpaceMatrix * LightDirection_modelspace;
+
+
+
+		//EyeDirection_tangentSpace_g2f = EyeDirection_tangentSpace[i];
+		//LightDirection_tangentSpace_g2f = LightDirection_tangentSpace[i];
 
 		EmitVertex();
 	}

@@ -356,12 +356,14 @@ int main( void )
 // ########### Load the textures ################ // choose textures HERE
 
 	// LOAD TEXTURE (5)
-	GLuint normalMapTexure1 = loadSoil("sand_normal.DDS", contentPath.c_str());
+	//GLuint normalMapTexure1 = loadSoil("rock_n.png", contentPath.c_str());
+	GLuint normalMapTexure1 = loadSoil("ChesterfieldNormalMap.png", contentPath.c_str());
 	check_gl_error();
 	
 	GLuint Texture1 = loadSoil("spongebob.DDS", contentPath.c_str());
 	check_gl_error();
 
+	//GLuint Texture2 = loadSoil("rock.png", contentPath.c_str());
 	GLuint Texture2 = loadSoil("sand_default.png", contentPath.c_str());
 	check_gl_error();
 
@@ -384,7 +386,8 @@ int main( void )
 	#ifdef MINGW_COMPILER
         modelPath += std::string("ACGR_Scene_GI_Unwrap.dae");
 	#else
-        modelPath += std::string("ACGR_Scene_GI_Unwrap_II.3ds");
+        //modelPath += std::string("ACGR_Scene_GI_Unwrap_II.3ds"); // old ugly artiacts
+        modelPath += std::string("ACGR_Scene.3ds");
 	#endif
 	Mesh::loadAssImp(modelPath.c_str(), meshes, true);
 	
