@@ -2,6 +2,8 @@ package net.gustavdahl.engine.systems;
 
 import java.util.List;
 
+import com.badlogic.gdx.Input.Keys;
+
 import net.gustavdahl.engine.components.Collider;
 import net.gustavdahl.engine.components.EditorComponent;
 import net.gustavdahl.engine.entities.Entity;
@@ -17,31 +19,22 @@ public class EditorIdleState implements IEditorSelectionState
 	}
 
 	@Override
-	public IEditorSelectionState HandleInput(EditorSystem editor, SelectionModifier modifier)
+	public IEditorSelectionState HandleInput(EditorSystem editor, boolean controlDown)
 	{
-		
-		
+
 		Entity hit = editor.EntityRaycast();
-		
+
 		if (hit != null)
 		{
-			
+
 			editor.SetSelected(hit, true);
-			if (modifier != SelectionModifier.Control)
+			if (!controlDown)
 				return new EditorSingleSelectionState();
 			else
 				return new EditorMultiSelectionState();
 		}
-		
+
 		// idle
 		return this;
 	}
-
-	@Override
-	public void Update(EditorSystem editor, SelectionModifier modifier)
-	{
-		//
-		
-	}
-
 }

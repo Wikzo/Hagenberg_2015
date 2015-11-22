@@ -32,8 +32,9 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	private Ray _ray;
 	private Vector3 _mousePosition;
 	private List<Entity> _selectedEntities;
-	private IEditorSelectionState _selection;
-	private SelectionModifier _selectionModifier = SelectionModifier.None;
+	private IEditorSelectionState _editorSelectionState;
+	private EditorActionStateManager _editorActionStateManager;
+	private boolean _controlDown;
 
 	public EditorSystem(OrthographicCamera camera)
 	{
@@ -45,9 +46,11 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		ServiceLocator.AssetManager.AddInputListener(this);
 
 		_selectedEntities = new ArrayList<Entity>();
-		_selectionModifier = SelectionModifier.None;
-		_selection = new EditorIdleState();
-		_selection.EnterState(this);
+		
+		_editorSelectionState = new EditorIdleState();
+		_editorSelectionState.EnterState(this);
+
+		_editorActionStateManager = new EditorActionStateManager();
 	}
 
 	@Override
@@ -57,29 +60,20 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		if (!_isActive)
 			return;
 
-		/*
-		 * String stateString = "Selection: "; stateString +=
-		 * _selectionState.toString();
-		 * 
-		 * if (_currentlySelected != null) stateString += " [" +
-		 * _currentlySelected.Name + "]"; DebugSystem.AddDebugText(stateString);
-		 * 
-		 * DebugSystem.AddDebugText("Action: " + _actionState.toString());
-		 */
-
 		// make mouse raycast
 		_mousePosition = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
 		_ray = MainGameLoopStuff._camera.getPickRay(GetMousePosition().x, GetMousePosition().y);
 
-		_selection.Update(this, this._selectionModifier);
+		// update action states
+		_editorActionStateManager.Update(this);
 
 		// set selection color
 		for (EditorComponent e : _editorComponents)
 			e.Owner.GetComponent(Collider.class).SetHitColor(e.Owner.CurrentlySelectedByEditor);
 
-		DebugSystem.AddDebugText("State: " + _selection.getClass().getSimpleName());
+		DebugSystem.AddDebugText("Selection State: " + _editorSelectionState.getClass().getSimpleName());
+		DebugSystem.AddDebugText("Action state: " + _editorActionStateManager.GetCurrentActionState());
 		DebugSystem.AddDebugText("List size: " + GetSelectedEntities().size());
-		DebugSystem.AddDebugText("Selection modifier: " + _selectionModifier);
 
 	}
 
@@ -109,7 +103,6 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 	protected Entity EntityRaycast()
 	{
-
 		for (int i = 0; i < _editorComponents.size(); i++)
 		{
 			Entity e = null;
@@ -144,49 +137,36 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	{
 		MainGameLoopStuff._camera.unproject(GetMousePosition());
 	}
-	
+
 	protected List<Entity> GetSelectedEntities()
 	{
 		return _selectedEntities;
 	}
 
-	/*protected void SetSelectedEntities(List<Entity> _selectedEntities)
-	{
-		this._selectedEntities = _selectedEntities;
-	}*/
-	
+
 	protected Vector3 GetMousePosition()
 	{
 		return _mousePosition;
 	}
-	
+
 	@Override
 	public boolean keyDown(int keycode)
 	{
-		
-		if (keycode == Keys.W)
-			_selectionModifier = SelectionModifier.Move;
-		else if (keycode == Keys.E)
-			_selectionModifier = SelectionModifier.Rotate;
-		else if (keycode == Keys.R)
-			_selectionModifier = SelectionModifier.Scale;
-		else if (keycode == Keys.CONTROL_LEFT)
-			_selectionModifier = SelectionModifier.Control;
-		else if (keycode == Keys.X)
-			_selectionModifier = SelectionModifier.Remove;
-		else if (keycode == Keys.D)
-			_selectionModifier = SelectionModifier.Duplicate;
-		else
-			_selectionModifier = SelectionModifier.None;
-		
+
+		if (keycode == Keys.CONTROL_LEFT)
+			_controlDown = true;
+
+		_editorActionStateManager.HandleInputUpdate(keycode);
+
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode)
 	{
-		//if (keycode == Keys.CONTROL_LEFT && _selectionModifier == SelectionModifier.Control)
-			_selectionModifier = SelectionModifier.None;
+
+		if (keycode == Keys.CONTROL_LEFT)
+			_controlDown = false;
 
 		return false;
 	}
@@ -201,14 +181,14 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	public boolean touchDown(int screenX, int screenY, int pointer, int button)
 	{
 
-		IEditorSelectionState temp = _selection.HandleInput(this, this._selectionModifier);
+		IEditorSelectionState temp = _editorSelectionState.HandleInput(this, _controlDown);
 
-		if (temp != _selection)
+		if (temp != _editorSelectionState)
 		{
-			_selection = null;
-			_selection = temp;
+			_editorSelectionState = null;
+			_editorSelectionState = temp;
 
-			_selection.EnterState(this);
+			_editorSelectionState.EnterState(this);
 		}
 
 		return false;
@@ -221,15 +201,16 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 		if (!active)
 		{
-			_selection = new EditorIdleState();
-			_selection.EnterState(this);
+			_editorSelectionState = new EditorIdleState();
+			_editorSelectionState.EnterState(this);
+
+			_editorActionStateManager = new EditorActionStateManager();
 		}
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button)
 	{
-
 		return false;
 	}
 
@@ -250,10 +231,5 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	{
 		return false;
 	}
-
-
-
-
-	
 
 }

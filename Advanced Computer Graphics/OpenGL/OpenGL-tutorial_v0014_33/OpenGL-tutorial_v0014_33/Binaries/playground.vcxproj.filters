@@ -4,20 +4,27 @@
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\playground\playground.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.cpp">
+    <ClCompile Include="..\common\controls.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="MySimpleVertexShader.vertexshader">
-      <Filter>shaders</Filter>
-    </ClCompile>
-    <ClCompile Include="MySimpleFragmentShader.fragmentshader">
-      <Filter>shaders</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.hpp">
+    <ClCompile Include="..\common\objloader.cpp">
       <Filter>common</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="..\common\shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\tangentspace.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\text2D.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\texture.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\vboindexer.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\CMakeLists.txt" />
@@ -34,11 +41,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\tutorial13_normal_mapping\NormalMapping.vertexshader.cpp">
+    <None Include="..\tutorial13_normal_mapping\NormalMapping.fragmentshader">
       <Filter>shaders</Filter>
     </None>
-    <None Include="..\tutorial13_normal_mapping\NormalMapping.fragmentshader.cpp">
+    <None Include="..\tutorial13_normal_mapping\NormalMapping.vertexshader">
       <Filter>shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\controls.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\objloader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\shader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\tangentspace.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\text2D.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\texture.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\vboindexer.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

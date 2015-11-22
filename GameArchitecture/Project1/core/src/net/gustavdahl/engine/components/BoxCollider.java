@@ -105,14 +105,14 @@ public class BoxCollider extends Collider implements IDebugRenderable
 				if (!otherBox.IsStatic)
 					otherBox.Owner.SetPosition(d.scl(-1));
 				
-				System.out.println("Collision: " + lastPosition + ", " + Owner.Name);
+				//System.out.println("Collision: " + lastPosition + ", " + Owner.Name);
 				
 				return true;
 			}
 			else // no overlap
 			{
 				lastPosition.set(Transform.Position);
-				System.out.println("NO Collision: " + lastPosition + ", " + Owner.Name);
+				//System.out.println("NO Collision: " + lastPosition + ", " + Owner.Name);
 				return false;
 			}
 

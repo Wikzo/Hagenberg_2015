@@ -131,6 +131,7 @@ void main()
 //		vdotL = pow(vdotL, 10.0);
 //		vdotL = clamp(vdotL, 0.0, 1.0);
 
+		// TODO: dont use all the dot gradient stuff; just pure shader
 
 		float ndotH = dot(n, halfwayDirection);
 		vec3 diffuseLight = vec3(ndotL);

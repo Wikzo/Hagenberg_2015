@@ -375,17 +375,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\tutorial13_normal_mapping\NormalMapping.vertexshader.cpp" />
-    <None Include="..\tutorial13_normal_mapping\NormalMapping.fragmentshader.cpp" />
-    <ClCompile Include="MySimpleFragmentShader.fragmentshader">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="MySimpleVertexShader.vertexshader">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.hpp" />
+    <None Include="..\tutorial13_normal_mapping\NormalMapping.fragmentshader" />
+    <None Include="..\tutorial13_normal_mapping\NormalMapping.vertexshader" />
+    <ClCompile Include="..\common\controls.cpp" />
+    <ClCompile Include="..\common\objloader.cpp" />
+    <ClCompile Include="..\common\shader.cpp" />
+    <ClCompile Include="..\common\tangentspace.cpp" />
+    <ClCompile Include="..\common\text2D.cpp" />
+    <ClCompile Include="..\common\texture.cpp" />
+    <ClCompile Include="..\common\vboindexer.cpp" />
     <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\playground\playground.cpp" />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/ZERO_CHECK.vcxproj">
@@ -397,6 +396,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/external/glfw-3.0.3/src/GLFW_303.vcxproj">
       <Project>84BE7D38-312D-3B89-9109-0C7363D71013</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\controls.hpp" />
+    <ClInclude Include="..\common\objloader.hpp" />
+    <ClInclude Include="..\common\shader.hpp" />
+    <ClInclude Include="..\common\tangentspace.hpp" />
+    <ClInclude Include="..\common\text2D.hpp" />
+    <ClInclude Include="..\common\texture.hpp" />
+    <ClInclude Include="..\common\vboindexer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

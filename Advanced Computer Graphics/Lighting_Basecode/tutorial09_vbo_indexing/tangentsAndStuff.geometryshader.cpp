@@ -77,9 +77,10 @@ void main(void)
 
 		vec3 LightDirection_modelspace = LightPosition_modelspace.xyz - position_modelspace[i];
 
-		// vec3 or vec4?
 		vec3 EyeDirection_modelspace = (viewToModelSpaceMatrix * vec4(EyeDirection_cameraspace, 0)).xyz;
 
+
+		// for some reason: use minus bitangent
 		mat3 modelTangentSpaceMatrix = mat3(tangent_modelspace[i], -biTangent_modelspace[i], normal_modelspace[i]);
 
 		modelTangentSpaceMatrix = inverse(modelTangentSpaceMatrix);
