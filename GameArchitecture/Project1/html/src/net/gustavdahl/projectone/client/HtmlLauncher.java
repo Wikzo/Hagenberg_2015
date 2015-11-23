@@ -4,7 +4,7 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 
-import Scenes.MyGame;
+import net.gustavdahl.echelonengine.scenes.MyGame;
 
 public class HtmlLauncher extends GwtApplication {
 
