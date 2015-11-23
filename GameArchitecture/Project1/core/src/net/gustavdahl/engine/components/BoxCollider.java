@@ -1,14 +1,17 @@
 package net.gustavdahl.engine.components;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 
+import javafx.scene.shape.Box;
 import net.gustavdahl.engine.systems.DebugSystem;
 
 public class BoxCollider extends Collider implements IDebugRenderable
@@ -28,6 +31,8 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		_halfWidth = _width / 2;
 		_halfHeight = _height / 2;
 
+		bc = new Vector2();
+
 	}
 
 	@Override
@@ -45,6 +50,16 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		// shapeRenderer.rotate(0f, 0f, 1f, Transform.Rotation);
 
 		shapeRenderer.box(Bounds().x, Bounds().y, 0, Bounds().width, Bounds().height, 1);
+
+		shapeRenderer.setColor(Color.RED); // TODO: remove
+		shapeRenderer.rectLine(circlePos, boxPos, 10); // TODO: remove
+
+		shapeRenderer.setColor(Color.GREEN);
+		shapeRenderer.rectLine(circlePos, bc, 10); // TODO: remove
+
+		shapeRenderer.setColor(Color.RED);
+		shapeRenderer.circle(bc.x, bc.y, 5); // TODO: remove
+
 		shapeRenderer.end();
 
 		Gdx.gl.glDisable(GL30.GL_BLEND);
@@ -80,16 +95,37 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		else if (!this.IsStatic)
 			this.Owner.SetPosition(_lastPosition);
 
-		//System.out.println(_lastPosition);
+		// System.out.println(_lastPosition);
 
 		return b;
 	}
+
+	Vector2 bc = new Vector2();
+	Vector2 circlePos = Vector2.Zero;
+	Vector2 boxPos = Vector2.Zero;
 
 	@Override
 	protected boolean CollideWithCircle(CircleCollider circle)
 	{
 		// circle-circle collision
-		// System.out.println("Checking " + circle + " against " + this.Name());
+
+		// TODO: make use of set() instead of cpy()
+
+		circlePos = circle.GetCenter().cpy();
+		boxPos = this.GetCenter().cpy();
+
+		Vector2 v = circle.GetCenter().cpy().sub(this.GetCenter());
+
+		v.x = MathUtils.clamp(v.x, -this._halfWidth, this._halfWidth);
+		v.y = MathUtils.clamp(v.y, -this._halfHeight, this._halfHeight);
+
+		bc.set(v).add(this.GetCenter());
+
+		Vector2 d = circle.GetCenter().cpy().sub(bc);
+
+		float distance = d.len() - circle.Radius();
+
+		DebugSystem.AddDebugText("Distance: " + distance);
 
 		return false;
 	}
@@ -122,7 +158,7 @@ public class BoxCollider extends Collider implements IDebugRenderable
 			if (!box.IsStatic)
 				box.Owner.SetPosition(d.scl(-1));
 
-			System.out.println(box + " hit " + this.Name());
+			// System.out.println(box + " hit " + this.Name());
 
 			return true;
 		} else // no overlap

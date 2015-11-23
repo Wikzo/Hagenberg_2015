@@ -71,9 +71,9 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		for (EditorComponent e : _editorComponents)
 			e.Owner.GetComponent(Collider.class).SetHitColor(e.Owner.CurrentlySelectedByEditor);
 
-		DebugSystem.AddDebugText("Selection State: " + _editorSelectionState.getClass().getSimpleName());
-		DebugSystem.AddDebugText("Action state: " + _editorActionStateManager.GetCurrentActionState());
-		DebugSystem.AddDebugText("List size: " + GetSelectedEntities().size());
+		//DebugSystem.AddDebugText("Selection State: " + _editorSelectionState.getClass().getSimpleName());
+		//DebugSystem.AddDebugText("Action state: " + _editorActionStateManager.GetCurrentActionState());
+		//DebugSystem.AddDebugText("List size: " + GetSelectedEntities().size());
 
 	}
 

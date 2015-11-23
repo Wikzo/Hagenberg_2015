@@ -95,7 +95,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 
 		TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
 
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < 1; i++)
 		{
 			Entity e = new Entity("Man" + i);
 			e.SetPosition(new Vector2(300 + i * 110, 300));
@@ -110,12 +110,11 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
 			
 			// falling down, not static
-			if (i == 0)
+			/*if (i == 0)
 			{
 				e.GetComponent(CircleCollider.class).SetStatic(false);
 				e.AddComponent(new PhysicsComponent());
-			}
-			
+			}*/		
 			
 		}
 
@@ -126,7 +125,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		_entity2.SetPosition(new Vector2(200,400));
 		//_entity3.SetPosition(new Vector2(300,300));
 
-		_entity1.AddComponent(new PhysicsComponent());
+		//_entity1.AddComponent(new PhysicsComponent());
 
 		// sprite animation
 		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
@@ -153,13 +152,13 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		//_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
 		
 		
-		Entity floor = new Entity("Floor");
+		/*Entity floor = new Entity("Floor");
 		floor.AddComponent(new SpriteComponent(new TextureRegion(_serviceLocator.AssetManager.Floor)));
 		floor.SetPosition(new Vector2(20,50));
 		floor.AddComponent(new BoxCollider(floor.GetComponent(SpriteComponent.class).GetWidth(),
 				floor.GetComponent(SpriteComponent.class).GetHeight()).SetStatic(true));
 		floor.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		floor.AddComponent(new EditorComponent());
+		floor.AddComponent(new EditorComponent());*/
 		
 		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
 	}
