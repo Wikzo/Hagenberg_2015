@@ -5,15 +5,15 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 
-import net.gustavdahl.engine.MyGame;
+import Scenes.MyGame;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class MenuVideo extends MenuItem
 {
 
-	public MenuVideo(Stage stage, MyGame project1, CircleMenuList circleMenu, MenuItemType type)
+	public MenuVideo(Stage stage, MyGame project1, CircleMenuList circleMenu, MenuItemType type, ServiceLocator serviceLocator)
 	{
-		super(stage, project1, circleMenu, type);
+		super(stage, project1, circleMenu, type, serviceLocator);
 	}
 
 	@Override

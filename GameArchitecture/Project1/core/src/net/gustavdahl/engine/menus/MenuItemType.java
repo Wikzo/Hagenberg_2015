@@ -2,11 +2,13 @@ package net.gustavdahl.engine.menus;
 
 public enum MenuItemType
 {
-StartGame, // 0
-Gameplay, // 1
+CollisionStressTest, // 0
+StartGame, // 1
+Gameplay, // 2
 Control,
 Video,
 Audio,
 About,
-Exit
+Exit,
+
 }

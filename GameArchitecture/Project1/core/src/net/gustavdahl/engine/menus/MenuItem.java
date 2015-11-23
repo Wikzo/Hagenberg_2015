@@ -15,7 +15,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import net.gustavdahl.engine.MyGame;
+import Scenes.MyGame;
+import net.gustavdahl.engine.systems.ServiceLocator;
 
 public abstract class MenuItem implements Screen
 {
@@ -33,7 +34,7 @@ public abstract class MenuItem implements Screen
 	protected Stage Stage;
 	protected Group Group;
 
-	public MenuItem(Stage stage, MyGame project1, CircleMenuList circleMenu, MenuItemType type)
+	public MenuItem(Stage stage, MyGame project1, CircleMenuList circleMenu, MenuItemType type, ServiceLocator serviceLocator)
 	{
 		this.game = project1;
 		this.circleMenu = circleMenu;

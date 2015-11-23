@@ -29,7 +29,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import net.gustavdahl.engine.MyGame;
+import Scenes.MyGame;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class CircleMenuList implements Screen
@@ -43,10 +43,13 @@ public class CircleMenuList implements Screen
 	private Stage stage;
 
 	private int highlightIndex = 0;
+	
+	private ServiceLocator _serviceLocator;
 
-	public CircleMenuList(MyGame project)
+	public CircleMenuList(MyGame project, ServiceLocator serviceLocator)
 	{
 		this.game = project;
+		_serviceLocator = serviceLocator;
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
@@ -78,7 +81,7 @@ public class CircleMenuList implements Screen
 			switch (i)
 			{
 			case 0:
-				menuName = "Start Game";
+				menuName = "Collision Stress Test";
 				break;
 			
 			case 1:
@@ -187,28 +190,31 @@ public class CircleMenuList implements Screen
 		switch (type)
 		{
 		case About:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
 			break;
 		case Audio:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
 			break;
 		case Control:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
 			break;
 		case Exit:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
 			break;
 		case Gameplay:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
 			break;
 		case StartGame:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
 			break;
 		case Video:
-			current = new MenuVideo(stage, game, this, MenuItemType.Video);
+			current = new MenuVideo(stage, game, this, MenuItemType.Video, _serviceLocator);
+			break;
+		case CollisionStressTest:
+			current = new MenuItemCollisionStressTest(stage, game, this, MenuItemType.CollisionStressTest, _serviceLocator);
 			break;
 		default:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay);
+			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
 			break;
 			
 		}

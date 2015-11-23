@@ -24,8 +24,8 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import Scenes.MyGame;
 import javafx.scene.shape.MoveTo;
-import net.gustavdahl.engine.MyGame;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
 public class SplashScreen implements Screen
@@ -40,10 +40,12 @@ public class SplashScreen implements Screen
 	private float fadeOutTime = 1f;
 	private float DisplayTime = 1f;
 	private Stage stage;
+	private ServiceLocator _serviceLocator;
 
-	public SplashScreen(MyGame project)
+	public SplashScreen(MyGame project, ServiceLocator serviceLocator)
 	{
 		this.game = project;
+		_serviceLocator = serviceLocator;
 		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
@@ -99,7 +101,7 @@ public class SplashScreen implements Screen
 	void EndOfState()
 	{
 
-		game.setScreen(new CircleMenuList(game));
+		game.setScreen(new CircleMenuList(game, _serviceLocator));
 		dispose();
 	}
 

@@ -1,4 +1,4 @@
-package net.gustavdahl.engine;
+package Scenes;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -10,6 +10,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -17,6 +18,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g3d.utils.BaseAnimationController.Transform;
 import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
@@ -45,7 +47,7 @@ import net.gustavdahl.engine.systems.PhysicsSystem;
 import net.gustavdahl.engine.systems.RenderSystem;
 import net.gustavdahl.engine.systems.ServiceLocator;
 
-public class MainGameLoopStuff implements Screen, IUpdatable
+public class CollisionStressTest implements Screen, IUpdatable
 {
 	public static OrthographicCamera _camera; // TODO: dont make public static
 	private SpriteBatch _spriteBatch;
@@ -56,7 +58,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 	Entity _entity2;
 	Entity _entity3;
 
-	public MainGameLoopStuff(Game game, ServiceLocator serviceLocator)
+	public CollisionStressTest(Game game, ServiceLocator serviceLocator)
 	{
 		_game = game;
 
@@ -129,7 +131,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		_entity2.SetPosition(new Vector2(200,400));
 		//_entity3.SetPosition(new Vector2(300,300));
 
-		//_entity1.AddComponent(new PhysicsComponent());
+		_entity1.AddComponent(new PhysicsComponent());
 
 		// sprite animation
 		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
@@ -158,7 +160,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		
 		Entity floor = new Entity("Floor");
 		floor.AddComponent(new SpriteComponent(new TextureRegion(_serviceLocator.AssetManager.Floor)));
-		floor.SetPosition(new Vector2(300,50));
+		floor.SetPosition(new Vector2(400,50));
 		floor.AddComponent(new BoxCollider(floor.GetComponent(SpriteComponent.class).GetWidth(),
 				floor.GetComponent(SpriteComponent.class).GetHeight()).SetStatic(true));
 		floor.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
@@ -197,20 +199,27 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 
 	}
 
-	float timer;
-	int i;
+	private float _timer;
+	private int _entityNumber;
 	@Override
 	public void Update(float deltaTime)
 	{
 
-		//timer+= deltaTime;
+		DebugSystem.AddDebugText("Number of entities: " + _entityNumber, null);
+		DebugSystem.AddDebugText("FPS: " + Gdx.graphics.getFramesPerSecond(), null);
+
+		_timer+= deltaTime;
 		
-		if (timer > 1)
+		if (_timer > 0.01)
 		{
-			timer = 0;
-			i++;
-			Entity e = new Entity("Man" + i);
-			e.SetPosition(new Vector2(100,200));
+			_timer = 0;
+			_entityNumber++;
+			
+			float x = MathUtils.random(Gdx.graphics.getWidth() - 40);
+			float y = MathUtils.random(Gdx.graphics.getHeight() - 40);
+			
+			Entity e = new Entity("StressTest_" + _entityNumber);
+			e.SetPosition(new Vector2(x+20,y+20));
 			
 			e.AddComponent(new SpriteComponent(r[0])
 					.SetOriginCenter()
@@ -220,6 +229,7 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
 			
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
+			e.AddComponent(new PhysicsComponent());
 			
 		}
 

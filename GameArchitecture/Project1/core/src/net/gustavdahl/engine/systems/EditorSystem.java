@@ -18,7 +18,7 @@ import EditorActionStates.EditorRotateActionState;
 import EditorActionStates.EditorScaleActionState;
 import EditorActionStates.IEditorActionState;
 import EditorActionStates.IEditorSelectionState;
-import net.gustavdahl.engine.MainGameLoopStuff;
+import Scenes.CollisionStressTest;
 import net.gustavdahl.engine.components.Collider;
 import net.gustavdahl.engine.components.Component;
 import net.gustavdahl.engine.components.ConstantForce;
@@ -68,7 +68,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 		// make mouse raycast
 		_mousePosition = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-		_ray = MainGameLoopStuff._camera.getPickRay(GetMousePosition().x, GetMousePosition().y);
+		_ray = CollisionStressTest._camera.getPickRay(GetMousePosition().x, GetMousePosition().y);
 
 		// update action states
 		_editorActionStateManager.Update(this);
@@ -156,7 +156,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 	public void UnprojectMouse()
 	{
-		MainGameLoopStuff._camera.unproject(GetMousePosition());
+		CollisionStressTest._camera.unproject(GetMousePosition());
 	}
 
 	public List<Entity> GetSelectedEntities()

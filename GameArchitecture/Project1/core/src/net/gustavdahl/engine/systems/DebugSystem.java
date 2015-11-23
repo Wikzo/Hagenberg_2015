@@ -87,6 +87,7 @@ public class DebugSystem extends BaseSystem
 			_font.draw(_spriteBatch, _debugDrawingPosition.get(v),v.x, v.y);
 		}
 		_debugDrawingPosition.clear();
+		_textPosition = 0;
 		//_debugText = "";
 		_spriteBatch.end();
 		
@@ -101,11 +102,12 @@ public class DebugSystem extends BaseSystem
 
 	}
 	
+	private static int _textPosition = 0;
 	public static void AddDebugText(String text, Vector2 position)
 	{
 		Vector2 pos = new Vector2(1,1);
 		if (position == null)
-			pos = new Vector2(30,400);
+			pos = new Vector2(30 ,400 + _textPosition++ * 14);
 		else
 			pos = position;
 		

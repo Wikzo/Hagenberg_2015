@@ -1,4 +1,4 @@
-package net.gustavdahl.engine;
+package Scenes;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import net.gustavdahl.engine.components.Text;
 import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.menus.CircleMenuList;
 import net.gustavdahl.engine.menus.SplashScreen;
 import net.gustavdahl.engine.systems.MyAssetManager;
 import net.gustavdahl.engine.systems.EntityManager;
@@ -39,8 +40,9 @@ public class MyGame extends Game
 		_assetManager.InitializeDebugAssets();
 		
 		_serviceLocator = new ServiceLocator(_assetManager, null);
-		setScreen(new MainGameLoopStuff(this, _serviceLocator));
+		//setScreen(new CollisionStressTest(this, _serviceLocator));
 		//setScreen(new ComponentTester()); old test
+		setScreen(new CircleMenuList(this, _serviceLocator)); //old menu stuff
 		//setScreen(new SplashScreen(this)); //old menu stuff
 	}
 
