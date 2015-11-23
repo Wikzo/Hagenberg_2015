@@ -57,65 +57,71 @@ public class CircleCollider extends Collider implements IDebugRenderable
 		return _radius * Transform.Scale.x;
 	}
 
-	@Override
-	public boolean IsHit(ICollider other)
-	{
-		// http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/comment-page-1/
-		if (other instanceof CircleCollider)
-		{
-
-			
-			CircleCollider otherCircle = (CircleCollider) other;
-			
-			final Vector2 a = this.GetCenter();
-			final Vector2 b = otherCircle.GetCenter();
-			final float radiusA = this.Radius();
-			final float radiusB = otherCircle.Radius();
-
-			final double dst2 = a.dst2(b); // squared distance between origins
-			final double r2 = Math.pow(radiusA + radiusB,2); // radii summed
-			
-			
-			if (dst2 > r2) // no overlap
-				return false;
-			else // overlap
-			{
-				final double dst = Math.sqrt(dst2);
-				final double r = Math.sqrt(r2);
-				final double penetration = dst - r; // penetration amount
-				final Vector2 n = (a.sub(b)).nor(); // normalized distance: N = (A-B) / ||A-B||
-				final Vector2 penetrationVector = n.scl((float) penetration); // vector to push out
-				
-				//System.out.println("P: " + penetrationVector);
-				
-				// TODO: can only hit/move the next one in the loop from ColliderSystem!
-				
-				//if (!this.IsStatic)
-					this.Owner.AddPosition(penetrationVector.scl(-1));
-				
-				//if (!otherCircle.IsStatic)
-					otherCircle.Owner.AddPosition(penetrationVector.scl(-1));
-				
-				return true;
-			}
-				
-
-		}
-		
-		if (other instanceof BoxCollider)
-		{
-
-
-		}
-
-		return false;
-	}
 
 	@Override
 	public void Update(float deltaTime)
 	{
 		
 
+	}
+
+	@Override
+	public boolean Collide(Collider collider)
+	{
+		return collider.CollideWithCircle(this);
+	}
+
+	@Override
+	protected boolean CollideWithCircle(CircleCollider circle)
+	{
+		// circle-circle collision
+		
+		//System.out.println("Checking " + circle + " against " + this.Name());
+			
+		final Vector2 a = this.GetCenter();
+		final Vector2 b = circle.GetCenter();
+		final float radiusA = this.Radius();
+		final float radiusB = circle.Radius();
+
+		final double dst2 = a.dst2(b); // squared distance between origins
+		final double r2 = Math.pow(radiusA + radiusB,2); // radii summed
+		
+		
+		if (dst2 > r2) // no overlap
+			return false;
+		else // overlap
+		{
+			final double dst = Math.sqrt(dst2);
+			final double r = Math.sqrt(r2);
+			final double penetration = dst - r; // penetration amount
+			final Vector2 n = (a.sub(b)).nor(); // normalized distance: N = (A-B) / ||A-B||
+			final Vector2 penetrationVector = n.scl((float) penetration); // vector to push out
+			
+			//System.out.println("P: " + penetrationVector);
+			
+			// TODO: can only hit/move the next one in the loop from ColliderSystem!
+			
+			//if (!this.IsStatic)
+				this.Owner.AddPosition(penetrationVector.scl(-1));
+			
+			//if (!otherCircle.IsStatic)
+				circle.Owner.AddPosition(penetrationVector.scl(-1));
+			
+			System.out.println(circle + " hit " + this.Name());
+			return true;
+		}
+		
+		
+	}
+
+	@Override
+	protected boolean CollideWithBox(BoxCollider box)
+	{
+		// box-circle collision
+		//System.out.println("Checking " + box + " against " + this.Name());
+		
+		return false;
+		//System.out.println("Box " + box + " collides with circle " + this.Name());
 	}
 
 }

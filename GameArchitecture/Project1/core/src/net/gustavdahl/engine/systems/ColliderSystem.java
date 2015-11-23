@@ -11,11 +11,11 @@ import net.gustavdahl.engine.components.IDebugRenderable;
 public class ColliderSystem extends BaseSystem
 {
 
-	private List<ICollider> _colliderList;
+	private List<Collider> _colliderList;
 	
 	public ColliderSystem()
 	{
-		_colliderList = new ArrayList<ICollider>();
+		_colliderList = new ArrayList<Collider>();
 	}
 	
 	@Override
@@ -24,24 +24,28 @@ public class ColliderSystem extends BaseSystem
 		// reset all collider hits
 		for (int i = 0; i < _colliderList.size(); i++)
 		{
-			ICollider a = _colliderList.get(i);
-			((Collider) a).SetHitColorDebug(false);
+			Collider a = _colliderList.get(i);
+			a.SetHitColorDebug(false);
+			
+			a.Update(deltaTime);
 		}
 
 		// check all pairs against each other
 		for (int i = 0; i < _colliderList.size(); i++)
 		{
-			ICollider a = _colliderList.get(i);
+			Collider a = _colliderList.get(i);
 			
 			for (int j = i+1; j < _colliderList.size();j++)
 			{
-				ICollider b = _colliderList.get(j);
+				Collider b = _colliderList.get(j);
 
-				boolean hit = a.IsHit(b);
+				//boolean hit = a.IsHit(b);
+				boolean hit = a.Collide(b);
+				
 				if (hit)
 				{
-					((Collider) a).SetHitColorDebug(true);
-					((Collider) b).SetHitColorDebug(true);
+					a.SetHitColorDebug(true);
+					b.SetHitColorDebug(true);
 				}
 			}
 		}
@@ -52,15 +56,15 @@ public class ColliderSystem extends BaseSystem
 	{
 		boolean succesfullyAdded = false;
 
-		if (c instanceof ICollider)
+		if (c instanceof Collider)
 		{
 			succesfullyAdded = true;
-			_colliderList.add((ICollider) c);
+			_colliderList.add((Collider) c);
 			System.out.println(c.Name() + " was added to ColliderSystem");
 
 		} else
 			throw new RuntimeException(
-					"ERROR - component " + c.getClass().getSimpleName() + " doesn't implement ICollider!");
+					"ERROR - component " + c.getClass().getSimpleName() + " is not a Collider!!");
 
 		return succesfullyAdded;
 	}

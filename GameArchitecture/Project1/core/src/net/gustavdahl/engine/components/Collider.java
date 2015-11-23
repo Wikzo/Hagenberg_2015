@@ -1,6 +1,7 @@
 package net.gustavdahl.engine.components;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
@@ -9,7 +10,7 @@ import com.badlogic.gdx.math.collision.Sphere;
 import net.gustavdahl.engine.systems.ColliderSystem;
 import net.gustavdahl.engine.systems.PhysicsSystem;
 
-public abstract class Collider extends Component implements ICollider
+public abstract class Collider extends Component
 {
 
 	private Vector2 _center;
@@ -134,5 +135,10 @@ public abstract class Collider extends Component implements ICollider
 		return null;
 
 	}
+	
+	// http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/comment-page-1/
+	public abstract boolean Collide(Collider collider);
+	protected abstract boolean CollideWithCircle(CircleCollider circle);
+	protected abstract boolean CollideWithBox(BoxCollider box);
 
 }
