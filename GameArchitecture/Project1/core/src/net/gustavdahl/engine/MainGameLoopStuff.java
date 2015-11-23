@@ -68,11 +68,13 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		create();
 	}
 
+	DebugSystem _debugSystem ;
+	
 	void InitializeSystems(ServiceLocator serviceLocator)
 	{
 		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
-		DebugSystem _debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
-				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont);
+		_debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
+				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont, _camera);
 		PhysicsSystem _physicsSystem = new PhysicsSystem();
 		ColliderSystem _colliderSystem = new ColliderSystem();
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
@@ -88,14 +90,16 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		_serviceLocator.InitializeSystems();
 	}
 
+	TextureRegion[] r;
+	
 	public void create()
 	{
 		
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
-		TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
+		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
 
-		for (int i = 0; i < 1; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			Entity e = new Entity("Man" + i);
 			e.SetPosition(new Vector2(300 + i * 110, 300));
@@ -152,13 +156,13 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		//_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
 		
 		
-		/*Entity floor = new Entity("Floor");
+		Entity floor = new Entity("Floor");
 		floor.AddComponent(new SpriteComponent(new TextureRegion(_serviceLocator.AssetManager.Floor)));
-		floor.SetPosition(new Vector2(20,50));
+		floor.SetPosition(new Vector2(300,50));
 		floor.AddComponent(new BoxCollider(floor.GetComponent(SpriteComponent.class).GetWidth(),
 				floor.GetComponent(SpriteComponent.class).GetHeight()).SetStatic(true));
 		floor.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		floor.AddComponent(new EditorComponent());*/
+		floor.AddComponent(new EditorComponent());
 		
 		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
 	}
@@ -179,6 +183,8 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(_camera.combined);
 		ServiceLocator.AssetManager.ShapeRenderer.setProjectionMatrix(_camera.combined);
 
+		_debugSystem.GetCamera(_camera);
+		
 		_serviceLocator.UpdateSystems(delta);
 
 		// TODO: remember to apply stage viewport for camera
@@ -191,40 +197,30 @@ public class MainGameLoopStuff implements Screen, IUpdatable
 
 	}
 
+	float timer;
+	int i;
 	@Override
 	public void Update(float deltaTime)
 	{
 
-		//CircleCollider c1 =  (CircleCollider) _entity1.GetComponent(CircleCollider.class);
-		BoxCollider c1 =  (BoxCollider) _entity1.GetComponent(BoxCollider.class);
-		CircleCollider c2 =  (CircleCollider) _entity2.GetComponent(CircleCollider.class);
+		//timer+= deltaTime;
 		
-		//((CircleCollider) _entity1.GetComponent(CircleCollider.class)).CheckCircleCollision(c2);
-		
-		
-		if (Gdx.input.isTouched())
+		if (timer > 1)
 		{
-			Vector3 touchPos = new Vector3();
-			touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-
-			// NOTE: ray check should happen before unprojecting the mouse position!
-			//Ray ray = _camera.getPickRay(touchPos.x, touchPos.y);
-			//Collider.Intersect(ray, c1);
-			//Collider.Intersect(ray, c2);
+			timer = 0;
+			i++;
+			Entity e = new Entity("Man" + i);
+			e.SetPosition(new Vector2(100,200));
 			
-			_camera.unproject(touchPos);
+			e.AddComponent(new SpriteComponent(r[0])
+					.SetOriginCenter()
+					.Color(Color.WHITE), RenderSystem.class);
 			
+			e.AddComponent(new CircleCollider(50f).SetStatic(true), ColliderSystem.class);
+			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
 			
+			e.AddComponent(new EditorComponent(), EditorSystem.class);
 			
-
-
-			if (_entity1.GetComponent(ConstantForce.class) != null)
-				_entity1.GetComponent(ConstantForce.class).SetActive(false);
-
-		} else
-		{
-			if (_entity1.GetComponent(ConstantForce.class) != null)
-				_entity1.GetComponent(ConstantForce.class).SetActive(true);
 		}
 
 	}

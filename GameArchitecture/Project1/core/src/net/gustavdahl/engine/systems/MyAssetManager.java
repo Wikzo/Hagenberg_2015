@@ -60,7 +60,7 @@ public class MyAssetManager
 		// TODO: scale font via https://github.com/libgdx/libgdx/wiki/Gdx-freetype
 		
 		DebugFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
-		DebugFont.setColor(Color.RED);
+		DebugFont.setColor(Color.YELLOW);
 		DebugFont.getData().setScale(0.5f,0.5f);
 		fonts.add(DebugFont);
 		

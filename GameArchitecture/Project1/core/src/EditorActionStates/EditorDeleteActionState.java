@@ -1,4 +1,6 @@
-package net.gustavdahl.engine.systems;
+package EditorActionStates;
+
+import net.gustavdahl.engine.systems.EditorSystem;
 
 public class EditorDeleteActionState implements IEditorActionState
 {

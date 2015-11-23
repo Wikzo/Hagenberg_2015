@@ -21,6 +21,10 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	protected float _halfWidth, _halfHeight;
 	private Rectangle _bounds;
 	private Vector2 _lastPosition = new Vector2(0, 0);
+	private Vector2 _boxCircleVectorWithCenter = new Vector2();
+	private Vector2 _boxCircleVector = new Vector2();
+	private Vector2 _boxCircleDistance = new Vector2();
+	private float _boxCircleFinalDistance;
 
 	public BoxCollider(float width, float height)
 	{
@@ -30,8 +34,6 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		_height = height;
 		_halfWidth = _width / 2;
 		_halfHeight = _height / 2;
-
-		bc = new Vector2();
 
 	}
 
@@ -50,16 +52,6 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		// shapeRenderer.rotate(0f, 0f, 1f, Transform.Rotation);
 
 		shapeRenderer.box(Bounds().x, Bounds().y, 0, Bounds().width, Bounds().height, 1);
-
-		shapeRenderer.setColor(Color.RED); // TODO: remove
-		shapeRenderer.rectLine(circlePos, boxPos, 10); // TODO: remove
-
-		shapeRenderer.setColor(Color.GREEN);
-		shapeRenderer.rectLine(circlePos, bc, 10); // TODO: remove
-
-		shapeRenderer.setColor(Color.RED);
-		shapeRenderer.circle(bc.x, bc.y, 5); // TODO: remove
-
 		shapeRenderer.end();
 
 		Gdx.gl.glDisable(GL30.GL_BLEND);
@@ -100,32 +92,32 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		return b;
 	}
 
-	Vector2 bc = new Vector2();
-	Vector2 circlePos = Vector2.Zero;
-	Vector2 boxPos = Vector2.Zero;
+	
 
 	@Override
 	protected boolean CollideWithCircle(CircleCollider circle)
 	{
-		// circle-circle collision
+		// circle-box collision
+		// http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/comment-page-1/
+		
+		// vector between circle and box
+		_boxCircleVector.set(circle.GetCenter()).sub(this.GetCenter());
 
-		// TODO: make use of set() instead of cpy()
+		// clamp tothe half width/height
+		_boxCircleVector.x = MathUtils.clamp(_boxCircleVector.x, -this._halfWidth, this._halfWidth);
+		_boxCircleVector.y = MathUtils.clamp(_boxCircleVector.y, -this._halfHeight, this._halfHeight);
 
-		circlePos = circle.GetCenter().cpy();
-		boxPos = this.GetCenter().cpy();
+		// add center
+		_boxCircleVectorWithCenter.set(_boxCircleVector).add(this.GetCenter());
 
-		Vector2 v = circle.GetCenter().cpy().sub(this.GetCenter());
+		// center minus vector
+		_boxCircleDistance.set(circle.GetCenter()).sub(_boxCircleVectorWithCenter);
 
-		v.x = MathUtils.clamp(v.x, -this._halfWidth, this._halfWidth);
-		v.y = MathUtils.clamp(v.y, -this._halfHeight, this._halfHeight);
+		// distance
+		_boxCircleFinalDistance = _boxCircleDistance.len() - circle.Radius();
 
-		bc.set(v).add(this.GetCenter());
-
-		Vector2 d = circle.GetCenter().cpy().sub(bc);
-
-		float distance = d.len() - circle.Radius();
-
-		DebugSystem.AddDebugText("Distance: " + distance);
+		if (_boxCircleFinalDistance <= 0)
+			return true;
 
 		return false;
 	}

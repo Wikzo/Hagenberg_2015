@@ -1,9 +1,10 @@
-package net.gustavdahl.engine.systems;
+package EditorActionStates;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.systems.EditorSystem;
 
 public class EditorSingleSelectionState implements IEditorSelectionState
 {

@@ -12,6 +12,12 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
+import EditorActionStates.EditorActionStateManager;
+import EditorActionStates.EditorIdleState;
+import EditorActionStates.EditorRotateActionState;
+import EditorActionStates.EditorScaleActionState;
+import EditorActionStates.IEditorActionState;
+import EditorActionStates.IEditorSelectionState;
 import net.gustavdahl.engine.MainGameLoopStuff;
 import net.gustavdahl.engine.components.Collider;
 import net.gustavdahl.engine.components.Component;
@@ -69,7 +75,22 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 		// set selection color
 		for (EditorComponent e : _editorComponents)
+		{
 			e.Owner.GetComponent(Collider.class).SetHitColor(e.Owner.CurrentlySelectedByEditor);
+			
+			IEditorActionState currentActionState = _editorActionStateManager.GetCurrentActionState();
+			
+			String data = "Position: " + e.Owner.GetTransform().Position.toString();
+			
+			if (currentActionState instanceof EditorRotateActionState)
+				data = "Rotation: " + Float.toString(e.Owner.GetTransform().Rotation);
+			else if (currentActionState instanceof EditorScaleActionState)
+				data = "Scale: " + e.Owner.GetTransform().Scale.toString();
+			
+			if (e.Owner.CurrentlySelectedByEditor)
+				DebugSystem.AddDebugText(e.Owner.Name + ": " + data,  e.Owner.GetTransform().Position);
+
+		}
 
 		//DebugSystem.AddDebugText("Selection State: " + _editorSelectionState.getClass().getSimpleName());
 		//DebugSystem.AddDebugText("Action state: " + _editorActionStateManager.GetCurrentActionState());
@@ -101,7 +122,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 	}
 
-	protected Entity EntityRaycast()
+	public Entity EntityRaycast()
 	{
 		for (int i = 0; i < _editorComponents.size(); i++)
 		{
@@ -133,18 +154,18 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 	}
 
-	protected void UnprojectMouse()
+	public void UnprojectMouse()
 	{
 		MainGameLoopStuff._camera.unproject(GetMousePosition());
 	}
 
-	protected List<Entity> GetSelectedEntities()
+	public List<Entity> GetSelectedEntities()
 	{
 		return _selectedEntities;
 	}
 
 
-	protected Vector3 GetMousePosition()
+	public Vector3 GetMousePosition()
 	{
 		return _mousePosition;
 	}

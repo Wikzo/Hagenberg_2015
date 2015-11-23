@@ -1,6 +1,8 @@
-package net.gustavdahl.engine.systems;
+package EditorActionStates;
 
 import com.badlogic.gdx.math.Vector2;
+
+import net.gustavdahl.engine.systems.EditorSystem;
 
 public class EditorScaleActionState implements IEditorActionState
 {
@@ -18,7 +20,7 @@ public class EditorScaleActionState implements IEditorActionState
 			float newY = (editor.GetMousePosition().y - 768) / (0 - 768) * (1 - 0) + 0;
 			
 			Vector2 m = new Vector2(newY*2f, newY*2f);
-			System.out.println(m);
+			//System.out.println(m);
 			editor.GetSelectedEntities().get(i).SetScale(m);
 		}
 		

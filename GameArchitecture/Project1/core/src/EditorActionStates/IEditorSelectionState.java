@@ -1,5 +1,6 @@
-package net.gustavdahl.engine.systems;
+package EditorActionStates;
 import net.gustavdahl.engine.components.EditorComponent;
+import net.gustavdahl.engine.systems.EditorSystem;
 
 public interface IEditorSelectionState
 {

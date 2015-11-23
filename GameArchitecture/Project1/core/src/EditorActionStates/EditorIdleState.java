@@ -1,4 +1,4 @@
-package net.gustavdahl.engine.systems;
+package EditorActionStates;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import com.badlogic.gdx.Input.Keys;
 import net.gustavdahl.engine.components.Collider;
 import net.gustavdahl.engine.components.EditorComponent;
 import net.gustavdahl.engine.entities.Entity;
+import net.gustavdahl.engine.systems.EditorSystem;
 
 public class EditorIdleState implements IEditorSelectionState
 {

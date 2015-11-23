@@ -117,11 +117,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	@Override
 	protected boolean CollideWithBox(BoxCollider box)
 	{
-		// box-circle collision
-		System.out.println("Checking " + box + " against " + this.Name());
-		
-		Vector2 v = box.GetCenter().cpy().sub(this.GetCenter());
-		System.out.println(v);
+		// NOT USED
 		
 		return false;
 		//System.out.println("Box " + box + " collides with circle " + this.Name());

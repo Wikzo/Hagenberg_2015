@@ -1,6 +1,8 @@
-package net.gustavdahl.engine.systems;
+package EditorActionStates;
 
 import com.badlogic.gdx.Input.Keys;
+
+import net.gustavdahl.engine.systems.EditorSystem;
 
 public class EditorActionStateManager
 {
@@ -17,9 +19,9 @@ public class EditorActionStateManager
 		_actionState.Update(editor);
 	}
 
-	public String GetCurrentActionState()
+	public IEditorActionState GetCurrentActionState()
 	{
-		return _actionState.getClass().getSimpleName();
+		return _actionState;
 	}
 
 	public void HandleInputUpdate(int input)
