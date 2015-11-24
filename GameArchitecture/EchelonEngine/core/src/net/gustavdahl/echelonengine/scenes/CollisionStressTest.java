@@ -101,9 +101,9 @@ public class CollisionStressTest implements Screen, IUpdatable
 
 		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
 
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 5; i++)
 		{
-			Entity e = new Entity("Man" + i);
+			Entity e = new Entity("Man_" + i);
 			e.SetPosition(new Vector2(300 + i * 110, 300));
 			
 			e.AddComponent(new SpriteComponent(r[0])
@@ -131,7 +131,7 @@ public class CollisionStressTest implements Screen, IUpdatable
 		_entity2.SetPosition(new Vector2(200,400));
 		//_entity3.SetPosition(new Vector2(300,300));
 
-		_entity1.AddComponent(new PhysicsComponent());
+		//_entity1.AddComponent(new PhysicsComponent());
 
 		// sprite animation
 		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
@@ -205,7 +205,7 @@ public class CollisionStressTest implements Screen, IUpdatable
 	public void Update(float deltaTime)
 	{
 
-		DebugSystem.AddDebugText("Number of entities: " + _entityNumber, null);
+		//DebugSystem.AddDebugText("Number of entities: " + _entityNumber, null);
 		DebugSystem.AddDebugText("FPS: " + Gdx.graphics.getFramesPerSecond(), null);
 
 		//_timer+= deltaTime;

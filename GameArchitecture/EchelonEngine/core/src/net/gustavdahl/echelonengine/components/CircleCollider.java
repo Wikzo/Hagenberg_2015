@@ -47,6 +47,11 @@ public class CircleCollider extends Collider implements IDebugRenderable
 		shapeRenderer.setColor(_currentDebugColor);
 		shapeRenderer.circle(Transform.Position.x, Transform.Position.y, Radius());
 
+		shapeRenderer.setColor(Color.RED);
+		shapeRenderer.rectLine(Transform.Position, new Vector2(GetLeftSide(), Transform.Position.y), 10);
+		shapeRenderer.setColor(Color.GREEN);
+		shapeRenderer.rectLine(Transform.Position, new Vector2(GetRightSide(), Transform.Position.y), 10);
+
 		shapeRenderer.end();
 		Gdx.gl.glDisable(GL30.GL_BLEND);
 
@@ -126,13 +131,13 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	@Override
 	public int GetLeftSide()
 	{
-		return Math.round(Transform.Position.x - (Radius()/2));
+		return Math.round(Transform.Position.x - Radius());
 	}
 	
 	@Override
 	public int GetRightSide()
 	{
-		return Math.round(Transform.Position.x + (Radius()/2));
+		return Math.round(Transform.Position.x + Radius());
 	}
 
 

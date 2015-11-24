@@ -88,8 +88,11 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 			else if (currentActionState instanceof EditorScaleActionState)
 				data = "Scale: " + e.Owner.GetTransform().Scale.toString();
 			
+			
+			data = "\nLeftSide: " + e.Owner.GetComponent(Collider.class).GetLeftSide();
+			data += "\nRightSide: " + e.Owner.GetComponent(Collider.class).GetRightSide();
 			if (e.Owner.CurrentlySelectedByEditor)
-				DebugSystem.AddDebugText(e.Owner.Name + ": " + data,  e.Owner.GetTransform().Position);
+				DebugSystem.AddDebugText("\n" + e.Owner.Name + ": " + data,  e.Owner.GetTransform().Position);
 
 		}
 

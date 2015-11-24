@@ -40,9 +40,10 @@ public class MyGame extends Game
 		_assetManager.InitializeDebugAssets();
 		
 		_serviceLocator = new ServiceLocator(_assetManager, null);
-		//setScreen(new CollisionStressTest(this, _serviceLocator));
-		//setScreen(new ComponentTester()); old test
-		setScreen(new CircleMenuList(this, _serviceLocator)); //old menu stuff
+		setScreen(new CollisionStressTest(this, _serviceLocator));
+		
+		//setScreen(new CircleMenuList(this, _serviceLocator)); //old menu stuff
+		
 		//setScreen(new SplashScreen(this)); //old menu stuff
 	}
 
