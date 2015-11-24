@@ -12,18 +12,18 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
-import EditorActionStates.EditorActionStateManager;
-import EditorActionStates.EditorIdleState;
-import EditorActionStates.EditorRotateActionState;
-import EditorActionStates.EditorScaleActionState;
-import EditorActionStates.IEditorActionState;
-import EditorActionStates.IEditorSelectionState;
 import net.gustavdahl.echelonengine.scenes.CollisionStressTest;
 import net.gustavdahl.echelonengine.components.Collider;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.ConstantForce;
 import net.gustavdahl.echelonengine.components.EditorComponent;
 import net.gustavdahl.echelonengine.components.IRenderable;
+import net.gustavdahl.echelonengine.editoractionstates.EditorActionStateManager;
+import net.gustavdahl.echelonengine.editoractionstates.EditorIdleState;
+import net.gustavdahl.echelonengine.editoractionstates.EditorRotateActionState;
+import net.gustavdahl.echelonengine.editoractionstates.EditorScaleActionState;
+import net.gustavdahl.echelonengine.editoractionstates.IEditorActionState;
+import net.gustavdahl.echelonengine.editoractionstates.IEditorSelectionState;
 import net.gustavdahl.echelonengine.entities.Entity;
 import net.gustavdahl.echelonengine.entities.*;
 

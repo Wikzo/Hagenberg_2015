@@ -19,7 +19,7 @@ public abstract class BaseSystem implements ISystem
 		_isActive = true;
 	}
 
-	public void Start()
+	public void Start() // TODO: should work with any list (not only component list)
 	{
 		for (int i = 0; i < _componentList.size(); i++)
 		{

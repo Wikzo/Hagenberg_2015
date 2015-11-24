@@ -123,4 +123,18 @@ public class CircleCollider extends Collider implements IDebugRenderable
 		//System.out.println("Box " + box + " collides with circle " + this.Name());
 	}
 
+	@Override
+	public int GetLeftSide()
+	{
+		return Math.round(Transform.Position.x - (Radius()/2));
+	}
+	
+	@Override
+	public int GetRightSide()
+	{
+		return Math.round(Transform.Position.x + (Radius()/2));
+	}
+
+
+
 }

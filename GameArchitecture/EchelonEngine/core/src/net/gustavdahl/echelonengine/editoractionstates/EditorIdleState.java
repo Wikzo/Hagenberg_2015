@@ -1,4 +1,4 @@
-package EditorActionStates;
+package net.gustavdahl.echelonengine.editoractionstates;
 
 import java.util.List;
 

@@ -158,13 +158,13 @@ public class CollisionStressTest implements Screen, IUpdatable
 		//_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
 		
 		
-		Entity floor = new Entity("Floor");
+		/*Entity floor = new Entity("Floor");
 		floor.AddComponent(new SpriteComponent(new TextureRegion(_serviceLocator.AssetManager.Floor)));
 		floor.SetPosition(new Vector2(400,50));
 		floor.AddComponent(new BoxCollider(floor.GetComponent(SpriteComponent.class).GetWidth(),
 				floor.GetComponent(SpriteComponent.class).GetHeight()).SetStatic(true));
 		floor.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		floor.AddComponent(new EditorComponent());
+		floor.AddComponent(new EditorComponent());*/
 		
 		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
 	}
@@ -208,7 +208,7 @@ public class CollisionStressTest implements Screen, IUpdatable
 		DebugSystem.AddDebugText("Number of entities: " + _entityNumber, null);
 		DebugSystem.AddDebugText("FPS: " + Gdx.graphics.getFramesPerSecond(), null);
 
-		_timer+= deltaTime;
+		//_timer+= deltaTime;
 		
 		if (_timer > 0.01)
 		{

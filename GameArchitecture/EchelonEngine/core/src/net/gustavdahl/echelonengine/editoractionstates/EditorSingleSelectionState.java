@@ -1,4 +1,4 @@
-package EditorActionStates;
+package net.gustavdahl.echelonengine.editoractionstates;
 
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.math.Vector2;

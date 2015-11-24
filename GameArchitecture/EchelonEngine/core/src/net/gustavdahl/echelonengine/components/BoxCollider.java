@@ -67,7 +67,8 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	public Rectangle Bounds()
 	{
 		return new Rectangle(Transform.Position.x - _halfWidth * Transform.Scale.x,
-				Transform.Position.y - _halfHeight * Transform.Scale.y, _width * Transform.Scale.x,
+				Transform.Position.y - _halfHeight * Transform.Scale.y,
+				_width * Transform.Scale.x,
 				_height * Transform.Scale.y);
 	}
 
@@ -156,6 +157,18 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		} else // no overlap
 			return false;
 
+	}
+
+	@Override
+	public int GetLeftSide()
+	{
+		return Math.round(Bounds().x);
+	}
+	
+	@Override
+	public int GetRightSide()
+	{
+		return Math.round(Bounds().x + Bounds().width);
 	}
 
 }

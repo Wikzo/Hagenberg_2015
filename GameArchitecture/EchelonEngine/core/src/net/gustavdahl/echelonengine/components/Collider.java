@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.collision.Sphere;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
-public abstract class Collider extends Component
+public abstract class Collider extends Component implements Comparable<Collider>
 {
 
 	private Vector2 _center;
@@ -27,7 +27,7 @@ public abstract class Collider extends Component
 	protected Color _currentDebugColor;
 
 	protected SpriteComponent _sprite;
-	
+
 	protected boolean IsStatic = false;
 
 	public Collider()
@@ -61,6 +61,23 @@ public abstract class Collider extends Component
 		return new Vector2(Transform.Position.x, Transform.Position.y);
 	}
 
+	public abstract int GetLeftSide(); 	// TODO: use float instead of int!
+	public abstract int GetRightSide(); 	// TODO: use float instead of int!
+
+	@Override
+	public int compareTo(Collider o)
+	{
+		// TODO: use float instead of int!
+
+		int leftSide = ((Collider) o).GetLeftSide();
+
+		// ascending order
+		return this.GetLeftSide() - leftSide;
+
+		// descending order
+		// return compareQuantity - this.quantity;
+	}
+
 	public void SetHitColor(boolean hit)
 	{
 		if (hit)
@@ -82,7 +99,7 @@ public abstract class Collider extends Component
 			_currentDebugColor = _debugColorNormal;
 
 	}
-	
+
 	public Collider SetStatic(boolean s)
 	{
 		IsStatic = s;
@@ -135,11 +152,14 @@ public abstract class Collider extends Component
 		return null;
 
 	}
-	
+
 	// http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/comment-page-1/
-	// double dispatch: https://www.gamedev.net/topic/453624-double-dispatch-in-c/
+	// double dispatch:
+	// https://www.gamedev.net/topic/453624-double-dispatch-in-c/
 	public abstract boolean Collide(Collider collider);
+
 	protected abstract boolean CollideWithCircle(CircleCollider circle);
+
 	protected abstract boolean CollideWithBox(BoxCollider box);
 
 }

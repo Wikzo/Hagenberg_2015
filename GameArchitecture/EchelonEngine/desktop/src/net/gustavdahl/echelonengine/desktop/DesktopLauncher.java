@@ -8,7 +8,7 @@ import net.gustavdahl.echelonengine.scenes.MyGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.title = "Menu Game";
+		config.title = "Echelon Engine";
 		config.width = 1366;
 		config.height = 768;
 		
