@@ -12,19 +12,18 @@ public class Leaf extends Component implements Iterator
 	{
 		printIndent(indent);
 		printName();
-
 	}
 
 	@Override
 	public boolean hasNext()
 	{
+		System.out.println("leaf-hasNext");
 		return false;
 	}
 
 	@Override
 	public Component next()
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 
