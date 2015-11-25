@@ -58,11 +58,13 @@ public class Main
 			// EXTERNAL
 			System.out.println();
 			System.out.println("+++++ External Iterator: printName +++++");
-			/*printName(composite4);
-			printName(composite3);
-			printName(composite2);
-			printName(composite1);*/
+			/*
+			 * printName(composite4); printName(composite3);
+			 * printName(composite2); printName(composite1);
+			 */
 			printName(root);
+			// Result:
+			// Root: Composite 1, Leaf 2, Composite 3, Leaf 3, Leaf 1, Composite 2, Leaf 4, Leaf 5, 
 		}
 
 	}
@@ -70,12 +72,24 @@ public class Main
 	private static void printName(Composite root)
 	{
 		System.out.print(root.getName() + ": ");
-		Iterator iterator = root.Iterator();
-		
-		while (iterator.hasNext())
+		Iterator baseIterator = root.Iterator();
+
+		while (baseIterator.hasNext())
 		{
-			Component component = iterator.next();
+			Component component = baseIterator.next();
 			System.out.print(component.getName() + ", ");
+
+			if (component instanceof Composite)
+			{
+				Iterator currentIterator = ((Composite) component).Iterator();
+
+				while (currentIterator.hasNext())
+				{
+					Component componentNext = currentIterator.next();
+					System.out.print(componentNext.getName() + ", ");
+				}
+			}
+
 		}
 		System.out.println();
 		System.out.println();
