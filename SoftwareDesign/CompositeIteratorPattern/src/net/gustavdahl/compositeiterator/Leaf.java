@@ -1,5 +1,7 @@
 package net.gustavdahl.compositeiterator;
 
+import java.util.ArrayList;
+
 public class Leaf extends Component implements Iterator
 {
 	public Leaf(String name)
@@ -35,7 +37,8 @@ public class Leaf extends Component implements Iterator
 	@Override
 	public net.gustavdahl.compositeiterator.Iterator Iterator()
 	{
-		return null;
+		NullIterator a = new NullIterator();
+		return a;
 	}
 
 }

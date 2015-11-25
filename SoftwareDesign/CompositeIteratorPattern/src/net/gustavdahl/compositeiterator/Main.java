@@ -81,13 +81,11 @@ public class Main
 			System.out.print(component.getName() + ", ");
 
 			Iterator currentIterator = component.Iterator();
-			if (currentIterator != null)
+
+			while (currentIterator.hasNext()) // current iterator
 			{
-				while (currentIterator.hasNext()) // current iterator
-				{
-					Component componentNext = currentIterator.next();
-					System.out.print(componentNext.getName() + ", ");
-				}
+				Component componentNext = currentIterator.next();
+				System.out.print(componentNext.getName() + ", ");
 			}
 
 		}
