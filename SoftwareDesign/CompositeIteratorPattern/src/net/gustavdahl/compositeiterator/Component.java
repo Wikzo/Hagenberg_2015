@@ -8,6 +8,8 @@ public abstract class Component
 	
 	public abstract void printInternal(int indent);
 	
+	public abstract Iterator Iterator();
+	
 	protected abstract void printName();
 	
 	void printIndent(int n) { 

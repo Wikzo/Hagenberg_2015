@@ -17,7 +17,6 @@ public class Leaf extends Component implements Iterator
 	@Override
 	public boolean hasNext()
 	{
-		System.out.println("leaf-hasNext");
 		return false;
 	}
 
@@ -31,6 +30,12 @@ public class Leaf extends Component implements Iterator
 	protected void printName()
 	{
 		System.out.println("[" + this.getName() + "]");
+	}
+
+	@Override
+	public net.gustavdahl.compositeiterator.Iterator Iterator()
+	{
+		return null;
 	}
 
 }

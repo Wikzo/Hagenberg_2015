@@ -25,10 +25,9 @@ public class Composite extends Component
 	}
 
 	// External iteration
-	public ArrayListIterator Iterator()
+	public Iterator Iterator()
 	{
 		ArrayListIterator a = new ArrayListIterator((ArrayList<Component>) _componentList);
-		
 		return a;
 	}
 	

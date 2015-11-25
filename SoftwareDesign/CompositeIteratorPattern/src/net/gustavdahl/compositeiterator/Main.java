@@ -64,7 +64,8 @@ public class Main
 			 */
 			printName(root);
 			// Result:
-			// Root: Composite 1, Leaf 2, Composite 3, Leaf 3, Leaf 1, Composite 2, Leaf 4, Leaf 5, 
+			// Root: Composite 1, Leaf 2, Composite 3, Leaf 3, Leaf 1, Composite
+			// 2, Leaf 4, Leaf 5,
 		}
 
 	}
@@ -74,16 +75,15 @@ public class Main
 		System.out.print(root.getName() + ": ");
 		Iterator baseIterator = root.Iterator();
 
-		while (baseIterator.hasNext())
+		while (baseIterator.hasNext()) // base iterator
 		{
 			Component component = baseIterator.next();
 			System.out.print(component.getName() + ", ");
 
-			if (component instanceof Composite)
+			Iterator currentIterator = component.Iterator();
+			if (currentIterator != null)
 			{
-				Iterator currentIterator = ((Composite) component).Iterator();
-
-				while (currentIterator.hasNext())
+				while (currentIterator.hasNext()) // current iterator
 				{
 					Component componentNext = currentIterator.next();
 					System.out.print(componentNext.getName() + ", ");
