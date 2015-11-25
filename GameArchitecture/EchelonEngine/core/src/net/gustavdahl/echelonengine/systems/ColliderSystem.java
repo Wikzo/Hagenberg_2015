@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.echelonengine.components.Collider;
@@ -44,9 +45,15 @@ public class ColliderSystem extends BaseSystem
 		DebugSystem.AddDebugText("Sorted positions: " + sortedPositions);*/
 	}
 
-	void SortAndPrune()
+	private void SortAndPrune()
 	{
-
+		QuickSort();
+		_activeList.clear();
+		Prune();
+	}
+	
+	private void Prune()
+	{
 		for (int i = 0; i < _colliderList.size(); i++)
 		{
 			Collider a = _colliderList.get(i);
@@ -60,30 +67,34 @@ public class ColliderSystem extends BaseSystem
 					if (!_activeList.contains(a))
 						_activeList.add(a);
 					if (!_activeList.contains(b))
-					_activeList.add(b);
+						_activeList.add(b);
+					
+					DebugSystem.AddDebugText("HIT");
 				} else
 				{
-					CollisionCheckSAP();
+					CollisionCheck(_activeList, "SAP");
 					break;
 				}
 			}
-
 		}
-
 	}
 
-	void CollisionCheckSAP()
+	void CollisionCheck(List<Collider> list, String collisionCheckType)
 	{
-		DebugSystem.AddDebugText("SAP: checks: " + Math.pow(_activeList.size(), 2), new Vector2(300, 400));
+		DebugSystem.AddDebugText("List size: " + list.size(), new Vector2(300, 400));
+		DebugSystem.AddDebugText(collisionCheckType + " checks: " + Math.pow(list.size(), 2), new Vector2(300, 370));
+
+		for (int i = 0; i < list.size();i++)
+			list.get(i).SetHitColorDebug(true, Color.GOLD);
 		
 		// doing the pair-wise collision check
-		for (int i = 0; i < _activeList.size(); i++)
+		for (int i = 0; i < list.size(); i++)
 		{
-			Collider a = _activeList.get(i);
+			Collider a = list.get(i);
 
-			for (int j = i + 1; j < _activeList.size(); j++)
+			for (int j = i + 1; j < list.size(); j++)
 			{
-				Collider b = _activeList.get(j);
+				Collider b = list.get(j);
 
 				// check if a and b collide
 				boolean hit = a.Collide(b);
@@ -97,37 +108,11 @@ public class ColliderSystem extends BaseSystem
 		}
 	}
 	
-	void CollisionCheckBruteForce()
-	{
-		DebugSystem.AddDebugText("BruteForce: checks: " + Math.pow(_colliderList.size(), 2), new Vector2(300, 400));
-		
-		// doing the pair-wise collision check
-		for (int i = 0; i < _colliderList.size(); i++)
-		{
-			Collider a = _colliderList.get(i);
-
-			for (int j = i + 1; j < _colliderList.size(); j++)
-			{
-				Collider b = _colliderList.get(j);
-
-				// check if a and b collide
-				boolean hit = a.Collide(b);
-
-				if (hit)
-				{
-					a.SetHitColorDebug(true);
-					b.SetHitColorDebug(true);
-				}
-			}
-		}
-	}
 
 	@Override
 	public void Update(float deltaTime)
 	{
-		QuickSort();
-		_activeList.clear();
-
+		
 		// reset all collider hits
 		for (int i = 0; i < _colliderList.size(); i++)
 		{
@@ -136,14 +121,9 @@ public class ColliderSystem extends BaseSystem
 
 			a.Update(deltaTime);
 		}
-
-		SortAndPrune();
-		//CollisionCheckBruteForce();
 		
-		// DebugSystem.AddDebugText("# collision checks (SAP): " +
-		// Math.pow(_activeList.size(), 2), null);
-		// DebugSystem.AddDebugText("# collision checks (brute force): " +
-		// Math.pow(_colliderList.size(), 2), null);
+		SortAndPrune();
+		//CollisionCheck(_colliderList, "BruteForce");
 
 	}
 

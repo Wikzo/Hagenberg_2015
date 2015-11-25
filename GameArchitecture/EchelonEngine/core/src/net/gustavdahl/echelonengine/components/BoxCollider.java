@@ -52,6 +52,13 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		// shapeRenderer.rotate(0f, 0f, 1f, Transform.Rotation);
 
 		shapeRenderer.box(Bounds().x, Bounds().y, 0, Bounds().width, Bounds().height, 1);
+
+		shapeRenderer.setColor(Color.BLUE);
+		shapeRenderer.circle(GetLeftSide(), Bounds().y, 10);
+		shapeRenderer.setColor(Color.GREEN);
+		shapeRenderer.circle(GetRightSide(), Bounds().y, 10);
+		
+		
 		shapeRenderer.end();
 
 		Gdx.gl.glDisable(GL30.GL_BLEND);

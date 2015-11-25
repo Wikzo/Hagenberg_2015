@@ -93,8 +93,13 @@ public abstract class Collider extends Component implements Comparable<Collider>
 
 	public void SetHitColorDebug(boolean hit)
 	{
+		SetHitColorDebug(hit, _debugColorCollision);
+	}
+	
+	public void SetHitColorDebug(boolean hit, Color color)
+	{
 		if (hit)
-			_currentDebugColor = _debugColorCollision;
+			_currentDebugColor = color;
 		else
 			_currentDebugColor = _debugColorNormal;
 

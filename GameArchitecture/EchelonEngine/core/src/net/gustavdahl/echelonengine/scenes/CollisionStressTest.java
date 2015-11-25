@@ -101,10 +101,10 @@ public class CollisionStressTest implements Screen, IUpdatable
 
 		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
 
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			Entity e = new Entity("Man_" + i);
-			e.SetPosition(new Vector2(300 + i * 110, 300));
+			e.SetPosition(new Vector2(300 + i * 170, 300));
 			
 			e.AddComponent(new SpriteComponent(r[0])
 					.SetOriginCenter()
@@ -147,15 +147,15 @@ public class CollisionStressTest implements Screen, IUpdatable
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
 				ColliderSystem.class);
 		
-		/*_entity2.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
+		_entity2.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
-				ColliderSystem.class);*/
+				ColliderSystem.class);
 		
 		_entity1.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		//_entity2.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
+		_entity2.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
 		
 		_entity1.AddComponent(new EditorComponent(), EditorSystem.class);
-		//_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
+		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
 		
 		
 		/*Entity floor = new Entity("Floor");

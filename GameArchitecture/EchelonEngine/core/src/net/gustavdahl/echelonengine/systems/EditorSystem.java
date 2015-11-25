@@ -87,18 +87,11 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 				data = "Rotation: " + Float.toString(e.Owner.GetTransform().Rotation);
 			else if (currentActionState instanceof EditorScaleActionState)
 				data = "Scale: " + e.Owner.GetTransform().Scale.toString();
-			
-			
-			data = "\nLeftSide: " + e.Owner.GetComponent(Collider.class).GetLeftSide();
-			data += "\nRightSide: " + e.Owner.GetComponent(Collider.class).GetRightSide();
+					
 			if (e.Owner.CurrentlySelectedByEditor)
-				DebugSystem.AddDebugText("\n" + e.Owner.Name + ": " + data, e.Owner.GetTransform().Position);
+				DebugSystem.AddDebugText("\n" + e.Owner.Name + ":\n" + data, e.Owner.GetTransform().Position);
 
 		}
-
-		//DebugSystem.AddDebugText("Selection State: " + _editorSelectionState.getClass().getSimpleName());
-		//DebugSystem.AddDebugText("Action state: " + _editorActionStateManager.GetCurrentActionState());
-		//DebugSystem.AddDebugText("List size: " + GetSelectedEntities().size());
 
 	}
 

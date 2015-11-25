@@ -24,19 +24,10 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	{
 		super();
 		_radius = radius;
+		
+		IsStatic = true;
 	}
 
-	/*
-	 * public void CheckCircleCollision(CircleCollider other) { float distance =
-	 * GetCenter().dst(other.GetCenter());
-	 * 
-	 * //float distance = other._radius;
-	 * 
-	 * if (distance <= this._radius + other._radius) _currentColor =
-	 * _collisionColor; else _currentColor = _normalColor;
-	 * 
-	 * //return false; }
-	 */
 
 	@Override
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
@@ -47,10 +38,10 @@ public class CircleCollider extends Collider implements IDebugRenderable
 		shapeRenderer.setColor(_currentDebugColor);
 		shapeRenderer.circle(Transform.Position.x, Transform.Position.y, Radius());
 
-		shapeRenderer.setColor(Color.RED);
-		shapeRenderer.rectLine(Transform.Position, new Vector2(GetLeftSide(), Transform.Position.y), 10);
+		shapeRenderer.setColor(Color.BLUE);
+		shapeRenderer.circle(GetLeftSide(), Transform.Position.y, 10);
 		shapeRenderer.setColor(Color.GREEN);
-		shapeRenderer.rectLine(Transform.Position, new Vector2(GetRightSide(), Transform.Position.y), 10);
+		shapeRenderer.circle(GetRightSide(), Transform.Position.y, 10);
 
 		shapeRenderer.end();
 		Gdx.gl.glDisable(GL30.GL_BLEND);
@@ -106,10 +97,10 @@ public class CircleCollider extends Collider implements IDebugRenderable
 			
 			// TODO: can only hit/move the next one in the loop from ColliderSystem!
 			
-			//if (!this.IsStatic)
+			if (!this.IsStatic)
 				this.Owner.AddPosition(penetrationVector.scl(-1));
 			
-			//if (!otherCircle.IsStatic)
+			if (!circle.IsStatic)
 				circle.Owner.AddPosition(penetrationVector.scl(-1));
 			
 			//System.out.println(circle + " hit " + this.Name());

@@ -28,7 +28,6 @@ public class DebugSystem extends BaseSystem
 	private SpriteBatch _spriteBatch;
 	private ShapeRenderer _shapeRenderer;
 	private BitmapFont _font;
-	private static String _debugText = "";
 	private OrthographicCamera _camera;
 
 	private static Map<Vector2, String> _debugDrawingPosition = new HashMap<Vector2, String>();
@@ -38,11 +37,11 @@ public class DebugSystem extends BaseSystem
 		_spriteBatch = spriteBatch;
 		_shapeRenderer = shapeRenderer;
 		_font = font;
-		
+
 		_debugRenderList = new ArrayList<IDebugRenderable>();
-		
+
 		_isActive = false;
-		
+
 		_camera = cam;
 	}
 
@@ -50,11 +49,10 @@ public class DebugSystem extends BaseSystem
 	{
 		_camera = camera;
 	}
-	
+
 	@Override
 	public void Update(float deltaTime)
 	{
-
 		// TODO: show general GUI to enable/disable systems and other things...
 
 		if (Gdx.input.isKeyJustPressed(Keys.F1))
@@ -70,47 +68,52 @@ public class DebugSystem extends BaseSystem
 		}
 
 		// debug text
-		_spriteBatch.begin();	
+		_spriteBatch.begin();
 		_spriteBatch.setProjectionMatrix(_camera.combined);
-		
+
 		_font.draw(_spriteBatch, "DEBUG MENU", Gdx.graphics.getWidth() / 4, 450);
-		//_font.draw(_spriteBatch, _debugText,400, 400);
-		
-		for (Vector2 v : _debugDrawingPosition.keySet())
+		// _font.draw(_spriteBatch, _debugText,400, 400);
+
+		if (!_debugDrawingPosition.isEmpty())
 		{
-			
-			// hash map: https://stackoverflow.com/questions/12960265/retrieve-all-values-from-hashmap-keys-in-an-arraylist-java
-			
-			//System.out.println("Key: " + v.x); // v = position to draw
-			//System.out.println("Value: " + _debugDrawingPosition.get(v)); // value = string to draw
-			
-			_font.draw(_spriteBatch, _debugDrawingPosition.get(v),v.x, v.y);
+			for (Vector2 v : _debugDrawingPosition.keySet())
+			{
+				// hash map:
+				// https://stackoverflow.com/questions/12960265/retrieve-all-values-from-hashmap-keys-in-an-arraylist-java
+
+				// System.out.println("Key: " + v.x); // v = position to draw
+				// System.out.println("Value: " + _debugDrawingPosition.get(v));
+				// // value = string to draw
+
+				_font.draw(_spriteBatch, _debugDrawingPosition.get(v), v.x, v.y);
+			}
+			_debugDrawingPosition.clear();
+			_textPosition = 0;
 		}
-		_debugDrawingPosition.clear();
-		_textPosition = 0;
-		//_debugText = "";
-		_spriteBatch.end();
 		
+		_spriteBatch.end();
+
 		// debug shapes
 		for (int i = 0; i < _debugRenderList.size(); i++)
 		{
 			if (!((Component) _debugRenderList.get(i)).IsActive())
 				continue;
-			
+
 			_debugRenderList.get(i).DebugRender(_spriteBatch, _shapeRenderer, deltaTime);
 		}
 
 	}
-	
+
 	private static int _textPosition = 0;
+
 	public static void AddDebugText(String text, Vector2 position)
 	{
-			_debugDrawingPosition.put(position, text);
+		_debugDrawingPosition.put(position, text);
 	}
-	
+
 	public static void AddDebugText(String text)
 	{
-		AddDebugText(text, new Vector2(30,400 + _textPosition++ * 14));
+		AddDebugText(text, new Vector2(30, 400 + _textPosition++ * 14));
 	}
 
 	@Override
