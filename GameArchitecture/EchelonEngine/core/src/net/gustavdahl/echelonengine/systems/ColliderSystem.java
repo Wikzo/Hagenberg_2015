@@ -15,7 +15,8 @@ public class ColliderSystem extends BaseSystem
 {
 
 	private List<Collider> _colliderList; // list of ALL colliders
-	private List<Collider> _activeList; // list of colliders that potentially overlap
+	private List<Collider> _activeList; // list of colliders that potentially
+										// overlap
 
 	// Used to add the first collide one time, because I currently have no
 	// Initialize() method
@@ -32,85 +33,49 @@ public class ColliderSystem extends BaseSystem
 		// Each Collider implement the Comparable interface
 		// compareTo() is overriden to use the int from GetLeftSide()
 		Collections.sort(_colliderList);
-		
-		String sortedPositions = "";
-		
+
+		/*String sortedPositions = "";
+
 		for (int i = 0; i < _colliderList.size(); i++)
 			sortedPositions += "\n" + _colliderList.get(i).GetLeftSide();
-		
+
 		sortedPositions += "\n";
-		
-		DebugSystem.AddDebugText("Sorted positions: " + sortedPositions, null);
+
+		DebugSystem.AddDebugText("Sorted positions: " + sortedPositions);*/
 	}
 
-	void AddToActiveList(Collider c)
+	void SortAndPrune()
 	{
 
-		for (int i = 0; i < _activeList.size(); i++)
-		{
-			// new one not colliding with old one?
-			if (c.GetLeftSide() > _activeList.get(i).GetRightSide())
-			{
-				System.out
-						.println("Potential collision: NO: " + c.Owner.Name + " and " + _activeList.get(i).Owner.Name);
-
-				_activeList.remove(i);
-
-			} else
-			{
-				System.out
-						.println("Potential collision: YES: " + c.Owner.Name + " and " + _activeList.get(i).Owner.Name);
-
-				// maybe perform the collision check here directly, such as:
-				/*
-				 * boolean hit = c.Collide(_activeList.get(i)); if (hit) {
-				 * c.SetHitColorDebug(true);
-				 * _activeList.get(i).SetHitColorDebug(true); }
-				 */
-			}
-
-		}
-		
-		_activeList.add(c);
-	}
-
-	@Override
-	public void Update(float deltaTime)
-	{
-		QuickSort();
-		_activeList.clear();
-		
-		if (_firstTimeAddToActiveList) // only do this one time
-		{
-			_activeList.add(_colliderList.get(0));
-			_firstTimeAddToActiveList = true;
-		}
-
-		// reset all collider hits
 		for (int i = 0; i < _colliderList.size(); i++)
 		{
 			Collider a = _colliderList.get(i);
-			a.SetHitColorDebug(false);
 
-			a.Update(deltaTime);
+			for (int j = i + 1; j < _colliderList.size(); j++)
+			{
+				Collider b = _colliderList.get(j);
+
+				if (b.GetLeftSide() < a.GetRightSide())
+				{
+					if (!_activeList.contains(a))
+						_activeList.add(a);
+					if (!_activeList.contains(b))
+					_activeList.add(b);
+				} else
+				{
+					CollisionCheckSAP();
+					break;
+				}
+			}
+
 		}
 
-		// doing the actual sweep and pruning
-		for (int i = 0; i < _colliderList.size(); i++)
-		{
-			AddToActiveList(_colliderList.get(i));
-		}
+	}
 
-		// debug texts
-		String colliders = "";
-		for (int i = 0; i < _activeList.size();i++)
-			colliders += "\n" + _activeList.get(i).Owner.Name;
+	void CollisionCheckSAP()
+	{
+		DebugSystem.AddDebugText("SAP: checks: " + Math.pow(_activeList.size(), 2), new Vector2(300, 400));
 		
-		DebugSystem.AddDebugText("Colliders in ActiveList: " + colliders, new Vector2(300, 400));
-		
-		//DebugSystem.AddDebugText("# collision checks (SAP): " + Math.pow(_activeList.size(), 2), null);
-		//DebugSystem.AddDebugText("# collision checks (brute force): " + Math.pow(_colliderList.size(), 2), null);
-
 		// doing the pair-wise collision check
 		for (int i = 0; i < _activeList.size(); i++)
 		{
@@ -130,6 +95,56 @@ public class ColliderSystem extends BaseSystem
 				}
 			}
 		}
+	}
+	
+	void CollisionCheckBruteForce()
+	{
+		DebugSystem.AddDebugText("BruteForce: checks: " + Math.pow(_colliderList.size(), 2), new Vector2(300, 400));
+		
+		// doing the pair-wise collision check
+		for (int i = 0; i < _colliderList.size(); i++)
+		{
+			Collider a = _colliderList.get(i);
+
+			for (int j = i + 1; j < _colliderList.size(); j++)
+			{
+				Collider b = _colliderList.get(j);
+
+				// check if a and b collide
+				boolean hit = a.Collide(b);
+
+				if (hit)
+				{
+					a.SetHitColorDebug(true);
+					b.SetHitColorDebug(true);
+				}
+			}
+		}
+	}
+
+	@Override
+	public void Update(float deltaTime)
+	{
+		QuickSort();
+		_activeList.clear();
+
+		// reset all collider hits
+		for (int i = 0; i < _colliderList.size(); i++)
+		{
+			Collider a = _colliderList.get(i);
+			a.SetHitColorDebug(false);
+
+			a.Update(deltaTime);
+		}
+
+		SortAndPrune();
+		//CollisionCheckBruteForce();
+		
+		// DebugSystem.AddDebugText("# collision checks (SAP): " +
+		// Math.pow(_activeList.size(), 2), null);
+		// DebugSystem.AddDebugText("# collision checks (brute force): " +
+		// Math.pow(_colliderList.size(), 2), null);
+
 	}
 
 	@Override

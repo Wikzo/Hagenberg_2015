@@ -105,13 +105,12 @@ public class DebugSystem extends BaseSystem
 	private static int _textPosition = 0;
 	public static void AddDebugText(String text, Vector2 position)
 	{
-		Vector2 pos = new Vector2(1,1);
-		if (position == null)
-			pos = new Vector2(30 ,400 + _textPosition++ * 14);
-		else
-			pos = position;
-		
-		_debugDrawingPosition.put(pos, text);
+			_debugDrawingPosition.put(position, text);
+	}
+	
+	public static void AddDebugText(String text)
+	{
+		AddDebugText(text, new Vector2(30,400 + _textPosition++ * 14));
 	}
 
 	@Override

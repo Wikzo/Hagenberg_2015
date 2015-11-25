@@ -92,7 +92,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 			data = "\nLeftSide: " + e.Owner.GetComponent(Collider.class).GetLeftSide();
 			data += "\nRightSide: " + e.Owner.GetComponent(Collider.class).GetRightSide();
 			if (e.Owner.CurrentlySelectedByEditor)
-				DebugSystem.AddDebugText("\n" + e.Owner.Name + ": " + data,  e.Owner.GetTransform().Position);
+				DebugSystem.AddDebugText("\n" + e.Owner.Name + ": " + data, e.Owner.GetTransform().Position);
 
 		}
 

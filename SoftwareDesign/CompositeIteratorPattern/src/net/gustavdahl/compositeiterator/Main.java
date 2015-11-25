@@ -64,8 +64,8 @@ public class Main
 			 */
 			printName(root);
 			// Result:
-			// Root: Composite 1, Leaf 2, Composite 3, Leaf 3, Leaf 1, Composite
-			// 2, Leaf 4, Leaf 5,
+			// Root: Composite 1, Leaf 2, Composite 3, Leaf 3, Leaf 1, Composite 2, Leaf 4, Leaf 5, 
+
 		}
 
 	}
