@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<result>
+  <text>John is a very good football player.</text>
+  <subjectivity>subjective</subjectivity>
+  <subjectivity_confidence>0.919671402012228</subjectivity_confidence>
+  <polarity>positive</polarity>
+  <polarity_confidence>0.999717125886031</polarity_confidence>
+</result>

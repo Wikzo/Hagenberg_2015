@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<result>
+  <text>Lionel Messi: Forward is not for sale, says Barcelona president
+
+Barcelona forward Lionel Messi is not for sale and the club plan to discuss a new contract with the Argentine, says president Josep Maria Bartomeu.
+
+Four-time Ballon d'Or winner Messi, 26, is reported to be a target for French side Paris St-Germain.
+
+In an interview with radio station RAC1, posted on Barcelona's website,&#xA0; Bartomeu said: "The club will sit down and negotiate a new contract.
+
+"We will do what we have to, to ensure he's the best-paid player."
+
+Messi scored 60 goals in 50 appearances last season but has struggled to match that goalscoring form in 2013-14.
+
+He has scored 18 goals so far but just eight of those have been in the league.
+
+His last league goal came in September, before he was out for five weeks with a hamstring injury.
+
+"He can do everything," said Barca coach Gerardo Martino. "If he succeeds in other facets of his game, it doesn't matter if he scores.
+
+"Nothing surprises me with him. He controls the game well, passes the ball well, he is a good finisher, he can press and recover the ball.
+
+"He sees passes that most people can only see whilst watching the game on TV or in the stands, not ones that you can normally see on the field."</text>
+  <extract>
+    <title>Messi not for sale - Barca president</title>
+    <article>Lionel Messi: Forward is not for sale, says Barcelona president
+
+Barcelona forward Lionel Messi is not for sale and the club plan to discuss a new contract with the Argentine, says president Josep Maria Bartomeu.
+
+Four-time Ballon d'Or winner Messi, 26, is reported to be a target for French side Paris St-Germain.
+
+In an interview with radio station RAC1, posted on Barcelona's website,&#xA0; Bartomeu said: "The club will sit down and negotiate a new contract.
+
+"We will do what we have to, to ensure he's the best-paid player."
+
+Messi scored 60 goals in 50 appearances last season but has struggled to match that goalscoring form in 2013-14.
+
+He has scored 18 goals so far but just eight of those have been in the league.
+
+His last league goal came in September, before he was out for five weeks with a hamstring injury.
+
+"He can do everything," said Barca coach Gerardo Martino. "If he succeeds in other facets of his game, it doesn't matter if he scores.
+
+"Nothing surprises me with him. He controls the game well, passes the ball well, he is a good finisher, he can press and recover the ball.
+
+"He sees passes that most people can only see whilst watching the game on TV or in the stands, not ones that you can normally see on the field."</article>
+    <images>
+      <image/>
+    </images>
+    <author/>
+    <videos>
+        
+      </videos>
+    <feeds>
+        
+      </feeds>
+  </extract>
+  <language>
+    <lang>en</lang>
+    <confidence>0.9999974899236702</confidence>
+  </language>
+  <entities>
+    <language>en</language>
+    <entities>
+      <entity type="date">
+        <surfaceform>September</surfaceform>
+      </entity>
+      <entity type="location">
+        <surfaceform>Paris St-Germain</surfaceform>
+      </entity>
+      <entity type="keyword">
+        <surfaceform>Barcelona president Barcelona</surfaceform>
+        <surfaceform>coach Gerardo</surfaceform>
+        <surfaceform>game</surfaceform>
+        <surfaceform>Bartomeu</surfaceform>
+        <surfaceform>Messi</surfaceform>
+        <surfaceform>goals</surfaceform>
+        <surfaceform>contract</surfaceform>
+        <surfaceform>Barcelona</surfaceform>
+        <surfaceform>club</surfaceform>
+        <surfaceform>president</surfaceform>
+        <surfaceform>Gerardo</surfaceform>
+        <surfaceform>coach</surfaceform>
+        <surfaceform>Paris</surfaceform>
+        <surfaceform>St-Germain</surfaceform>
+        <surfaceform>Barca</surfaceform>
+        <surfaceform>interview</surfaceform>
+        <surfaceform>side</surfaceform>
+        <surfaceform>ball</surfaceform>
+        <surfaceform>injury</surfaceform>
+        <surfaceform>French</surfaceform>
+      </entity>
+      <entity type="person">
+        <surfaceform>Lionel Messi</surfaceform>
+        <surfaceform>Josep Maria Bartomeu</surfaceform>
+        <surfaceform>Messi</surfaceform>
+        <surfaceform>Bartomeu</surfaceform>
+        <surfaceform>Gerardo Martino</surfaceform>
+      </entity>
+    </entities>
+  </entities>
+  <concepts>
+    <language>en</language>
+    <concepts>
+      <concept uri="http://dbpedia.org/resource/Argentina">
+        <surfaceforms>
+          <surfaceform>
+            <string>Argentine</string>
+            <score>0.9953560864653448</score>
+            <offset>165</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type>http://schema.org/Place</type>
+          <type>http://dbpedia.org/ontology/Place</type>
+          <type>http://dbpedia.org/ontology/PopulatedPlace</type>
+          <type>http://schema.org/Country</type>
+          <type>http://dbpedia.org/ontology/Country</type>
+        </types>
+        <support>47259</support>
+      </concept>
+      <concept uri="http://dbpedia.org/resource/France">
+        <surfaceforms>
+          <surfaceform>
+            <string>French</string>
+            <score>0.8514556465630503</score>
+            <offset>285</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type>http://schema.org/Place</type>
+          <type>http://dbpedia.org/ontology/Place</type>
+          <type>http://dbpedia.org/ontology/PopulatedPlace</type>
+          <type>http://schema.org/Country</type>
+          <type>http://dbpedia.org/ontology/Country</type>
+        </types>
+        <support>205630</support>
+      </concept>
+      <concept uri="http://dbpedia.org/resource/Paris_Saint-Germain_F.C.">
+        <surfaceforms>
+          <surfaceform>
+            <string>Paris St-Germain</string>
+            <score>1.0</score>
+            <offset>297</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type>http://dbpedia.org/ontology/Agent</type>
+          <type>http://schema.org/Organization</type>
+          <type>http://dbpedia.org/ontology/Organisation</type>
+          <type>http://schema.org/SportsTeam</type>
+          <type>http://dbpedia.org/ontology/SportsTeam</type>
+          <type>http://dbpedia.org/ontology/SoccerClub</type>
+        </types>
+        <support>1898</support>
+      </concept>
+      <concept uri="http://dbpedia.org/resource/Lionel_Messi">
+        <surfaceforms>
+          <surfaceform>
+            <string>Lionel Messi</string>
+            <score>1.0</score>
+            <offset>0</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type>http://dbpedia.org/ontology/Agent</type>
+          <type>http://schema.org/Person</type>
+          <type>http://xmlns.com/foaf/0.1/Person</type>
+          <type>http://dbpedia.org/ontology/Person</type>
+          <type>http://dbpedia.org/ontology/Athlete</type>
+          <type>http://dbpedia.org/ontology/SoccerPlayer</type>
+        </types>
+        <support>736</support>
+      </concept>
+      <concept uri="http://dbpedia.org/resource/Gerardo_Martino">
+        <surfaceforms>
+          <surfaceform>
+            <string>Gerardo Martino</string>
+            <score>1.0</score>
+            <offset>861</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type>http://dbpedia.org/ontology/Agent</type>
+          <type>http://schema.org/Person</type>
+          <type>http://xmlns.com/foaf/0.1/Person</type>
+          <type>http://dbpedia.org/ontology/Person</type>
+          <type>http://dbpedia.org/ontology/SportsManager</type>
+          <type>http://dbpedia.org/ontology/SoccerManager</type>
+        </types>
+        <support>26</support>
+      </concept>
+      <concept uri="http://dbpedia.org/resource/Ballon_d'Or_(1956&#x2013;2009)">
+        <surfaceforms>
+          <surfaceform>
+            <string>Ballon d'Or</string>
+            <score>0.977698718582205</score>
+            <offset>224</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type/>
+        </types>
+        <support>448</support>
+      </concept>
+      <concept uri="http://dbpedia.org/resource/Barcelona">
+        <surfaceforms>
+          <surfaceform>
+            <string>Barcelona</string>
+            <score>0.9464432751262734</score>
+            <offset>44</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type>http://schema.org/Place</type>
+          <type>http://dbpedia.org/ontology/Place</type>
+          <type>http://dbpedia.org/ontology/PopulatedPlace</type>
+          <type>http://dbpedia.org/ontology/Settlement</type>
+        </types>
+        <support>18062</support>
+      </concept>
+      <concept uri="http://dbpedia.org/resource/RAC1">
+        <surfaceforms>
+          <surfaceform>
+            <string>RAC1</string>
+            <score>1.0</score>
+            <offset>351</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type>http://dbpedia.org/ontology/Biomolecule</type>
+          <type>http://dbpedia.org/ontology/Protein</type>
+        </types>
+        <support>77</support>
+      </concept>
+      <concept uri="http://dbpedia.org/resource/Radio_broadcasting">
+        <surfaceforms>
+          <surfaceform>
+            <string>radio station</string>
+            <score>0.9992966272239675</score>
+            <offset>337</offset>
+          </surfaceform>
+        </surfaceforms>
+        <types>
+          <type/>
+        </types>
+        <support>23001</support>
+      </concept>
+    </concepts>
+  </concepts>
+  <classify>
+    <language>en</language>
+    <categories>
+      <category>
+        <subjectcode>15054000</subjectcode>
+        <label>sport - soccer</label>
+        <confidence>1.0</confidence>
+      </category>
+    </categories>
+  </classify>
+  <hashtags>
+    <language>en</language>
+    <hashtags>
+      <hashtag>#LionelMessi</hashtag>
+      <hashtag>#Barcelona</hashtag>
+      <hashtag>#Argentina</hashtag>
+      <hashtag>#France</hashtag>
+      <hashtag>#ParisSaintGermainFC</hashtag>
+      <hashtag>#GerardoMartino</hashtag>
+      <hashtag>#BallonDOr</hashtag>
+      <hashtag>#RAC1</hashtag>
+      <hashtag>#RadioBroadcasting</hashtag>
+    </hashtags>
+  </hashtags>
+  <sentiment>
+    <subjectivity>unknown</subjectivity>
+    <subjectivity_confidence>0.0</subjectivity_confidence>
+    <polarity>negative</polarity>
+    <polarity_confidence>0.9999999999741958</polarity_confidence>
+  </sentiment>
+  <summarize>
+    <sentences>
+      <sentence>Lionel Messi: Forward is not for sale, says Barcelona president
+
+Barcelona forward Lionel Messi is not for sale and the club plan to discuss a new contract with the Argentine, says president Josep Maria Bartomeu.</sentence>
+      <sentence>In an interview with radio station RAC1, posted on Barcelona's website,&#xA0; Bartomeu said: "The club will sit down and negotiate a new contract.</sentence>
+      <sentence>His last league goal came in September, before he was out for five weeks with a hamstring injury.</sentence>
+      <sentence>"If he succeeds in other facets of his game, it doesn't matter if he scores.</sentence>
+      <sentence>He controls the game well, passes the ball well, he is a good finisher, he can press and recover the ball.</sentence>
+    </sentences>
+  </summarize>
+</result>

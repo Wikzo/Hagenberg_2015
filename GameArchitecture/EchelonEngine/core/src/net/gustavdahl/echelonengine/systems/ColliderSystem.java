@@ -35,14 +35,16 @@ public class ColliderSystem extends BaseSystem
 		// compareTo() is overriden to use the int from GetLeftSide()
 		Collections.sort(_colliderList);
 
-		/*String sortedPositions = "";
-
-		for (int i = 0; i < _colliderList.size(); i++)
-			sortedPositions += "\n" + _colliderList.get(i).GetLeftSide();
-
-		sortedPositions += "\n";
-
-		DebugSystem.AddDebugText("Sorted positions: " + sortedPositions);*/
+		/*
+		 * String sortedPositions = "";
+		 * 
+		 * for (int i = 0; i < _colliderList.size(); i++) sortedPositions +=
+		 * "\n" + _colliderList.get(i).GetLeftSide();
+		 * 
+		 * sortedPositions += "\n";
+		 * 
+		 * DebugSystem.AddDebugText("Sorted positions: " + sortedPositions);
+		 */
 	}
 
 	private void SortAndPrune()
@@ -51,7 +53,7 @@ public class ColliderSystem extends BaseSystem
 		_activeList.clear();
 		Prune();
 	}
-	
+
 	private void Prune()
 	{
 		for (int i = 0; i < _colliderList.size(); i++)
@@ -64,18 +66,24 @@ public class ColliderSystem extends BaseSystem
 
 				if (b.GetLeftSide() < a.GetRightSide())
 				{
-					if (!_activeList.contains(a))
-						_activeList.add(a);
-					if (!_activeList.contains(b))
-						_activeList.add(b);
-					
-					DebugSystem.AddDebugText("HIT");
+					a.SetHitColorDebug(true, Color.GOLDENROD);
+					b.SetHitColorDebug(true, Color.GOLDENROD);
+
+					boolean hit = a.Collide(b);
+					if (hit)
+					{
+						a.SetHitColorDebug(true);
+						b.SetHitColorDebug(true);
+					}
+
 				} else
 				{
-					CollisionCheck(_activeList, "SAP");
+					// CollisionCheck(_activeList, "SAP");
 					break;
 				}
 			}
+			System.out.println("Outer loop");
+			
 		}
 	}
 
@@ -84,9 +92,10 @@ public class ColliderSystem extends BaseSystem
 		DebugSystem.AddDebugText("List size: " + list.size(), new Vector2(300, 400));
 		DebugSystem.AddDebugText(collisionCheckType + " checks: " + Math.pow(list.size(), 2), new Vector2(300, 370));
 
-		for (int i = 0; i < list.size();i++)
-			list.get(i).SetHitColorDebug(true, Color.GOLD);
-		
+		// potential collision
+		for (int i = 0; i < list.size(); i++)
+			list.get(i).SetHitColorDebug(true, Color.GOLDENROD);
+
 		// doing the pair-wise collision check
 		for (int i = 0; i < list.size(); i++)
 		{
@@ -107,12 +116,11 @@ public class ColliderSystem extends BaseSystem
 			}
 		}
 	}
-	
 
 	@Override
 	public void Update(float deltaTime)
 	{
-		
+
 		// reset all collider hits
 		for (int i = 0; i < _colliderList.size(); i++)
 		{
@@ -121,9 +129,9 @@ public class ColliderSystem extends BaseSystem
 
 			a.Update(deltaTime);
 		}
-		
+
 		SortAndPrune();
-		//CollisionCheck(_colliderList, "BruteForce");
+		// CollisionCheck(_colliderList, "BruteForce");
 
 	}
 

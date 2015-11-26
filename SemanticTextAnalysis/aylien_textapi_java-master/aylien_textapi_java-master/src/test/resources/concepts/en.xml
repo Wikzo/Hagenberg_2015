@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<result>
+  <text>Barack Obama is the 44th and current President of the United States, and the first African American to hold the office.</text>
+  <language>en</language>
+  <concepts>
+    <concept uri="http://dbpedia.org/resource/Race_and_ethnicity_in_the_United_States_Census">
+      <surfaceforms>
+        <surfaceform>
+          <string>African American</string>
+          <score>0.9775916924283343</score>
+          <offset>83</offset>
+        </surfaceform>
+      </surfaceforms>
+      <types>
+        <type/>
+      </types>
+      <support>262175</support>
+    </concept>
+    <concept uri="http://dbpedia.org/resource/Barack_Obama">
+      <surfaceforms>
+        <surfaceform>
+          <string>Barack Obama</string>
+          <score>0.9997772953632137</score>
+          <offset>0</offset>
+        </surfaceform>
+      </surfaceforms>
+      <types>
+        <type>http://dbpedia.org/ontology/Agent</type>
+        <type>http://schema.org/Person</type>
+        <type>http://xmlns.com/foaf/0.1/Person</type>
+        <type>http://dbpedia.org/ontology/Person</type>
+        <type>http://dbpedia.org/ontology/OfficeHolder</type>
+      </types>
+      <support>14686</support>
+    </concept>
+    <concept uri="http://dbpedia.org/resource/United_States">
+      <surfaceforms>
+        <surfaceform>
+          <string>United States</string>
+          <score>0.9999067449772838</score>
+          <offset>54</offset>
+        </surfaceform>
+      </surfaceforms>
+      <types>
+        <type>http://schema.org/Place</type>
+        <type>http://dbpedia.org/ontology/Place</type>
+        <type>http://dbpedia.org/ontology/PopulatedPlace</type>
+        <type>http://schema.org/Country</type>
+        <type>http://dbpedia.org/ontology/Country</type>
+      </types>
+      <support>538753</support>
+    </concept>
+  </concepts>
+</result>

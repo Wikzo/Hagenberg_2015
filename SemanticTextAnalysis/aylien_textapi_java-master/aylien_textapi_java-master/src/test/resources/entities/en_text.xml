@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<result>
+  <text>
+The iPhone 5S (marketed with a stylized lowercase 's' as iPhone 5s) is a smartphone developed by Apple Inc. It is part of the iPhone line, and was released on September 20, 2013. Apple held an event to formally introduce the high-range phone, and its mid-range counterpart, the iPhone 5C, on September 10, 2013.</text>
+  <entities>
+    <entity type="organization">
+      <surfaceform>Apple Inc.</surfaceform>
+    </entity>
+    <entity type="keyword">
+      <surfaceform>iPhone</surfaceform>
+      <surfaceform>September</surfaceform>
+      <surfaceform>Apple</surfaceform>
+      <surfaceform>mid-range</surfaceform>
+      <surfaceform>high-range</surfaceform>
+      <surfaceform>phone</surfaceform>
+      <surfaceform>event</surfaceform>
+      <surfaceform>counterpart</surfaceform>
+      <surfaceform>smartphone</surfaceform>
+      <surfaceform>lowercase</surfaceform>
+      <surfaceform>stylized</surfaceform>
+    </entity>
+    <entity type="date">
+      <surfaceform>September 20 , 2013</surfaceform>
+      <surfaceform>September 10 , 2013</surfaceform>
+    </entity>
+    <entity type="product">
+      <surfaceform>iPhone</surfaceform>
+    </entity>
+  </entities>
+</result>

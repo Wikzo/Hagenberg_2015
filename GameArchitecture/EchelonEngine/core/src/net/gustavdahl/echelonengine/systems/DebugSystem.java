@@ -67,6 +67,15 @@ public class DebugSystem extends BaseSystem
 			return;
 		}
 
+		// debug shapes
+		for (int i = 0; i < _debugRenderList.size(); i++)
+		{
+			if (!((Component) _debugRenderList.get(i)).IsActive())
+				continue;
+
+			_debugRenderList.get(i).DebugRender(_spriteBatch, _shapeRenderer, deltaTime);
+		}
+
 		// debug text
 		_spriteBatch.begin();
 		_spriteBatch.setProjectionMatrix(_camera.combined);
@@ -90,17 +99,8 @@ public class DebugSystem extends BaseSystem
 			_debugDrawingPosition.clear();
 			_textPosition = 0;
 		}
-		
+
 		_spriteBatch.end();
-
-		// debug shapes
-		for (int i = 0; i < _debugRenderList.size(); i++)
-		{
-			if (!((Component) _debugRenderList.get(i)).IsActive())
-				continue;
-
-			_debugRenderList.get(i).DebugRender(_spriteBatch, _shapeRenderer, deltaTime);
-		}
 
 	}
 

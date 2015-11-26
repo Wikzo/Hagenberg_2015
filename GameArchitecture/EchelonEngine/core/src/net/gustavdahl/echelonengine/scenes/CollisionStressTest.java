@@ -205,18 +205,18 @@ public class CollisionStressTest implements Screen, IUpdatable
 	public void Update(float deltaTime)
 	{
 
-		//DebugSystem.AddDebugText("Number of entities: " + _entityNumber, null);
+		DebugSystem.AddDebugText("Number of entities: " + _entityNumber);
 		DebugSystem.AddDebugText("FPS: " + Gdx.graphics.getFramesPerSecond());
 
-		//_timer+= deltaTime;
+		_timer+= deltaTime;
 		
 		if (_timer > 0.01)
 		{
 			_timer = 0;
 			_entityNumber++;
 			
-			float x = MathUtils.random(Gdx.graphics.getWidth() - 40);
-			float y = MathUtils.random(Gdx.graphics.getHeight() - 40);
+			float x = MathUtils.random(Gdx.graphics.getWidth() + 800);
+			float y = MathUtils.random(Gdx.graphics.getHeight() + 800);
 			
 			Entity e = new Entity("StressTest_" + _entityNumber);
 			e.SetPosition(new Vector2(x+20,y+20));
