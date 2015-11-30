@@ -82,7 +82,7 @@ public class ColliderSystem extends BaseSystem
 					break;
 				}
 			}
-			System.out.println("Outer loop");
+			//System.out.println("Outer loop");
 			
 		}
 	}

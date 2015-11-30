@@ -208,7 +208,7 @@ public class CollisionStressTest implements Screen, IUpdatable
 		DebugSystem.AddDebugText("Number of entities: " + _entityNumber);
 		DebugSystem.AddDebugText("FPS: " + Gdx.graphics.getFramesPerSecond());
 
-		_timer+= deltaTime;
+		//_timer+= deltaTime;
 		
 		if (_timer > 0.01)
 		{
