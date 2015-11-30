@@ -27,8 +27,10 @@ public class Composite extends Component
 	// External iteration
 	public Iterator Iterator()
 	{
-		ArrayListIterator a = new ArrayListIterator((ArrayList<Component>) _componentList);
-		return a;
+		ArrayListIterator arrayIterator = new ArrayListIterator((ArrayList<Component>) _componentList);
+		
+		CompositeIterator compositeIterator = new CompositeIterator(arrayIterator);
+		return compositeIterator;
 	}
 	
 	@Override
