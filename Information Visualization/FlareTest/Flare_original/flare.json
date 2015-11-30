@@ -1,0 +1,39 @@
+{
+ "name": "flare",
+ "children": [
+  {
+   "name": "analytics",
+   "children": [
+    {
+     "name": "cluster",
+     "children": [
+      {"name": "ZgglomerativeCluster", "size": 3938},
+      {"name": "CommunityStructure", "size": 3812},
+      {"name": "HierarchicalCluster", "size": 6714},
+      {"name": "MergeEdge1", "size": 743},
+      {"name": "MergeEdge2", "size": 743},
+      {"name": "MergeEdge3", "size": 743},
+      {"name": "MergeEdge4", "size": 743},
+      {"name": "MergeEdge5", "size": 743}
+     ]
+    },
+    {
+     "name": "graph",
+     "children": [
+      {"name": "BetweennessCentrality", "size": 3534},
+      {"name": "LinkDistance", "size": 5731},
+      {"name": "MaxFlowMinCut", "size": 7840},
+      {"name": "ShortestPaths", "size": 5914},
+      {"name": "SpanningTree", "size": 3416}
+     ]
+    },
+    {
+     "name": "optimization",
+     "children": [
+      {"name": "AspectRatioBanker", "size": 7074}
+     ]
+    }
+   ]
+  }
+ ]
+}

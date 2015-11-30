@@ -24,10 +24,10 @@ var lineChart =
         // draw the line
         var line = d3.svg.line().x(function(d)
         {
-            return x(d.date); // return each date element for each x note
+            return x(d.appid); // return each date element for each x note
         }).y(function(d)
         {
-            return y(d.amount);
+            return y(d.score_rank);
         }).interpolate("monotone");
 
         // SVG (Scalable Vector Graphics) - select via DOM or tag name
