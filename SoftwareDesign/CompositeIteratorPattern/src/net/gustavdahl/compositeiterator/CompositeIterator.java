@@ -7,7 +7,8 @@ public class CompositeIterator implements Iterator
 
 	public CompositeIterator(Iterator partsIterator)
 	{
-		_currentIterator = _baseIterator = partsIterator;
+		_currentIterator = partsIterator;
+		_baseIterator = partsIterator;
 	}
 
 	public boolean hasNext()

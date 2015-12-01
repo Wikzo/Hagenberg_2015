@@ -159,12 +159,10 @@ public abstract class Collider extends Component implements Comparable<Collider>
 	}
 
 	// http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/comment-page-1/
-	// double dispatch:
+	// double dispatch / visitor pattern:
 	// https://www.gamedev.net/topic/453624-double-dispatch-in-c/
 	public abstract boolean Collide(Collider collider);
-
 	protected abstract boolean CollideWithCircle(CircleCollider circle);
-
 	protected abstract boolean CollideWithBox(BoxCollider box);
 
 }
