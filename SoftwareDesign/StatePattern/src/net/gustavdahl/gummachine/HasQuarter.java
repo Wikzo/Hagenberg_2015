@@ -13,7 +13,7 @@ public class HasQuarter implements IGumState
 	@Override
 	public IGumState HandleInput(Input input, GumMachine machine)
 	{
-		switch (input)
+		switch (input) //
 		{
 		case EjectQuarter:
 			return new NoQuarter();
