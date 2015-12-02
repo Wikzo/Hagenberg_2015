@@ -116,11 +116,16 @@ public class CollisionStressTest implements Screen, IUpdatable
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
 			
 			// falling down, not static
-			/*if (i == 0)
+			if (i == 0)
 			{
 				e.GetComponent(CircleCollider.class).SetStatic(false);
-				e.AddComponent(new PhysicsComponent());
-			}*/		
+				e.AddComponent(new PhysicsComponent().AddToSystem(DebugSystem.class));
+				
+				// add gravity
+				e.GetComponent(PhysicsComponent.class).AddConstantForce(PhysicsComponent.GravityForce);
+				
+				
+			}
 			
 		}
 

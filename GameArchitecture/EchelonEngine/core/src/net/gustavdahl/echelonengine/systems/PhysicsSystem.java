@@ -29,9 +29,19 @@ public class PhysicsSystem extends BaseSystem
 	double _accumulator = 0;
 	double _frameTimeInSeconds = 0;
 
+	void VariedUpdate(float deltaTime)
+	{
+		for (int i = 0; i < _componentList.size(); i++)
+		{
+			_componentList.get(i).Update(deltaTime);
+		}
+	}
+	
 	@Override
 	public void Update(float deltaTime)
 	{
+		VariedUpdate(deltaTime);
+		
 		// http://gafferongames.com/game-physics/fix-your-timestep/
 
 		_newTime = TimeUtils.nanoTime();
@@ -50,7 +60,7 @@ public class PhysicsSystem extends BaseSystem
 			_accumulator -= _fixedTimeStep;
 		}
 
-		System.out.println(counter);
+		//System.out.println(counter);
 		
 		// TODO: use interpolation to make renderer more "stable"
 		// interpolate between previous and current Transform state

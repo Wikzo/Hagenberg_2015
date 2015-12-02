@@ -44,10 +44,12 @@ public abstract class Component implements IComponent, IUpdatable
 	}
 	
 	
-	public void AddToSystem(Class systemClass)
+	public Component AddToSystem(Class systemClass)
 	{
 		if (systemClass != null)
 			ServiceLocator.GetSystem(systemClass).AddToSystem(this);
+		
+		return this;
 	}
 	
 	public void Reset()
