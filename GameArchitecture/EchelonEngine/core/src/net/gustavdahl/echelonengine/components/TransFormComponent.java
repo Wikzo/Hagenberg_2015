@@ -18,6 +18,8 @@ public class TransFormComponent extends Component
 	// same with velocityX, velocityY and angularVelocity
 	// same with acceleration...
 	
+	//public float[]
+	
 	public TransFormComponent()
 	{
 		super();
@@ -35,20 +37,6 @@ public class TransFormComponent extends Component
 		return "Transform";
 	}
 	
-	public void Translate(Vector2 translation)
-	{
-		if (!IsActive())
-			return;
-		
-		Position = Position.add(translation);
-	}
-
-	
-	public void AddPosition(Vector2 pos)
-	{
-		this.Position.add(pos);
-	}
-
 	@Override
 	public void Update(float deltaTime)
 	{
