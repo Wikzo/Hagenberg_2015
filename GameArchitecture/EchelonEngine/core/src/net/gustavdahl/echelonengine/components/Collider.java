@@ -10,6 +10,8 @@ import com.badlogic.gdx.math.collision.Sphere;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
+
+
 public abstract class Collider extends Component implements Comparable<Collider>
 {
 
@@ -21,14 +23,17 @@ public abstract class Collider extends Component implements Comparable<Collider>
 	protected Color _currentSpriteColor;
 
 	// collider colors (debug)
-	protected Color _debugColorNormal = new Color(0.9f, 0.7f, 0.3f, 0.2f);
-	protected Color _debugColorCollision = new Color(1f, 0f, 0f, 0.8f);
+	protected Color CollisionColor =  new Color(1f, 0f, 0f, 0.8f);
+	protected Color PotentialHitColor = Color.GOLDENROD;
+	protected Color NoCollisionColor = new Color(0.9f, 0.7f, 0.3f, 0.2f);
 
 	protected Color _currentDebugColor;
 
 	protected SpriteComponent _sprite;
 
 	protected boolean IsStatic = false;
+
+	protected CollisionState CollisionState;
 
 	public Collider()
 	{
@@ -47,12 +52,11 @@ public abstract class Collider extends Component implements Comparable<Collider>
 		else
 			_sprite = (SpriteComponent) Owner.GetComponent(SpriteComponent.class);
 
-		// NOTE: need to make a new instance of color; otherwise a reference
-		// would change the sprite's color every time
+		CollisionState = CollisionState.NoCollision;
 		_spriteColorNormal = new Color(_sprite._color.r, _sprite._color.g, _sprite._color.b, _sprite._color.a);
+		
 		_currentSpriteColor = _spriteColorNormal;
-
-		_currentDebugColor = _debugColorNormal;
+		_currentDebugColor = NoCollisionColor;
 
 	}
 
@@ -61,8 +65,9 @@ public abstract class Collider extends Component implements Comparable<Collider>
 		return new Vector2(Transform.Position.x, Transform.Position.y);
 	}
 
-	public abstract int GetLeftSide(); 	// TODO: use float instead of int!
-	public abstract int GetRightSide(); 	// TODO: use float instead of int!
+	public abstract int GetLeftSide(); // TODO: use float instead of int!
+
+	public abstract int GetRightSide(); // TODO: use float instead of int!
 
 	@Override
 	public int compareTo(Collider o)
@@ -80,6 +85,8 @@ public abstract class Collider extends Component implements Comparable<Collider>
 
 	public void SetHitColor(boolean hit)
 	{
+		// NOT USED ANYMORE
+
 		if (hit)
 		{
 			_sprite.Color(_spriteColorCollision);
@@ -91,18 +98,27 @@ public abstract class Collider extends Component implements Comparable<Collider>
 		}
 	}
 
-	public void SetHitColorDebug(boolean hit)
+	
+
+	public void SetCollisionState(CollisionState state)
 	{
-		SetHitColorDebug(hit, _debugColorCollision);
+		CollisionState = state;
+		
+		switch (state)
+		{
+		case IsColliding:
+			_currentDebugColor = CollisionColor;
+			break;
+		case PotentialCollision:
+			_currentDebugColor = PotentialHitColor;
+		}
+
 	}
 	
-	public void SetHitColorDebug(boolean hit, Color color)
+	public void ClearCollisions()
 	{
-		if (hit)
-			_currentDebugColor = color;
-		else
-			_currentDebugColor = _debugColorNormal;
-
+		CollisionState = CollisionState.NoCollision;
+		_currentDebugColor = NoCollisionColor;
 	}
 
 	public Collider SetStatic(boolean s)
@@ -162,7 +178,9 @@ public abstract class Collider extends Component implements Comparable<Collider>
 	// double dispatch / visitor pattern:
 	// https://www.gamedev.net/topic/453624-double-dispatch-in-c/
 	public abstract boolean Collide(Collider collider);
+
 	protected abstract boolean CollideWithCircle(CircleCollider circle);
+
 	protected abstract boolean CollideWithBox(BoxCollider box);
 
 }
