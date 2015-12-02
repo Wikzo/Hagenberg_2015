@@ -54,7 +54,7 @@ public class DebugSystem extends BaseSystem
 	public void Update(float deltaTime)
 	{
 		// TODO: show general GUI to enable/disable systems and other things...
-
+		
 		if (Gdx.input.isKeyJustPressed(Keys.F1))
 			_isActive = !_isActive;
 

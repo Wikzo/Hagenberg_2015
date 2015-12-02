@@ -14,7 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
-public class PhysicsComponent extends Component implements IDebugRenderable
+public class PhysicsComponent extends Component
 {
 
 	final public static Vector2 GravityForce = new Vector2(0f, -90.82f);
@@ -39,26 +39,13 @@ public class PhysicsComponent extends Component implements IDebugRenderable
 	}
 	
 	Vector2 hejsa = new Vector2(1,1);
-	@Override
-	public void GetExternalReferences()
-	{
 
-		super.GetExternalReferences();
-		
-		_anchor.set(Transform.Position);
-		
-		//hejsa = new Vector2(2,2);
-		hejsa.set(51,5);
-	}
 
 	@Override
 	public void Update(float deltaTime)
 	{
-
 		// https://stackoverflow.com/questions/33759145/libgdx-how-do-i-multiply-vector-with-scalar-without-modifing-original-vector?
 		ApplyForces(deltaTime);
-		
-		System.out.println("T: " + _anchor);
 		
 	}
 	
@@ -87,8 +74,6 @@ public class PhysicsComponent extends Component implements IDebugRenderable
 		for (Vector2 constantForce : _constantForces)
 			_force.add(constantForce).scl(_mass);
 		
-		_force.add(HookeSpring());
-		
 		// acceleration
 		_acceleration = _force.scl(1f / _mass);
 		
@@ -101,38 +86,8 @@ public class PhysicsComponent extends Component implements IDebugRenderable
 			_velocity.y = _terminalVelocity.y;*/
 	}
 	
-	float _springConstant = 5;
-	float _dampConstant = 0.8f;
-	Vector2 _anchor = new Vector2(0,0);
+
+
 	
-	Vector2 HookeSpring()
-	{
-		Vector2 pos = new Vector2(0,0);
-		pos.set(Transform.Position);
-		Vector2 displacement = pos.sub(_anchor);
-		
-		Vector2 damp = displacement.scl(-_springConstant);
-		
-		damp.add(_velocity.cpy().scl(-_dampConstant));
-		
-		//System.out.println(_anchor);
-        return damp;
-	}
-
-	@Override
-	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
-	{
-		Gdx.gl.glEnable(GL30.GL_BLEND);
-
-		shapeRenderer.begin(ShapeType.Filled);
-		shapeRenderer.setColor(new Color(0,1,0,0.8f));
-
-		shapeRenderer.rectLine(_anchor, Transform.Position, 2);
-
-		shapeRenderer.end();
-
-		Gdx.gl.glDisable(GL30.GL_BLEND);
-		
-	}
 
 }

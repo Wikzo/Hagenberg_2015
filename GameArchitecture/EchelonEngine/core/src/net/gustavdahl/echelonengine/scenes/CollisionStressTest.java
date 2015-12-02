@@ -24,6 +24,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.math.collision.Sphere;
+import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
 
 import net.gustavdahl.echelonengine.components.BoxCollider;
 import net.gustavdahl.echelonengine.components.CircleCollider;
@@ -33,6 +34,7 @@ import net.gustavdahl.echelonengine.components.DebugComponent;
 import net.gustavdahl.echelonengine.components.EditorComponent;
 import net.gustavdahl.echelonengine.components.IUpdatable;
 import net.gustavdahl.echelonengine.components.PhysicsComponent;
+import net.gustavdahl.echelonengine.components.SpringComponent;
 import net.gustavdahl.echelonengine.components.SpriteAnimator;
 import net.gustavdahl.echelonengine.components.SpriteComponent;
 import net.gustavdahl.echelonengine.components.Text;
@@ -119,15 +121,18 @@ public class CollisionStressTest implements Screen, IUpdatable
 			if (i == 0)
 			{
 				e.GetComponent(CircleCollider.class).SetStatic(false);
-				e.AddComponent(new PhysicsComponent().AddToSystem(DebugSystem.class));
+				e.AddComponent(new PhysicsComponent());
 				
 				// add gravity
 				e.GetComponent(PhysicsComponent.class).AddConstantForce(PhysicsComponent.GravityForce);
+				
+				e.AddComponent(new SpringComponent().AddToSystem(DebugSystem.class));
 				
 				
 			}
 			
 		}
+		
 
 		_entity1 = new Entity("RunningMan");
 		_entity2 = new Entity("RunningMan2");

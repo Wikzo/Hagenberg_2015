@@ -40,6 +40,9 @@ public class PhysicsSystem extends BaseSystem
 	@Override
 	public void Update(float deltaTime)
 	{
+		if (!_isActive)
+			return;
+		
 		VariedUpdate(deltaTime);
 		
 		// http://gafferongames.com/game-physics/fix-your-timestep/
