@@ -12,7 +12,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
 
-import net.gustavdahl.echelonengine.scenes.CollisionStressTest;
+import net.gustavdahl.echelonengine.scenes.TestLevel;
 import net.gustavdahl.echelonengine.components.Collider;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.ConstantForce;
@@ -69,7 +69,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 		// make mouse raycast
 		_mousePosition = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-		_ray = CollisionStressTest._camera.getPickRay(GetMousePosition().x, GetMousePosition().y);
+		_ray = TestLevel._camera.getPickRay(GetMousePosition().x, GetMousePosition().y);
 
 		// update action states
 		_editorActionStateManager.Update(this);
@@ -153,7 +153,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 	public void UnprojectMouse()
 	{
-		CollisionStressTest._camera.unproject(GetMousePosition());
+		TestLevel._camera.unproject(GetMousePosition());
 	}
 
 	public List<Entity> GetSelectedEntities()

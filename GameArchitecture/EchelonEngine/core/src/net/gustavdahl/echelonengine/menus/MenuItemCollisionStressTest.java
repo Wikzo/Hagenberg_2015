@@ -12,7 +12,7 @@ public class MenuItemCollisionStressTest extends MenuItem
 	{
 		super(stage, project1, circleMenu, type, serviceLocator);
 		
-		project1.setScreen(new CollisionStressTest(project1, serviceLocator));
+		project1.setScreen(new TestLevel(project1, serviceLocator));
 		
 	}
 

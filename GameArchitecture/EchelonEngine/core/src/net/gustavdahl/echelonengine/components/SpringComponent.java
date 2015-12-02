@@ -13,9 +13,11 @@ public class SpringComponent extends PhysicsComponent implements IDebugRenderabl
 
 	private PhysicsComponent _body;
 	
-	float _springConstant = 5;
-	float _dampConstant = 0.8f;
-	Vector2 _anchor = new Vector2(0, 0);
+	private float _springConstant = 5;
+	private float _dampConstant = 0.8f;
+	
+	private Vector2 _anchor = new Vector2(0, 0);
+	private Vector2 _tempPosition = new Vector2(0,0);
 
 	@Override
 	public void GetExternalReferences()
@@ -27,27 +29,25 @@ public class SpringComponent extends PhysicsComponent implements IDebugRenderabl
 			System.out.println("ERROR - need to have a PhysicsComponent for Spring to work!");
 		
 		_anchor.set(Transform.Position);
+		
+		_velocity = _body._velocity;
 	}
 
 	@Override
 	public void Update(float deltaTime)
-	{
-		System.out.println("spring");
-		
+	{		
 		_body.AddForce(HookeSpring());
 	}
 
 	Vector2 HookeSpring()
 	{
-		Vector2 pos = new Vector2(0, 0);
-		pos.set(Transform.Position);
-		Vector2 displacement = pos.sub(_anchor);
+		_tempPosition.set(Transform.Position);
+		Vector2 displacement = _tempPosition.sub(_anchor);
 
 		Vector2 damp = displacement.scl(-_springConstant);
 
 		damp.add(_velocity.cpy().scl(-_dampConstant));
 
-		// System.out.println(_anchor);
 		return damp;
 	}
 	
@@ -57,6 +57,9 @@ public class SpringComponent extends PhysicsComponent implements IDebugRenderabl
 		Gdx.gl.glEnable(GL30.GL_BLEND);
 
 		shapeRenderer.begin(ShapeType.Filled);
+		shapeRenderer.setColor(new Color(1,0,0,0.8f));
+		shapeRenderer.circle(_anchor.x, _anchor.y, 5);
+		
 		shapeRenderer.setColor(new Color(0,1,0,0.8f));
 
 		shapeRenderer.rectLine(_anchor, Transform.Position, 2);

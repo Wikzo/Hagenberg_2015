@@ -53,10 +53,11 @@ public class BoxCollider extends Collider implements IDebugRenderable
 
 		shapeRenderer.box(Bounds().x, Bounds().y, 0, Bounds().width, Bounds().height, 1);
 
-		shapeRenderer.setColor(Color.BLUE);
+		// start/end dots
+		/*shapeRenderer.setColor(Color.BLUE);
 		shapeRenderer.circle(GetLeftSide(), Bounds().y, 10);
 		shapeRenderer.setColor(Color.GREEN);
-		shapeRenderer.circle(GetRightSide(), Bounds().y, 10);
+		shapeRenderer.circle(GetRightSide(), Bounds().y, 10);*/
 		
 		
 		shapeRenderer.end();

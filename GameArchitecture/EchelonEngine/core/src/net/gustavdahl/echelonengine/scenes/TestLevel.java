@@ -3,6 +3,7 @@ package net.gustavdahl.echelonengine.scenes;
 //import static org.junit.Assert.assertNotNull;
 
 import java.io.Console;
+import java.util.Random;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -32,6 +33,7 @@ import net.gustavdahl.echelonengine.components.Collider;
 import net.gustavdahl.echelonengine.components.ConstantForce;
 import net.gustavdahl.echelonengine.components.DebugComponent;
 import net.gustavdahl.echelonengine.components.EditorComponent;
+import net.gustavdahl.echelonengine.components.EulerMethod;
 import net.gustavdahl.echelonengine.components.IUpdatable;
 import net.gustavdahl.echelonengine.components.PhysicsComponent;
 import net.gustavdahl.echelonengine.components.SpringComponent;
@@ -49,7 +51,7 @@ import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
-public class CollisionStressTest implements Screen, IUpdatable
+public class TestLevel implements Screen, IUpdatable
 {
 	public static OrthographicCamera _camera; // TODO: dont make public static
 	private SpriteBatch _spriteBatch;
@@ -60,7 +62,7 @@ public class CollisionStressTest implements Screen, IUpdatable
 	Entity _entity2;
 	Entity _entity3;
 
-	public CollisionStressTest(Game game, ServiceLocator serviceLocator)
+	public TestLevel(Game game, ServiceLocator serviceLocator)
 	{
 		_game = game;
 
@@ -112,19 +114,22 @@ public class CollisionStressTest implements Screen, IUpdatable
 					.SetOriginCenter()
 					.Color(Color.WHITE), RenderSystem.class);
 			
-			e.AddComponent(new CircleCollider(50f).SetStatic(true), ColliderSystem.class);
+			e.AddComponent(new CircleCollider(50f), ColliderSystem.class);
 			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
 			
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
 			
 			// falling down, not static
-			if (i == 0)
+			//if (i == 0)
 			{
-				e.GetComponent(CircleCollider.class).SetStatic(false);
 				e.AddComponent(new PhysicsComponent());
+				
+				Random r = new Random();
+				float mass = r.nextFloat() * 100;
 				
 				// add gravity
 				e.GetComponent(PhysicsComponent.class).AddConstantForce(PhysicsComponent.GravityForce);
+				e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.values()[i]);
 				
 				e.AddComponent(new SpringComponent().AddToSystem(DebugSystem.class));
 				
