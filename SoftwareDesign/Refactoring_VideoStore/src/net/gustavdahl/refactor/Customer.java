@@ -23,6 +23,11 @@ public class Customer
 		rentals.add(r);
 	}
 
+	String showFiguresForRental(Rental r)
+	{
+		return r.getVideo().getTitle() + "\t" + centsToPriceString(r.computeChargeInCents()) + "\n";
+	}
+
 	public String makeInvoice()
 	{
 		int totalInCents = 0;
@@ -30,18 +35,11 @@ public class Customer
 		StringBuffer sb = new StringBuffer("Customer: " + name + "\n");
 		for (Rental r : rentals)
 		{
-			int priceInCents = r.computeChargeInCents();
-
-			// add bonus
-			bonus++;
-			// add bonus for a two day new release rental
-			if (r.getVideo().getKind() == Video.NEW_RELEASE && r.getDays() > 1)
-				bonus++;
+			bonus += r.addBonus();
 
 			// show figures for this rental
-			sb.append(r.getVideo().getTitle() + "\t");
-			sb.append(centsToPriceString(priceInCents) + "\n");
-			totalInCents += priceInCents;
+			sb.append(showFiguresForRental(r));
+			totalInCents += r.computeChargeInCents();
 		}
 
 		// add footer lines

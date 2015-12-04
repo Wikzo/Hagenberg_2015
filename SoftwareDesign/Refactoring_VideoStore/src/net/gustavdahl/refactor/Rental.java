@@ -44,4 +44,14 @@ public class Rental
 		}
 		return result;
 	}
+
+	int addBonus()
+	{
+		int bonus = 1;
+
+		// add bonus for a two day new release rental
+		if (getVideo().getKind() == Video.NEW_RELEASE && getDays() > 1)
+			bonus++;
+		return bonus;
+	}
 }
