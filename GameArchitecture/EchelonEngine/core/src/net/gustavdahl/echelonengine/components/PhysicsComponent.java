@@ -1,18 +1,10 @@
 package net.gustavdahl.echelonengine.components;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL30;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 
-import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
 public class PhysicsComponent extends Component
@@ -48,8 +40,6 @@ public class PhysicsComponent extends Component
 		_acceleration = new Vector2(0f, 0f);
 
 	}
-
-	Vector2 hejsa = new Vector2(1, 1);
 
 	@Override
 	public void Update(float deltaTime)
