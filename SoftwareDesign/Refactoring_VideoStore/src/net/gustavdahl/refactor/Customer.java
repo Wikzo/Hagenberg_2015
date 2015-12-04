@@ -30,7 +30,7 @@ public class Customer
 		StringBuffer sb = new StringBuffer("Customer: " + name + "\n");
 		for (Rental r : rentals)
 		{
-			int priceInCents = computeChargeInCents(r);
+			int priceInCents = r.computeChargeInCents();
 
 			// add bonus
 			bonus++;
@@ -49,30 +49,6 @@ public class Customer
 		sb.append("\nBonus:\t" + bonus);
 
 		return sb.toString();
-	}
-
-	private int computeChargeInCents(Rental r)
-	{
-		// determine amounts for each line
-		int result = 0;
-		int days = r.getDays();
-		switch (r.getVideo().getKind())
-		{
-		case Video.REGULAR:
-			result += 200;
-			if (days > 2)
-				result += (days - 2) * 150;
-			break;
-		case Video.NEW_RELEASE:
-			result += days * 300;
-			break;
-		case Video.CHILDRENS:
-			result += 150;
-			if (days > 3)
-				result += (days - 3) * 150;
-			break;
-		}
-		return result;
 	}
 
 	private String centsToPriceString(int cents)

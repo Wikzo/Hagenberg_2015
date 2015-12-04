@@ -20,4 +20,28 @@ public class Rental
 	{
 		return video;
 	}
+
+	int computeChargeInCents()
+	{
+		// determine amounts for each line
+		int result = 0;
+		int days = getDays();
+		switch (getVideo().getKind())
+		{
+		case Video.REGULAR:
+			result += 200;
+			if (days > 2)
+				result += (days - 2) * 150;
+			break;
+		case Video.NEW_RELEASE:
+			result += days * 300;
+			break;
+		case Video.CHILDRENS:
+			result += 150;
+			if (days > 3)
+				result += (days - 3) * 150;
+			break;
+		}
+		return result;
+	}
 }
