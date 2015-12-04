@@ -104,10 +104,13 @@ public class DebugSystem extends BaseSystem
 
 	}
 
+	// TODO: make input field that can change variables dynamically (like Unity & TuneFish)
+	
 	private static int _textPosition = 0;
 
 	public static void AddDebugText(String text, Vector2 position)
 	{
+		// TODO: dont take in a Vector2
 		_debugDrawingPosition.put(position, text);
 	}
 

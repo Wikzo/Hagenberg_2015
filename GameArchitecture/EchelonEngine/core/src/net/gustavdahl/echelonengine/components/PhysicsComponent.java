@@ -21,7 +21,7 @@ public class PhysicsComponent extends Component
 	final public static Vector2 GravityForce = new Vector2(0f, -90.82f);
 
 	private Vector2 _tempPosition = Vector2.Zero;
-	private float _mass = 2f;
+	protected float _mass = 2f;
 	private Vector2 _force = new Vector2();
 	private List<Vector2> _constantForces = new ArrayList<Vector2>();
 	protected Vector2 _velocity;
@@ -59,7 +59,7 @@ public class PhysicsComponent extends Component
 		// https://stackoverflow.com/questions/33759145/libgdx-how-do-i-multiply-vector-with-scalar-without-modifing-original-vector?
 		ApplyForces(deltaTime);
 
-		//DebugSystem.AddDebugText("Euler: " + _eulerMethod + "\nMass: " + Float.toString(_mass), Transform.Position);
+		//DebugSystem.AddDebugText("Euler: " + _eulerMethod + "\nMass: " + Float.toString(_mass), new Vector2(Transform.PositionX, Transform.PositionY));
 
 	}
 
@@ -92,16 +92,24 @@ public class PhysicsComponent extends Component
 	{
 		// https://stackoverflow.com/questions/33759145/libgdx-how-do-i-multiply-vector-with-scalar-without-modifing-original-vector?noredirect=1#comment55292813_33759145
 
-		/*switch (_eulerMethod)
+		float tempX = Transform.PositionX;
+		float tempY = Transform.PositionY;
+		
+		switch (_eulerMethod)
 		{
 		case Explicit:
 			// explicit Euler (inaccurate)
 
 			// temp position
-			_tempPosition.set(Transform.Position);
+			//_tempPosition.set(Transform.Position);
 
+			
+			
+			
 			// apply old velocity to new position
-			_tempPosition.mulAdd(_velocity, deltaTime);
+			//_tempPosition.mulAdd(_velocity, deltaTime);
+			tempX += _velocity.x * deltaTime;
+			tempY += _velocity.y * deltaTime;
 			
 			// calculate forces
 			_acceleration = ComputeAllForces();
@@ -110,13 +118,17 @@ public class PhysicsComponent extends Component
 			_velocity = _velocity.add(_acceleration.scl(deltaTime));
 
 			// apply new position
-			Transform.Position.set(_tempPosition);
+			//Transform.Position.set(_tempPosition);
+			Transform.PositionX = tempX;
+			Transform.PositionY = tempY;
 			break;
 		case Midpoint:
 			// midpoint euler (more accurate/stable, little more expensive)
-			_tempPosition.set(Transform.Position);
+			//_tempPosition.set(Transform.Position);
 			
-			Vector2 halfPosition = new Vector2(0,0);
+			
+			// TODO: make Midpoint Euler
+			/*Vector2 halfPosition = new Vector2(0,0);
 			halfPosition.set(Transform.Position);
 			halfPosition.mulAdd(_velocity, deltaTime/2);
 			
@@ -130,7 +142,7 @@ public class PhysicsComponent extends Component
 			fullVelocity.scl(deltaTime);
 			
 			Transform.Position.mulAdd(Transform.Position, fullVelocity);
-			//_velocity
+			//_velocity*/
 			
 			break;
 		case Modified:
@@ -147,7 +159,9 @@ public class PhysicsComponent extends Component
 			_velocity = _velocity.add(_acceleration.scl(deltaTime));
 
 			// add new velocity to position
-			Transform.Position.mulAdd(_velocity, deltaTime);
+			//Transform.Position.mulAdd(_velocity, deltaTime);
+			Transform.PositionX += _velocity.x * deltaTime;
+			Transform.PositionY += _velocity.y * deltaTime;
 
 			break;
 		default:

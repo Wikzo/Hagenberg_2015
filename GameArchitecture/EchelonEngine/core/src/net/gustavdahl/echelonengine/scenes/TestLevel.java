@@ -126,10 +126,12 @@ public class TestLevel implements Screen, IUpdatable
 				
 				Random r = new Random();
 				float mass = r.nextFloat() * 100;
+				float damp = r.nextFloat() * 5;
 				
 				// add gravity
 				e.GetComponent(PhysicsComponent.class).AddConstantForce(PhysicsComponent.GravityForce);
 				e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.values()[i]);
+				//e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.Explicit);
 				
 				e.AddComponent(new SpringComponent().AddToSystem(DebugSystem.class));
 				
