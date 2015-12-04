@@ -15,7 +15,7 @@ public class EditorMoveActionState implements IEditorActionState
 		for (int i = 0; i < editor.GetSelectedEntities().size(); i++)
 		{
 			editor.GetSelectedEntities().get(i)
-					.SetPosition(new Vector2(editor.GetMousePosition().x + (i*20) + 10, editor.GetMousePosition().y));
+					.SetPosition(editor.GetMousePosition().x + (i*20) + 10, editor.GetMousePosition().y);
 		}
 		
 	}

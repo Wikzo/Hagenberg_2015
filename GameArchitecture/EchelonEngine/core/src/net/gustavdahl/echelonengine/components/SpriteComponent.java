@@ -112,7 +112,7 @@ public class SpriteComponent extends Component implements IRenderable
 		if (!IsActive())
 			return;
 
-		spriteBatch.draw(this._texture, this.Transform.Position.x, this.Transform.Position.y);
+		spriteBatch.draw(this._texture, this.Transform.PositionX, this.Transform.PositionY);
 	}
 	
 	@Override
@@ -127,11 +127,11 @@ public class SpriteComponent extends Component implements IRenderable
 		
 		batch.setColor(_color);
 		batch.draw(_textureRegion,
-		_offsetX + Transform.Position.x - _halfWidth, // x position
-		_offsetY + Transform.Position.y - _halfHeight, // y position
+		_offsetX + Transform.PositionX - _halfWidth, // x position
+		_offsetY + Transform.PositionY - _halfHeight, // y position
 		_originX, _originY, // origin
 		_width, _height, // size in world space
-		Transform.Scale.x, Transform.Scale.y,
+		Transform.ScaleX, Transform.ScaleY,
 		MathUtils.radDeg * Transform.Rotation);
 		
 		

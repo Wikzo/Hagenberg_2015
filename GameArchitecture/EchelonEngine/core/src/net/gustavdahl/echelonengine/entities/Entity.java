@@ -220,21 +220,39 @@ public class Entity
 		return _transform;
 	}
 
-	public void SetPosition(Vector2 pos)
+	public float GetPositionX()
 	{
-		_transform.Position.set(pos);
+		return _transform.PositionX;
+	}
+	
+	public float GetPositionY()
+	{
+		return _transform.PositionY;
+	}
+	
+	public void SetPosition(float x, float y)
+	{
+		_transform.PositionX = x;
+		_transform.PositionY = y;
+	}
+	
+	public String GetPositionString()
+	{
+		return "X: " + _transform.PositionX + "; Y: " + _transform.PositionY;
+	}
+	
+	public String GetScaleString()
+	{
+		return "X: " + _transform.ScaleX + "; Y: " + _transform.ScaleY;
 	}
 	
 	
-	public void SetScale(Vector2 scale)
+	public void SetScale(float x, float y)
 	{
-		_transform.Scale = scale;
+		_transform.ScaleX = x;
+		_transform.ScaleY = y;
 	}
 	
-	public Vector2 GetScale()
-	{
-		return _transform.Scale;
-	}
 	
 	public void SetRotation(float rotation)
 	{

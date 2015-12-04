@@ -7,10 +7,9 @@ import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
 public class TransFormComponent extends Component
 {
-
-	public Vector2 Position;
+	public float PositionX, PositionY;
 	public float Rotation;
-	public Vector2 Scale;
+	public float ScaleX, ScaleY;
 
 
 	// TODO: store position as floats in array [x][y][rotation]
@@ -23,9 +22,12 @@ public class TransFormComponent extends Component
 	public TransFormComponent()
 	{
 		super();
-		Position = new Vector2(0,0);
+
+		PositionX = 0;
+		PositionY = 0;
 		Rotation = 0f;
-		Scale = new Vector2(1,1);
+		ScaleX = 1;
+		ScaleY = 1;
 		
 		CanHaveMultipleComponentsOfThisType = false;
 	}

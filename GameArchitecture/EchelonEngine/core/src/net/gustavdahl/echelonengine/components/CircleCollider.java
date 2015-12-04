@@ -36,7 +36,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 
 		shapeRenderer.begin(ShapeType.Filled);
 		shapeRenderer.setColor(_currentDebugColor);
-		shapeRenderer.circle(Transform.Position.x, Transform.Position.y, Radius());
+		shapeRenderer.circle(Transform.PositionX, Transform.PositionY, Radius());
 
 		// start/end dots
 		/*shapeRenderer.setColor(Color.BLUE);
@@ -51,7 +51,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	
 	protected float Radius()
 	{
-		return _radius * Transform.Scale.x;
+		return _radius * Transform.ScaleX;
 	}
 
 
@@ -125,13 +125,13 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	@Override
 	public int GetLeftSide()
 	{
-		return Math.round(Transform.Position.x - Radius());
+		return Math.round(Transform.PositionX - Radius());
 	}
 	
 	@Override
 	public int GetRightSide()
 	{
-		return Math.round(Transform.Position.x + Radius());
+		return Math.round(Transform.PositionX + Radius());
 	}
 
 

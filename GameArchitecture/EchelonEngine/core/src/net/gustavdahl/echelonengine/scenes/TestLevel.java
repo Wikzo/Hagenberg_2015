@@ -108,7 +108,7 @@ public class TestLevel implements Screen, IUpdatable
 		for (int i = 0; i < 3; i++)
 		{
 			Entity e = new Entity("Man_" + i);
-			e.SetPosition(new Vector2(300 + i * 170, 300));
+			e.SetPosition(300 + i * 170, 300);
 			
 			e.AddComponent(new SpriteComponent(r[0])
 					.SetOriginCenter()
@@ -142,8 +142,8 @@ public class TestLevel implements Screen, IUpdatable
 		_entity1 = new Entity("RunningMan");
 		_entity2 = new Entity("RunningMan2");
 		//_entity3 = new Entity("StaticMan3");
-		_entity1.SetPosition(new Vector2(100,200));
-		_entity2.SetPosition(new Vector2(200,400));
+		_entity1.SetPosition(100,200);
+		_entity2.SetPosition(200,400);
 		//_entity3.SetPosition(new Vector2(300,300));
 
 		//_entity1.AddComponent(new PhysicsComponent());
@@ -234,7 +234,7 @@ public class TestLevel implements Screen, IUpdatable
 			float y = MathUtils.random(Gdx.graphics.getHeight() + 800);
 			
 			Entity e = new Entity("StressTest_" + _entityNumber);
-			e.SetPosition(new Vector2(x+20,y+20));
+			e.SetPosition(x+20,y+20);
 			
 			e.AddComponent(new SpriteComponent(r[0])
 					.SetOriginCenter()

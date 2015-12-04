@@ -62,7 +62,7 @@ public abstract class Collider extends Component implements Comparable<Collider>
 
 	public Vector2 GetCenter()
 	{
-		return new Vector2(Transform.Position.x, Transform.Position.y);
+		return new Vector2(Transform.PositionX, Transform.PositionY);
 	}
 
 	public abstract int GetLeftSide(); // TODO: use float instead of int!

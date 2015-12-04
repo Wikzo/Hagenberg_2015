@@ -20,7 +20,9 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	protected float _width, _height;
 	protected float _halfWidth, _halfHeight;
 	private Rectangle _bounds;
-	private Vector2 _lastPosition = new Vector2(0, 0);
+
+	private float _lastPositionX, _lastPositionY;
+	
 	private Vector2 _boxCircleVectorWithCenter = new Vector2();
 	private Vector2 _boxCircleVector = new Vector2();
 	private Vector2 _boxCircleDistance = new Vector2();
@@ -74,10 +76,10 @@ public class BoxCollider extends Collider implements IDebugRenderable
 
 	public Rectangle Bounds()
 	{
-		return new Rectangle(Transform.Position.x - _halfWidth * Transform.Scale.x,
-				Transform.Position.y - _halfHeight * Transform.Scale.y,
-				_width * Transform.Scale.x,
-				_height * Transform.Scale.y);
+		return new Rectangle(Transform.PositionX - _halfWidth * Transform.ScaleX,
+				Transform.PositionY - _halfHeight * Transform.ScaleY,
+				_width * Transform.ScaleX,
+				_height * Transform.ScaleY);
 	}
 
 	@Override
@@ -92,9 +94,12 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		boolean b = collider.CollideWithBox(this);
 
 		if (!b)
-			_lastPosition.set(Transform.Position);
+		{
+			_lastPositionX = Transform.PositionX;
+			_lastPositionY = Transform.PositionY;
+		}
 		else if (!this.IsStatic)
-			this.Owner.SetPosition(_lastPosition);
+			this.Owner.SetPosition(_lastPositionX, _lastPositionY);
 
 		// System.out.println(_lastPosition);
 
@@ -156,8 +161,9 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		// overlap
 		if (d.x < 0 && d.y < 0)
 		{
-			if (!box.IsStatic)
-				box.Owner.SetPosition(d.scl(-1));
+			//d.scl(-1);
+			//if (!box.IsStatic)
+				//box.Owner.SetPosition(d.x, d.y);
 
 			// System.out.println(box + " hit " + this.Name());
 

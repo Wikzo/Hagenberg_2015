@@ -59,7 +59,7 @@ public class PhysicsComponent extends Component
 		// https://stackoverflow.com/questions/33759145/libgdx-how-do-i-multiply-vector-with-scalar-without-modifing-original-vector?
 		ApplyForces(deltaTime);
 
-		DebugSystem.AddDebugText("Euler: " + _eulerMethod + "\nMass: " + Float.toString(_mass), Transform.Position);
+		//DebugSystem.AddDebugText("Euler: " + _eulerMethod + "\nMass: " + Float.toString(_mass), Transform.Position);
 
 	}
 
@@ -92,7 +92,7 @@ public class PhysicsComponent extends Component
 	{
 		// https://stackoverflow.com/questions/33759145/libgdx-how-do-i-multiply-vector-with-scalar-without-modifing-original-vector?noredirect=1#comment55292813_33759145
 
-		switch (_eulerMethod)
+		/*switch (_eulerMethod)
 		{
 		case Explicit:
 			// explicit Euler (inaccurate)

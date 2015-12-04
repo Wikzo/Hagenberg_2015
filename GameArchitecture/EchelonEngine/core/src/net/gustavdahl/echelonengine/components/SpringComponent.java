@@ -28,7 +28,7 @@ public class SpringComponent extends PhysicsComponent implements IDebugRenderabl
 		if (_body == null)
 			System.out.println("ERROR - need to have a PhysicsComponent for Spring to work!");
 		
-		_anchor.set(Transform.Position);
+		//_anchor.set(Transform.Position);
 		
 		_velocity = _body._velocity;
 	}
@@ -36,10 +36,10 @@ public class SpringComponent extends PhysicsComponent implements IDebugRenderabl
 	@Override
 	public void Update(float deltaTime)
 	{		
-		_body.AddForce(HookeSpring());
+		//_body.AddForce(HookeSpring());
 	}
 
-	Vector2 HookeSpring()
+	/*Vector2 HookeSpring()
 	{
 		_tempPosition.set(Transform.Position);
 		Vector2 displacement = _tempPosition.sub(_anchor);
@@ -49,7 +49,7 @@ public class SpringComponent extends PhysicsComponent implements IDebugRenderabl
 		damp.add(_velocity.cpy().scl(-_dampConstant));
 
 		return damp;
-	}
+	}*/
 	
 	@Override
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
@@ -62,7 +62,7 @@ public class SpringComponent extends PhysicsComponent implements IDebugRenderabl
 		
 		shapeRenderer.setColor(new Color(0,1,0,0.8f));
 
-		shapeRenderer.rectLine(_anchor, Transform.Position, 2);
+		//shapeRenderer.rectLine(_anchor, Transform.Position, 2);
 
 		shapeRenderer.end();
 

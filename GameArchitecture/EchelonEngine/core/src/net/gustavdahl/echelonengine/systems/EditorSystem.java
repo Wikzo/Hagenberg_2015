@@ -81,15 +81,15 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 			
 			IEditorActionState currentActionState = _editorActionStateManager.GetCurrentActionState();
 			
-			String data = "Position: " + e.Owner.GetTransform().Position.toString();
+			String data = "Position: " + e.Owner.GetPositionString();
 			
 			if (currentActionState instanceof EditorRotateActionState)
 				data = "Rotation: " + Float.toString(e.Owner.GetTransform().Rotation);
 			else if (currentActionState instanceof EditorScaleActionState)
-				data = "Scale: " + e.Owner.GetTransform().Scale.toString();
+				data = "Scale: " + e.Owner.GetScaleString();
 					
 			if (e.Owner.CurrentlySelectedByEditor)
-				DebugSystem.AddDebugText("\n" + e.Owner.Name + ":\n" + data, e.Owner.GetTransform().Position);
+				DebugSystem.AddDebugText("\n" + e.Owner.Name + ":\n" + data, new Vector2(e.Owner.GetPositionX(), e.Owner.GetPositionY()));
 
 		}
 

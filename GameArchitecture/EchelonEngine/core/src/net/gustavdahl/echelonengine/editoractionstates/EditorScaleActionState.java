@@ -21,7 +21,7 @@ public class EditorScaleActionState implements IEditorActionState
 			
 			Vector2 m = new Vector2(newY*2f, newY*2f);
 			//System.out.println(m);
-			editor.GetSelectedEntities().get(i).SetScale(m);
+			editor.GetSelectedEntities().get(i).SetScale(m.x, m.y);
 		}
 		
 	}

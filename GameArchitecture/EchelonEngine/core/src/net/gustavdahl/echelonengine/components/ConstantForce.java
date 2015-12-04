@@ -29,7 +29,8 @@ public class ConstantForce extends PhysicsComponent
 	
 	public void Move(float deltaTime)
 	{
-		Transform.Position.mulAdd(_velocity, deltaTime);
+		Transform.PositionX += _velocity.x * deltaTime;
+		Transform.PositionY += _velocity.y * deltaTime;
 		
 	}
 
