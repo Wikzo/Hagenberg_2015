@@ -19,8 +19,6 @@ public class PhysicsComponent extends Component
 {
 
 	final public static Vector2 GravityForce = new Vector2(0f, -90.82f);
-
-	private Vector2 _tempPosition = Vector2.Zero;
 	protected float _mass = 2f;
 	private Vector2 _force = new Vector2();
 	private List<Vector2> _constantForces = new ArrayList<Vector2>();
@@ -100,14 +98,8 @@ public class PhysicsComponent extends Component
 		case Explicit:
 			// explicit Euler (inaccurate)
 
-			// temp position
-			//_tempPosition.set(Transform.Position);
-
-			
-			
-			
 			// apply old velocity to new position
-			//_tempPosition.mulAdd(_velocity, deltaTime);
+
 			tempX += _velocity.x * deltaTime;
 			tempY += _velocity.y * deltaTime;
 			
@@ -118,31 +110,39 @@ public class PhysicsComponent extends Component
 			_velocity = _velocity.add(_acceleration.scl(deltaTime));
 
 			// apply new position
-			//Transform.Position.set(_tempPosition);
+
 			Transform.PositionX = tempX;
 			Transform.PositionY = tempY;
+			
 			break;
 		case Midpoint:
 			// midpoint euler (more accurate/stable, little more expensive)
-			//_tempPosition.set(Transform.Position);
 			
-			
-			// TODO: make Midpoint Euler
-			/*Vector2 halfPosition = new Vector2(0,0);
-			halfPosition.set(Transform.Position);
-			halfPosition.mulAdd(_velocity, deltaTime/2);
-			
-			Vector2 halfVelocity = new Vector2(1,1);
-			halfVelocity.mulAdd(_velocity, deltaTime/2f);
-			
-			_acceleration = ComputeAllForces();
-			halfPosition.scl(_acceleration);
-			
-			Vector2 fullVelocity = new Vector2(halfVelocity.x, halfVelocity.y);
-			fullVelocity.scl(deltaTime);
-			
-			Transform.Position.mulAdd(Transform.Position, fullVelocity);
-			//_velocity*/
+			 // midpoint euler (more accurate/stable, little more expensive)
+
+			// UNITY WAY:
+            /*var halfPosition = transform.position + Time.fixedDeltaTime/2.0f*velocity;
+            var halfVelocity = velocity + Time.fixedDeltaTime/2.0f*ComputeForce(transform.position)/Mass;
+
+            transform.position = transform.position + Time.fixedDeltaTime*halfVelocity;
+            velocity = velocity + Time.fixedDeltaTime*ComputeForce(halfPosition)/Mass;*/
+            
+			// TODO: needs to be moved to SpringComponent or similar
+			/*
+            float halfPositionX, halfPositionY;
+            halfPositionX = Transform.PositionX + deltaTime/2f * _velocity.x;
+            halfPositionY = Transform.PositionY + deltaTime/2f * _velocity.y;
+            
+            float halfVelocityX, halfVelocityY;
+            halfVelocityX = _velocity.x + deltaTime/2f * ComputeForce(Transform.PositionX) / _mass;
+            halfVelocityY = _velocity.Y + deltaTime/2f * ComputeForce(Transform.PositionY) / _mass;
+            
+            Transform.PositionX = Transform.PositionX + deltaTime * halfVelocityX;
+            Transform.PositionY = Transform.PositionX + deltaTime * halfVelocityY;
+            
+            _velocity.x = _velocity.x + deltaTime * ComputeForce(halfPositionX) / _mass;
+            _velocity.y = _velocity.y + deltaTime * ComputeForce(halfPositionY) / _mass;
+            */
 			
 			break;
 		case Modified:
