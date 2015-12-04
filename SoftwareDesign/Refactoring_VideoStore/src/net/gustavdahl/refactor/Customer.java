@@ -25,36 +25,17 @@ public class Customer
 
 	public String makeInvoice()
 	{
-		int totalInCents = 0; // prices in Euro cent
+		int totalInCents = 0;
 		int bonus = 0;
 		StringBuffer sb = new StringBuffer("Customer: " + name + "\n");
 		for (Rental r : rentals)
 		{
-			// determine amounts for each line
-			int priceInCents = 0;
-			int kind = r.getVideo().getKind();
-			int days = r.getDays();
-			switch (kind)
-			{
-			case Video.REGULAR:
-				priceInCents += 200;
-				if (days > 2)
-					priceInCents += (days - 2) * 150;
-				break;
-			case Video.NEW_RELEASE:
-				priceInCents += days * 300;
-				break;
-			case Video.CHILDRENS:
-				priceInCents += 150;
-				if (days > 3)
-					priceInCents += (days - 3) * 150;
-				break;
-			}
+			int priceInCents = computeChargeInCents(r);
 
 			// add bonus
 			bonus++;
 			// add bonus for a two day new release rental
-			if (kind == Video.NEW_RELEASE && days > 1)
+			if (r.getVideo().getKind() == Video.NEW_RELEASE && r.getDays() > 1)
 				bonus++;
 
 			// show figures for this rental
@@ -68,6 +49,30 @@ public class Customer
 		sb.append("\nBonus:\t" + bonus);
 
 		return sb.toString();
+	}
+
+	private int computeChargeInCents(Rental r)
+	{
+		// determine amounts for each line
+		int result = 0;
+		int days = r.getDays();
+		switch (r.getVideo().getKind())
+		{
+		case Video.REGULAR:
+			result += 200;
+			if (days > 2)
+				result += (days - 2) * 150;
+			break;
+		case Video.NEW_RELEASE:
+			result += days * 300;
+			break;
+		case Video.CHILDRENS:
+			result += 150;
+			if (days > 3)
+				result += (days - 3) * 150;
+			break;
+		}
+		return result;
 	}
 
 	private String centsToPriceString(int cents)
