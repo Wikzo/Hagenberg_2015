@@ -5,7 +5,7 @@ import java.util.List;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.IUpdatable;
-import net.gustavdahl.echelonengine.components.PhysicsComponent;
+import net.gustavdahl.echelonengine.components.PhysicsBody;
 
 public class GameLoopSystem extends BaseSystem
 {	

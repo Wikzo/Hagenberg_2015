@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
-public class ConstantForce extends PhysicsComponent
+public class ConstantForce extends PhysicsBody
 {
 	private Vector2 _velocity;
 	private float _angularVelocity;

@@ -131,7 +131,6 @@ public class ColliderSystem extends BaseSystem
 		{
 			succesfullyAdded = true;
 			_colliderList.add((Collider) c);
-			System.out.println(c.Name() + " was added to ColliderSystem");
 
 		} else
 			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName() + " is not a Collider!!");

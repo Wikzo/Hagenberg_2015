@@ -128,7 +128,8 @@ public class Entity
 			return;
 		}*/
 		_components.add(c);
-		System.out.println("[" + c.Name() + " added to entity]");
+		System.out.println(String.format("%s: [%s added]", this.Name, c.Name()));
+		
 		c.Enable(this, systemName);
 	}
 

@@ -10,51 +10,55 @@ public abstract class Component implements IComponent, IUpdatable
 
 	public Entity Owner;
 	public boolean CanHaveMultipleComponentsOfThisType;
-	
+
 	protected boolean _isActive;
 	protected boolean _hasBeenInitialized;
-	
+
 	protected TransFormComponent Transform;
-	
+
 	public Class DefaultSystem = PhysicsSystem.class;
-	
+
 	public int UpdatePriority = 1;
-	
+
 	public Component()
 	{
 		CanHaveMultipleComponentsOfThisType = true;
-		
-		System.out.println("[" + Name() + " created]");
+
+		//System.out.println("[" + Name() + " created]");
 	}
-	
+
 	public void Enable(Entity owner, Class systemClass)
 	{
 		this.Owner = owner;
-		
-		System.out.println("[" + Name() + " enabled]");
+
+		// System.out.println("[" + Name() + " enabled]");
 		Initialize();
-		
-		
+
 		_hasBeenInitialized = true;
 		_isActive = true;
-		
+
 		if (systemClass != null)
-			ServiceLocator.GetSystem(systemClass).AddToSystem(this);
-		
+			AddToSystem(systemClass);
+
 	}
-	
-	
+
 	public Component AddToSystem(Class systemClass)
 	{
 		if (systemClass != null)
-			ServiceLocator.GetSystem(systemClass).AddToSystem(this);
-		
+		{
+			System.out.println(String.format("%s: [%s was added to %s: %s]",
+					this.Owner.Name,
+					this.Name(),
+					systemClass.getSimpleName(),
+					ServiceLocator.GetSystem(systemClass).AddToSystem(this)));
+		}
+
 		return this;
 	}
-	
+
 	public void Reset()
 	{
-		
+
 	}
 
 	public void Destroy()
@@ -64,7 +68,6 @@ public abstract class Component implements IComponent, IUpdatable
 		System.out.println("[" + Name() + " destroyed]");
 	}
 
-
 	public abstract void Update(float deltaTime);
 
 	public String Name()
@@ -72,7 +75,6 @@ public abstract class Component implements IComponent, IUpdatable
 		return this.getClass().getSimpleName();
 	}
 
-	
 	public void Initialize() // this is for internal stuff for this class only
 	{
 		GetExternalReferences();
@@ -81,29 +83,28 @@ public abstract class Component implements IComponent, IUpdatable
 	public void GetExternalReferences()
 	{
 		Transform = Owner.GetTransform();
-		
+
 	}
 
 	public void SetActive(boolean active)
 	{
 		_isActive = active;
 	}
-	
+
 	public boolean IsActive()
 	{
 		return _isActive;
 	}
-	
+
 	public boolean HasBeenInitialized()
 	{
 		return _hasBeenInitialized;
 	}
-	
+
 	@Override
 	public String toString()
 	{
 		return this.Name();
 	}
-
 
 }

@@ -12,7 +12,7 @@ import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.IRenderable;
-import net.gustavdahl.echelonengine.components.PhysicsComponent;
+import net.gustavdahl.echelonengine.components.PhysicsBody;
 
 public class PhysicsSystem extends BaseSystem
 {
@@ -74,10 +74,10 @@ public class PhysicsSystem extends BaseSystem
 	{
 		boolean succesfullyAdded = false;
 
-		if (c instanceof PhysicsComponent)
+		if (c instanceof PhysicsBody)
 		{
 			succesfullyAdded = true;
-			_componentList.add((PhysicsComponent) c);
+			_componentList.add((PhysicsBody) c);
 
 		} else
 			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName()

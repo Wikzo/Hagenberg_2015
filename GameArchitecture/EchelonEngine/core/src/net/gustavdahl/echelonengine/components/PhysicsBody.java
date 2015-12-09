@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
-public class PhysicsComponent extends Component
+public class PhysicsBody extends Component
 {
 
 	final public static Vector2 GravityForce = new Vector2(0f, -90.82f);
@@ -21,19 +21,19 @@ public class PhysicsComponent extends Component
 
 	protected EulerMethod _eulerMethod = EulerMethod.Explicit;
 
-	public PhysicsComponent SetMass(float mass)
+	public PhysicsBody SetMass(float mass)
 	{
 		_mass = mass;
 		return this;
 	}
 
-	public PhysicsComponent SetEulerMethod(EulerMethod method)
+	public PhysicsBody SetEulerMethod(EulerMethod method)
 	{
 		this._eulerMethod = method;
 		return this;
 	}
 
-	public PhysicsComponent()
+	public PhysicsBody()
 	{
 		DefaultSystem = PhysicsSystem.class;
 		_velocity = new Vector2(0f, 0f);

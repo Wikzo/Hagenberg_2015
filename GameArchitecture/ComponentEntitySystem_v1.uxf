@@ -142,7 +142,7 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1730</x>
+      <x>1900</x>
       <y>1840</y>
       <w>130</w>
       <h>80</h>
@@ -173,20 +173,18 @@ bg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1410</x>
+      <x>1380</x>
       <y>1670</y>
       <w>210</w>
       <h>150</h>
     </coordinates>
-    <panel_attributes>PhysicsBodyComponent
+    <panel_attributes>PhysicsBody
 --
 Mass : float
-Gravity : float
 Velocity : Vector2
 Drag : float
-UseGravity : bool
-MoveConstrains : Vector2
-RotationConstrains : Vector2
+MoveConstraints : Vector2
+RotationConstraints : Vector2
 
 
 bg=orange</panel_attributes>
@@ -195,8 +193,8 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1630</x>
-      <y>1670</y>
+      <x>1820</x>
+      <y>1660</y>
       <w>260</w>
       <h>150</h>
     </coordinates>
@@ -214,8 +212,8 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1580</x>
-      <y>1840</y>
+      <x>1750</x>
+      <y>1830</y>
       <w>140</w>
       <h>80</h>
     </coordinates>
@@ -229,47 +227,29 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1650</x>
-      <y>1810</y>
-      <w>140</w>
+      <x>1820</x>
+      <y>1800</y>
+      <w>160</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>120.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>140.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1760</x>
-      <y>1810</y>
-      <w>60</w>
-      <h>50</h>
+      <x>1950</x>
+      <y>1800</y>
+      <w>40</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;20.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2390</x>
-      <y>1490</y>
-      <w>210</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>MoveComponent
---
-Velocity : Vector2
-Acceleration : float
---
-Translate()
-
-bg=orange</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1870</x>
+      <x>2070</x>
       <y>1840</y>
       <w>120</w>
       <h>80</h>
@@ -284,13 +264,13 @@ bg=orange</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1760</x>
-      <y>1810</y>
-      <w>200</w>
-      <h>50</h>
+      <x>1950</x>
+      <y>1800</y>
+      <w>210</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;190.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -469,41 +449,30 @@ layer=-1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1510</x>
+      <x>1480</x>
       <y>1370</y>
-      <w>70</w>
+      <w>100</w>
       <h>320</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>50.0;10.0;10.0;300.0</additional_attributes>
+    <additional_attributes>80.0;10.0;10.0;300.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1550</x>
       <y>1370</y>
-      <w>230</w>
-      <h>320</h>
+      <w>420</w>
+      <h>310</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;210.0;300.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1550</x>
-      <y>1370</y>
-      <w>960</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;940.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;400.0;290.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2140</x>
-      <y>1680</y>
+      <x>2330</x>
+      <y>1700</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -525,17 +494,17 @@ layer=1</panel_attributes>
     <coordinates>
       <x>1540</x>
       <y>1370</y>
-      <w>710</w>
-      <h>330</h>
+      <w>900</w>
+      <h>350</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;690.0;310.0</additional_attributes>
+    <additional_attributes>10.0;10.0;880.0;330.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2370</x>
-      <y>1670</y>
+      <x>2400</x>
+      <y>1530</y>
       <w>210</w>
       <h>150</h>
     </coordinates>
@@ -579,11 +548,11 @@ layer=1</panel_attributes>
     <coordinates>
       <x>1550</x>
       <y>1370</y>
-      <w>950</w>
-      <h>320</h>
+      <w>980</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;930.0;300.0</additional_attributes>
+    <additional_attributes>10.0;10.0;960.0;160.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -842,8 +811,8 @@ m1=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1900</x>
-      <y>1670</y>
+      <x>2110</x>
+      <y>1680</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -863,11 +832,11 @@ bg=orange</panel_attributes>
     <coordinates>
       <x>1550</x>
       <y>1370</y>
-      <w>460</w>
-      <h>320</h>
+      <w>670</w>
+      <h>330</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;440.0;300.0</additional_attributes>
+    <additional_attributes>10.0;10.0;650.0;310.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -942,8 +911,8 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1610</x>
-      <y>1990</y>
+      <x>1590</x>
+      <y>1960</y>
       <w>210</w>
       <h>150</h>
     </coordinates>
@@ -954,17 +923,6 @@ AngularVelocity : float
 
 bg=orange</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1510</x>
-      <y>1810</y>
-      <w>230</w>
-      <h>200</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0;70.0;120.0;70.0;160.0;210.0;160.0;210.0;180.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -1149,5 +1107,98 @@ SystemName : string
 --
 bg=blue</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1600</x>
+      <y>1670</y>
+      <w>210</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>/Force/
+--
+PhysicsBody Body
+--
+AddForce(Vector2 f)
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1830</x>
+      <y>1960</y>
+      <w>210</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>SpringForce
+--
+Velocity : Vector2
+AngularVelocity : float
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2050</x>
+      <y>1970</y>
+      <w>210</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>FrictionForce
+--
+Velocity : Vector2
+AngularVelocity : float
+
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1550</x>
+      <y>1370</y>
+      <w>170</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1680</x>
+      <y>1810</y>
+      <w>30</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1680</x>
+      <y>1810</y>
+      <w>280</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0;260.0;130.0;260.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1680</x>
+      <y>1810</y>
+      <w>500</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0;480.0;130.0;480.0;160.0</additional_attributes>
   </element>
 </diagram>

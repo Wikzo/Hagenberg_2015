@@ -19,7 +19,7 @@ import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.DebugComponent;
 import net.gustavdahl.echelonengine.components.IDebugRenderable;
 import net.gustavdahl.echelonengine.components.IRenderable;
-import net.gustavdahl.echelonengine.components.PhysicsComponent;
+import net.gustavdahl.echelonengine.components.PhysicsBody;
 
 public class DebugSystem extends BaseSystem
 {
@@ -128,7 +128,6 @@ public class DebugSystem extends BaseSystem
 		{
 			succesfullyAdded = true;
 			_debugRenderList.add((IDebugRenderable) c);
-			System.out.println(c.Name() + " was added to DebugSystem");
 
 		} else
 			throw new RuntimeException(

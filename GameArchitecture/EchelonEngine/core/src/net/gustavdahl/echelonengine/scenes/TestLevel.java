@@ -35,7 +35,8 @@ import net.gustavdahl.echelonengine.components.DebugComponent;
 import net.gustavdahl.echelonengine.components.EditorComponent;
 import net.gustavdahl.echelonengine.components.EulerMethod;
 import net.gustavdahl.echelonengine.components.IUpdatable;
-import net.gustavdahl.echelonengine.components.PhysicsComponent;
+import net.gustavdahl.echelonengine.components.PhysicsBody;
+import net.gustavdahl.echelonengine.components.SpringComponen_old;
 import net.gustavdahl.echelonengine.components.SpringComponent;
 import net.gustavdahl.echelonengine.components.SpriteAnimator;
 import net.gustavdahl.echelonengine.components.SpriteComponent;
@@ -122,18 +123,19 @@ public class TestLevel implements Screen, IUpdatable
 			// falling down, not static
 			//if (i == 0)
 			{
-				e.AddComponent(new PhysicsComponent());
+				e.AddComponent(new PhysicsBody());
 				
 				Random r = new Random();
 				float mass = r.nextFloat() * 100;
 				float damp = r.nextFloat() * 5;
 				
 				// add gravity
-				e.GetComponent(PhysicsComponent.class).AddConstantForce(PhysicsComponent.GravityForce);
-				e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.values()[i]);
+				PhysicsBody body = e.GetComponent(PhysicsBody.class);
+				body.AddConstantForce(PhysicsBody.GravityForce);
+				body.SetMass(2*(i+1)).SetEulerMethod(EulerMethod.values()[i]);
 				//e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.Explicit);
 				
-				e.AddComponent(new SpringComponent().AddToSystem(DebugSystem.class));
+				//e.AddComponent(new SpringComponent(body));
 				
 				
 			}
@@ -246,7 +248,7 @@ public class TestLevel implements Screen, IUpdatable
 			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
 			
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
-			e.AddComponent(new PhysicsComponent());
+			e.AddComponent(new PhysicsBody());
 			
 		}
 
