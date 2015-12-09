@@ -13,23 +13,18 @@ public class PrintPrimes
 		int PAGENUMBER = 1;
 		int PAGEOFFSET = 0;
 		int ROWOFFSET;
-		boolean JPRIME;
+		
 
 		primeNumbers[0] = 2;
-		int K = 1;
-		int J = 1;
-		while (K < numberOfPrimes)
+		int primeCount = 1;
+		int candidate = 1;
+		
+		// MAKE FOR LOOP
+		while (primeCount < numberOfPrimes)
 		{
-			do
-			{
-				J = J + 2;
-				int I = 0;
-				while (I < K && J % primeNumbers[I] > 0)
-					I++;
-				JPRIME = I == K;
-			} while (!JPRIME);
-			primeNumbers[K] = J;
-			K = K + 1;
+			candidate = GetNextPrime(primeNumbers, primeCount, candidate);
+			primeNumbers[primeCount] = candidate;
+			primeCount = primeCount + 1;
 		}
 
 		while (PAGEOFFSET < numberOfPrimes)
@@ -47,5 +42,19 @@ public class PrintPrimes
 			PAGENUMBER = PAGENUMBER + 1;
 			PAGEOFFSET = PAGEOFFSET + rowsPerPage * numberOfColumns;
 		}
+	}
+
+	private static int GetNextPrime(int[] primeNumbers, int K, int J)
+	{
+		boolean isPrime;
+		do
+		{
+			J = J + 2;
+			int I = 0;
+			while (I < K && J % primeNumbers[I] > 0)
+				I++;
+			isPrime = I == K;
+		} while (!isPrime);
+		return J;
 	}
 }
