@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 
+import net.gustavdahl.echelonengine.systems.DebugSystem;
+
 public class SpringComponent extends ForceComponent implements IDebugRenderable
 {
 
@@ -43,6 +45,12 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 	@Override
 	protected Vector2 CalculateForce()
 	{
+		
+		DebugSystem.AddDebugText("Euler: " + _body._eulerMethod + "\nMass: " + Float.toString(_body._mass)
+		+ "\nDamping: " + _dampConstant
+		+ "\nSpringConstant: " + _springConstant,
+		new Vector2(Transform.PositionX, Transform.PositionY));
+		
 		_dampX = _body._velocity.x * _dampConstant;
 		_dampY = _body._velocity.y * _dampConstant;
 

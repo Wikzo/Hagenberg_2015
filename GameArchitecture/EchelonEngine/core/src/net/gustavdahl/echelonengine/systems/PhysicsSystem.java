@@ -6,21 +6,20 @@ import java.util.concurrent.TimeUnit;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import net.gustavdahl.echelonengine.components.Component;
+import net.gustavdahl.echelonengine.components.IPhysics;
 import net.gustavdahl.echelonengine.components.IRenderable;
 import net.gustavdahl.echelonengine.components.PhysicsBody;
 
 public class PhysicsSystem extends BaseSystem
 {
 
-	public PhysicsSystem()
-	{
-		super();
-	}
+	
 
 	final double _fixedTimeStep = 0.016d;
 	double _oldTime = 0;
@@ -28,12 +27,21 @@ public class PhysicsSystem extends BaseSystem
 	double _frameTime;
 	double _accumulator = 0;
 	double _frameTimeInSeconds = 0;
+	
+	private List<IPhysics> _physicsList;
+
+	public PhysicsSystem()
+	{
+		super();
+		_physicsList = new ArrayList<IPhysics>();
+		
+	}
 
 	void VariedUpdate(float deltaTime)
 	{
-		for (int i = 0; i < _componentList.size(); i++)
+		for (int i = 0; i < _physicsList.size(); i++)
 		{
-			_componentList.get(i).Update(deltaTime);
+			_physicsList.get(i).Update(deltaTime);
 		}
 	}
 	
@@ -74,10 +82,10 @@ public class PhysicsSystem extends BaseSystem
 	{
 		boolean succesfullyAdded = false;
 
-		if (c instanceof PhysicsBody)
+		if (c instanceof IPhysics)
 		{
 			succesfullyAdded = true;
-			_componentList.add((PhysicsBody) c);
+			_physicsList.add((IPhysics) c);
 
 		} else
 			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName()

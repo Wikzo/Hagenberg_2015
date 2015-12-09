@@ -135,7 +135,10 @@ public class TestLevel implements Screen, IUpdatable
 				body.SetMass(2*(i+1)).SetEulerMethod(EulerMethod.values()[i]);
 				//e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.Explicit);
 				
-				//e.AddComponent(new SpringComponent(body));
+				SpringComponent spring = new SpringComponent(body);
+				e.AddComponent(spring);
+				spring.SetSpringConstant((i+1)*2);
+				spring.AddToSystem(DebugSystem.class);
 				
 				
 			}

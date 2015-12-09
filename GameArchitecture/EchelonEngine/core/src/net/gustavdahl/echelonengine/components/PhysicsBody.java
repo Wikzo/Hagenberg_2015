@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
-public class PhysicsBody extends Component
+public class PhysicsBody extends Component implements IPhysics
 {
 
 	final public static Vector2 GravityForce = new Vector2(0f, -90.82f);
@@ -44,6 +44,7 @@ public class PhysicsBody extends Component
 	@Override
 	public void Update(float deltaTime)
 	{
+		System.out.println("updat");
 		// https://stackoverflow.com/questions/33759145/libgdx-how-do-i-multiply-vector-with-scalar-without-modifing-original-vector?
 		ApplyForces(deltaTime);
 

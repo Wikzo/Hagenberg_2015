@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
-public abstract class ForceComponent extends Component
+public abstract class ForceComponent extends Component implements IPhysics
 {
 	protected PhysicsBody _body;
 	
