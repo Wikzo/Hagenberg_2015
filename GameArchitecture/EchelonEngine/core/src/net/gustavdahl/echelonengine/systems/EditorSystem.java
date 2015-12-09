@@ -90,6 +90,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 					
 			if (e.Owner.CurrentlySelectedByEditor)
 				DebugSystem.AddDebugText("\n" + e.Owner.Name + ":\n" + data, new Vector2(e.Owner.GetPositionX(), e.Owner.GetPositionY()));
+				//DebugSystem.AddDebugText("\n" + e.Owner.Name + ":\n" + e.Owner.GetAllComponents(), new Vector2(e.Owner.GetPositionX(), e.Owner.GetPositionY()));
 
 		}
 

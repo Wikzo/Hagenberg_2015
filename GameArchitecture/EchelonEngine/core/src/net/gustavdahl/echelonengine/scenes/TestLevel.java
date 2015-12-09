@@ -75,8 +75,8 @@ public class TestLevel implements Screen, IUpdatable
 		create();
 	}
 
-	DebugSystem _debugSystem ;
-	
+	DebugSystem _debugSystem;
+
 	void InitializeSystems(ServiceLocator serviceLocator)
 	{
 		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
@@ -98,10 +98,10 @@ public class TestLevel implements Screen, IUpdatable
 	}
 
 	TextureRegion[] r;
-	
+
 	public void create()
 	{
-		
+
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
 		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
@@ -110,89 +110,86 @@ public class TestLevel implements Screen, IUpdatable
 		{
 			Entity e = new Entity("Man_" + i);
 			e.SetPosition(300 + i * 170, 300);
-			
-			e.AddComponent(new SpriteComponent(r[0])
-					.SetOriginCenter()
-					.Color(Color.WHITE), RenderSystem.class);
-			
+
+			e.AddComponent(new SpriteComponent(r[0]).SetOriginCenter().Color(Color.WHITE), RenderSystem.class);
+
 			e.AddComponent(new CircleCollider(50f), ColliderSystem.class);
 			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
-			
+
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
-			
+
 			// falling down, not static
-			//if (i == 0)
+			// if (i == 0)
 			{
 				e.AddComponent(new PhysicsBody());
-				
+
 				Random r = new Random();
 				float mass = r.nextFloat() * 100;
 				float damp = r.nextFloat() * 5;
-				
+
 				// add gravity
 				PhysicsBody body = e.GetComponent(PhysicsBody.class);
 				body.AddConstantForce(PhysicsBody.GravityForce);
-				body.SetMass(2*(i+1)).SetEulerMethod(EulerMethod.values()[i]);
-				//e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.Explicit);
-				
+				body.SetMass(2 * (i + 1)).SetEulerMethod(EulerMethod.values()[i]);
+				// e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.Explicit);
+
 				SpringComponent spring = new SpringComponent(body);
 				e.AddComponent(spring);
-				spring.SetSpringConstant((i+1)*2);
+				spring.SetSpringConstant((i + 1) * 2);
 				spring.AddToSystem(DebugSystem.class);
-				
-				
+
 			}
-			
+
 		}
-		
 
 		_entity1 = new Entity("RunningMan");
-		_entity2 = new Entity("RunningMan2");
-		//_entity3 = new Entity("StaticMan3");
-		_entity1.SetPosition(100,200);
-		_entity2.SetPosition(200,400);
-		//_entity3.SetPosition(new Vector2(300,300));
 
-		//_entity1.AddComponent(new PhysicsComponent());
+		_entity2 = new Entity("RunningMan2");
+		// _entity3 = new Entity("StaticMan3");
+		_entity1.SetPosition(100, 200);
+		_entity2.SetPosition(200, 400);
+		// _entity3.SetPosition(new Vector2(300,300));
+
+		// _entity1.AddComponent(new PhysicsComponent());
+
+
 
 		// sprite animation
 		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
 				// .Offset(100, 0)
 				.SetOriginCenter(), RenderSystem.class);
-		
+
 		_entity2.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
 				// .Offset(100, 0)
 				.SetOriginCenter(), RenderSystem.class);
 
-
 		_entity1.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
-				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
-				ColliderSystem.class);
-		
+				_entity1.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
+
 		_entity2.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
-				_entity1.GetComponent(SpriteComponent.class).GetHeight()),
-				ColliderSystem.class);
-		
+				_entity1.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
+
 		_entity1.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
 		_entity2.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		
+
 		_entity1.AddComponent(new EditorComponent(), EditorSystem.class);
 		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
-		
-		
-		/*Entity floor = new Entity("Floor");
-		floor.AddComponent(new SpriteComponent(new TextureRegion(_serviceLocator.AssetManager.Floor)));
-		floor.SetPosition(new Vector2(400,50));
-		floor.AddComponent(new BoxCollider(floor.GetComponent(SpriteComponent.class).GetWidth(),
-				floor.GetComponent(SpriteComponent.class).GetHeight()).SetStatic(true));
-		floor.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		floor.AddComponent(new EditorComponent());*/
-		
-		//_serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
+
+		/*
+		 * Entity floor = new Entity("Floor"); floor.AddComponent(new
+		 * SpriteComponent(new
+		 * TextureRegion(_serviceLocator.AssetManager.Floor)));
+		 * floor.SetPosition(new Vector2(400,50)); floor.AddComponent(new
+		 * BoxCollider(floor.GetComponent(SpriteComponent.class).GetWidth(),
+		 * floor.GetComponent(SpriteComponent.class).GetHeight()).SetStatic(true
+		 * ));
+		 * floor.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
+		 * floor.AddComponent(new EditorComponent());
+		 */
+
+		// _serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
 	}
 
-
-	
 	@Override
 	public void render(float delta)
 	{
@@ -201,14 +198,12 @@ public class TestLevel implements Screen, IUpdatable
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		_camera.update();
-		
-
 
 		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(_camera.combined);
 		ServiceLocator.AssetManager.ShapeRenderer.setProjectionMatrix(_camera.combined);
 
 		_debugSystem.GetCamera(_camera);
-		
+
 		_serviceLocator.UpdateSystems(delta);
 
 		// TODO: remember to apply stage viewport for camera
@@ -223,40 +218,58 @@ public class TestLevel implements Screen, IUpdatable
 
 	private float _timer;
 	private int _entityNumber;
+
 	@Override
 	public void Update(float deltaTime)
 	{
+		// duplicate an entity (not working correctly yet!)
+		if (Gdx.input.isKeyJustPressed(Keys.F2))
+		{
+			Entity e = _entity1.DuplicateEntity();
+			// e.AddComponent(new TransFormComponent());
+			e.SetPosition(_entity1.GetPositionX(), _entity1.GetPositionY());
+			e.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.PINK)
+					// .Offset(100, 0)
+					.SetOriginCenter(), RenderSystem.class);
 
-		DebugSystem.AddDebugText("Number of entities: " + _entityNumber);
+			e.AddComponent(new BoxCollider(e.GetComponent(SpriteComponent.class).GetWidth(),
+					e.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
+
+			e.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
+
+			e.AddComponent(new EditorComponent(), EditorSystem.class);
+
+			// _entity1.SetPosition(_entity1.GetPositionX() + 50, 20);
+		}
+
+		DebugSystem.AddDebugText("Number of entities: " + ServiceLocator.EntityManager.GetEntityCount());
 		DebugSystem.AddDebugText("FPS: " + Gdx.graphics.getFramesPerSecond());
 
-		//_timer+= deltaTime;
-		
+		// _timer+= deltaTime;
+
 		if (_timer > 0.01)
 		{
 			_timer = 0;
 			_entityNumber++;
-			
+
 			float x = MathUtils.random(Gdx.graphics.getWidth() + 800);
 			float y = MathUtils.random(Gdx.graphics.getHeight() + 800);
-			
+
 			Entity e = new Entity("StressTest_" + _entityNumber);
-			e.SetPosition(x+20,y+20);
-			
-			e.AddComponent(new SpriteComponent(r[0])
-					.SetOriginCenter()
-					.Color(Color.WHITE), RenderSystem.class);
-			
+			e.SetPosition(x + 20, y + 20);
+
+			e.AddComponent(new SpriteComponent(r[0]).SetOriginCenter().Color(Color.WHITE), RenderSystem.class);
+
 			e.AddComponent(new CircleCollider(50f).SetStatic(true), ColliderSystem.class);
 			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
-			
+
 			e.AddComponent(new EditorComponent(), EditorSystem.class);
 			e.AddComponent(new PhysicsBody());
-			
+
 		}
 
 	}
-	
+
 	@Override
 	public void dispose()
 	{

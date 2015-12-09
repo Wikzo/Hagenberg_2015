@@ -44,7 +44,6 @@ public class PhysicsBody extends Component implements IPhysics
 	@Override
 	public void Update(float deltaTime)
 	{
-		System.out.println("updat");
 		// https://stackoverflow.com/questions/33759145/libgdx-how-do-i-multiply-vector-with-scalar-without-modifing-original-vector?
 		ApplyForces(deltaTime);
 

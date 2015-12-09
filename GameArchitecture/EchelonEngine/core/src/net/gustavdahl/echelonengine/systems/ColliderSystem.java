@@ -69,8 +69,8 @@ public class ColliderSystem extends BaseSystem
 		DebugSystem.AddDebugText(collisionCheckType + " checks: " + Math.pow(list.size(), 2), new Vector2(300, 370));
 
 		// potential collision
-		for (int i = 0; i < list.size(); i++)
-			list.get(i).SetCollisionState(CollisionState.PotentialCollision);
+		//for (int i = 0; i < list.size(); i++)
+			//list.get(i).SetCollisionState(CollisionState.PotentialCollision);
 
 		// doing the pair-wise collision check
 		for (int i = 0; i < list.size(); i++)
@@ -106,8 +106,8 @@ public class ColliderSystem extends BaseSystem
 	
 	void CalculateCollisions()
 	{
-		SortAndPrune();
-		// BruteForceCollisionCheck(_colliderList, "BruteForce");
+		//SortAndPrune();
+		 BruteForceCollisionCheck(_colliderList, "BruteForce");
 	}
 	
 	

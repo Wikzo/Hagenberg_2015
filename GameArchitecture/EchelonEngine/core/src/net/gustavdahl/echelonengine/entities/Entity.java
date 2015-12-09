@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.badlogic.gdx.graphics.g3d.utils.BaseAnimationController.Transform;
 import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.echelonengine.components.Component;
@@ -14,6 +15,7 @@ import net.gustavdahl.echelonengine.components.TransFormComponent;
 import net.gustavdahl.echelonengine.systems.BaseSystem;
 import net.gustavdahl.echelonengine.systems.GameLoopSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
+import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class Entity
 {
@@ -24,8 +26,9 @@ public class Entity
 
 	private boolean _isActive;
 	private Entity _parent;
-	
-	public boolean CurrentlySelectedByEditor; // TODO: move this to EditorComponent
+
+	public boolean CurrentlySelectedByEditor; // TODO: move this to
+												// EditorComponent
 
 	public Entity(String name)
 	{
@@ -39,8 +42,12 @@ public class Entity
 		_components.add(_transform);
 
 		CurrentlySelectedByEditor = false;
-		
+
 		_isActive = true;
+
+		ServiceLocator.EntityManager.AddEntity(this);
+
+		System.out.println("*** " + this.Name + " created! ***");
 	}
 
 	public void SetActive(boolean active)
@@ -121,15 +128,18 @@ public class Entity
 	{
 		// System.out.println(GetComponent(c.getClass()));
 
-		/*if (GetComponent(c.getClass()) != null && !c.CanHaveMultipleComponentsOfThisType)
+		if (GetComponent(c.getClass()) != null && !c.CanHaveMultipleComponentsOfThisType)
 		{
+			
 			System.err.println("ERROR: Cannot have more than one " + c.Name() + " on this entity!");
 			c.Destroy();
+			
 			return;
-		}*/
+		}
+
 		_components.add(c);
 		System.out.println(String.format("%s: [%s added]", this.Name, c.Name()));
-		
+
 		c.Enable(this, systemName);
 	}
 
@@ -153,51 +163,35 @@ public class Entity
 		// TODO: how to return null AND throw an exception at the same time?
 		if (!found)
 		{
-			//throw new RuntimeException("ERROR - " + Name + " does not have a " + componentClass.getName());
-			//System.out.println("ERROR - " + this.Name + " has no " + componentClass.getName());
+			// throw new RuntimeException("ERROR - " + Name + " does not have a
+			// " + componentClass.getName());
+			// System.out.println("ERROR - " + this.Name + " has no " +
+			// componentClass.getName());
 			return null;
 		}
-		
+
 		return null;
 	}
-	
+
 	public <T extends Component> T GetComponent(Class<T> clazz)
 	{
-		
+
 		for (int i = 0; i < _components.size(); i++)
 		{
-			//System.out.println("want: " + clazz.getName() + "; have: " + _components.get(i).Name());
-			
+			// System.out.println("want: " + clazz.getName() + "; have: " +
+			// _components.get(i).Name());
+
 			if (clazz.isAssignableFrom(_components.get(i).getClass()))
-				//if (_components.get(i).getClass().isAssignableFrom(clazz))
+			// if (_components.get(i).getClass().isAssignableFrom(clazz))
 			{
-				//System.out.println("got " + _components.get(i).Name());
+				// System.out.println("got " + _components.get(i).Name());
 				return clazz.cast(_components.get(i));
-				//return (T) _components.get(i);
+				// return (T) _components.get(i);
 			}
 		}
-		
+
 		return null;
 	}
-	
-	/*
-	 * 	public static <T extends BaseSystem> T GetSystem(Class<T> clazz) 
-	{
-		for (int i = 0; i < _systems.size(); i++)
-		{
-			// check if clazz and system's class match
-			if (_systems.get(i).getClass().isAssignableFrom(clazz))
-			{
-				//System.out.println(clazz.getName() + " was added to " + _systems.get(i).getClass());
-				return clazz.cast(_systems.get(i));
-				//return (T) _systems.get(i);
-			}
-		}
-		
-		return null;
-		
-	}
-	 */
 
 	public List<Component> GetAllComponentsOfType(Class componentClass)
 	{
@@ -225,36 +219,34 @@ public class Entity
 	{
 		return _transform.PositionX;
 	}
-	
+
 	public float GetPositionY()
 	{
 		return _transform.PositionY;
 	}
-	
+
 	public void SetPosition(float x, float y)
 	{
 		_transform.PositionX = x;
 		_transform.PositionY = y;
 	}
-	
+
 	public String GetPositionString()
 	{
 		return "X: " + _transform.PositionX + "; Y: " + _transform.PositionY;
 	}
-	
+
 	public String GetScaleString()
 	{
 		return "X: " + _transform.ScaleX + "; Y: " + _transform.ScaleY;
 	}
-	
-	
+
 	public void SetScale(float x, float y)
 	{
 		_transform.ScaleX = x;
 		_transform.ScaleY = y;
 	}
-	
-	
+
 	public void SetRotation(float rotation)
 	{
 		_transform.Rotation = rotation;
@@ -263,6 +255,31 @@ public class Entity
 	public void DestroyEntity()
 	{
 		// TODO: destroy this (garbage collector?)
+	}
+
+	// not working correctly yet!
+	public Entity DuplicateEntity()
+	{
+		Entity e = new Entity(this.Name + "_Copy");
+
+		List<Component> originalComponents = GetAllComponents();
+		List<Component> duplicatedComponents = new ArrayList<Component>(originalComponents);
+
+		for (int i = 0; i < duplicatedComponents.size(); i++)
+		{
+			if (!(duplicatedComponents.get(i) instanceof TransFormComponent))
+			{
+				e.AddComponent(duplicatedComponents.get(i));
+				duplicatedComponents.get(i).Owner = e;
+			} else
+			{
+				e.AddComponent(new TransFormComponent());
+				// e.SetPosition(this.GetPositionX() + 50, this.GetPositionY());
+			}
+			System.out.println(duplicatedComponents.get(i).Name());
+		}
+
+		return e;
 	}
 
 }

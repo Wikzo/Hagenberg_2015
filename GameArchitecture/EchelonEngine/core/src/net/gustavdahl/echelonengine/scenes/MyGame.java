@@ -28,7 +28,7 @@ public class MyGame extends Game
 	
 	private static ServiceLocator _serviceLocator;
 	private MyAssetManager _assetManager;
-	//private static EntityManager _entityManager;
+	private static EntityManager _entityManager;
 	
 
 	@Override
@@ -39,7 +39,9 @@ public class MyGame extends Game
 		_assetManager.InitializeMenuAssets();
 		_assetManager.InitializeDebugAssets();
 		
-		_serviceLocator = new ServiceLocator(_assetManager, null);
+		_entityManager = new EntityManager();
+		
+		_serviceLocator = new ServiceLocator(_assetManager, _entityManager);
 		setScreen(new TestLevel(this, _serviceLocator));
 		
 		//setScreen(new CircleMenuList(this, _serviceLocator)); //old menu stuff

@@ -16,16 +16,14 @@ public class ServiceLocator
 	public ServiceLocator(MyAssetManager assetManager, EntityManager entityManager)
 	{
 		this.AssetManager = assetManager;
-		// this.EntityManager = entityManager;
+		this.EntityManager = entityManager;
 
 		_systems = new ArrayList<BaseSystem>();
 	}
 
 	public static void RegisterNewSystem(BaseSystem system)
 	{
-
 		_systems.add(system);
-
 	}
 
 	public static void RemoveSystem(BaseSystem system)
