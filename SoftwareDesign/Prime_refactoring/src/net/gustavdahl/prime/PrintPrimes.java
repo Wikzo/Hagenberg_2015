@@ -14,17 +14,13 @@ public class PrintPrimes
 		int PAGEOFFSET = 0;
 		int ROWOFFSET;
 		
-
 		primeNumbers[0] = 2;
 		int primeCount = 1;
 		int candidate = 1;
-		
-		// MAKE FOR LOOP
-		while (primeCount < numberOfPrimes)
+				
+		for (int i = 1; i < numberOfPrimes; i++)
 		{
-			candidate = GetNextPrime(primeNumbers, primeCount, candidate);
-			primeNumbers[primeCount] = candidate;
-			primeCount = primeCount + 1;
+			candidate = SetPrimeNumbers(primeNumbers, candidate, i);
 		}
 
 		while (PAGEOFFSET < numberOfPrimes)
@@ -44,17 +40,24 @@ public class PrintPrimes
 		}
 	}
 
-	private static int GetNextPrime(int[] primeNumbers, int K, int J)
+	private static int SetPrimeNumbers(int[] primeNumbers, int candidate, int i)
+	{
+		candidate = GetNextPrime(primeNumbers, i, candidate);
+		primeNumbers[i] = candidate;
+		return candidate;
+	}
+
+	private static int GetNextPrime(int[] primeNumbers, int primeCount, int candidate)
 	{
 		boolean isPrime;
 		do
 		{
-			J = J + 2;
-			int I = 0;
-			while (I < K && J % primeNumbers[I] > 0)
-				I++;
-			isPrime = I == K;
+			candidate = candidate + 2;
+			int index = 0;
+			while (index < primeCount && candidate % primeNumbers[index] > 0)
+				index++;
+			isPrime = index == primeCount;
 		} while (!isPrime);
-		return J;
+		return candidate;
 	}
 }
