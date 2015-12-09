@@ -168,7 +168,7 @@ int main( void )
 
 
 	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "ShadowMapping.vertexshader", "ShadowMapping.fragmentshader" );
+	GLuint programID = LoadShaders( "ShadowMapping.vertexshader.cpp", "ShadowMapping.fragmentshader.cpp" );
 
 	// Get a handle for our "myTextureSampler" uniform
 	GLuint TextureID  = glGetUniformLocation(programID, "myTextureSampler");
@@ -203,7 +203,9 @@ int main( void )
 		// Use our shader
 		glUseProgram(depthProgramID);
 
-		glm::vec3 lightInvDir = glm::vec3(0.5f,2,2);
+		//glm::vec3 lightInvDir = glm::vec3(0.5f,2,2);
+		glm::vec3 lightInvDir = glm::vec3(sin((float)glfwGetTime()*0.3f),2,2);
+
 
 		// Compute the MVP matrix from the light's point of view
 		glm::mat4 depthProjectionMatrix = glm::ortho<float>(-10,10,-10,10,-10,20);

@@ -147,7 +147,7 @@ int main( void )
 		return false;
 
 	// Create and compile our GLSL program from the shaders
-	GLuint programID = LoadShaders( "ShadowMapping_SimpleVersion.vertexshader", "ShadowMapping_SimpleVersion.fragmentshader" );
+	GLuint programID = LoadShaders( "ShadowMapping_SimpleVersion.vertexshader.cpp", "ShadowMapping_SimpleVersion.fragmentshader.cpp" );
 
 	// Get a handle for our "myTextureSampler" uniform
 	GLuint TextureID  = glGetUniformLocation(programID, "myTextureSampler");

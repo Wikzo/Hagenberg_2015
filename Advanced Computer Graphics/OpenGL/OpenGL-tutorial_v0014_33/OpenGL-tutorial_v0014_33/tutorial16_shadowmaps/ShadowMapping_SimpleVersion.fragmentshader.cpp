@@ -21,6 +21,10 @@ void main(){
 
 	float visibility = texture( shadowMap, vec3(ShadowCoord.xy, (ShadowCoord.z)/ShadowCoord.w) );
 
-	color = visibility * MaterialDiffuseColor * LightColor;
+	float bias = 0.005;
+	float hey = texture(shadowMap, vec3(ShadowCoord.xy, 1));
+	 
 
+	//color = visibility * MaterialDiffuseColor * LightColor;
+	color = vec3(hey);
 }

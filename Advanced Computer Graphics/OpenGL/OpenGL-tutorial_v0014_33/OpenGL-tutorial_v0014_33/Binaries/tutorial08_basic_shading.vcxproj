@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -56,33 +56,33 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\Binaries\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tutorial08_basic_shading.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tutorial08_basic_shading</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\Binaries\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tutorial08_basic_shading.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tutorial08_basic_shading</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\Binaries\MinSizeRel\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tutorial08_basic_shading.dir\MinSizeRel\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tutorial08_basic_shading</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\Binaries\RelWithDebInfo\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tutorial08_basic_shading.dir\RelWithDebInfo\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tutorial08_basic_shading</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
-      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
-      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\Binaries\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tutorial08_basic_shading.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tutorial08_basic_shading</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\Binaries\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tutorial08_basic_shading.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tutorial08_basic_shading</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\Binaries\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tutorial08_basic_shading.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">tutorial08_basic_shading</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\Binaries\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tutorial08_basic_shading.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">tutorial08_basic_shading</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\external\AntTweakBar-1.16\include;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\external\glfw-3.0.3\include\GLFW;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\external\glm-0.9.4.0;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\external\glew-1.9.0\include;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\external\assimp-3.0.1270\include;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\external\bullet-2.81-rev2613\src;C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -114,7 +114,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message></Message>
+      <Message>
+      </Message>
       <Command>setlocal
 "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy "C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/$(Configuration)/tutorial08_basic_shading.exe" "C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/tutorial08_basic_shading/"
 if %errorlevel% neq 0 goto :cmEnd
@@ -134,7 +135,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ImportLibrary>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/Debug/tutorial08_basic_shading.lib</ImportLibrary>
       <ProgramDataBaseFile>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/Debug/tutorial08_basic_shading.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -155,7 +157,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -170,7 +173,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message></Message>
+      <Message>
+      </Message>
       <Command>setlocal
 "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy "C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/$(Configuration)/tutorial08_basic_shading.exe" "C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/tutorial08_basic_shading/"
 if %errorlevel% neq 0 goto :cmEnd
@@ -190,7 +194,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ImportLibrary>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/Release/tutorial08_basic_shading.lib</ImportLibrary>
       <ProgramDataBaseFile>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/Release/tutorial08_basic_shading.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -211,7 +216,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;TW_STATIC;TW_NO_LIB_PRAGMA;TW_NO_DIRECT3D;GLEW_STATIC;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -226,7 +232,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message></Message>
+      <Message>
+      </Message>
       <Command>setlocal
 "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy "C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/$(Configuration)/tutorial08_basic_shading.exe" "C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/tutorial08_basic_shading/"
 if %errorlevel% neq 0 goto :cmEnd
@@ -246,7 +253,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ImportLibrary>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/MinSizeRel/tutorial08_basic_shading.lib</ImportLibrary>
       <ProgramDataBaseFile>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/MinSizeRel/tutorial08_basic_shading.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -282,7 +290,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <PostBuildEvent>
-      <Message></Message>
+      <Message>
+      </Message>
       <Command>setlocal
 "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy "C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/$(Configuration)/tutorial08_basic_shading.exe" "C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/tutorial08_basic_shading/"
 if %errorlevel% neq 0 goto :cmEnd
@@ -302,7 +311,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ImportLibrary>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/RelWithDebInfo/tutorial08_basic_shading.lib</ImportLibrary>
       <ProgramDataBaseFile>C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/RelWithDebInfo/tutorial08_basic_shading.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
-      <Version></Version>
+      <Version>
+      </Version>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
@@ -369,13 +379,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\controls.hpp" />
     <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\texture.hpp" />
     <ClInclude Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\objloader.hpp" />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\tutorial08_basic_shading\tutorial08.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\controls.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\texture.cpp"  />
-    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\objloader.cpp"  />
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\tutorial08_basic_shading\StandardShading.vertexshader" />
-    <None Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\tutorial08_basic_shading\StandardShading.fragmentshader" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\tutorial08_basic_shading\tutorial08.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\shader.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\controls.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\texture.cpp" />
+    <ClCompile Include="C:\Users\Wikzo\Documents\Hagenberg_2015\Advanced Computer Graphics\OpenGL\OpenGL-tutorial_v0014_33\OpenGL-tutorial_v0014_33\common\objloader.cpp" />
+    <None Include="..\tutorial08_basic_shading\StandardShading.vertexshader.cpp" />
+    <None Include="..\tutorial08_basic_shading\StandardShading.fragmentshader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:/Users/Wikzo/Documents/Hagenberg_2015/Advanced Computer Graphics/OpenGL/OpenGL-tutorial_v0014_33/OpenGL-tutorial_v0014_33/Binaries/ZERO_CHECK.vcxproj">

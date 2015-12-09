@@ -109,6 +109,10 @@ void main(){
 	// if ( texture( shadowMap, (ShadowCoord.xy/ShadowCoord.w) ).z  <  (ShadowCoord.z-bias)/ShadowCoord.w )
 	// if ( textureProj( shadowMap, ShadowCoord.xyw ).z  <  (ShadowCoord.z-bias)/ShadowCoord.w )
 	
+	
+
+
+
 	color = 
 		// Ambient : simulates indirect lighting
 		MaterialAmbientColor +
@@ -116,5 +120,8 @@ void main(){
 		visibility * MaterialDiffuseColor * LightColor * LightPower * cosTheta+
 		// Specular : reflective highlight, like a mirror
 		visibility * MaterialSpecularColor * LightColor * LightPower * pow(cosAlpha,5);
+
+	//color.rgb = vec3(visibility);
+
 
 }

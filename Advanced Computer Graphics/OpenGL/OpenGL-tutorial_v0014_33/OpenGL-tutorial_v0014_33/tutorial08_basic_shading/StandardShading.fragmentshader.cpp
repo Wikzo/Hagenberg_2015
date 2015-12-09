@@ -51,7 +51,11 @@ void main(){
 	//  - Looking elsewhere -> < 1
 	float cosAlpha = clamp( dot( E,R ), 0,1 );
 	
-	color = 
+	//color = MaterialDiffuseColor * LightColor * cosTheta;
+	//color = MaterialDiffuseColor * LightColor * LightPower * cosTheta / (distance*distance);
+
+
+	color =
 		// Ambient : simulates indirect lighting
 		MaterialAmbientColor +
 		// Diffuse : "color" of the object

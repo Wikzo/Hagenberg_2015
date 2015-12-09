@@ -81,6 +81,11 @@ int main( void )
 								glm::vec3(0,0,0), // and looks at the origin
 								glm::vec3(0,1,0)  // Head is up (set to 0,-1,0 to look upside-down)
 						   );
+	
+	// Matrix operations tutorials:
+	// https://open.gl/transformations
+	// http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/
+	
 	// Model matrix : an identity matrix (model will be at the origin)
 	glm::mat4 myTranslationMatrix = glm::translate(10.0f, 0.0f, 0.0f);
 	glm::mat4 myScalingMatrix = glm::scale(2.0f, 2.0f, 2.0f);
