@@ -25,9 +25,12 @@ import com.twitter.hbc.httpclient.auth.OAuth1;
 import twitter4j.JSONException;
 import twitter4j.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-
 
 public class FilterStreamExample
 {
@@ -38,8 +41,8 @@ public class FilterStreamExample
 		BlockingQueue<String> queue = new LinkedBlockingQueue<String>(10000);
 		StatusesFilterEndpoint endpoint = new StatusesFilterEndpoint();
 		// add some track terms
-		 endpoint.trackTerms(Lists.newArrayList("Christmas"));
-		//endpoint.getURI();
+		endpoint.trackTerms(Lists.newArrayList("Christmas"));
+		// endpoint.getURI();
 
 		Authentication auth = new OAuth1(consumerKey, consumerSecret, token, secret);
 		// Authentication auth = new BasicAuth(username, password);
@@ -51,32 +54,76 @@ public class FilterStreamExample
 		// Establish a connection
 		client.connect();
 
+		PrintWriter out = null;
+		try
+		{
+			out = new PrintWriter("myTwitter.json");
+		} catch (FileNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String t = "";
+		List<String> strings = new ArrayList<String>();
 		// Do whatever needs to be done with messages
-		for (int msgRead = 0; msgRead < 1000; msgRead++)
+		for (int msgRead = 0; msgRead < 10; msgRead++)
 		{
 			String msg = queue.take();
-		      JSONObject obj =	null;
+
+			String s = msg;
+			if (msgRead < 9)
+				s += ",";
+			strings.add(s);
+
+			// System.out.println(msg + ",");
+			t += msg + ",";
+			if (msgRead < 9)
+				t += msg + ",";
+			// else
+			// t += msg + "]";
+			
+			/*JSONObject obj = new JSONObject(msg);
+		     String text= obj.getString("text");
+		      System.out.println(msg);*/
+
+		}
+
+		client.stop();
+		out.println(t);
+		out.close();
+
+		//System.out.println(strings.get(1));
+
+		
+		// JSON arrays / sub arrays
+		// http://theoryapp.com/parse-json-in-java/
+		
+		// JSON OLD
+		/*for (int i = 0; i < strings.size(); i++)
+		{
+
+			// JSON STUFF
+			JSONObject obj = null;
 			try
 			{
-				obj = new JSONObject(msg);
+				obj = new JSONObject(strings.get(i));
 			} catch (JSONException e1)
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		     try
+			String text = null;
+			try
 			{
-				String text= obj.getString("text");
-				System.out.println(text);
+				text = obj.getString("url");
 			} catch (JSONException e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		      
-		}
-
-		client.stop();
+			System.out.println(text);
+		}*/
 
 	}
 
