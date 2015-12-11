@@ -19,12 +19,16 @@ void main(){
 	// Material properties
 	vec3 MaterialDiffuseColor = texture2D( myTextureSampler, UV ).rgb;
 
-	float visibility = texture( shadowMap, vec3(ShadowCoord.xy, (ShadowCoord.z)/ShadowCoord.w) );
+	//float visibility = texture( shadowMap, vec3(ShadowCoord.xy, (ShadowCoord.z)/ShadowCoord.w) );
 
-	float bias = 0.005;
-	float hey = texture(shadowMap, vec3(ShadowCoord.xy, 1));
+	// http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/
+	float visibility = 1.0;
+	if (texture(shadowMap, ShadowCoord.xyz)  <  ShadowCoord.z)
+	{
+		visibility = 0.5;
+	}
 	 
 
 	//color = visibility * MaterialDiffuseColor * LightColor;
-	color = vec3(hey);
+	color = vec3(visibility);
 }
