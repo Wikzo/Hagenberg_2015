@@ -13,6 +13,13 @@
 
 package com.twitter.hbc.example;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 import com.google.common.collect.Lists;
 import com.twitter.hbc.ClientBuilder;
 import com.twitter.hbc.core.Client;
@@ -25,15 +32,13 @@ import com.twitter.hbc.httpclient.auth.OAuth1;
 import twitter4j.JSONException;
 import twitter4j.JSONObject;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+
 
 public class FilterStreamExample
 {
+
+	static List<String> Texts = new ArrayList<String>();
+	static List<String> Locations = new ArrayList<String>();
 
 	public static void run(String consumerKey, String consumerSecret, String token, String secret)
 			throws InterruptedException
@@ -57,101 +62,85 @@ public class FilterStreamExample
 		PrintWriter out = null;
 		try
 		{
-			out = new PrintWriter("myTwitter.json");
+			out = new PrintWriter("myTwitter.txt");
 		} catch (FileNotFoundException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		String t = "";
 		List<String> strings = new ArrayList<String>();
+		String t = "";
 		// Do whatever needs to be done with messages
 		for (int msgRead = 0; msgRead < 10; msgRead++)
 		{
 			String msg = queue.take();
 
-			String s = msg;
-			if (msgRead < 9)
-				s += ",";
-			strings.add(s);
-
-			// System.out.println(msg + ",");
-			t += msg + ",";
-			if (msgRead < 9)
-				t += msg + ",";
-			// else
-			// t += msg + "]";
-			
 			JSONObject obj = null;
-			String inner = null;
+			String text = null;
+			String location = null;
+
 			try
 			{
-				obj = new JSONObject(msg);
+				text = new JSONObject(msg).getString("text");
+				location = new JSONObject(msg).getJSONObject("user").getString("location");
+
+				// validate
+				if (text != null && location != null)
+				{
+					if (ValidateData(text, location))
+					{
+						text = ClearTheString(text);
+						Texts.add(text);
+						Locations.add(location);
+
+						t += "LOCATION: " + location + " - TEXT: " + text + "\n";
+					}
+				}
+
 			} catch (JSONException e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			String text = null; 
-			try
-			{
-				text= obj.getString("text");
-			} catch (JSONException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			try
-			{
-				inner = new JSONObject(msg).getJSONObject("user").getString("location");
-			} catch (JSONException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println(inner);
-		      //System.out.println(text);
+
+			// System.out.println(t);
 
 		}
 
 		client.stop();
 		out.println(t);
 		out.close();
+	}
 
-		//System.out.println(strings.get(1));
+	public static boolean ValidateData(String text, String location)
+	{
+		if (!text.equalsIgnoreCase("null") && !location.equalsIgnoreCase("null"))
+			return true;
 
+		return false;
+
+	}
+
+	public static String ClearTheString(String input)
+	{
+		// https://stackoverflow.com/questions/3756657/replace-remove-string-between-two-character
+
+		String output = input;
+		System.out.println("Before: " + output);
+
+		// only letters and numbers
+		String lettersAndNumbers = output.replaceAll("[^a-zA-Z0-9]", " ");
+
+		// remove HTTPS and RT
+		String removeHTTPS = lettersAndNumbers.replace("https", "");
+		String removeRT = removeHTTPS.replace("RT", "");
 		
-		// JSON arrays / sub arrays
-		// http://theoryapp.com/parse-json-in-java/
-		
-		// JSON OLD
-		/*for (int i = 0; i < strings.size(); i++)
-		{
+		// remove white spaces
+		String trimmed = removeRT.trim();
 
-			// JSON STUFF
-			JSONObject obj = null;
-			try
-			{
-				obj = new JSONObject(strings.get(i));
-			} catch (JSONException e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			String text = null;
-			try
-			{
-				text = obj.getString("url");
-			} catch (JSONException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println(text);
-		}*/
+		System.out.println("After: " + trimmed);
 
+		return trimmed;
 	}
 
 	public static void main(String[] args)
