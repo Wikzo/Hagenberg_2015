@@ -83,9 +83,36 @@ public class FilterStreamExample
 			// else
 			// t += msg + "]";
 			
-			/*JSONObject obj = new JSONObject(msg);
-		     String text= obj.getString("text");
-		      System.out.println(msg);*/
+			JSONObject obj = null;
+			String inner = null;
+			try
+			{
+				obj = new JSONObject(msg);
+			} catch (JSONException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String text = null; 
+			try
+			{
+				text= obj.getString("text");
+			} catch (JSONException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try
+			{
+				inner = new JSONObject(msg).getJSONObject("user").getString("location");
+			} catch (JSONException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(inner);
+		      //System.out.println(text);
 
 		}
 
