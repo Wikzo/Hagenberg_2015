@@ -95,6 +95,8 @@ public class TestLevel implements Screen, IUpdatable
 		_serviceLocator.RegisterNewSystem(_gameLogicSystem);
 		_serviceLocator.RegisterNewSystem(_editorSystem);
 		_serviceLocator.InitializeSystems();
+		
+		//_colliderSystem.SetActive(false);
 	}
 
 	TextureRegion[] r;
@@ -104,7 +106,7 @@ public class TestLevel implements Screen, IUpdatable
 
 		EntityFactory f = new EntityFactory();
 		//f.CreateSingleSpring("Cog1", 300, 300);
-		f.CreateMultipleSprings("Cog_root", 300, 300, 5);
+		f.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
 		
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 

@@ -22,19 +22,19 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 	private float _springX, _springY;
 	private float _dampX, _dampY;
 
-	Entity _parent;
+	Entity _root;
 
 	public SpringComponent(PhysicsBody myPhysicsBody)
 	{
 		super(myPhysicsBody);
 
-		_parent = null;
+		_root = null;
 
 	}
 
-	public SpringComponent SetParent(Entity parent)
+	public SpringComponent SetRoot(Entity parent)
 	{
-		_parent = parent;
+		_root = parent;
 
 		return this;
 	}
@@ -57,11 +57,10 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 	@Override
 	protected Vector2 CalculateForce()
 	{
-
-		if (_parent != null)
+		if (_root != null)
 		{
-			_anchorX = _parent.GetTransform().PositionX;
-			_anchorY = _parent.GetTransform().PositionY;
+			_anchorX = _root.GetTransform().PositionX;
+			_anchorY = _root.GetTransform().PositionY;
 		}
 
 		_dampX = _body._velocity.x * _dampConstant;
@@ -88,6 +87,12 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 		return this;
 	}
 
+	protected Color _springDebugColor = new Color(1, 0, 0, 0.8f);
+	public void SetSpringColor(Color color)
+	{
+		_springDebugColor = color;
+	}
+	
 	@Override
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
 	{
@@ -97,7 +102,7 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 		shapeRenderer.setColor(new Color(1, 0, 0, 0.8f));
 		shapeRenderer.circle(_anchorX, _anchorY, 5);
 
-		shapeRenderer.setColor(new Color(0, 1, 0, 0.8f));
+		shapeRenderer.setColor(_springDebugColor);
 
 		shapeRenderer.rectLine(_anchorX, _anchorY, Transform.PositionX, Transform.PositionY, 5);
 
@@ -105,10 +110,16 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 
 		Gdx.gl.glDisable(GL30.GL_BLEND);
 
-		/*DebugSystem.AddDebugText(
-				"Euler: " + _body._forceMode + "\nMass: " + Float.toString(_body._mass) + "\nDamping: " + _dampConstant
-						+ "\nSpringConstant: " + _springConstant,
-				new Vector2(Transform.PositionX, Transform.PositionY));*/
+		/*
+		 * DebugSystem.AddDebugText( "Euler: " + _body._forceMode + "\nMass: " +
+		 * Float.toString(_body._mass) + "\nDamping: " + _dampConstant +
+		 * "\nSpringConstant: " + _springConstant, new
+		 * Vector2(Transform.PositionX, Transform.PositionY));
+		 */
+		if (_root != null)
+		{
+			DebugSystem.AddDebugText("Root: " + _root.Name, new Vector2(Transform.PositionX + 10, Transform.PositionY + 20));
+		}
 
 	}
 

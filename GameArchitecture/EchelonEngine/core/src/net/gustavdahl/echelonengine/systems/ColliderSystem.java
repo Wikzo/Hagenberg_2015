@@ -115,6 +115,9 @@ public class ColliderSystem extends BaseSystem
 	public void Update(float deltaTime)
 	{
 
+		if (!_isActive)
+			return;
+		
 		// fixed delta time?
 		
 		ClearCollisions();

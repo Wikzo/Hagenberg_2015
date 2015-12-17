@@ -53,13 +53,7 @@ public class PhysicsSystem extends BaseSystem
 		return this;
 	}
 
-	void UpdatePhysicsComponents(float deltaTime)
-	{
-		for (int i = 0; i < _physicsList.size(); i++)
-		{
-			_physicsList.get(i).Update(deltaTime);
-		}
-	}
+
 	
 	public double GetPhysicsUpdateRate()
 	{
