@@ -14,7 +14,7 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 {
 
 	private float _springConstant = 5;
-	private float _dampConstant = 2.5f;
+	private float _dampConstant = 1f;
 
 	private float _anchorX, _anchorY;
 	private float _tempPositionX, _tempPositionY;
@@ -46,10 +46,7 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 	protected Vector2 CalculateForce()
 	{
 		
-		DebugSystem.AddDebugText("Euler: " + _body._eulerMethod + "\nMass: " + Float.toString(_body._mass)
-		+ "\nDamping: " + _dampConstant
-		+ "\nSpringConstant: " + _springConstant,
-		new Vector2(Transform.PositionX, Transform.PositionY));
+		
 		
 		_dampX = _body._velocity.x * _dampConstant;
 		_dampY = _body._velocity.y * _dampConstant;
@@ -91,6 +88,11 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 		shapeRenderer.end();
 
 		Gdx.gl.glDisable(GL30.GL_BLEND);
+		
+		DebugSystem.AddDebugText("Euler: " + _body._forceMode + "\nMass: " + Float.toString(_body._mass)
+		+ "\nDamping: " + _dampConstant
+		+ "\nSpringConstant: " + _springConstant,
+		new Vector2(Transform.PositionX, Transform.PositionY));
 
 	}
 

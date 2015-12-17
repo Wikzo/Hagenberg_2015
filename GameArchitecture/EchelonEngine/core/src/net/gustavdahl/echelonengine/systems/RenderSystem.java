@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g3d.Renderable;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import net.gustavdahl.echelonengine.components.Component;
@@ -78,6 +79,7 @@ public class RenderSystem extends BaseSystem
 
 		} else
 			throw new RuntimeException("ERROR - " + c.Name() + " doesn't implement IRenderable interface!");
+		//throw new GdxRuntimeException("ERROR - " + c.Name() + " doesn't implement IRenderable interface!");
 
 		return succesfullyAdded;
 

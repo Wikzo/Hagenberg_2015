@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.math.Vector2;
+import com.sun.xml.internal.ws.wsdl.writer.document.Service;
 
+import net.gustavdahl.echelonengine.enums.ForceMode;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
+import net.gustavdahl.echelonengine.systems.ServiceLocator;
+
+
 
 public class PhysicsBody extends Component implements IPhysics
 {
@@ -19,7 +24,7 @@ public class PhysicsBody extends Component implements IPhysics
 
 	final private Vector2 _terminalVelocity = new Vector2(0f, -100f);
 
-	protected EulerMethod _eulerMethod = EulerMethod.Explicit;
+	protected ForceMode _forceMode;
 
 	public PhysicsBody SetMass(float mass)
 	{
@@ -27,17 +32,13 @@ public class PhysicsBody extends Component implements IPhysics
 		return this;
 	}
 
-	public PhysicsBody SetEulerMethod(EulerMethod method)
-	{
-		this._eulerMethod = method;
-		return this;
-	}
 
 	public PhysicsBody()
 	{
 		DefaultSystem = PhysicsSystem.class;
 		_velocity = new Vector2(0f, 0f);
 		_acceleration = new Vector2(0f, 0f);
+		_forceMode = ServiceLocator.GetSystem(PhysicsSystem.class).ForceMode;
 
 	}
 
@@ -69,13 +70,10 @@ public class PhysicsBody extends Component implements IPhysics
 		// apply constant forces
 		for (Vector2 constantForce : _constantForces)
 			_force.add(constantForce).scl(_mass);
-
-		// acceleration
-		//_acceleration = _force.scl(1f / _mass);
 		
 		return _force.scl(1f / _mass);
 	}
-
+	
 	private void ApplyForces(float deltaTime)
 	{
 		// https://stackoverflow.com/questions/33759145/libgdx-how-do-i-multiply-vector-with-scalar-without-modifing-original-vector?noredirect=1#comment55292813_33759145
@@ -83,9 +81,9 @@ public class PhysicsBody extends Component implements IPhysics
 		float tempX = Transform.PositionX;
 		float tempY = Transform.PositionY;
 		
-		switch (_eulerMethod)
+		switch (_forceMode)
 		{
-		case Explicit:
+		case ExplicitEuler:
 			// explicit Euler (inaccurate)
 
 			// apply old velocity to new position
@@ -105,7 +103,7 @@ public class PhysicsBody extends Component implements IPhysics
 			Transform.PositionY = tempY;
 			
 			break;
-		case Midpoint:
+		case MidpointEuler:
 			// midpoint euler (more accurate/stable, little more expensive)
 			
 			 // midpoint euler (more accurate/stable, little more expensive)
@@ -135,9 +133,9 @@ public class PhysicsBody extends Component implements IPhysics
             */
 			
 			break;
-		case Modified:
+		case ModifiedEuler:
 			break;
-		case SemiImplicit:
+		case SemiImplicitEuler:
 			// semi-implicit euler (inaccurate)
 			// "forget" the newPosition buffer
 			// update velocity, then update position

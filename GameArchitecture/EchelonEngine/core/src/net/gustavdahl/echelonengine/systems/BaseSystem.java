@@ -10,6 +10,7 @@ public abstract class BaseSystem implements ISystem
 	private int _updatePriority = 1;
 	protected boolean _isActive;
 	protected List<Component> _componentList; // TODO: make generic T type!
+	// TODO: maybe IList or ICollection?
 
 	
 	public BaseSystem()

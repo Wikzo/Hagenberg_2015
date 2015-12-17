@@ -1,6 +1,5 @@
 package net.gustavdahl.echelonengine.entities;
 
-import java.security.acl.Owner;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -130,10 +129,10 @@ public class Entity
 
 		if (GetComponent(c.getClass()) != null && !c.CanHaveMultipleComponentsOfThisType)
 		{
-			
+
 			System.err.println("ERROR: Cannot have more than one " + c.Name() + " on this entity!");
 			c.Destroy();
-			
+
 			return;
 		}
 

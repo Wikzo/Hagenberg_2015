@@ -33,16 +33,15 @@ import net.gustavdahl.echelonengine.components.Collider;
 import net.gustavdahl.echelonengine.components.ConstantForce;
 import net.gustavdahl.echelonengine.components.DebugComponent;
 import net.gustavdahl.echelonengine.components.EditorComponent;
-import net.gustavdahl.echelonengine.components.EulerMethod;
 import net.gustavdahl.echelonengine.components.IUpdatable;
 import net.gustavdahl.echelonengine.components.PhysicsBody;
-import net.gustavdahl.echelonengine.components.SpringComponen_old;
 import net.gustavdahl.echelonengine.components.SpringComponent;
 import net.gustavdahl.echelonengine.components.SpriteAnimator;
 import net.gustavdahl.echelonengine.components.SpriteComponent;
 import net.gustavdahl.echelonengine.components.Text;
 import net.gustavdahl.echelonengine.components.TransFormComponent;
 import net.gustavdahl.echelonengine.entities.Entity;
+import net.gustavdahl.echelonengine.enums.ForceMode;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
@@ -82,7 +81,7 @@ public class TestLevel implements Screen, IUpdatable
 		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
 		_debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
 				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont, _camera);
-		PhysicsSystem _physicsSystem = new PhysicsSystem();
+		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetForceMode(ForceMode.ExplicitEuler);
 		ColliderSystem _colliderSystem = new ColliderSystem();
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
 		EditorSystem _editorSystem = new EditorSystem(_camera);
@@ -130,7 +129,7 @@ public class TestLevel implements Screen, IUpdatable
 				// add gravity
 				PhysicsBody body = e.GetComponent(PhysicsBody.class);
 				body.AddConstantForce(PhysicsBody.GravityForce);
-				body.SetMass(2 * (i + 1)).SetEulerMethod(EulerMethod.values()[i]);
+				body.SetMass(2);
 				// e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.Explicit);
 
 				SpringComponent spring = new SpringComponent(body);
@@ -190,6 +189,7 @@ public class TestLevel implements Screen, IUpdatable
 		// _serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
 	}
 
+	float fps = 1;
 	@Override
 	public void render(float delta)
 	{
@@ -205,6 +205,7 @@ public class TestLevel implements Screen, IUpdatable
 		_debugSystem.GetCamera(_camera);
 
 		_serviceLocator.UpdateSystems(delta);
+		
 
 		// TODO: remember to apply stage viewport for camera
 
@@ -243,7 +244,8 @@ public class TestLevel implements Screen, IUpdatable
 		}
 
 		DebugSystem.AddDebugText("Number of entities: " + ServiceLocator.EntityManager.GetEntityCount());
-		DebugSystem.AddDebugText("FPS: " + Gdx.graphics.getFramesPerSecond());
+		DebugSystem.AddDebugText("Render FPS: " + Gdx.graphics.getFramesPerSecond());
+		DebugSystem.AddDebugText("Physics FPS: " + _serviceLocator.GetSystem(PhysicsSystem.class).GetPhysicsUpdateRate());
 
 		// _timer+= deltaTime;
 

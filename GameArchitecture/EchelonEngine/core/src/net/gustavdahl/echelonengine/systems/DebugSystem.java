@@ -7,10 +7,12 @@ import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.sun.xml.internal.ws.dump.LoggingDumpTube.Position;
@@ -50,11 +52,12 @@ public class DebugSystem extends BaseSystem
 		_camera = camera;
 	}
 
+	ShapeRenderer shape = new ShapeRenderer();
+	
 	@Override
 	public void Update(float deltaTime)
 	{
-		// TODO: show general GUI to enable/disable systems and other things...
-			
+		// TODO: show general GUI to enable/disable systems and other things...		
 		if (Gdx.input.isKeyJustPressed(Keys.F1))
 			_isActive = !_isActive;
 

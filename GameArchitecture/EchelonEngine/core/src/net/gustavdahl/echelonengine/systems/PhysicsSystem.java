@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
 import com.badlogic.gdx.utils.Array;
@@ -15,29 +16,42 @@ import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.IPhysics;
 import net.gustavdahl.echelonengine.components.IRenderable;
 import net.gustavdahl.echelonengine.components.PhysicsBody;
+import net.gustavdahl.echelonengine.enums.ForceMode;
 
 public class PhysicsSystem extends BaseSystem
 {
+	public ForceMode ForceMode;
 
-	
+	private boolean _usedFixedTimeStep = true;
 
-	final double _fixedTimeStep = 0.016d;
+	double _targetUpdateRate = 60;
+	public double _fixedTimeStep;
 	double _oldTime = 0;
 	double _newTime;
 	double _frameTime;
 	double _accumulator = 0;
 	double _frameTimeInSeconds = 0;
-	
+
 	private List<IPhysics> _physicsList;
 
-	public PhysicsSystem()
+	public PhysicsSystem(double targetFPS)
 	{
 		super();
 		_physicsList = new ArrayList<IPhysics>();
-		
+		ForceMode = ForceMode.ExplicitEuler;
+
+		_targetUpdateRate = targetFPS;
+		_fixedTimeStep = 1d / _targetUpdateRate; // go from seconds to milliseconds
+
 	}
 
-	void VariedUpdate(float deltaTime)
+	public PhysicsSystem SetForceMode(ForceMode forceMode)
+	{
+		this.ForceMode = forceMode;
+		return this;
+	}
+
+	void UpdatePhysicsComponents(float deltaTime)
 	{
 		for (int i = 0; i < _physicsList.size(); i++)
 		{
@@ -45,36 +59,66 @@ public class PhysicsSystem extends BaseSystem
 		}
 	}
 	
+	public double GetPhysicsUpdateRate()
+	{
+		if (_usedFixedTimeStep)
+			return _targetUpdateRate;
+		else
+			return Gdx.graphics.getFramesPerSecond();			
+	}
+
+	public PhysicsSystem SetPhysicsUpdateRate(float updateRate)
+	{
+		_targetUpdateRate = updateRate;
+		_fixedTimeStep = 1d / _targetUpdateRate;
+		return this;
+	}
+	
+	public PhysicsSystem SetUseFixedUpdate(Boolean useFixedUpdate)
+	{
+		_usedFixedTimeStep = useFixedUpdate;
+	
+		return this;
+	}
+
+	void UpdatePhysics(float deltaTime)
+	{
+		for (int i = 0; i < _physicsList.size(); i++)
+		{
+			_physicsList.get(i).Update(deltaTime);
+		}
+	}
+
 	@Override
 	public void Update(float deltaTime)
 	{
 		if (!_isActive)
 			return;
-		
-		VariedUpdate(deltaTime);
-		
-		// http://gafferongames.com/game-physics/fix-your-timestep/
 
-		_newTime = TimeUtils.nanoTime();
-		_frameTime = _newTime - _oldTime;
-		_oldTime = _newTime;
-
-		// my frame rate
-		_frameTimeInSeconds = (double) _frameTime / 1000000000.0;
-
-		_accumulator += _frameTimeInSeconds;
-
-		int counter = 0;
-		while (_accumulator >= _fixedTimeStep)
+		if (!_usedFixedTimeStep) // varied update
 		{
-			counter++;
-			_accumulator -= _fixedTimeStep;
-		}
+			UpdatePhysics(deltaTime);
+		} else // fixed update
+		{
+			// http://gafferongames.com/game-physics/fix-your-timestep/
 
-		//System.out.println(counter);
-		
-		// TODO: use interpolation to make renderer more "stable"
-		// interpolate between previous and current Transform state
+			_newTime = TimeUtils.nanoTime();
+			_frameTime = _newTime - _oldTime;
+			_oldTime = _newTime;
+
+			// my frame rate
+			_frameTimeInSeconds = (double) _frameTime / 1000000000.0;
+			_accumulator += _frameTimeInSeconds;
+
+			while (_accumulator >= _fixedTimeStep)
+			{
+				_accumulator -= _fixedTimeStep;
+				UpdatePhysics((float) _fixedTimeStep);
+			}
+
+			// TODO: use interpolation to make renderer more "stable"
+			// interpolate between previous and current Transform state
+		}
 	}
 
 	@Override
