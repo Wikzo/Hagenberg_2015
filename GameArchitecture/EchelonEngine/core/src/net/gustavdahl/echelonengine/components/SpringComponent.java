@@ -8,29 +8,21 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 
+import net.gustavdahl.echelonengine.entities.Entity;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 
 public class SpringComponent extends ForceComponent implements IDebugRenderable
 {
 
 	private float _springConstant = 5;
-	private float _dampConstant = 1f;
+	private float _dampConstant = 5f;
 
 	private float _anchorX, _anchorY;
 	private float _tempPositionX, _tempPositionY;
 	private float _springX, _springY;
 	private float _dampX, _dampY;
 
-	PhysicsBody _parent;
-
-	public SpringComponent(PhysicsBody myPhysicsBody, PhysicsBody parent)
-	{
-		super(myPhysicsBody);
-
-		if (parent != null)
-			_parent = parent;
-
-	}
+	Entity _parent;
 
 	public SpringComponent(PhysicsBody myPhysicsBody)
 	{
@@ -38,6 +30,13 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 
 		_parent = null;
 
+	}
+
+	public SpringComponent SetParent(Entity parent)
+	{
+		_parent = parent;
+
+		return this;
 	}
 
 	@Override
@@ -61,8 +60,8 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 
 		if (_parent != null)
 		{
-			_anchorX = _parent.Transform.PositionX;
-			_anchorY = _parent.Transform.PositionY;
+			_anchorX = _parent.GetTransform().PositionX;
+			_anchorY = _parent.GetTransform().PositionY;
 		}
 
 		_dampX = _body._velocity.x * _dampConstant;
@@ -106,10 +105,10 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 
 		Gdx.gl.glDisable(GL30.GL_BLEND);
 
-		DebugSystem.AddDebugText(
+		/*DebugSystem.AddDebugText(
 				"Euler: " + _body._forceMode + "\nMass: " + Float.toString(_body._mass) + "\nDamping: " + _dampConstant
 						+ "\nSpringConstant: " + _springConstant,
-				new Vector2(Transform.PositionX, Transform.PositionY));
+				new Vector2(Transform.PositionX, Transform.PositionY));*/
 
 	}
 

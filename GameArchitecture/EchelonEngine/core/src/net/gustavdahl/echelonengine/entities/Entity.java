@@ -129,7 +129,7 @@ public class Entity
 	{
 		// System.out.println(GetComponent(c.getClass()));
 
-		if (GetComponent(c.getClass()) != null && !c.CanHaveMultipleComponentsOfThisType)
+		if (GetComponent(c.getClass(), true) != null && !c.CanHaveMultipleComponentsOfThisType)
 		{
 
 			System.err.println("ERROR: Cannot have more than one " + c.Name() + " on this entity!");
@@ -174,24 +174,29 @@ public class Entity
 		return null;
 	}
 
-	public <T extends Component> T GetComponent(Class<T> clazz)
+	public <T extends Component> T GetComponent(Class<T> clazz, boolean internalLookup)
 	{
 
 		for (int i = 0; i < _components.size(); i++)
 		{
-			// System.out.println("want: " + clazz.getName() + "; have: " +
-			// _components.get(i).Name());
-
 			if (clazz.isAssignableFrom(_components.get(i).getClass()))
-			// if (_components.get(i).getClass().isAssignableFrom(clazz))
 			{
-				// System.out.println("got " + _components.get(i).Name());
 				return clazz.cast(_components.get(i));
-				// return (T) _components.get(i);
 			}
 		}
 
-		return null;
+		if (!internalLookup)
+		{
+			throw new RuntimeException("ERROR - could not find " + clazz.getSimpleName() + " on " + this.Name);
+			
+		}
+		else
+			return null;
+	}
+	
+	public <T extends Component> T GetComponent(Class<T> clazz)
+	{
+		return GetComponent(clazz, false);
 	}
 
 	public List<Component> GetAllComponentsOfType(Class componentClass)

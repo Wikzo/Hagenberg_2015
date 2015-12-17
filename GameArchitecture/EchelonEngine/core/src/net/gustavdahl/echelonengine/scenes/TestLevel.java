@@ -54,7 +54,7 @@ import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class TestLevel implements Screen, IUpdatable
 {
-	public static OrthographicCamera _camera; // TODO: dont make public static
+	public static OrthographicCamera _camera; // TODO: don't make public static
 	private SpriteBatch _spriteBatch;
 	private ServiceLocator _serviceLocator;
 
@@ -103,14 +103,15 @@ public class TestLevel implements Screen, IUpdatable
 	{
 
 		EntityFactory f = new EntityFactory();
-		f.CreateSingleSpring("Cog1", 300, 300);
+		//f.CreateSingleSpring("Cog1", 300, 300);
+		f.CreateMultipleSprings("Cog_root", 300, 300, 5);
 		
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
 		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
 		//r = SpriteAnimator.CreateSpriteSheet(texture, 3, 3, 1);
 
-		for (int i = 0; i < 3; i++)
+		/*for (int i = 0; i < 3; i++)
 		{
 			Entity e = new Entity("Man_" + i);
 			e.SetPosition(300 + i * 170, 300);
@@ -144,7 +145,7 @@ public class TestLevel implements Screen, IUpdatable
 
 			}
 
-		}
+		}*/
 
 		_entity1 = new Entity("RunningMan");
 

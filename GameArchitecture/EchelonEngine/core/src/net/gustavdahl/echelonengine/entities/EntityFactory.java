@@ -31,6 +31,7 @@ public class EntityFactory
 		UUID id = UUID.randomUUID();
 		
 		Entity e = new Entity(name);
+		ServiceLocator.EntityManager.AddEntity(e);
 		e.ID = id;
 		e.SetPosition(x, y);
 		
@@ -53,7 +54,7 @@ public class EntityFactory
 	{
 		PhysicsBody body = new PhysicsBody();
 		
-		//body.AddConstantForce(PhysicsBody.GravityForce);
+		body.AddConstantForce(PhysicsBody.GravityForce);
 		body.SetMass(2);
 
 		e.AddComponent(body);
@@ -63,7 +64,7 @@ public class EntityFactory
 		
 	}
 	
-	public void CreateSingleSpring(String name, float x, float y)
+	public Entity CreateSingleSpring(String name, float x, float y)
 	{
 		// create entity
 		Entity e = CreateEntity(name, x, y ,ServiceLocator.AssetManager.CogWheels[0]);
@@ -74,12 +75,25 @@ public class EntityFactory
 		// add spring
 		SpringComponent spring = new SpringComponent(body);
 		e.AddComponent(spring);
-		spring.SetSpringConstant(1);
+		spring.SetSpringConstant(5f);
 		spring.AddToSystem(DebugSystem.class);
 		
-		//return e;
+		return e;
 	}
 	
-	//public 
+	public void CreateMultipleSprings(String name, float x, float y, int numberOfSprings)
+	{
+		//Entity parent = CreateSingleSpring(name, x, y);
+		Entity parent = CreateEntity(name, x, y ,ServiceLocator.AssetManager.CogWheels[1]);
+		
+		for (int i = 0; i < numberOfSprings-1; i++)
+		{
+			Entity e = CreateSingleSpring(name + i, x, y + (-i*70));
+			e.GetComponent(SpringComponent.class).SetParent(parent);
+			
+			parent = e;
+			
+		}
+	}
 
 }

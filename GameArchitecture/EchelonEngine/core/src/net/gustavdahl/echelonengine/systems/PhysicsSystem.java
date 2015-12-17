@@ -42,6 +42,8 @@ public class PhysicsSystem extends BaseSystem
 
 		_targetUpdateRate = targetFPS;
 		_fixedTimeStep = 1d / _targetUpdateRate; // go from seconds to milliseconds
+		
+		_usedFixedTimeStep = false;
 
 	}
 
@@ -120,6 +122,8 @@ public class PhysicsSystem extends BaseSystem
 			// interpolate between previous and current Transform state
 		}
 	}
+
+
 
 	@Override
 	public boolean AddToSystem(Component c)
