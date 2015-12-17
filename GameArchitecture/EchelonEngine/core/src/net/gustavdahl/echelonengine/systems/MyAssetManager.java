@@ -10,9 +10,12 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.sun.xml.internal.stream.events.DummyEvent;
+
+import net.gustavdahl.echelonengine.components.SpriteAnimator;
 
 public class MyAssetManager
 {
@@ -27,6 +30,8 @@ public class MyAssetManager
 	public Texture DummyTexture;
 	public Texture RunningMan;
 	public Texture Floor;
+	public Texture CogWheelAtlas;
+	public TextureRegion[] CogWheels;
 
 	// SPRITES end //////////////////////////////////////////////////
 
@@ -67,10 +72,13 @@ public class MyAssetManager
 		DummyTexture = new Texture("cat-tongue.png");
 		RunningMan = new Texture("spriteSheet_man.png");
 		Floor = new Texture("floor.png");
+		CogWheelAtlas = new Texture("cogwheels_atlas.png");
 
 		textures.add(DummyTexture);
 		textures.add(RunningMan);
 		textures.add(Floor);
+		
+		CogWheels = SpriteAnimator.CreateSpriteSheet(CogWheelAtlas, 3, 3, 1);
 		
 		
 	}

@@ -21,33 +21,50 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 	private float _springX, _springY;
 	private float _dampX, _dampY;
 
-	public SpringComponent(PhysicsBody b)
+	PhysicsBody _parent;
+
+	public SpringComponent(PhysicsBody myPhysicsBody, PhysicsBody parent)
 	{
-		super(b);
+		super(myPhysicsBody);
+
+		if (parent != null)
+			_parent = parent;
 
 	}
-	
+
+	public SpringComponent(PhysicsBody myPhysicsBody)
+	{
+		super(myPhysicsBody);
+
+		_parent = null;
+
+	}
+
 	@Override
 	public void GetExternalReferences()
 	{
 		super.GetExternalReferences();
-		
+
 		_body = Owner.GetComponent(PhysicsBody.class);
 		if (_body == null)
 			System.out.println("ERROR - need to have a PhysicsComponent for Spring to work!");
-		
-		//_anchor.set(Transform.Position);
+
+		// _anchor.set(Transform.Position);
 		_anchorX = Transform.PositionX;
 		_anchorY = Transform.PositionY;
-		
+
 	}
 
 	@Override
 	protected Vector2 CalculateForce()
 	{
-		
-		
-		
+
+		if (_parent != null)
+		{
+			_anchorX = _parent.Transform.PositionX;
+			_anchorY = _parent.Transform.PositionY;
+		}
+
 		_dampX = _body._velocity.x * _dampConstant;
 		_dampY = _body._velocity.y * _dampConstant;
 
@@ -88,11 +105,11 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 		shapeRenderer.end();
 
 		Gdx.gl.glDisable(GL30.GL_BLEND);
-		
-		DebugSystem.AddDebugText("Euler: " + _body._forceMode + "\nMass: " + Float.toString(_body._mass)
-		+ "\nDamping: " + _dampConstant
-		+ "\nSpringConstant: " + _springConstant,
-		new Vector2(Transform.PositionX, Transform.PositionY));
+
+		DebugSystem.AddDebugText(
+				"Euler: " + _body._forceMode + "\nMass: " + Float.toString(_body._mass) + "\nDamping: " + _dampConstant
+						+ "\nSpringConstant: " + _springConstant,
+				new Vector2(Transform.PositionX, Transform.PositionY));
 
 	}
 

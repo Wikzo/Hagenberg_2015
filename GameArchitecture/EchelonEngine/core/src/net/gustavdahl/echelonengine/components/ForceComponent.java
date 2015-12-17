@@ -6,7 +6,7 @@ import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 
 public abstract class ForceComponent extends Component implements IPhysics
 {
-	protected PhysicsBody _body;
+	public PhysicsBody _body;
 	
 	public ForceComponent(PhysicsBody b)
 	{

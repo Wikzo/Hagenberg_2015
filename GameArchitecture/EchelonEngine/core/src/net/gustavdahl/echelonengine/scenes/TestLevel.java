@@ -41,6 +41,7 @@ import net.gustavdahl.echelonengine.components.SpriteComponent;
 import net.gustavdahl.echelonengine.components.Text;
 import net.gustavdahl.echelonengine.components.TransFormComponent;
 import net.gustavdahl.echelonengine.entities.Entity;
+import net.gustavdahl.echelonengine.entities.EntityFactory;
 import net.gustavdahl.echelonengine.enums.ForceMode;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
@@ -101,9 +102,13 @@ public class TestLevel implements Screen, IUpdatable
 	public void create()
 	{
 
+		EntityFactory f = new EntityFactory();
+		f.CreateSingleSpring("Cog1", 300, 300);
+		
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
 		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
+		//r = SpriteAnimator.CreateSpriteSheet(texture, 3, 3, 1);
 
 		for (int i = 0; i < 3; i++)
 		{

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import com.badlogic.gdx.graphics.g3d.utils.BaseAnimationController.Transform;
 import com.badlogic.gdx.math.Vector2;
@@ -20,6 +21,7 @@ public class Entity
 {
 
 	public String Name;
+	public UUID ID;
 	private TransFormComponent _transform;
 	private List<Component> _components;
 
