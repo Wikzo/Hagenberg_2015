@@ -112,8 +112,12 @@ public class TestLevel implements Screen, IUpdatable
 
 		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
 		//r = SpriteAnimator.CreateSpriteSheet(texture, 3, 3, 1);
+		
+		Entity t = f.CreateAnimatedMan("RunningMan_Factory1", 100, 200);
+		f.CreateAnimatedMan("RunningMan_Factory2", 400, 200);
+		f.CreateStaticMan("StaticMan", 600, 200);
 
-		/*for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			Entity e = new Entity("Man_" + i);
 			e.SetPosition(300 + i * 170, 300);
@@ -147,11 +151,11 @@ public class TestLevel implements Screen, IUpdatable
 
 			}
 
-		}*/
+		}
 
-		_entity1 = new Entity("RunningMan");
+		_entity1 = new Entity("RunningMan_Original1");
 
-		_entity2 = new Entity("RunningMan2");
+		_entity2 = new Entity("RunningMan_Original2");
 		// _entity3 = new Entity("StaticMan3");
 		_entity1.SetPosition(100, 200);
 		_entity2.SetPosition(200, 400);
@@ -173,7 +177,7 @@ public class TestLevel implements Screen, IUpdatable
 		_entity1.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
 
-		_entity2.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
+		_entity2.AddComponent(new BoxCollider(_entity2.GetComponent(SpriteComponent.class).GetWidth(),
 				_entity1.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
 
 		_entity1.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
