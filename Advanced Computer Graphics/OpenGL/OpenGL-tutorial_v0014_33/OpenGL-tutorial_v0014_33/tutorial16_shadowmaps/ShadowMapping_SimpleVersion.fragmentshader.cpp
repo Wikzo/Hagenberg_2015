@@ -10,6 +10,8 @@ layout(location = 0) out vec3 color;
 // Values that stay constant for the whole mesh.
 uniform sampler2D myTextureSampler;
 uniform sampler2DShadow shadowMap;
+uniform float time;
+
 
 void main(){
 
@@ -19,16 +21,24 @@ void main(){
 	// Material properties
 	vec3 MaterialDiffuseColor = texture2D( myTextureSampler, UV ).rgb;
 
-	//float visibility = texture( shadowMap, vec3(ShadowCoord.xy, (ShadowCoord.z)/ShadowCoord.w) );
 
-	// http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/
 	float visibility = 1.0;
-	if (texture(shadowMap, ShadowCoord.xyz)  <  ShadowCoord.z)
-	{
-		visibility = 0.5;
-	}
-	 
+	float bias = 0.005;
 
-	//color = visibility * MaterialDiffuseColor * LightColor;
-	color = vec3(visibility);
+	// old way, does not work with bias
+	/*
+	// if ( texture( shadowMap, ShadowCoord.xy ).z  <  ShadowCoord.z)
+	if (texture(shadowMap, ShadowCoord.xyz) < ShadowCoord.z - bias)
+	{
+		visibility = 0;
+	}
+	*/
+	
+	visibility -= 0.9 *  (1.0-texture(shadowMap, vec3(ShadowCoord.xy, (ShadowCoord.z - bias) / ShadowCoord.w)));
+
+
+	color = visibility * MaterialDiffuseColor * LightColor;
+	//color = vec3(visibility);
 }
+
+

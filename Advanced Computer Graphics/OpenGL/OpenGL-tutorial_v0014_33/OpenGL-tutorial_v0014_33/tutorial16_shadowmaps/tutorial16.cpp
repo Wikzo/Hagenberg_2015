@@ -203,8 +203,9 @@ int main( void )
 		// Use our shader
 		glUseProgram(depthProgramID);
 
-		//glm::vec3 lightInvDir = glm::vec3(0.5f,2,2);
-		glm::vec3 lightInvDir = glm::vec3(sin((float)glfwGetTime()*0.3f),2,2);
+		glm::vec3 lightInvDir = glm::vec3(0.5f,2,2);
+		// moving light:
+		//glm::vec3 lightInvDir = glm::vec3(sin((float)glfwGetTime()*0.3f),2,2);
 
 
 		// Compute the MVP matrix from the light's point of view

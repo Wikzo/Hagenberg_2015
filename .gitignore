@@ -744,3 +744,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 *.tlog
+
+*.VC.opendb

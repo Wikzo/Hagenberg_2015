@@ -17,8 +17,10 @@ uniform mat4 DepthBiasMVP;
 void main(){
 
 	// Output position of the vertex, in clip space : MVP * position
+	// MVP = camera's point of view
 	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
 	
+	// DepthBiasMVP = light's point of view (orthogonal)
 	ShadowCoord = DepthBiasMVP * vec4(vertexPosition_modelspace,1);
 	
 	// UV of the vertex. No special space for this one.

@@ -84,8 +84,8 @@ void main(){
 	float bias = 0.005;
 
 	// ...variable bias
-	// float bias = 0.005*tan(acos(cosTheta));
-	// bias = clamp(bias, 0,0.01);
+	 //float bias = 0.005*tan(acos(cosTheta));
+	 //bias = clamp(bias, 0,0.01);
 
 	// Sample the shadow map 4 times
 	for (int i=0;i<4;i++){
@@ -95,10 +95,10 @@ void main(){
 		int index = i;
 		//  - A random sample, based on the pixel's screen location. 
 		//    No banding, but the shadow moves with the camera, which looks weird.
-		// int index = int(16.0*random(gl_FragCoord.xyy, i))%16;
+		//int index = int(16.0*random(gl_FragCoord.xyy, i))%16;
 		//  - A random sample, based on the pixel's position in world space.
 		//    The position is rounded to the millimeter to avoid too much aliasing
-		// int index = int(16.0*random(floor(Position_worldspace.xyz*1000.0), i))%16;
+		// index = int(16.0*random(floor(Position_worldspace.xyz*1000.0), i))%16;
 		
 		// being fully in the shadow will eat up 4*0.2 = 0.8
 		// 0.2 potentially remain, which is quite dark.
@@ -110,6 +110,7 @@ void main(){
 	// if ( textureProj( shadowMap, ShadowCoord.xyw ).z  <  (ShadowCoord.z-bias)/ShadowCoord.w )
 	
 	
+	visibility -= 0.2*(1.0 - texture(shadowMap, vec3(ShadowCoord.xy + poissonDisk[index] / 700.0, (ShadowCoord.z - bias) / ShadowCoord.w)));
 
 
 

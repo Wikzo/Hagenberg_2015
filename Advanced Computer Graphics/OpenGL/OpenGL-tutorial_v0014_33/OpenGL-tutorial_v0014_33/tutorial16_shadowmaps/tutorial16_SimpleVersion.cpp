@@ -8,6 +8,7 @@
 
 // Include GLFW
 #include <glfw3.h>
+#include <iostream>
 GLFWwindow* window;
 
 // Include GLM
@@ -156,8 +157,10 @@ int main( void )
 	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
 	GLuint DepthBiasID = glGetUniformLocation(programID, "DepthBiasMVP");
 	GLuint ShadowMapID = glGetUniformLocation(programID, "shadowMap");
+	GLuint TimeID = glGetUniformLocation(programID, "time");
 		
 	do{
+		//std::cout << "hej";
 
 		// Render to our framebuffer
 		glBindFramebuffer(GL_FRAMEBUFFER, FramebufferName);
@@ -176,6 +179,8 @@ int main( void )
 		glUseProgram(depthProgramID);
 
 		glm::vec3 lightInvDir = glm::vec3(0.5f,2,2);
+		// moving light:
+		//glm::vec3 lightInvDir = glm::vec3(sin((float)glfwGetTime()*0.3f), 2, 2);
 
 		// Compute the MVP matrix from the light's point of view
 		glm::mat4 depthProjectionMatrix = glm::ortho<float>(-10,10,-10,10,-10,20);
@@ -217,8 +222,6 @@ int main( void )
 
 		glDisableVertexAttribArray(0);
 
-
-
 		// Render to the screen
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		glViewport(0,0,1024,768); // Render on the whole framebuffer, complete from the lower left corner to the upper right
@@ -240,6 +243,8 @@ int main( void )
 		glm::mat4 ModelMatrix = glm::mat4(1.0);
 		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
 		
+		// going from screen coordinates [-0.5, 0.5] to texture coordinates [0,1]
+		// by dividing coordinates by 2 and then translate them by 0.5
 		glm::mat4 biasMatrix(
 			0.5, 0.0, 0.0, 0.0, 
 			0.0, 0.5, 0.0, 0.0,
@@ -259,6 +264,13 @@ int main( void )
 		glBindTexture(GL_TEXTURE_2D, Texture);
 		// Set our "myTextureSampler" sampler to user Texture Unit 0
 		glUniform1i(TextureID, 0);
+
+		// set time
+		//glUniform1f(TimeID, sin((float)glfwGetTime() * 0.2));
+		glUniform1f(TimeID, (float)glfwGetTime() * 0.05);
+
+		//std::cout << (float)glfwGetTime() * 0.05 << "\n";
+
 
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, depthTexture);
