@@ -116,11 +116,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	@Override
 	protected boolean CollideWithBox(BoxCollider box)
 	{
-		System.out.println("h");
-		// NOT USED
-		
-		return false;
-		//System.out.println("Box " + box + " collides with circle " + this.Name());
+		return box.CollideWithCircle(this);
 	}
 
 	@Override

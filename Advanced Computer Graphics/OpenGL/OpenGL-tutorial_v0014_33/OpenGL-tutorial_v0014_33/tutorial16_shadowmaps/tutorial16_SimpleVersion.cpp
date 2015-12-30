@@ -22,6 +22,16 @@ using namespace glm;
 #include <common/objloader.hpp>
 #include <common/vboindexer.hpp>
 
+// SHADOW MAP
+//http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-16-shadow-mapping/
+// http://www.paulsprojects.net/tutorials/smt/smt.html
+// http://fabiensanglard.net/shadowmapping/index.php
+// https://www.youtube.com/watch?v=65uzqh4nz6w
+
+// LIGHT SHAFTS
+// http://www.lthatcher.co.uk/light-shaft-rendering.html
+// http://developer.amd.com/wordpress/media/2012/10/Mitchell_LightShafts.pdf
+
 int main( void )
 {
 	// Initialise GLFW

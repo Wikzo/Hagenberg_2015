@@ -106,18 +106,19 @@ public class TestLevel implements Screen, IUpdatable
 
 		EntityFactory f = new EntityFactory();
 		//f.CreateSingleSpring("Cog1", 300, 300);
-		f.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
+		//f.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
 		
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
 		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
 		//r = SpriteAnimator.CreateSpriteSheet(texture, 3, 3, 1);
 		
-		Entity t = f.CreateAnimatedMan("RunningMan_Factory1", 100, 200);
+		//Entity t = f.CreateAnimatedMan("RunningMan_Factory1", 100, 200);
 		f.CreateAnimatedMan("RunningMan_Factory2", 400, 200);
-		f.CreateStaticMan("StaticMan", 600, 200);
+		f.CreateStaticMan("StaticMan_1", 600, 200);
 
-		for (int i = 0; i < 3; i++)
+
+		/*for (int i = 0; i < 3; i++)
 		{
 			Entity e = new Entity("Man_" + i);
 			e.SetPosition(300 + i * 170, 300);
@@ -151,7 +152,7 @@ public class TestLevel implements Screen, IUpdatable
 
 			}
 
-		}
+		}*/
 
 		_entity1 = new Entity("RunningMan_Original1");
 
