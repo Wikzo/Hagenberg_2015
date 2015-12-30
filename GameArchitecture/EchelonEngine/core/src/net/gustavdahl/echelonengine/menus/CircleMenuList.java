@@ -145,10 +145,7 @@ public class CircleMenuList implements Screen
 			MenuMove(1);
 
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER))
-		{
-			// SetActiveMenu(MenuItemType.values()[highlightIndex]);
 			MenuItems.get(highlightIndex).LoadScene();
-		}
 
 		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
 			Gdx.app.exit();

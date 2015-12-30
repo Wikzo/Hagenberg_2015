@@ -94,19 +94,19 @@ public class MenuItem
 		switch (MenuType)
 		{
 		case CollisionBruteForce:
-			s = new SimpleCollisionBruteForce(game, circleMenu, _serviceLocator);
+			s = new BruteForceCollisionScene(game, circleMenu, _serviceLocator);
 			game.setScreen(s);
 			break;
-		case CollisionBruteForceStressTest:
-			break;
+			
 		case CollisionSortAndPrune:
-			break;
-		case CollisionSortAndPruneStressTest:
 			break;
 		case Persistence:
 			break;
 		case Selection:
+			s = new SelectionScene(game, circleMenu, _serviceLocator);
+			game.setScreen(s);
 			break;
+			
 		case SpringsAndForces:
 			break;
 		}

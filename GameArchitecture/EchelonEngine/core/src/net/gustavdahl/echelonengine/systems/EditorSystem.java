@@ -11,8 +11,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
-
-import net.gustavdahl.echelonengine.scenes.SimpleCollisionBruteForce;
 import net.gustavdahl.echelonengine.components.Collider;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.ConstantForce;
@@ -41,8 +39,9 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	private Vector3 _mousePosition;
 	private List<Entity> _selectedEntities;
 	private IEditorSelectionState _editorSelectionState;
-	private EditorActionStateManager _editorActionStateManager;
+	public EditorActionStateManager _editorActionStateManager;
 	private boolean _controlDown;
+	private OrthographicCamera _camera;
 
 	public EditorSystem(OrthographicCamera camera)
 	{
@@ -59,8 +58,23 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		_editorSelectionState.EnterState(this);
 
 		_editorActionStateManager = new EditorActionStateManager();
+		
+		_camera= camera;
 	}
 
+	public String GetEditorState()
+	{
+		String s = "Current Action State: " + _editorActionStateManager.GetCurrentActionState().getClass().getSimpleName().toString();
+		s += "\nCurrent Selection State: " + _editorSelectionState.getClass().getSimpleName().toString();
+		
+		return s;
+	}
+	
+	public void SetCamera(OrthographicCamera camera)
+	{
+		_camera = camera;
+	}
+	
 	@Override
 	public void Update(float deltaTime)
 	{
@@ -70,11 +84,11 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 		// make mouse raycast
 		_mousePosition = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-		_ray = SimpleCollisionBruteForce._camera.getPickRay(GetMousePosition().x, GetMousePosition().y);
+		_ray = _camera.getPickRay(GetMousePosition().x, GetMousePosition().y);
 
 		// update action states
 		_editorActionStateManager.Update(this);
-
+		
 		// set selection color
 		for (EditorComponent e : _editorComponents)
 		{
@@ -165,7 +179,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 	public void UnprojectMouse()
 	{
-		SimpleCollisionBruteForce._camera.unproject(GetMousePosition());
+		_camera.unproject(GetMousePosition());
 	}
 
 	public List<Entity> GetSelectedEntities()

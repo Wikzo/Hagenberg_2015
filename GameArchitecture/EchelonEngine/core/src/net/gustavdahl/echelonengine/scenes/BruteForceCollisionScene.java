@@ -24,6 +24,7 @@ import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.math.collision.Sphere;
 import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
+import com.sun.org.glassfish.gmbal.Description;
 
 import net.gustavdahl.echelonengine.components.BoxCollider;
 import net.gustavdahl.echelonengine.components.CircleCollider;
@@ -38,6 +39,7 @@ import net.gustavdahl.echelonengine.components.SpriteAnimator;
 import net.gustavdahl.echelonengine.components.SpriteComponent;
 import net.gustavdahl.echelonengine.components.Text;
 import net.gustavdahl.echelonengine.components.TransFormComponent;
+import net.gustavdahl.echelonengine.editoractionstates.EditorActionStateManager;
 import net.gustavdahl.echelonengine.entities.Entity;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
 import net.gustavdahl.echelonengine.enums.CollisionMode;
@@ -52,7 +54,7 @@ import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
-public class SimpleCollisionBruteForce implements Screen, IUpdatable
+public class BruteForceCollisionScene implements Screen, IUpdatable
 {
 	public static OrthographicCamera _camera; // TODO: don't make public static
 	private SpriteBatch _spriteBatch;
@@ -61,9 +63,8 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 	private Game _game;
 	private CircleMenuList _circleMenu;
 
-	public SimpleCollisionBruteForce(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
+	public BruteForceCollisionScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{
-		System.out.println("new scene");
 		_game = game;
 		_circleMenu = circleMenu;
 
@@ -79,11 +80,13 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 
 	void InitializeSystems(ServiceLocator serviceLocator)
 	{
+		_spriteBatch = ServiceLocator.AssetManager.SpriteBatch;
 		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
 		_debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
 				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont, _camera);
-		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetUseFixedUpdate(true).SetForceMode(ForceMode.ExplicitEuler);
-		ColliderSystem _colliderSystem = new ColliderSystem(CollisionMode.SortAndPrune);
+		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetUseFixedUpdate(true)
+				.SetForceMode(ForceMode.ExplicitEuler);
+		ColliderSystem _colliderSystem = new ColliderSystem(CollisionMode.BruteForce);
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
 		EditorSystem _editorSystem = new EditorSystem(_camera);
 
@@ -95,23 +98,25 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 		_serviceLocator.RegisterNewSystem(_gameLogicSystem);
 		_serviceLocator.RegisterNewSystem(_editorSystem);
 		_serviceLocator.InitializeSystems();
-		
+
 		_entityFactory = _serviceLocator.EntityFactory;
+		
+		_debugSystem.SetActive(true);
 
 	}
+	
+	// TODO:
+	// Toggle between fixed/varied update rate
+	// Toggle between spawning/non spawning
 
 	public void create()
 	{
-
-		_entityFactory.CreateSingleSpring("Cog_Single", 200, 300);
-		_entityFactory.CreateMultipleSprings("Cog_multi", 300, 400, 4);
-		
 		Entity e1 = _entityFactory.CreateStaticMan("Static1", 100, 200);
 		Entity e2 = _entityFactory.CreateStaticMan("Static2", 500, 200);
 		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
-		
-	}
 
+	}
+	
 	@Override
 	public void render(float delta)
 	{
@@ -125,6 +130,7 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 		ServiceLocator.AssetManager.ShapeRenderer.setProjectionMatrix(_camera.combined);
 
 		_debugSystem.GetCamera(_camera);
+		ServiceLocator.GetSystem(EditorSystem.class).SetCamera(_camera);
 
 		_serviceLocator.UpdateSystems(delta);
 
@@ -135,12 +141,9 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 	@Override
 	public void Update(float deltaTime)
 	{
-		
 		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
-		{
-			System.out.println("going back");
 			_game.setScreen(_circleMenu);
-		}
+
 		// _timer+= deltaTime;
 
 		if (_timer > 0.01)
@@ -149,10 +152,9 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 
 			float x = MathUtils.random(Gdx.graphics.getWidth() + 800);
 			float y = MathUtils.random(Gdx.graphics.getHeight() + 800);
-			
+
 			Entity e = _entityFactory.CreateAnimatedMan("StressTest_Man", x, y);
 			e.AddComponent(new PhysicsBody().AddConstantForce(PhysicsBody.GravityForce));
-			
 
 		}
 
@@ -192,6 +194,6 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 	@Override
 	public void hide()
 	{
-		//dispose();
+		// dispose();
 	}
 }

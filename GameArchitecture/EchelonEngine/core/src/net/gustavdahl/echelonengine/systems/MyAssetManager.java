@@ -41,6 +41,7 @@ public class MyAssetManager
 	private ArrayList<BitmapFont> fonts;
 	public BitmapFont ArialFont;
 	public BitmapFont DebugFont;
+	public BitmapFont DebugFont2;
 	public BitmapFont InnerMenuFont;
 
 	public SpriteBatch SpriteBatch;
@@ -72,6 +73,11 @@ public class MyAssetManager
 		DebugFont.setColor(Color.YELLOW);
 		DebugFont.getData().setScale(0.5f,0.5f);
 		fonts.add(DebugFont);
+		
+		DebugFont2 = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
+		DebugFont2.setColor(Color.WHITE);
+		DebugFont2.getData().setScale(0.5f,0.5f);
+		fonts.add(DebugFont2);
 		
 		// from: https://github.com/libgdx/libgdx/wiki/Gdx-freetype
 		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("ROUGD__.TTF"));
