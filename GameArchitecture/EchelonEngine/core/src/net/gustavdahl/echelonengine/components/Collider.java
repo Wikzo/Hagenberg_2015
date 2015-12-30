@@ -23,8 +23,8 @@ public abstract class Collider extends Component implements Comparable<Collider>
 	protected Color _currentSpriteColor;
 
 	// collider colors (debug)
-	protected Color CollisionColor =  new Color(1f, 0f, 0f, 0.8f);
-	protected Color PotentialHitColor = Color.GOLDENROD;
+	protected Color CollisionColor =  new Color(1f, 0f, 0f, 0.7f);
+	protected Color PotentialHitColor = new Color(0.8f, 0.5f, 0.1f, 0.7f);
 	protected Color NoCollisionColor = new Color(0.9f, 0.7f, 0.3f, 0.2f);
 
 	protected Color _currentDebugColor;
@@ -104,14 +104,10 @@ public abstract class Collider extends Component implements Comparable<Collider>
 	{
 		CollisionState = state;
 		
-		switch (state)
-		{
-		case IsColliding:
+		if (state == CollisionState.IsColliding)
 			_currentDebugColor = CollisionColor;
-			break;
-		case PotentialCollision:
+		else if (state == CollisionState.PotentialCollision && _currentDebugColor != CollisionColor)
 			_currentDebugColor = PotentialHitColor;
-		}
 
 	}
 	

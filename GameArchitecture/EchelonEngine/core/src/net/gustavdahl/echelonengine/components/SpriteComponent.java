@@ -29,7 +29,6 @@ public class SpriteComponent extends Component implements IRenderable
 
 	boolean IsVisible;
 
-
 	public SpriteComponent(TextureRegion region)
 	{
 		super();
@@ -150,5 +149,10 @@ public class SpriteComponent extends Component implements IRenderable
 	public float GetHeight()
 	{
 		return _height;
+	}
+	
+	public Texture GetTexture()
+	{
+		return _texture;
 	}
 }

@@ -38,6 +38,8 @@ public class ColliderSystem extends BaseSystem
 
 	private void Prune()
 	{
+		DebugSystem.AddDebugText("SORT AND SWEEP COLLISION", new Vector2(300, 400));
+				
 		for (int i = 0; i < _colliderList.size(); i++)
 		{
 			Collider a = _colliderList.get(i);
@@ -65,7 +67,7 @@ public class ColliderSystem extends BaseSystem
 
 	void BruteForceCollisionCheck(List<Collider> list, String collisionCheckType)
 	{
-		DebugSystem.AddDebugText("List size: " + list.size(), new Vector2(300, 400));
+		DebugSystem.AddDebugText("BRUTE FORCE COLLISION", new Vector2(300, 400));
 		DebugSystem.AddDebugText(collisionCheckType + " checks: " + Math.pow(list.size(), 2), new Vector2(300, 370));
 
 		// potential collision
@@ -106,8 +108,8 @@ public class ColliderSystem extends BaseSystem
 	
 	void CalculateCollisions()
 	{
-		//SortAndPrune();
-		 BruteForceCollisionCheck(_colliderList, "BruteForce");
+		SortAndPrune();
+		// BruteForceCollisionCheck(_colliderList, "BruteForce");
 	}
 	
 	

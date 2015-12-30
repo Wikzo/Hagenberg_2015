@@ -6,4 +6,5 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 public interface IDebugRenderable
 {
 	void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime);
+	String OnSelectedText();
 }

@@ -132,5 +132,13 @@ public class CircleCollider extends Collider implements IDebugRenderable
 	}
 
 
+	@Override
+	public String OnSelectedText()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

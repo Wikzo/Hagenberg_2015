@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
@@ -90,6 +91,13 @@ public class PhysicsSystem extends BaseSystem
 	{
 		if (!_isActive)
 			return;
+		
+		if (_usedFixedTimeStep)
+			DebugSystem.AddDebugText("Fixed physics update: " + GetPhysicsUpdateRate());
+		
+		DebugSystem.AddDebugText("Render FPS: " + Gdx.graphics.getFramesPerSecond());
+		DebugSystem.AddDebugText("Number of entities: " + ServiceLocator.EntityManager.GetEntityCount());
+				
 
 		if (!_usedFixedTimeStep) // varied update
 		{
@@ -111,9 +119,11 @@ public class PhysicsSystem extends BaseSystem
 			while (_accumulator >= _fixedTimeStep)
 			{
 				_accumulator -= _fixedTimeStep;
-				UpdatePhysics((float) _fixedTimeStep);
+				
 			}
 
+			UpdatePhysics((float) _fixedTimeStep);
+			
 			// TODO: use interpolation to make renderer more "stable"
 			// interpolate between previous and current Transform state
 		}

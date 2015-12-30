@@ -91,8 +91,14 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	@Override
 	public boolean Collide(Collider collider)
 	{
+		
 		boolean b = collider.CollideWithBox(this);
+		//ResolveCollision(b);
+		return b;
+	}
 
+	void ResolveCollision(boolean b)
+	{		
 		if (!b)
 		{
 			_lastPositionX = Transform.PositionX;
@@ -100,13 +106,7 @@ public class BoxCollider extends Collider implements IDebugRenderable
 		}
 		else if (!this.IsStatic)
 			this.Owner.SetPosition(_lastPositionX, _lastPositionY);
-
-		// System.out.println(_lastPosition);
-
-		return b;
 	}
-
-	
 
 	@Override
 	protected boolean CollideWithCircle(CircleCollider circle)
@@ -183,6 +183,13 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	public int GetRightSide()
 	{
 		return Math.round(Bounds().x + Bounds().width);
+	}
+
+	@Override
+	public String OnSelectedText()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -17,6 +17,7 @@ import net.gustavdahl.echelonengine.components.Collider;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.ConstantForce;
 import net.gustavdahl.echelonengine.components.EditorComponent;
+import net.gustavdahl.echelonengine.components.IDebugRenderable;
 import net.gustavdahl.echelonengine.components.IRenderable;
 import net.gustavdahl.echelonengine.editoractionstates.EditorActionStateManager;
 import net.gustavdahl.echelonengine.editoractionstates.EditorIdleState;
@@ -89,17 +90,27 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 				data = "Scale: " + e.Owner.GetScaleString();
 					
 			if (e.Owner.CurrentlySelectedByEditor)
-				DebugSystem.AddDebugText("\n" + e.Owner.Name + ":\n" + data, new Vector2(e.Owner.GetPositionX(), e.Owner.GetPositionY()));
-				//DebugSystem.AddDebugText("\n" + e.Owner.Name + ":\n" + e.Owner.GetAllComponents(), new Vector2(e.Owner.GetPositionX(), e.Owner.GetPositionY()));
+			{
+				String debugTextToShow = "\n" + e.Owner.Name + ":\n" + data;
 
+				// look for all possible debug text in the components
+				for (Component c : e.Owner.GetAllComponents())
+					if (c instanceof IDebugRenderable)
+					{
+						String componentDebugText = ((IDebugRenderable) c).OnSelectedText();
+						if (componentDebugText != null && !componentDebugText.equals("null"))
+							debugTextToShow += "\n---\n" + componentDebugText + "\n---\n";
+					}
+						
+				
+				DebugSystem.AddDebugText(debugTextToShow, new Vector2(e.Owner.GetPositionX(), e.Owner.GetPositionY()));
+			}
 		}
 
 	}
 
 	public void ClearRemoveAllSelectedEntities()
 	{
-		// System.out.println("clearing all");
-
 		for (Entity e : GetSelectedEntities())
 			e.CurrentlySelectedByEditor = false;
 

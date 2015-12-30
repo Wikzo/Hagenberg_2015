@@ -57,6 +57,7 @@ public class TestLevel implements Screen, IUpdatable
 	public static OrthographicCamera _camera; // TODO: don't make public static
 	private SpriteBatch _spriteBatch;
 	private ServiceLocator _serviceLocator;
+	private EntityFactory _entityFactory;
 
 	Game _game;
 	Entity _entity1;
@@ -82,7 +83,7 @@ public class TestLevel implements Screen, IUpdatable
 		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
 		_debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
 				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont, _camera);
-		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetForceMode(ForceMode.ExplicitEuler);
+		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetUseFixedUpdate(true).SetForceMode(ForceMode.ExplicitEuler);
 		ColliderSystem _colliderSystem = new ColliderSystem();
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
 		EditorSystem _editorSystem = new EditorSystem(_camera);
@@ -96,7 +97,8 @@ public class TestLevel implements Screen, IUpdatable
 		_serviceLocator.RegisterNewSystem(_editorSystem);
 		_serviceLocator.InitializeSystems();
 		
-		//_colliderSystem.SetActive(false);
+		_entityFactory = _serviceLocator.EntityFactory;
+
 	}
 
 	TextureRegion[] r;
@@ -104,21 +106,22 @@ public class TestLevel implements Screen, IUpdatable
 	public void create()
 	{
 
-		EntityFactory f = new EntityFactory();
-		//f.CreateSingleSpring("Cog1", 300, 300);
-		//f.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
 		
+		//_entityFactory.CreateSingleSpring("Cog1", 300, 300);
+		_entityFactory.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
+		
+		
+		/*
 		Texture texture = _serviceLocator.AssetManager.RunningMan;
 
 		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
 		//r = SpriteAnimator.CreateSpriteSheet(texture, 3, 3, 1);
 		
-		//Entity t = f.CreateAnimatedMan("RunningMan_Factory1", 100, 200);
-		f.CreateAnimatedMan("RunningMan_Factory2", 400, 200);
-		f.CreateStaticMan("StaticMan_1", 600, 200);
+		Entity t = _entityFactory.CreateAnimatedMan("RunningMan_Factory1", 100, 200);
+		_entityFactory.CreateAnimatedMan("RunningMan_Factory2", 400, 200);
+		_entityFactory.CreateStaticMan("StaticMan", 600, 200);
 
-
-		/*for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			Entity e = new Entity("Man_" + i);
 			e.SetPosition(300 + i * 170, 300);
@@ -152,7 +155,7 @@ public class TestLevel implements Screen, IUpdatable
 
 			}
 
-		}*/
+		}
 
 		_entity1 = new Entity("RunningMan_Original1");
 
@@ -200,6 +203,8 @@ public class TestLevel implements Screen, IUpdatable
 		 */
 
 		// _serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
+		
+		
 	}
 
 	float fps = 1;
@@ -231,7 +236,6 @@ public class TestLevel implements Screen, IUpdatable
 	}
 
 	private float _timer;
-	private int _entityNumber;
 
 	@Override
 	public void Update(float deltaTime)
@@ -256,30 +260,16 @@ public class TestLevel implements Screen, IUpdatable
 			// _entity1.SetPosition(_entity1.GetPositionX() + 50, 20);
 		}
 
-		DebugSystem.AddDebugText("Number of entities: " + ServiceLocator.EntityManager.GetEntityCount());
-		DebugSystem.AddDebugText("Render FPS: " + Gdx.graphics.getFramesPerSecond());
-		DebugSystem.AddDebugText("Physics FPS: " + _serviceLocator.GetSystem(PhysicsSystem.class).GetPhysicsUpdateRate());
-
-		// _timer+= deltaTime;
+		 //_timer+= deltaTime;
 
 		if (_timer > 0.01)
 		{
 			_timer = 0;
-			_entityNumber++;
 
 			float x = MathUtils.random(Gdx.graphics.getWidth() + 800);
 			float y = MathUtils.random(Gdx.graphics.getHeight() + 800);
-
-			Entity e = new Entity("StressTest_" + _entityNumber);
-			e.SetPosition(x + 20, y + 20);
-
-			e.AddComponent(new SpriteComponent(r[0]).SetOriginCenter().Color(Color.WHITE), RenderSystem.class);
-
-			e.AddComponent(new CircleCollider(50f).SetStatic(true), ColliderSystem.class);
-			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
-
-			e.AddComponent(new EditorComponent(), EditorSystem.class);
-			e.AddComponent(new PhysicsBody());
+			
+			_entityFactory.CreateStaticMan("StressTest", x, y);
 
 		}
 

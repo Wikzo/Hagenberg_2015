@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import net.gustavdahl.echelonengine.components.Text;
 import net.gustavdahl.echelonengine.entities.Entity;
+import net.gustavdahl.echelonengine.entities.EntityFactory;
 import net.gustavdahl.echelonengine.menus.CircleMenuList;
 import net.gustavdahl.echelonengine.menus.SplashScreen;
 import net.gustavdahl.echelonengine.systems.EntityManager;
@@ -29,6 +30,7 @@ public class MyGame extends Game
 	private static ServiceLocator _serviceLocator;
 	private MyAssetManager _assetManager;
 	private static EntityManager _entityManager;
+	private static EntityFactory _entityFactory;
 	
 
 	@Override
@@ -40,8 +42,9 @@ public class MyGame extends Game
 		_assetManager.InitializeDebugAssets();
 		
 		_entityManager = new EntityManager();
+		_entityFactory = new EntityFactory();
 		
-		_serviceLocator = new ServiceLocator(_assetManager, _entityManager);
+		_serviceLocator = new ServiceLocator(_assetManager, _entityManager, _entityFactory);
 		setScreen(new TestLevel(this, _serviceLocator));
 		
 		//setScreen(new CircleMenuList(this, _serviceLocator)); //old menu stuff

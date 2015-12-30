@@ -87,12 +87,13 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 		return this;
 	}
 
-	protected Color _springDebugColor = new Color(1, 0, 0, 0.8f);
+	protected Color _springDebugColor = new Color(0, 1, 0, 0.8f);
+
 	public void SetSpringColor(Color color)
 	{
 		_springDebugColor = color;
 	}
-	
+
 	@Override
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
 	{
@@ -116,11 +117,26 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 		 * "\nSpringConstant: " + _springConstant, new
 		 * Vector2(Transform.PositionX, Transform.PositionY));
 		 */
-		if (_root != null)
-		{
-			DebugSystem.AddDebugText("Root: " + _root.Name, new Vector2(Transform.PositionX + 10, Transform.PositionY + 20));
-		}
 
+		/*
+		 * if (_root != null) { DebugSystem.AddDebugText("Root: " + _root.Name,
+		 * new Vector2(Transform.PositionX + 10, Transform.PositionY + 20)); }
+		 */
+
+	}
+
+	@Override
+	public String OnSelectedText()
+	{
+		/*
+		 * DebugSystem.AddDebugText( "Euler: " + _body._forceMode + "\nMass: " +
+		 * Float.toString(_body._mass) + "\nDamping: " + _dampConstant +
+		 * "\nSpringConstant: " + _springConstant, new
+		 * Vector2(Transform.PositionX, Transform.PositionY));
+		 */
+
+		return "Euler: " + _body._forceMode + "\nMass: " + Float.toString(_body._mass) + "\nDamping: " + _dampConstant
+				+ "\nSpringConstant: " + _springConstant;
 	}
 
 }

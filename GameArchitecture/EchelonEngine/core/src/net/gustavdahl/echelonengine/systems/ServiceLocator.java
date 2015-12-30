@@ -4,19 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.gustavdahl.echelonengine.components.Component;
+import net.gustavdahl.echelonengine.entities.EntityFactory;
 
 public class ServiceLocator
 {
 
 	public static MyAssetManager AssetManager; // TODO: change type to AssetManager
 	public static EntityManager EntityManager;
+	public static EntityFactory EntityFactory;
 
 	private static ArrayList<BaseSystem> _systems;
 
-	public ServiceLocator(MyAssetManager assetManager, EntityManager entityManager)
+	public ServiceLocator(MyAssetManager assetManager, EntityManager entityManager, EntityFactory entityFactory)
 	{
 		this.AssetManager = assetManager;
 		this.EntityManager = entityManager;
+		this.EntityFactory = entityFactory;
 
 		_systems = new ArrayList<BaseSystem>();
 	}
@@ -50,6 +53,7 @@ public class ServiceLocator
 	
 	void SetActive(BaseSystem s, boolean active)
 	{
+		s.SetActive(active);
 	}
 
 	// TODO: distinguish between different systems via update priority/order

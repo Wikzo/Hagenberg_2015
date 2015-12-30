@@ -171,4 +171,11 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 		
 	}
 
+	@Override
+	public String OnSelectedText()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

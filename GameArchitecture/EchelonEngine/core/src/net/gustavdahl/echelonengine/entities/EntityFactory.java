@@ -47,9 +47,15 @@ public class EntityFactory
 
 	private void AddRenderComponent(Entity e, TextureRegion texture)
 	{
-
 		e.AddComponent(new SpriteComponent(texture).SetOriginCenter().Color(Color.WHITE), RenderSystem.class);
-		e.AddComponent(new CircleCollider(texture.getRegionWidth() / 2), ColliderSystem.class);
+	}
+
+	private void AddCircleCollider(Entity e)
+	{
+		e.AddComponent(new CircleCollider
+				(e.GetComponent(SpriteComponent.class).GetWidth() / 2),
+				ColliderSystem.class);
+		
 		e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
 
 		e.AddComponent(new EditorComponent(), EditorSystem.class);
@@ -68,12 +74,9 @@ public class EntityFactory
 
 	}
 
-	public SpringComponent CreateSingleSpring(Entity e, float x, float y, TextureRegion texture)
+	private SpringComponent AddSpringComponent(Entity e, float x, float y, PhysicsBody body, TextureRegion texture)
 	{
-		AddRenderComponent(e, texture);
 		
-		// add physics body
-		PhysicsBody body = AddPhysicsBody(e);
 
 		// add spring
 		SpringComponent spring = new SpringComponent(body);
@@ -89,14 +92,17 @@ public class EntityFactory
 		// TODO: make all springs connected two-ways
 
 		Entity root = CreateEntity(name, x, y);
-		AddRenderComponent(root, ServiceLocator.AssetManager.CogWheels[0]);
-		// AddPhysicsBody(root);
+		AddRenderComponent(root, ServiceLocator.AssetManager.CogWheels[1]);
+		AddCircleCollider(root);
 
 		for (int i = 0; i < numberOfSprings - 1; i++)
 		{
 
 			Entity e = CreateEntity(name + i, x, y + (-i * 70));
-			SpringComponent s = CreateSingleSpring(e, x, y,ServiceLocator.AssetManager.CogWheels[0]);
+			AddRenderComponent(e, ServiceLocator.AssetManager.CogWheels[0]);
+			AddCircleCollider(e);
+			PhysicsBody body = AddPhysicsBody(e);
+			SpringComponent s = AddSpringComponent(e, x, y, body, ServiceLocator.AssetManager.CogWheels[0]);
 			s.SetRoot(root);
 
 			if (i % 2 == 0)
