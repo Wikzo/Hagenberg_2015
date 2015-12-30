@@ -46,11 +46,12 @@ public abstract class Component implements IComponent, IUpdatable
 	{
 		if (systemClass != null)
 		{
-			System.out.println(String.format("%s: [%s was added to %s: %s]",
+			boolean added = ServiceLocator.GetSystem(systemClass).AddToSystem(this);
+			
+			/*System.out.println(String.format("%s: [%s was added to %s: %s]",
 					this.Owner.Name,
 					this.Name(),
-					systemClass.getSimpleName(),
-					ServiceLocator.GetSystem(systemClass).AddToSystem(this)));
+					systemClass.getSimpleName(), added));*/
 		}
 
 		return this;

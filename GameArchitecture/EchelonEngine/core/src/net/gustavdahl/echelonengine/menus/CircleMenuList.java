@@ -43,7 +43,7 @@ public class CircleMenuList implements Screen
 	private Stage stage;
 
 	private int highlightIndex = 0;
-	
+
 	private ServiceLocator _serviceLocator;
 
 	public CircleMenuList(MyGame project, ServiceLocator serviceLocator)
@@ -56,19 +56,13 @@ public class CircleMenuList implements Screen
 		viewport = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
 
 		stage = new Stage();
+		
+		CreateMenuItems();
 
 	}
 
-	// TODO: transitions states (for changing bg color)
-	void DebugStuff()
+	void CreateMenuItems()
 	{
-
-	}
-
-	@Override
-	public void show()
-	{
-
 		// label style
 		LabelStyle labelStyle = new Label.LabelStyle(ServiceLocator.AssetManager.ArialFont, Color.WHITE);
 		// Label label1 = new Label("1", labelStyle);
@@ -83,7 +77,7 @@ public class CircleMenuList implements Screen
 			case 0:
 				menuName = "Collision Stress Test";
 				break;
-			
+
 			case 1:
 				menuName = "Gameplay Options";
 				break;
@@ -103,7 +97,7 @@ public class CircleMenuList implements Screen
 			case 5:
 				menuName = "About & Credits";
 				break;
-				
+
 			case 6:
 				menuName = "Exit Game";
 				break;
@@ -142,7 +136,12 @@ public class CircleMenuList implements Screen
 		labels.get(highlightIndex).setColor(Color.WHITE);
 
 		stage.setViewport(new FitViewport(game.V_WIDTH, game.V_HEIGHT));
+	}
 
+	@Override
+	public void show()
+	{
+		
 	}
 
 	@Override
@@ -160,7 +159,6 @@ public class CircleMenuList implements Screen
 
 		stage.act(delta);
 		stage.draw();
-		
 
 		// TODO: continuous pressing down
 		if (Gdx.input.isKeyJustPressed(Keys.LEFT))
@@ -174,19 +172,19 @@ public class CircleMenuList implements Screen
 		}
 
 	}
-	
-	
+
 	// TODO: use 1 stage!
-	
+
 	MenuItem current;
+
 	public void SetActiveMenu(MenuItemType type)
 	{
 		// TODO: keep the old screen as well
 		if (current != null)
 			current.RemoveSubMenu();
-		
-		 //System.out.println("highlight index " + highlightIndex);
-		
+
+		// System.out.println("highlight index " + highlightIndex);
+
 		switch (type)
 		{
 		case About:
@@ -211,15 +209,16 @@ public class CircleMenuList implements Screen
 			current = new MenuVideo(stage, game, this, MenuItemType.Video, _serviceLocator);
 			break;
 		case CollisionStressTest:
-			current = new MenuItemCollisionStressTest(stage, game, this, MenuItemType.CollisionStressTest, _serviceLocator);
+			current = new MenuItemSimpleCollisionBruteForce(stage, game, this, MenuItemType.CollisionStressTest,
+					_serviceLocator);
 			break;
 		default:
 			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
 			break;
-			
+
 		}
-		
-		current.InitializeSubMenu();
+
+		//current.InitializeSubMenu();
 	}
 
 	void MenuMove(int direction)
@@ -299,13 +298,13 @@ public class CircleMenuList implements Screen
 	@Override
 	public void resume()
 	{
-
+		System.out.println("back to menu!");
 	}
 
 	@Override
 	public void hide()
 	{
-		dispose();
+		// dispose();
 
 	}
 

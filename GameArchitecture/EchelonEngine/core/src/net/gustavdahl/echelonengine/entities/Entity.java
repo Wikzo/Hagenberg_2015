@@ -141,7 +141,7 @@ public class Entity
 		}
 
 		_components.add(c);
-		System.out.println(String.format("%s: [%s added]", this.Name, c.Name()));
+		//System.out.println(String.format("%s: [%s added]", this.Name, c.Name()));
 
 		c.Enable(this, systemName);
 	}

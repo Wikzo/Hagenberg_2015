@@ -12,17 +12,18 @@ import net.gustavdahl.echelonengine.components.CollisionState;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.ICollider;
 import net.gustavdahl.echelonengine.components.IDebugRenderable;
+import net.gustavdahl.echelonengine.enums.CollisionMode;
 
 public class ColliderSystem extends BaseSystem
 {
 
+	private CollisionMode _collisionMode;
 	private List<Collider> _colliderList; // list of ALL colliders
 
-	private boolean _firstTimeAddToActiveList;
-
-	public ColliderSystem()
+	public ColliderSystem(CollisionMode collisionMode)
 	{
 		_colliderList = new ArrayList<Collider>();
+		this._collisionMode = collisionMode;
 	}
 
 	void QuickSort()
@@ -38,8 +39,8 @@ public class ColliderSystem extends BaseSystem
 
 	private void Prune()
 	{
-		DebugSystem.AddDebugText("SORT AND SWEEP COLLISION", new Vector2(300, 400));
-				
+		DebugSystem.AddDebugText("Collision Method: Sort and Prune");
+
 		for (int i = 0; i < _colliderList.size(); i++)
 		{
 			Collider a = _colliderList.get(i);
@@ -65,14 +66,13 @@ public class ColliderSystem extends BaseSystem
 		}
 	}
 
-	void BruteForceCollisionCheck(List<Collider> list, String collisionCheckType)
+	void BruteForceCollisionCheck(List<Collider> list)
 	{
-		DebugSystem.AddDebugText("BRUTE FORCE COLLISION", new Vector2(300, 400));
-		DebugSystem.AddDebugText(collisionCheckType + " checks: " + Math.pow(list.size(), 2), new Vector2(300, 370));
-
+		DebugSystem.AddDebugText("Collision Method: Pair-wise Brute Force");
+		
 		// potential collision
-		//for (int i = 0; i < list.size(); i++)
-			//list.get(i).SetCollisionState(CollisionState.PotentialCollision);
+		// for (int i = 0; i < list.size(); i++)
+		// list.get(i).SetCollisionState(CollisionState.PotentialCollision);
 
 		// doing the pair-wise collision check
 		for (int i = 0; i < list.size(); i++)
@@ -101,27 +101,34 @@ public class ColliderSystem extends BaseSystem
 		{
 			Collider a = _colliderList.get(i);
 			a.ClearCollisions();
-			
-			//a.Update(deltaTime);
+
+			// a.Update(deltaTime);
 		}
 	}
-	
+
 	void CalculateCollisions()
 	{
-		SortAndPrune();
-		// BruteForceCollisionCheck(_colliderList, "BruteForce");
+		switch (_collisionMode)
+		{
+		case SortAndPrune:
+			SortAndPrune();
+			break;
+
+		case BruteForce:
+			BruteForceCollisionCheck(_colliderList);
+			break;
+		}
 	}
-	
-	
+
 	@Override
 	public void Update(float deltaTime)
 	{
 
 		if (!_isActive)
 			return;
-		
+
 		// fixed delta time?
-		
+
 		ClearCollisions();
 		CalculateCollisions();
 

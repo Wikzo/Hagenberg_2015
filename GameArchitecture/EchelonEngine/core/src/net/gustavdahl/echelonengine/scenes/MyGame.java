@@ -32,7 +32,8 @@ public class MyGame extends Game
 	private static EntityManager _entityManager;
 	private static EntityFactory _entityFactory;
 	
-
+	boolean _skipMenu = false;
+	
 	@Override
 	public void create()
 	{
@@ -45,11 +46,8 @@ public class MyGame extends Game
 		_entityFactory = new EntityFactory();
 		
 		_serviceLocator = new ServiceLocator(_assetManager, _entityManager, _entityFactory);
-		setScreen(new TestLevel(this, _serviceLocator));
 		
-		//setScreen(new CircleMenuList(this, _serviceLocator)); //old menu stuff
-		
-		//setScreen(new SplashScreen(this)); //old menu stuff
+			setScreen(new CircleMenuList(this, _serviceLocator)); //old menu stuff
 	}
 
 	@Override

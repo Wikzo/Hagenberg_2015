@@ -1,7 +1,5 @@
 package net.gustavdahl.echelonengine.scenes;
 
-//import static org.junit.Assert.assertNotNull;
-
 import java.io.Console;
 import java.util.Random;
 
@@ -42,7 +40,9 @@ import net.gustavdahl.echelonengine.components.Text;
 import net.gustavdahl.echelonengine.components.TransFormComponent;
 import net.gustavdahl.echelonengine.entities.Entity;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
+import net.gustavdahl.echelonengine.enums.CollisionMode;
 import net.gustavdahl.echelonengine.enums.ForceMode;
+import net.gustavdahl.echelonengine.menus.CircleMenuList;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
@@ -52,21 +52,19 @@ import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
-public class TestLevel implements Screen, IUpdatable
+public class SimpleCollisionBruteForce implements Screen, IUpdatable
 {
 	public static OrthographicCamera _camera; // TODO: don't make public static
 	private SpriteBatch _spriteBatch;
 	private ServiceLocator _serviceLocator;
 	private EntityFactory _entityFactory;
+	private Game _game;
+	private CircleMenuList _circleMenu;
 
-	Game _game;
-	Entity _entity1;
-	Entity _entity2;
-	Entity _entity3;
-
-	public TestLevel(Game game, ServiceLocator serviceLocator)
+	public SimpleCollisionBruteForce(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{
 		_game = game;
+		_circleMenu = circleMenu;
 
 		InitializeSystems(serviceLocator);
 
@@ -84,7 +82,7 @@ public class TestLevel implements Screen, IUpdatable
 		_debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
 				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont, _camera);
 		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetUseFixedUpdate(true).SetForceMode(ForceMode.ExplicitEuler);
-		ColliderSystem _colliderSystem = new ColliderSystem();
+		ColliderSystem _colliderSystem = new ColliderSystem(CollisionMode.SortAndPrune);
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
 		EditorSystem _editorSystem = new EditorSystem(_camera);
 
@@ -101,12 +99,9 @@ public class TestLevel implements Screen, IUpdatable
 
 	}
 
-	TextureRegion[] r;
-
 	public void create()
 	{
 
-		
 		_entityFactory.CreateSingleSpring("Cog_Single", 200, 300);
 		_entityFactory.CreateMultipleSprings("Cog_multi", 300, 400, 4);
 		
@@ -114,10 +109,8 @@ public class TestLevel implements Screen, IUpdatable
 		Entity e2 = _entityFactory.CreateStaticMan("Static2", 500, 200);
 		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
 		
-		
 	}
 
-	float fps = 1;
 	@Override
 	public void render(float delta)
 	{
@@ -142,7 +135,10 @@ public class TestLevel implements Screen, IUpdatable
 	public void Update(float deltaTime)
 	{
 		
-		 //_timer+= deltaTime;
+		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
+			_game.setScreen(_circleMenu);
+		
+		// _timer+= deltaTime;
 
 		if (_timer > 0.01)
 		{
@@ -151,7 +147,9 @@ public class TestLevel implements Screen, IUpdatable
 			float x = MathUtils.random(Gdx.graphics.getWidth() + 800);
 			float y = MathUtils.random(Gdx.graphics.getHeight() + 800);
 			
-			_entityFactory.CreateStaticMan("StressTest", x, y);
+			Entity e = _entityFactory.CreateAnimatedMan("StressTest_Man", x, y);
+			e.AddComponent(new PhysicsBody().AddConstantForce(PhysicsBody.GravityForce));
+			
 
 		}
 
