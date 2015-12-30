@@ -96,6 +96,8 @@ public class ServiceLocator
 		System.out.println("[Destroying all systems]");
 		for (int i = 0; i < _systems.size(); i++)
 			_systems.get(i).Destroy();
+
+		EntityManager.RemoveAllEntities();
 	}
 
 }

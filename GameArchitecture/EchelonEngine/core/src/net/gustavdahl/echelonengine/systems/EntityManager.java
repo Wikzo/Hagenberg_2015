@@ -31,6 +31,7 @@ public class EntityManager
 
 	public void RemoveAllEntities()
 	{
+		_entities.clear();
 	}
 
 }

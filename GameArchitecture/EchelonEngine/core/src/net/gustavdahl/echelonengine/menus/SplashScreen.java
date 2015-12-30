@@ -101,7 +101,7 @@ public class SplashScreen implements Screen
 	void EndOfState()
 	{
 
-		game.setScreen(new CircleMenuList(game, _serviceLocator));
+		game.setScreen(new CircleMenuList(game));
 		dispose();
 	}
 

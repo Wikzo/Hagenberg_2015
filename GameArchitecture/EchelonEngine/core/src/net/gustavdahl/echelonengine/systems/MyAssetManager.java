@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.sun.xml.internal.stream.events.DummyEvent;
@@ -39,6 +41,7 @@ public class MyAssetManager
 	private ArrayList<BitmapFont> fonts;
 	public BitmapFont ArialFont;
 	public BitmapFont DebugFont;
+	public BitmapFont InnerMenuFont;
 
 	public SpriteBatch SpriteBatch;
 	public Stage Stage;
@@ -61,14 +64,22 @@ public class MyAssetManager
 		textures.add(SplashTexture);
 	}
 
+	
+	
 	public void InitializeDebugAssets()
 	{
-		// TODO: scale font via https://github.com/libgdx/libgdx/wiki/Gdx-freetype
-		
 		DebugFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
 		DebugFont.setColor(Color.YELLOW);
 		DebugFont.getData().setScale(0.5f,0.5f);
 		fonts.add(DebugFont);
+		
+		// from: https://github.com/libgdx/libgdx/wiki/Gdx-freetype
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("ROUGD__.TTF"));
+		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
+		parameter.size = 22;
+		InnerMenuFont = generator.generateFont(parameter); 
+		generator.dispose(); // don't forget to dispose to avoid memory leaks!
+		fonts.add(InnerMenuFont);
 		
 		DummyTexture = new Texture("cat-tongue.png");
 		RunningMan = new Texture("spriteSheet_man.png");

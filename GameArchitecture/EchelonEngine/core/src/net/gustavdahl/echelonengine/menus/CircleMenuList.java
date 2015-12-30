@@ -35,7 +35,7 @@ import net.gustavdahl.echelonengine.systems.ServiceLocator;
 public class CircleMenuList implements Screen
 {
 
-	final MyGame game;
+	public final MyGame game;
 	private OrthographicCamera camera;
 	private Viewport viewport;
 
@@ -44,19 +44,25 @@ public class CircleMenuList implements Screen
 
 	private int highlightIndex = 0;
 
-	private ServiceLocator _serviceLocator;
+	java.util.List<MenuItem> MenuItems;
 
-	public CircleMenuList(MyGame project, ServiceLocator serviceLocator)
+	public CircleMenuList(MyGame project)
 	{
 		this.game = project;
-		_serviceLocator = serviceLocator;
 
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
 		viewport = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
 
 		stage = new Stage();
-		
+
+		MenuItems = new ArrayList<MenuItem>();
+		MenuItems.add(new MenuItem(MenuItemType.Selection, game, stage, this));
+		MenuItems.add(new MenuItem(MenuItemType.CollisionBruteForce, game, stage, this));
+		MenuItems.add(new MenuItem(MenuItemType.CollisionSortAndPrune, game, stage, this));
+		MenuItems.add(new MenuItem(MenuItemType.SpringsAndForces, game, stage, this));
+		MenuItems.add(new MenuItem(MenuItemType.Persistence, game, stage, this));
+
 		CreateMenuItems();
 
 	}
@@ -64,44 +70,14 @@ public class CircleMenuList implements Screen
 	void CreateMenuItems()
 	{
 		// label style
-		LabelStyle labelStyle = new Label.LabelStyle(ServiceLocator.AssetManager.ArialFont, Color.WHITE);
+		LabelStyle labelStyle = new Label.LabelStyle(game._assetManager.ArialFont, Color.WHITE);
 		// Label label1 = new Label("1", labelStyle);
 
 		// create labels
-		for (int i = 0; i < 7; i++)
+		for (int i = 0; i < MenuItems.size(); i++)
 		{
-			String menuName = "";
+			String menuName = MenuItems.get(i).MenuName;
 
-			switch (i)
-			{
-			case 0:
-				menuName = "Collision Stress Test";
-				break;
-
-			case 1:
-				menuName = "Gameplay Options";
-				break;
-
-			case 2:
-				menuName = "Control Options";
-				break;
-
-			case 3:
-				menuName = "Video Options";
-				break;
-
-			case 4:
-				menuName = "Audio Options";
-				break;
-
-			case 5:
-				menuName = "About & Credits";
-				break;
-
-			case 6:
-				menuName = "Exit Game";
-				break;
-			}
 			Label l = new Label(menuName, labelStyle);
 			l.setColor(Color.BLACK);
 			l.setPosition(l.getWidth() * i + 50, 0, Align.left);
@@ -133,15 +109,17 @@ public class CircleMenuList implements Screen
 		// System.out.println(labels.get(0).getX() + ", " +
 		// labels.get(0).getY());
 
-		labels.get(highlightIndex).setColor(Color.WHITE);
+		labels.get(highlightIndex).setColor(Color.GOLD);
 
 		stage.setViewport(new FitViewport(game.V_WIDTH, game.V_HEIGHT));
+
+		MenuItems.get(highlightIndex).Group.setVisible(true);
 	}
 
 	@Override
 	public void show()
 	{
-		
+
 	}
 
 	@Override
@@ -155,7 +133,7 @@ public class CircleMenuList implements Screen
 
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
-		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(camera.combined);
+		game._assetManager.SpriteBatch.setProjectionMatrix(camera.combined);
 
 		stage.act(delta);
 		stage.draw();
@@ -168,65 +146,17 @@ public class CircleMenuList implements Screen
 
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER))
 		{
-			SetActiveMenu(MenuItemType.values()[highlightIndex]);
+			// SetActiveMenu(MenuItemType.values()[highlightIndex]);
+			MenuItems.get(highlightIndex).LoadScene();
 		}
 
-	}
+		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
+			Gdx.app.exit();
 
-	// TODO: use 1 stage!
-
-	MenuItem current;
-
-	public void SetActiveMenu(MenuItemType type)
-	{
-		// TODO: keep the old screen as well
-		if (current != null)
-			current.RemoveSubMenu();
-
-		// System.out.println("highlight index " + highlightIndex);
-
-		switch (type)
-		{
-		case About:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
-			break;
-		case Audio:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
-			break;
-		case Control:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
-			break;
-		case Exit:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
-			break;
-		case Gameplay:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
-			break;
-		case StartGame:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
-			break;
-		case Video:
-			current = new MenuVideo(stage, game, this, MenuItemType.Video, _serviceLocator);
-			break;
-		case CollisionStressTest:
-			current = new MenuItemSimpleCollisionBruteForce(stage, game, this, MenuItemType.CollisionStressTest,
-					_serviceLocator);
-			break;
-		default:
-			current = new MenuItemGameplay(stage, game, this, MenuItemType.Gameplay, _serviceLocator);
-			break;
-
-		}
-
-		//current.InitializeSubMenu();
 	}
 
 	void MenuMove(int direction)
 	{
-		// System.out.println("moving " + direction);
-
-		// white = selected; black = not selected
-
 		switch (direction)
 		{
 		case 1: // clockwise
@@ -235,12 +165,18 @@ public class CircleMenuList implements Screen
 			if (highlightIndex > labels.size() - 1)
 				highlightIndex = 0;
 
-			labels.get(highlightIndex).setColor(Color.WHITE);
+			labels.get(highlightIndex).setColor(Color.GOLD);
+			MenuItems.get(highlightIndex).Group.setVisible(true);
 
 			if (highlightIndex != 0)
+			{
 				labels.get(highlightIndex - 1).setColor(Color.BLACK);
-			else
+				MenuItems.get(highlightIndex - 1).Group.setVisible(false);
+			} else
+			{
 				labels.get(labels.size() - 1).setColor(Color.BLACK);
+				MenuItems.get(labels.size() - 1).Group.setVisible(false);
+			}
 
 			break;
 
@@ -250,12 +186,18 @@ public class CircleMenuList implements Screen
 			if (highlightIndex < 0)
 				highlightIndex = labels.size() - 1;
 
-			labels.get(highlightIndex).setColor(Color.WHITE);
+			labels.get(highlightIndex).setColor(Color.GOLD);
+			MenuItems.get(highlightIndex).Group.setVisible(true);
 
 			if (highlightIndex != labels.size() - 1)
+			{
 				labels.get(highlightIndex + 1).setColor(Color.BLACK);
-			else
+				MenuItems.get(highlightIndex + 1).Group.setVisible(false);
+			} else
+			{
 				labels.get(0).setColor(Color.BLACK);
+				MenuItems.get(0).Group.setVisible(false);
+			}
 			break;
 		}
 

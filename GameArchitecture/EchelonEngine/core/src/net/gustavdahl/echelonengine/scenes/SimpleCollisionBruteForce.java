@@ -63,6 +63,7 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 
 	public SimpleCollisionBruteForce(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{
+		System.out.println("new scene");
 		_game = game;
 		_circleMenu = circleMenu;
 
@@ -136,8 +137,10 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 	{
 		
 		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
+		{
+			System.out.println("going back");
 			_game.setScreen(_circleMenu);
-		
+		}
 		// _timer+= deltaTime;
 
 		if (_timer > 0.01)
@@ -189,6 +192,6 @@ public class SimpleCollisionBruteForce implements Screen, IUpdatable
 	@Override
 	public void hide()
 	{
-
+		//dispose();
 	}
 }
