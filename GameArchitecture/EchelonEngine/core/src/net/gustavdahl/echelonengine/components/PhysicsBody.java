@@ -60,9 +60,10 @@ public class PhysicsBody extends Component implements IPhysics
 		_force.add(force).scl(1f / _mass);
 	}
 
-	public void AddConstantForce(Vector2 constantForce)
+	public PhysicsBody AddConstantForce(Vector2 constantForce)
 	{
 		_constantForces.add(constantForce);
+		return this;
 	}
 
 	Vector2 ComputeAllForces()

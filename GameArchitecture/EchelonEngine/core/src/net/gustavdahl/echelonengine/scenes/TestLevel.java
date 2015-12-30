@@ -107,102 +107,12 @@ public class TestLevel implements Screen, IUpdatable
 	{
 
 		
-		//_entityFactory.CreateSingleSpring("Cog1", 300, 300);
-		_entityFactory.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
+		_entityFactory.CreateSingleSpring("Cog_Single", 200, 300);
+		_entityFactory.CreateMultipleSprings("Cog_multi", 300, 400, 4);
 		
-		
-		/*
-		Texture texture = _serviceLocator.AssetManager.RunningMan;
-
-		r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
-		//r = SpriteAnimator.CreateSpriteSheet(texture, 3, 3, 1);
-		
-		Entity t = _entityFactory.CreateAnimatedMan("RunningMan_Factory1", 100, 200);
-		_entityFactory.CreateAnimatedMan("RunningMan_Factory2", 400, 200);
-		_entityFactory.CreateStaticMan("StaticMan", 600, 200);
-
-		for (int i = 0; i < 3; i++)
-		{
-			Entity e = new Entity("Man_" + i);
-			e.SetPosition(300 + i * 170, 300);
-
-			e.AddComponent(new SpriteComponent(r[0]).SetOriginCenter().Color(Color.WHITE), RenderSystem.class);
-
-			e.AddComponent(new CircleCollider(50f), ColliderSystem.class);
-			e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
-
-			e.AddComponent(new EditorComponent(), EditorSystem.class);
-
-			// falling down, not static
-			// if (i == 0)
-			{
-				e.AddComponent(new PhysicsBody());
-
-				Random r = new Random();
-				float mass = r.nextFloat() * 100;
-				float damp = r.nextFloat() * 5;
-
-				// add gravity
-				PhysicsBody body = e.GetComponent(PhysicsBody.class);
-				body.AddConstantForce(PhysicsBody.GravityForce);
-				body.SetMass(2);
-				// e.GetComponent(PhysicsComponent.class).SetMass(2).SetEulerMethod(EulerMethod.Explicit);
-
-				SpringComponent spring = new SpringComponent(body);
-				e.AddComponent(spring);
-				spring.SetSpringConstant((i + 1) * 2);
-				spring.AddToSystem(DebugSystem.class);
-
-			}
-
-		}
-
-		_entity1 = new Entity("RunningMan_Original1");
-
-		_entity2 = new Entity("RunningMan_Original2");
-		// _entity3 = new Entity("StaticMan3");
-		_entity1.SetPosition(100, 200);
-		_entity2.SetPosition(200, 400);
-		// _entity3.SetPosition(new Vector2(300,300));
-
-		// _entity1.AddComponent(new PhysicsComponent());
-
-
-
-		// sprite animation
-		_entity1.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
-				// .Offset(100, 0)
-				.SetOriginCenter(), RenderSystem.class);
-
-		_entity2.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
-				// .Offset(100, 0)
-				.SetOriginCenter(), RenderSystem.class);
-
-		_entity1.AddComponent(new BoxCollider(_entity1.GetComponent(SpriteComponent.class).GetWidth(),
-				_entity1.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
-
-		_entity2.AddComponent(new BoxCollider(_entity2.GetComponent(SpriteComponent.class).GetWidth(),
-				_entity1.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
-
-		_entity1.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		_entity2.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-
-		_entity1.AddComponent(new EditorComponent(), EditorSystem.class);
-		_entity2.AddComponent(new EditorComponent(), EditorSystem.class);
-
-		/*
-		 * Entity floor = new Entity("Floor"); floor.AddComponent(new
-		 * SpriteComponent(new
-		 * TextureRegion(_serviceLocator.AssetManager.Floor)));
-		 * floor.SetPosition(new Vector2(400,50)); floor.AddComponent(new
-		 * BoxCollider(floor.GetComponent(SpriteComponent.class).GetWidth(),
-		 * floor.GetComponent(SpriteComponent.class).GetHeight()).SetStatic(true
-		 * ));
-		 * floor.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-		 * floor.AddComponent(new EditorComponent());
-		 */
-
-		// _serviceLocator.GetSystem(DebugSystem.class).AddToSystem(_entity1.GetComponent(EditorComponent.class));
+		Entity e1 = _entityFactory.CreateStaticMan("Static1", 100, 200);
+		Entity e2 = _entityFactory.CreateStaticMan("Static2", 500, 200);
+		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
 		
 		
 	}
@@ -223,15 +133,6 @@ public class TestLevel implements Screen, IUpdatable
 		_debugSystem.GetCamera(_camera);
 
 		_serviceLocator.UpdateSystems(delta);
-		
-
-		// TODO: remember to apply stage viewport for camera
-
-		// TODO: get PickRay (for mouse input editor) via camera
-
-		// TODO: make camera system independt of render system
-
-		// TODO: physics (box-aligned vs. axis-aligned bounding box)
 
 	}
 
@@ -240,26 +141,7 @@ public class TestLevel implements Screen, IUpdatable
 	@Override
 	public void Update(float deltaTime)
 	{
-		// duplicate an entity (not working correctly yet!)
-		if (Gdx.input.isKeyJustPressed(Keys.F2))
-		{
-			Entity e = _entity1.DuplicateEntity();
-			// e.AddComponent(new TransFormComponent());
-			e.SetPosition(_entity1.GetPositionX(), _entity1.GetPositionY());
-			e.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.PINK)
-					// .Offset(100, 0)
-					.SetOriginCenter(), RenderSystem.class);
-
-			e.AddComponent(new BoxCollider(e.GetComponent(SpriteComponent.class).GetWidth(),
-					e.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
-
-			e.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-
-			e.AddComponent(new EditorComponent(), EditorSystem.class);
-
-			// _entity1.SetPosition(_entity1.GetPositionX() + 50, 20);
-		}
-
+		
 		 //_timer+= deltaTime;
 
 		if (_timer > 0.01)

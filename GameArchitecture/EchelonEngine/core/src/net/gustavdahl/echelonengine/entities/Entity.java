@@ -46,6 +46,8 @@ public class Entity
 
 		_isActive = true;
 
+		UUID id = UUID.randomUUID();
+		this.ID = id;
 		ServiceLocator.EntityManager.AddEntity(this);
 
 		System.out.println("*** " + this.Name + " created! ***");

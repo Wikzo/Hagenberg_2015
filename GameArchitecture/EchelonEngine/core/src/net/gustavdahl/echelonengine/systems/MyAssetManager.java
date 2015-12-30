@@ -32,6 +32,7 @@ public class MyAssetManager
 	public Texture Floor;
 	public Texture CogWheelAtlas;
 	public TextureRegion[] CogWheels;
+	public TextureRegion[] RunningManRegion;
 
 	// SPRITES end //////////////////////////////////////////////////
 
@@ -79,6 +80,7 @@ public class MyAssetManager
 		textures.add(Floor);
 		
 		CogWheels = SpriteAnimator.CreateSpriteSheet(CogWheelAtlas, 3, 3, 1);
+		RunningManRegion = SpriteAnimator.CreateSpriteSheet(RunningMan, 30, 6, 5);
 		
 		
 	}

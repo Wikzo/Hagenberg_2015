@@ -3,9 +3,10 @@ package net.gustavdahl.echelonengine.components;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 
-public class SpriteAnimator extends SpriteComponent
+public class SpriteAnimator extends SpriteComponent implements IDebugRenderable
 {
 
 	private TextureRegion[] _spriteSheet;
@@ -80,6 +81,19 @@ public class SpriteAnimator extends SpriteComponent
 
 		super.Render(batch, deltaTime);
 
+	}
+
+	@Override
+	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
+	{
+		
+		
+	}
+
+	@Override
+	public String OnSelectedText()
+	{
+		return "Frame rate: " + _framerate + "\nCurrent frame: " + Integer.toString(_index);
 	}
 
 }

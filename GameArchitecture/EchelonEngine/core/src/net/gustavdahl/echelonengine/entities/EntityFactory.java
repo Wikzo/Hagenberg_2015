@@ -35,11 +35,7 @@ public class EntityFactory
 
 	private Entity CreateEntity(String name, Float x, Float y)
 	{
-		UUID id = UUID.randomUUID();
-
 		Entity e = new Entity(name);
-		ServiceLocator.EntityManager.AddEntity(e);
-		e.ID = id;
 		e.SetPosition(x, y);
 
 		return e;
@@ -52,12 +48,16 @@ public class EntityFactory
 
 	private void AddCircleCollider(Entity e)
 	{
-		e.AddComponent(new CircleCollider
-				(e.GetComponent(SpriteComponent.class).GetWidth() / 2),
-				ColliderSystem.class);
-		
+		e.AddComponent(new CircleCollider(e.GetComponent(SpriteComponent.class).GetWidth() / 2), ColliderSystem.class);
 		e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
+		e.AddComponent(new EditorComponent(), EditorSystem.class);
+	}
 
+	private void AddBoxCollider(Entity e)
+	{
+		e.AddComponent(new BoxCollider(e.GetComponent(SpriteComponent.class).GetWidth(),
+				e.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
+		e.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
 		e.AddComponent(new EditorComponent(), EditorSystem.class);
 	}
 
@@ -74,10 +74,8 @@ public class EntityFactory
 
 	}
 
-	private SpringComponent AddSpringComponent(Entity e, float x, float y, PhysicsBody body, TextureRegion texture)
+	private SpringComponent AddSpringComponent(Entity e, float x, float y, PhysicsBody body)
 	{
-		
-
 		// add spring
 		SpringComponent spring = new SpringComponent(body);
 		e.AddComponent(spring);
@@ -87,13 +85,24 @@ public class EntityFactory
 		return spring;
 	}
 
+	public Entity CreateSingleSpring(String name, float x, float y)
+	{
+		Entity root = CreateEntity(name, x, y);
+		AddRenderComponent(root, ServiceLocator.AssetManager.CogWheels[1]);
+		AddCircleCollider(root);
+		PhysicsBody body = AddPhysicsBody(root);
+		SpringComponent spring = AddSpringComponent(root, x, y, body);
+		spring.SetSpringConstant(20);
+		spring.SetDamp(20);
+
+		return root;
+	}
+
 	public void CreateMultipleSprings(String name, float x, float y, int numberOfSprings)
 	{
 		// TODO: make all springs connected two-ways
 
-		Entity root = CreateEntity(name, x, y);
-		AddRenderComponent(root, ServiceLocator.AssetManager.CogWheels[1]);
-		AddCircleCollider(root);
+		Entity root = CreateSingleSpring(name, x, y);
 
 		for (int i = 0; i < numberOfSprings - 1; i++)
 		{
@@ -102,7 +111,7 @@ public class EntityFactory
 			AddRenderComponent(e, ServiceLocator.AssetManager.CogWheels[0]);
 			AddCircleCollider(e);
 			PhysicsBody body = AddPhysicsBody(e);
-			SpringComponent s = AddSpringComponent(e, x, y, body, ServiceLocator.AssetManager.CogWheels[0]);
+			SpringComponent s = AddSpringComponent(e, x, y, body);
 			s.SetRoot(root);
 
 			if (i % 2 == 0)
@@ -117,51 +126,30 @@ public class EntityFactory
 	public Entity CreateAnimatedMan(String name, float x, float y)
 	{
 
-		// TODO: move running man texture region to asset manager
-
-		Texture texture = ServiceLocator.AssetManager.RunningMan;
-		TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
+		TextureRegion[] r = ServiceLocator.AssetManager.RunningManRegion;
 		Entity e = CreateEntity(name, x, y);
-	
 
 		// sprite animation
 		e.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
 				// .Offset(100, 0)
 				.SetOriginCenter(), RenderSystem.class);
 
-		e.AddComponent(new BoxCollider(e.GetComponent(SpriteComponent.class).GetWidth(),
-				e.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
+		AddBoxCollider(e);
 
-		e.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);
-
-		e.AddComponent(new EditorComponent(), EditorSystem.class);
-		
 		return e;
 
 	}
-	
+
 	public Entity CreateStaticMan(String name, float x, float y)
 	{
 
-		// TODO: move running man texture region to asset manager
-		Texture texture = ServiceLocator.AssetManager.RunningMan;
-		TextureRegion[] r = SpriteAnimator.CreateSpriteSheet(texture, 30, 6, 5);
+		TextureRegion[] r = ServiceLocator.AssetManager.RunningManRegion;
 
 		Entity e = CreateEntity(name, x, y);
-	
-		e.AddComponent(new SpriteComponent(r[0]).SetOriginCenter().Color(Color.WHITE), RenderSystem.class);
-		
-		// circle collider
-		e.AddComponent(new CircleCollider(r[0].getRegionWidth() / 2), ColliderSystem.class);
-		e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
-		
-		// box collider
-		/*e.AddComponent(new BoxCollider(e.GetComponent(SpriteComponent.class).GetWidth(),
-				e.GetComponent(SpriteComponent.class).GetHeight()), ColliderSystem.class);
-		e.GetComponent(BoxCollider.class).AddToSystem(DebugSystem.class);*/
 
-		e.AddComponent(new EditorComponent(), EditorSystem.class);
-		
+		AddRenderComponent(e, r[0]);
+		AddBoxCollider(e);
+
 		return e;
 
 	}

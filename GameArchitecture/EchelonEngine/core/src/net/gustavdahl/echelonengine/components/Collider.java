@@ -23,9 +23,9 @@ public abstract class Collider extends Component implements Comparable<Collider>
 	protected Color _currentSpriteColor;
 
 	// collider colors (debug)
-	protected Color CollisionColor =  new Color(1f, 0f, 0f, 0.7f);
-	protected Color PotentialHitColor = new Color(0.8f, 0.5f, 0.1f, 0.7f);
-	protected Color NoCollisionColor = new Color(0.9f, 0.7f, 0.3f, 0.2f);
+	protected Color CollisionColor =  new Color(1f, 0f, 0f, 0.65f);
+	protected Color PotentialHitColor = new Color(0.8f, 0.5f, 0.1f, 0.65f);
+	protected Color SelectedColor = new Color(1,0,0.6f, 0.3f);
 
 	protected Color _currentDebugColor;
 
@@ -56,7 +56,7 @@ public abstract class Collider extends Component implements Comparable<Collider>
 		_spriteColorNormal = new Color(_sprite._color.r, _sprite._color.g, _sprite._color.b, _sprite._color.a);
 		
 		_currentSpriteColor = _spriteColorNormal;
-		_currentDebugColor = NoCollisionColor;
+		_currentDebugColor = SelectedColor;
 
 	}
 
@@ -114,7 +114,7 @@ public abstract class Collider extends Component implements Comparable<Collider>
 	public void ClearCollisions()
 	{
 		CollisionState = CollisionState.NoCollision;
-		_currentDebugColor = NoCollisionColor;
+		_currentDebugColor = SelectedColor;
 	}
 
 	public Collider SetStatic(boolean s)
