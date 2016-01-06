@@ -2,6 +2,20 @@ package net.gustavdahl.compositeiterator;
 
 public class Main
 {
+	Composite composite1 = new Composite("Composite 1");
+	Composite composite2 = new Composite("Composite 2");
+	Composite composite3 = new Composite("Composite 3");
+	Composite composite4 = new Composite("Composite 4");
+
+	Component leaf1 = new Leaf("Leaf 1");
+	Component leaf2 = new Leaf("Leaf 2");
+	Component leaf3 = new Leaf("Leaf 3");
+	Component leaf4 = new Leaf("Leaf 4");
+	Component leaf5 = new Leaf("Leaf 5");
+	Component leaf6 = new Leaf("Leaf 6");
+	Component leaf7 = new Leaf("Leaf 7");
+	Component leaf8 = new Leaf("Leaf 8");
+	
 	public static void main(String[] args)
 	{
 		Composite root = new Composite("Root");
@@ -63,12 +77,12 @@ public class Main
 			System.out.println();
 			System.out.println("+++++ External Iterator: printName +++++");
 
-			printName(composite4);
-			printName(composite3);
-			printName(composite2);
-			printName(composite1);
+			// printName(composite4);
+			// printName(composite3);
+			// printName(composite2);
+			// printName(composite1);
 
-			printName(root);
+			printName(composite3);
 
 		}
 
@@ -76,15 +90,41 @@ public class Main
 
 	private static void printName(Composite root)
 	{
-		System.out.print(root.getName() + ": ");
+		System.out.print(root.getName() + ":\n");
 		Iterator iterator = root.Iterator();
+		Component component = null;
 
-		while (iterator.hasNext())
+		component = GetNextChild(root);
+		component = GetNextChild(component);
+		component = GetNextChild(component);
+
+
+
+		/*
+		 * while (iterator.hasNext()) { component = iterator.next();
+		 * System.out.print("\n-" + component.getName() + ":\n"); }
+		 */
+		System.out.println();
+		System.out.println();
+	}
+
+	private static Component GetNextChild(Component c)
+	{		
+		if (c == null)
+			return null;
+		
+		Iterator iterator = c.Iterator();
+		
+		if (!iterator.hasNext())
 		{
-			Component component = iterator.next();
-			System.out.print(component.getName() + ", ");
+			System.out.println("No more childs!");
+			return null;
 		}
-		System.out.println();
-		System.out.println();
+
+		Component component;
+		component = iterator.next();
+		System.out.print("-" + component.getName() + ":\n");
+		
+		return component;
 	}
 }

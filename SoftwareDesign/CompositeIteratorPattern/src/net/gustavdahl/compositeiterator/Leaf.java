@@ -41,4 +41,10 @@ public class Leaf extends Component implements Iterator
 		return a;
 	}
 
+	@Override
+	public Component current()
+	{
+		return this;
+	}
+
 }

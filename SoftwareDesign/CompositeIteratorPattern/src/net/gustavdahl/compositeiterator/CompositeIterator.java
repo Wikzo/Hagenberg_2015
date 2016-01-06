@@ -14,10 +14,16 @@ public class CompositeIterator implements Iterator
 	public boolean hasNext()
 	{
 		if (_currentIterator.hasNext())
+		{
+			//System.out.println(_currentIterator.current().getName() +" has next: ");
 			return true;
+		}
 
 		if (_currentIterator == _baseIterator)
+		{
+			//System.out.println(_currentIterator.current().getName()  +" has next: FALSE");
 			return false;
+		}
 
 		_currentIterator = _baseIterator;
 		return _currentIterator.hasNext();
@@ -32,5 +38,11 @@ public class CompositeIterator implements Iterator
 		if (_currentIterator == _baseIterator)
 			_currentIterator = component.Iterator();
 		return component;
+	}
+
+	@Override
+	public Component current()
+	{
+		return _currentIterator.current();
 	}
 }
