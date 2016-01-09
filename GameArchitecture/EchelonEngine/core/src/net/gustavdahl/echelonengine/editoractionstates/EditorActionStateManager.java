@@ -1,8 +1,6 @@
 package net.gustavdahl.echelonengine.editoractionstates;
 
-
 import com.badlogic.gdx.Input.Keys;
-
 import net.gustavdahl.echelonengine.systems.EditorSystem;
 
 public class EditorActionStateManager

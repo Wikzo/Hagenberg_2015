@@ -1,20 +1,11 @@
 package net.gustavdahl.echelonengine.entities;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
-
-import com.badlogic.gdx.graphics.g3d.utils.BaseAnimationController.Transform;
-import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.TransFormComponent;
-import net.gustavdahl.echelonengine.components.physics.ConstantForce;
-import net.gustavdahl.echelonengine.systems.BaseSystem;
-import net.gustavdahl.echelonengine.systems.GameLoopSystem;
-import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class Entity

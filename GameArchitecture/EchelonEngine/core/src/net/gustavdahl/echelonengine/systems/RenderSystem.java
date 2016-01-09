@@ -1,14 +1,7 @@
 package net.gustavdahl.echelonengine.systems;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g3d.Renderable;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.IComponent;
 import net.gustavdahl.echelonengine.components.visual.IRenderable;
 
 public class RenderSystem extends BaseSystem<IRenderable>

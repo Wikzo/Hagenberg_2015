@@ -1,9 +1,6 @@
 package net.gustavdahl.echelonengine.systems;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
 
 public class ServiceLocator

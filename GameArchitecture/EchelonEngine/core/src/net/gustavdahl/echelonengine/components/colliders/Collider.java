@@ -1,18 +1,11 @@
 package net.gustavdahl.echelonengine.components.colliders;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
-import com.badlogic.gdx.math.collision.Sphere;
-
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.visual.SpriteComponent;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
-import net.gustavdahl.echelonengine.systems.PhysicsSystem;
-
-
 
 public abstract class Collider extends Component implements Comparable<Collider>
 {

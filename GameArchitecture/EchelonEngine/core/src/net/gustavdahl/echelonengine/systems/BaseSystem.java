@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.IComponent;
 
 public abstract class BaseSystem<T> implements ISystem
 {

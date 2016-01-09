@@ -1,14 +1,6 @@
 package net.gustavdahl.echelonengine.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
-
-import javax.swing.Spring;
-
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 import net.gustavdahl.echelonengine.components.colliders.BoxCollider;

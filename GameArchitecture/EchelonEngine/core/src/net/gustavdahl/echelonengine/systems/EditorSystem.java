@@ -6,7 +6,6 @@ import java.util.List;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -15,10 +14,7 @@ import com.badlogic.gdx.math.collision.Ray;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.colliders.Collider;
 import net.gustavdahl.echelonengine.components.editor.EditorComponent;
-import net.gustavdahl.echelonengine.components.persistence.Persistable;
-import net.gustavdahl.echelonengine.components.physics.ConstantForce;
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
-import net.gustavdahl.echelonengine.components.visual.IRenderable;
 import net.gustavdahl.echelonengine.editoractionstates.EditorActionStateManager;
 import net.gustavdahl.echelonengine.editoractionstates.EditorIdleState;
 import net.gustavdahl.echelonengine.editoractionstates.EditorRotateActionState;
@@ -26,7 +22,6 @@ import net.gustavdahl.echelonengine.editoractionstates.EditorScaleActionState;
 import net.gustavdahl.echelonengine.editoractionstates.IEditorActionState;
 import net.gustavdahl.echelonengine.editoractionstates.IEditorSelectionState;
 import net.gustavdahl.echelonengine.entities.Entity;
-import net.gustavdahl.echelonengine.entities.*;
 
 enum SelectionModifier
 {

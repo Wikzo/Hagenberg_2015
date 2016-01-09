@@ -1,8 +1,6 @@
 package net.gustavdahl.echelonengine.components;
 
 import net.gustavdahl.echelonengine.entities.Entity;
-import net.gustavdahl.echelonengine.systems.PhysicsSystem;
-import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public abstract class Component implements IComponent, IUpdatable

@@ -10,8 +10,6 @@ import net.gustavdahl.echelonengine.enums.ForceMode;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
-
-
 public class PhysicsBody extends Component implements IPhysics
 {
 

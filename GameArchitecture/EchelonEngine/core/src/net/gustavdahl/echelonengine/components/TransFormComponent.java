@@ -1,10 +1,5 @@
 package net.gustavdahl.echelonengine.components;
 
-import com.badlogic.gdx.math.Vector2;
-
-import net.gustavdahl.echelonengine.systems.GameLoopSystem;
-import net.gustavdahl.echelonengine.systems.PhysicsSystem;
-
 public class TransFormComponent extends Component
 {
 	public float PositionX, PositionY;

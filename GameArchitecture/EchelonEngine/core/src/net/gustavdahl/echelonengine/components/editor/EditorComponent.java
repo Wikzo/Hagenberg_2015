@@ -1,17 +1,9 @@
 package net.gustavdahl.echelonengine.components.editor;
 
-import javax.management.RuntimeErrorException;
-
-import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.colliders.Collider;
 import net.gustavdahl.echelonengine.components.visual.SpriteComponent;
-import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
-import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class EditorComponent extends Component
 {

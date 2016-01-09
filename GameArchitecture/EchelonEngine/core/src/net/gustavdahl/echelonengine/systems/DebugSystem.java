@@ -1,27 +1,17 @@
 package net.gustavdahl.echelonengine.systems;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.compression.lzma.Base;
-
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.DebugComponent;
-import net.gustavdahl.echelonengine.components.editor.EditorComponent;
-import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
-import net.gustavdahl.echelonengine.components.visual.IRenderable;
 
 public class DebugSystem extends BaseSystem<IDebugRenderable>
 {

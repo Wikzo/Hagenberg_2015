@@ -2,17 +2,11 @@ package net.gustavdahl.echelonengine.components.visual;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
-
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.systems.MyAssetManager;
-import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
-import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class SpriteComponent extends Component implements IRenderable
 {

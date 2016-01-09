@@ -1,20 +1,13 @@
 package net.gustavdahl.echelonengine.components.colliders;
 
-import javax.activation.UnsupportedDataTypeException;
-
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL30;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
-import net.gustavdahl.echelonengine.systems.DebugSystem;
-import net.gustavdahl.echelonengine.systems.MyAssetManager;
-import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class CircleCollider extends Collider implements IDebugRenderable
 {

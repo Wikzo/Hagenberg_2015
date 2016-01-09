@@ -1,24 +1,8 @@
 package net.gustavdahl.echelonengine.scenes;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-
-import net.gustavdahl.echelonengine.components.visual.Text;
-import net.gustavdahl.echelonengine.entities.Entity;
-import net.gustavdahl.echelonengine.entities.EntityFactory;
 import net.gustavdahl.echelonengine.menus.CircleMenuList;
-import net.gustavdahl.echelonengine.menus.SplashScreen;
-import net.gustavdahl.echelonengine.systems.EntityManager;
 import net.gustavdahl.echelonengine.systems.MyAssetManager;
-import net.gustavdahl.echelonengine.systems.RenderSystem;
-import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class MyGame extends Game
 {

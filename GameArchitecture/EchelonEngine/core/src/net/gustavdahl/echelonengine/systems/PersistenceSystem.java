@@ -15,7 +15,6 @@ import com.badlogic.gdx.Gdx;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.persistence.LevelCommand;
 import net.gustavdahl.echelonengine.components.persistence.Persistable;
-import net.gustavdahl.echelonengine.components.physics.IPhysics;
 
 public class PersistenceSystem extends BaseSystem<Persistable>
 {

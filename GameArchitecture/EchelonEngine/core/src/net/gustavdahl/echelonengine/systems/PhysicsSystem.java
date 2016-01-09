@@ -1,22 +1,9 @@
 package net.gustavdahl.echelonengine.systems;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.badlogic.gdx.utils.compression.lzma.Base;
-
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.IComponent;
 import net.gustavdahl.echelonengine.components.physics.IPhysics;
-import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
-import net.gustavdahl.echelonengine.components.visual.IRenderable;
 import net.gustavdahl.echelonengine.enums.ForceMode;
 
 public class PhysicsSystem extends BaseSystem<IPhysics>
@@ -126,8 +113,6 @@ public class PhysicsSystem extends BaseSystem<IPhysics>
 			// interpolate between previous and current Transform state
 		}
 	}
-
-
 
 	@Override
 	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)

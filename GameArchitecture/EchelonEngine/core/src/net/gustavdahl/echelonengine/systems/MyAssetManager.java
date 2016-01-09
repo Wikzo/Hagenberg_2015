@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -21,8 +20,7 @@ import net.gustavdahl.echelonengine.components.visual.SpriteAnimator;
 public class MyAssetManager
 {
 
-	// TODO: make use of SKIN (visible things)
-
+	// TODO: make use of asset manager instead
 	// https://github.com/libgdx/libgdx/wiki/Managing-your-assets
 
 	// SPRITES ///////////////////////////////////////////////////////
