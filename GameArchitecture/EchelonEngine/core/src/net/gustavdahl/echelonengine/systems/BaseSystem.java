@@ -10,6 +10,7 @@ public abstract class BaseSystem implements ISystem
 	private int _updatePriority = 1;
 	protected boolean _isActive;
 	protected List<Component> _componentList; // TODO: make generic T type!
+	
 	// TODO: maybe IList or ICollection?
 
 	
@@ -53,6 +54,15 @@ public abstract class BaseSystem implements ISystem
 
 	}
 
+	// TODO: use this method to make sure that no components can be added to the same system twice
+	public void AddComponentToSystem_NotUsedYet(Component component)
+	{
+		if (!_componentList.contains(component))
+			AddToSystem(component);
+		else
+			throw new RuntimeException("Error - " + component.Name() + " has already been added to " + this.toString());
+	}
+	
 	public void SetActive(boolean active) {	_isActive = active; }
 	public void SetActive() {	SetActive(_isActive); }
 	public boolean GetActive() { return _isActive; }
