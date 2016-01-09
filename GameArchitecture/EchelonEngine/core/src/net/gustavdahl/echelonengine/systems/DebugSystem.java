@@ -52,7 +52,7 @@ public class DebugSystem extends BaseSystem<IDebugRenderable>
 
 		if (_componentList.size() < 1)
 		{
-			System.out.println("ERROR - no render components in DebugSystem!");
+			//System.out.println("ERROR - no render components in DebugSystem!");
 			return;
 		}
 

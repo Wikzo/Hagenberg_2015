@@ -60,7 +60,7 @@ public class MenuItem
 			
 		case Persistence:
 			MenuName= "Persistence";
-			InnerMenuName = "***PERSISTENCE***\nPeppe";
+			InnerMenuName = "***PERSISTENCE***\nSaving and loading entities via creation commands stored in an external text file.";
 			break;
 			
 		case Selection:
@@ -88,6 +88,7 @@ public class MenuItem
 		{
 		case CollisionBruteForce:
 			s = new BruteForceCollisionScene(game, circleMenu, _serviceLocator);
+			//s = new SplashScreen(game, _serviceLocator);
 			game.setScreen(s);
 			break;
 			

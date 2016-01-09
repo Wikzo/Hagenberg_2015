@@ -84,11 +84,11 @@ public abstract class Collider extends Component implements Comparable<Collider>
 
 		if (hit)
 		{
-			_sprite.Color(_spriteColorCollision);
+			_sprite.SetColor(_spriteColorCollision);
 			// _currentDebugColor = _debugColorCollision;
 		} else
 		{
-			_sprite.Color(_spriteColorNormal);
+			_sprite.SetColor(_spriteColorNormal);
 			// _currentDebugColor = _debugColorNormal;
 		}
 	}

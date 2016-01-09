@@ -16,6 +16,6 @@ public abstract class PersistableComponent extends Component
 	{
 	}
 
-	public abstract LevelCommand CreateCommand();
+	public abstract CreateEntityCommand CreateCommand();
 
 }

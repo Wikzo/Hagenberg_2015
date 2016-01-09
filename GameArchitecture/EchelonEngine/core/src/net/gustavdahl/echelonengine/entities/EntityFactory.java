@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import net.gustavdahl.echelonengine.components.colliders.BoxCollider;
 import net.gustavdahl.echelonengine.components.colliders.CircleCollider;
 import net.gustavdahl.echelonengine.components.editor.EditorComponent;
+import net.gustavdahl.echelonengine.components.persistence.StaticManPersistence;
 import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
 import net.gustavdahl.echelonengine.components.physics.SpringComponent;
 import net.gustavdahl.echelonengine.components.visual.SpriteAnimator;
@@ -34,7 +35,7 @@ public class EntityFactory
 
 	private void AddRenderComponent(Entity e, TextureRegion texture)
 	{
-		e.AddComponent(new SpriteComponent(texture).SetOriginCenter().Color(Color.WHITE), RenderSystem.class);
+		e.AddComponent(new SpriteComponent(texture).SetOriginCenter().SetColor(Color.WHITE), RenderSystem.class);
 	}
 
 	private void AddCircleCollider(Entity e)
@@ -121,7 +122,7 @@ public class EntityFactory
 		Entity e = CreateEntity(name, x, y);
 
 		// sprite animation
-		e.AddComponent(new SpriteAnimator(r, 0.032f).Color(Color.WHITE)
+		e.AddComponent(new SpriteAnimator(r, 0.032f)
 				// .Offset(100, 0)
 				.SetOriginCenter(), RenderSystem.class);
 
@@ -131,15 +132,18 @@ public class EntityFactory
 
 	}
 
-	public Entity CreateStaticManWithBoxCollider(String name, float x, float y)
+	public Entity CreateStaticManWithBoxCollider(String name, float x, float y, float angle, float scaleX, float scaleY)
 	{
 
 		TextureRegion[] r = ServiceLocator.AssetManager.RunningManRegion;
 
 		Entity e = CreateEntity(name, x, y);
+		e.SetRotation(angle);
+		e.SetScale(scaleX, scaleY);
 
 		AddRenderComponent(e, r[0]);
 		AddBoxCollider(e);
+		e.AddComponent(new StaticManPersistence());
 
 		return e;
 

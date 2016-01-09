@@ -43,7 +43,7 @@ public class BruteForceCollisionScene extends BaseScene
 
 	public void CreateScene()
 	{
-		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200);
+		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200, 0, 1, 1);
 		Entity e2 = _entityFactory.CreateStaticManWithCircleCollider("Static2", 500, 200);
 		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
 	}

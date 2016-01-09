@@ -1,9 +1,13 @@
 package net.gustavdahl.echelonengine.scenes;
 
+import java.io.IOException;
+import java.sql.Time;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -26,7 +30,8 @@ import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public abstract class BaseScene implements Screen, IUpdatable
 {
-	protected static OrthographicCamera _camera; // TODO: don't make public static
+	protected static OrthographicCamera _camera; // TODO: don't make public
+													// static
 	protected SpriteBatch _spriteBatch;
 	protected ServiceLocator _serviceLocator;
 	protected EntityFactory _entityFactory;
@@ -72,25 +77,26 @@ public abstract class BaseScene implements Screen, IUpdatable
 		_serviceLocator.InitializeSystems();
 
 		_entityFactory = _serviceLocator.EntityFactory;
-		
+
 		_debugSystem.SetActive(false);
 
 	}
-	
+
 	public abstract void CreateScene();
 	public abstract void UpdateScene(float deltaTime);
 
 	public void create()
 	{
-		CreateScene();
+			CreateScene();
 	}
-	
+
 	@Override
 	public void render(float delta)
 	{
 		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
 			_game.setScreen(_circleMenu);
-		
+
+
 		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -99,6 +105,8 @@ public abstract class BaseScene implements Screen, IUpdatable
 		_serviceLocator.UpdateSystems(delta);
 
 	}
+	
+	
 
 	protected void UpdateCameras()
 	{

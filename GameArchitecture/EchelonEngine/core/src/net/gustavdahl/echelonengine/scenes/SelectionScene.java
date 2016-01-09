@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -27,7 +28,6 @@ import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class SelectionScene extends BaseScene
 {
-	private float _timer;
 	private final String _description1 = "-- Editor Selection --\nClick on entities to select them.\n";
 	private final String _description2 = "Hold CTRL for multi-selection\n";
 	private final String _description3 = "Hold any of the following buttons down while moving to perform an action:\n";
@@ -42,8 +42,8 @@ public class SelectionScene extends BaseScene
 	@Override
 	public void CreateScene()
 	{
-		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200);
-		Entity e2 = _entityFactory.CreateStaticManWithBoxCollider("Static2", 500, 200);
+		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200, 0, 1, 1);
+		Entity e2 = _entityFactory.CreateStaticManWithBoxCollider("Static2", 500, 200, 0, 1, 1);
 		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
 	}
 

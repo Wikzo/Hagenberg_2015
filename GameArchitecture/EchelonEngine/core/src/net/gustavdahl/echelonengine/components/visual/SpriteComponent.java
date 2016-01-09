@@ -42,7 +42,7 @@ public class SpriteComponent extends Component implements IRenderable
 		return this;
 	}
 
-	public SpriteComponent Color(Color value)
+	public SpriteComponent SetColor(Color value)
 	{
 		SpriteColor.set(value);
 		return this;

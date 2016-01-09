@@ -13,18 +13,18 @@ import java.util.List;
 import com.badlogic.gdx.Gdx;
 
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.persistence.LevelCommand;
+import net.gustavdahl.echelonengine.components.persistence.CreateEntityCommand;
 import net.gustavdahl.echelonengine.components.persistence.PersistableComponent;
 
 public class PersistenceSystem extends BaseSystem<PersistableComponent>
 {
 
 	// private List<Persistable> _persistables;
-	private static List<LevelCommand> _quickStore;
+	private static List<CreateEntityCommand> _quickStore;
 
 	public PersistenceSystem()
 	{
-		_quickStore = new ArrayList<LevelCommand>();
+		_quickStore = new ArrayList<CreateEntityCommand>();
 	}
 
 	public void remove(PersistableComponent persistable)
@@ -39,21 +39,20 @@ public class PersistenceSystem extends BaseSystem<PersistableComponent>
 
 		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file)))
 		{
-
 			out.writeObject(_quickStore);
 			Gdx.app.log(getClass().getSimpleName(),
 					"entities (" + _componentList.size() + ") stored in " + file.getAbsolutePath());
 		}
 	}
 
+	
 	public void restore(File file) throws FileNotFoundException, IOException
 	{
 		try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file)))
 		{
-
 			@SuppressWarnings("unchecked")
-			List<LevelCommand> actions = (List<LevelCommand>) in.readObject();
-			for (LevelCommand action : actions)
+			List<CreateEntityCommand> actions = (List<CreateEntityCommand>) in.readObject();
+			for (CreateEntityCommand action : actions)
 			{
 				action.Execute();
 			}
