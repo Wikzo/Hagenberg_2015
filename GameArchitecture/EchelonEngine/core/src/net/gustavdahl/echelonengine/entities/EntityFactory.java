@@ -12,13 +12,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.sun.xml.internal.ws.client.sei.ResponseBuilder.Body;
 
-import net.gustavdahl.echelonengine.components.BoxCollider;
-import net.gustavdahl.echelonengine.components.CircleCollider;
-import net.gustavdahl.echelonengine.components.EditorComponent;
-import net.gustavdahl.echelonengine.components.PhysicsBody;
-import net.gustavdahl.echelonengine.components.SpringComponent;
-import net.gustavdahl.echelonengine.components.SpriteAnimator;
-import net.gustavdahl.echelonengine.components.SpriteComponent;
+import net.gustavdahl.echelonengine.components.colliders.BoxCollider;
+import net.gustavdahl.echelonengine.components.colliders.CircleCollider;
+import net.gustavdahl.echelonengine.components.editor.EditorComponent;
+import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
+import net.gustavdahl.echelonengine.components.physics.SpringComponent;
+import net.gustavdahl.echelonengine.components.visual.SpriteAnimator;
+import net.gustavdahl.echelonengine.components.visual.SpriteComponent;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
@@ -48,7 +48,7 @@ public class EntityFactory
 
 	private void AddCircleCollider(Entity e)
 	{
-		e.AddComponent(new CircleCollider(e.GetComponent(SpriteComponent.class).GetWidth() / 2), ColliderSystem.class);
+		e.AddComponent(new CircleCollider(e.GetComponent(SpriteComponent.class).GetHeight() / 2), ColliderSystem.class);
 		e.GetComponent(CircleCollider.class).AddToSystem(DebugSystem.class);
 		e.AddComponent(new EditorComponent(), EditorSystem.class);
 	}
@@ -140,7 +140,7 @@ public class EntityFactory
 
 	}
 
-	public Entity CreateStaticMan(String name, float x, float y)
+	public Entity CreateStaticManWithBoxCollider(String name, float x, float y)
 	{
 
 		TextureRegion[] r = ServiceLocator.AssetManager.RunningManRegion;
@@ -149,6 +149,20 @@ public class EntityFactory
 
 		AddRenderComponent(e, r[0]);
 		AddBoxCollider(e);
+
+		return e;
+
+	}
+	
+	public Entity CreateStaticManWithCircleCollider(String name, float x, float y)
+	{
+
+		TextureRegion[] r = ServiceLocator.AssetManager.RunningManRegion;
+
+		Entity e = CreateEntity(name, x, y);
+
+		AddRenderComponent(e, r[0]);
+		AddCircleCollider(e);
 
 		return e;
 

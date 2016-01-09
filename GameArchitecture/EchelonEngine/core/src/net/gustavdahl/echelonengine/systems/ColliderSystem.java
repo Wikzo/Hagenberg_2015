@@ -7,11 +7,11 @@ import java.util.List;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 
-import net.gustavdahl.echelonengine.components.Collider;
-import net.gustavdahl.echelonengine.components.CollisionState;
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.ICollider;
-import net.gustavdahl.echelonengine.components.IDebugRenderable;
+import net.gustavdahl.echelonengine.components.colliders.Collider;
+import net.gustavdahl.echelonengine.components.colliders.CollisionState;
+import net.gustavdahl.echelonengine.components.physics.ICollider;
+import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
 import net.gustavdahl.echelonengine.enums.CollisionMode;
 
 public class ColliderSystem extends BaseSystem

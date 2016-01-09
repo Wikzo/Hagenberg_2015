@@ -54,7 +54,7 @@ import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
-public class BruteForceCollisionScene implements Screen, IUpdatable
+public class ForcesAndSpringsScene implements Screen, IUpdatable
 {
 	public static OrthographicCamera _camera; // TODO: don't make public static
 	private SpriteBatch _spriteBatch;
@@ -63,7 +63,7 @@ public class BruteForceCollisionScene implements Screen, IUpdatable
 	private Game _game;
 	private CircleMenuList _circleMenu;
 
-	public BruteForceCollisionScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
+	public ForcesAndSpringsScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{
 		_game = game;
 		_circleMenu = circleMenu;
@@ -114,6 +114,10 @@ public class BruteForceCollisionScene implements Screen, IUpdatable
 		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200);
 		Entity e2 = _entityFactory.CreateStaticManWithCircleCollider("Static2", 500, 200);
 		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
+		
+		EntityFactory f = new EntityFactory();
+		//f.CreateSingleSpring("Cog1", 300, 300);
+		f.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
 
 	}
 	
@@ -156,7 +160,7 @@ public class BruteForceCollisionScene implements Screen, IUpdatable
 		}
 		
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText(" ");
-		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("-- Brute Force Collision --");
+		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("-- Forces & Springs --");
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("PRESS O TO TOGGLE ENTITIES SPAWNING");
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("PRESS P TO TOGGLE FIXED/VARIED PHYSICS UPDATE");
 

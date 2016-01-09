@@ -19,9 +19,9 @@ import com.sun.xml.internal.ws.dump.LoggingDumpTube.Position;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.DebugComponent;
-import net.gustavdahl.echelonengine.components.IDebugRenderable;
-import net.gustavdahl.echelonengine.components.IRenderable;
-import net.gustavdahl.echelonengine.components.PhysicsBody;
+import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
+import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
+import net.gustavdahl.echelonengine.components.visual.IRenderable;
 
 public class DebugSystem extends BaseSystem
 {
@@ -83,7 +83,7 @@ public class DebugSystem extends BaseSystem
 		_spriteBatch.begin();
 		_spriteBatch.setProjectionMatrix(_camera.combined);
 
-		_font.draw(_spriteBatch, "DEBUG MENU", Gdx.graphics.getWidth() / 4, 450);
+		_font.draw(_spriteBatch, "DEBUG MENU\n(F1 to toggle)", Gdx.graphics.getWidth() / 2, 450);
 		// _font.draw(_spriteBatch, _debugText,400, 400);
 
 		if (!_debugDrawingPosition.isEmpty())
@@ -119,7 +119,7 @@ public class DebugSystem extends BaseSystem
 
 	public static void AddDebugText(String text)
 	{
-		AddDebugText(text, new Vector2(30, 400 + _textPosition++ * 14));
+		AddDebugText(text, new Vector2(30, 460 - _textPosition++ * 14));
 	}
 
 	@Override

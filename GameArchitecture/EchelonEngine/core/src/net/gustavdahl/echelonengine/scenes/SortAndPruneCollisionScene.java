@@ -54,7 +54,7 @@ import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
-public class BruteForceCollisionScene implements Screen, IUpdatable
+public class SortAndPruneCollisionScene implements Screen, IUpdatable
 {
 	public static OrthographicCamera _camera; // TODO: don't make public static
 	private SpriteBatch _spriteBatch;
@@ -63,7 +63,7 @@ public class BruteForceCollisionScene implements Screen, IUpdatable
 	private Game _game;
 	private CircleMenuList _circleMenu;
 
-	public BruteForceCollisionScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
+	public SortAndPruneCollisionScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{
 		_game = game;
 		_circleMenu = circleMenu;
@@ -86,7 +86,7 @@ public class BruteForceCollisionScene implements Screen, IUpdatable
 				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont, _camera);
 		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetUseFixedUpdate(true)
 				.SetForceMode(ForceMode.ExplicitEuler);
-		ColliderSystem _colliderSystem = new ColliderSystem(CollisionMode.BruteForce);
+		ColliderSystem _colliderSystem = new ColliderSystem(CollisionMode.SortAndPrune);
 		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
 		EditorSystem _editorSystem = new EditorSystem(_camera);
 
@@ -156,7 +156,7 @@ public class BruteForceCollisionScene implements Screen, IUpdatable
 		}
 		
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText(" ");
-		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("-- Brute Force Collision --");
+		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("-- Sort & Prune Collision --");
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("PRESS O TO TOGGLE ENTITIES SPAWNING");
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("PRESS P TO TOGGLE FIXED/VARIED PHYSICS UPDATE");
 

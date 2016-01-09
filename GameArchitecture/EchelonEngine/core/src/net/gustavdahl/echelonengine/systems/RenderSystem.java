@@ -9,7 +9,7 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.IRenderable;
+import net.gustavdahl.echelonengine.components.visual.IRenderable;
 
 public class RenderSystem extends BaseSystem
 {

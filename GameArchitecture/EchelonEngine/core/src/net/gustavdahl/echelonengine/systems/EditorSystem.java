@@ -11,12 +11,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.math.collision.Ray;
-import net.gustavdahl.echelonengine.components.Collider;
+
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.ConstantForce;
-import net.gustavdahl.echelonengine.components.EditorComponent;
-import net.gustavdahl.echelonengine.components.IDebugRenderable;
-import net.gustavdahl.echelonengine.components.IRenderable;
+import net.gustavdahl.echelonengine.components.colliders.Collider;
+import net.gustavdahl.echelonengine.components.editor.EditorComponent;
+import net.gustavdahl.echelonengine.components.physics.ConstantForce;
+import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
+import net.gustavdahl.echelonengine.components.visual.IRenderable;
 import net.gustavdahl.echelonengine.editoractionstates.EditorActionStateManager;
 import net.gustavdahl.echelonengine.editoractionstates.EditorIdleState;
 import net.gustavdahl.echelonengine.editoractionstates.EditorRotateActionState;

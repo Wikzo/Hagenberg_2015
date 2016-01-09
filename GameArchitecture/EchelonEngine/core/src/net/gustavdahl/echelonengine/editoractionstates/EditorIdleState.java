@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.badlogic.gdx.Input.Keys;
 
-import net.gustavdahl.echelonengine.components.Collider;
-import net.gustavdahl.echelonengine.components.EditorComponent;
+import net.gustavdahl.echelonengine.components.colliders.Collider;
+import net.gustavdahl.echelonengine.components.editor.EditorComponent;
 import net.gustavdahl.echelonengine.entities.Entity;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
 

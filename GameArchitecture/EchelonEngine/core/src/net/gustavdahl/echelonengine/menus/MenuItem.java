@@ -56,12 +56,12 @@ public class MenuItem
 		{
 		case CollisionBruteForce:
 			MenuName = "Collision:\nBrute Force";
-			InnerMenuName = "***PAIR-WISE COLLISION***\nO(n^2)";
+			InnerMenuName = "***PAIR-WISE COLLISION***\nBrute-force checking every entitiy against each other.\nComplexity is O(n^2)";
 			break;
 			
 		case CollisionSortAndPrune:
 			MenuName=  "Collision:\nSort and Prune";
-			InnerMenuName = "***SORT AND PRUNE COLLISION***\nWorks";
+			InnerMenuName = "***SORT AND PRUNE COLLISION***\nBefore checking each pair, the entities are sorted by using their X position.\nEntities that have overlapping X positions are then checked.";
 			break;
 			
 		case Persistence:
@@ -75,7 +75,7 @@ public class MenuItem
 			break;
 			
 		case SpringsAndForces:
-			InnerMenuName = "***FORCES AND SPRINGS***\nStuff";
+			InnerMenuName = "***FORCES AND SPRINGS***\nShowing gravity forces and connected springs using Euler integration.";
 			MenuName= "Forces and Springs";
 		}
 	}
@@ -84,7 +84,6 @@ public class MenuItem
 	public void LoadScene()
 	{
 		System.gc();
-		
 		
 		EntityManager _entityManager = new EntityManager();
 		EntityFactory _entityFactory = new EntityFactory();
@@ -99,6 +98,8 @@ public class MenuItem
 			break;
 			
 		case CollisionSortAndPrune:
+			s = new SortAndPruneCollisionScene(game, circleMenu, _serviceLocator);
+			game.setScreen(s);
 			break;
 		case Persistence:
 			break;
@@ -108,6 +109,8 @@ public class MenuItem
 			break;
 			
 		case SpringsAndForces:
+			s = new ForcesAndSpringsScene(game, circleMenu, _serviceLocator);
+			game.setScreen(s);
 			break;
 		}
 	}
@@ -124,7 +127,7 @@ public class MenuItem
 	protected void CreateMenus()
 	{
 		// label style
-		LabelStyle labelStyle = new Label.LabelStyle(game._assetManager.InnerMenuFont, Color.GOLD);
+		LabelStyle labelStyle = new Label.LabelStyle(game._assetManager.InnerMenuFont, Color.WHITE);
 		Label label1 = new Label(InnerMenuName, labelStyle);
 		float startPosX = Gdx.graphics.getWidth() / 2;
 		label1.setWrap(true);

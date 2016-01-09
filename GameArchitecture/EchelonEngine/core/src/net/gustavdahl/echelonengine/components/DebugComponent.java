@@ -15,6 +15,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 
+import net.gustavdahl.echelonengine.components.physics.ConstantForce;
+import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.MyAssetManager;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;

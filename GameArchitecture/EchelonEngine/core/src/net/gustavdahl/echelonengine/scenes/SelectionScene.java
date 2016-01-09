@@ -25,20 +25,21 @@ import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.math.collision.Sphere;
 import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
 import com.sun.org.glassfish.gmbal.Description;
+import com.sun.xml.internal.ws.api.Component;
 
-import net.gustavdahl.echelonengine.components.BoxCollider;
-import net.gustavdahl.echelonengine.components.CircleCollider;
-import net.gustavdahl.echelonengine.components.Collider;
-import net.gustavdahl.echelonengine.components.ConstantForce;
 import net.gustavdahl.echelonengine.components.DebugComponent;
-import net.gustavdahl.echelonengine.components.EditorComponent;
 import net.gustavdahl.echelonengine.components.IUpdatable;
-import net.gustavdahl.echelonengine.components.PhysicsBody;
-import net.gustavdahl.echelonengine.components.SpringComponent;
-import net.gustavdahl.echelonengine.components.SpriteAnimator;
-import net.gustavdahl.echelonengine.components.SpriteComponent;
-import net.gustavdahl.echelonengine.components.Text;
 import net.gustavdahl.echelonengine.components.TransFormComponent;
+import net.gustavdahl.echelonengine.components.colliders.BoxCollider;
+import net.gustavdahl.echelonengine.components.colliders.CircleCollider;
+import net.gustavdahl.echelonengine.components.colliders.Collider;
+import net.gustavdahl.echelonengine.components.editor.EditorComponent;
+import net.gustavdahl.echelonengine.components.physics.ConstantForce;
+import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
+import net.gustavdahl.echelonengine.components.physics.SpringComponent;
+import net.gustavdahl.echelonengine.components.visual.SpriteAnimator;
+import net.gustavdahl.echelonengine.components.visual.SpriteComponent;
+import net.gustavdahl.echelonengine.components.visual.Text;
 import net.gustavdahl.echelonengine.editoractionstates.EditorActionStateManager;
 import net.gustavdahl.echelonengine.entities.Entity;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
@@ -53,6 +54,7 @@ import net.gustavdahl.echelonengine.systems.MyAssetManager;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
+import sun.awt.image.OffScreenImage;
 
 public class SelectionScene implements Screen, IUpdatable
 {
@@ -63,6 +65,9 @@ public class SelectionScene implements Screen, IUpdatable
 	private Game _game;
 	private CircleMenuList _circleMenu;
 
+	
+	// TODO: make jumping/input component!
+	
 	public SelectionScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{
 		_game = game;
@@ -105,13 +110,13 @@ public class SelectionScene implements Screen, IUpdatable
 
 	public void create()
 	{
-		Entity e1 = _entityFactory.CreateStaticMan("Static1", 100, 200);
-		Entity e2 = _entityFactory.CreateStaticMan("Static2", 500, 200);
+		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200);
+		Entity e2 = _entityFactory.CreateStaticManWithBoxCollider("Static2", 500, 200);
 		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
 
 	}
 
-	private final String _description1 = "Click on entities to select them.\n";
+	private final String _description1 = "-- Editor Selection --\nClick on entities to select them.\n";
 	private final String _description2 = "Hold CTRL for multi-selection\n";
 	private final String _description3 = "Hold any of the following buttons down while moving to perform an action:\n";
 	private final String _description4 = "W = move, E = rotate, R = scale\n";
@@ -136,7 +141,7 @@ public class SelectionScene implements Screen, IUpdatable
 
 		_spriteBatch.begin();
 		ServiceLocator.AssetManager.DebugFont2.draw(ServiceLocator.AssetManager.SpriteBatch,
-				_fullDescription, 30, 400);
+				_fullDescription, 30, 450);
 		
 		ServiceLocator.AssetManager.DebugFont.draw(ServiceLocator.AssetManager.SpriteBatch,
 				ServiceLocator.GetSystem(EditorSystem.class).GetEditorState(), 30, 300);

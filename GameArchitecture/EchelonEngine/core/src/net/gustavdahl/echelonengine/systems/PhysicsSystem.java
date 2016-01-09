@@ -14,9 +14,9 @@ import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import net.gustavdahl.echelonengine.components.Component;
-import net.gustavdahl.echelonengine.components.IPhysics;
-import net.gustavdahl.echelonengine.components.IRenderable;
-import net.gustavdahl.echelonengine.components.PhysicsBody;
+import net.gustavdahl.echelonengine.components.physics.IPhysics;
+import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
+import net.gustavdahl.echelonengine.components.visual.IRenderable;
 import net.gustavdahl.echelonengine.enums.ForceMode;
 
 public class PhysicsSystem extends BaseSystem
@@ -92,6 +92,7 @@ public class PhysicsSystem extends BaseSystem
 		if (!_isActive)
 			return;
 		
+		DebugSystem.AddDebugText("Using fixed physics update: " + _usedFixedTimeStep);
 		if (_usedFixedTimeStep)
 			DebugSystem.AddDebugText("Fixed physics update: " + GetPhysicsUpdateRate());
 		

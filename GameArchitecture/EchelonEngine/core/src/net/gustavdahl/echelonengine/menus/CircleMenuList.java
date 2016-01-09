@@ -109,7 +109,7 @@ public class CircleMenuList implements Screen
 		// System.out.println(labels.get(0).getX() + ", " +
 		// labels.get(0).getY());
 
-		labels.get(highlightIndex).setColor(Color.GOLD);
+		labels.get(highlightIndex).setColor(Color.WHITE);
 
 		stage.setViewport(new FitViewport(game.V_WIDTH, game.V_HEIGHT));
 
@@ -162,7 +162,7 @@ public class CircleMenuList implements Screen
 			if (highlightIndex > labels.size() - 1)
 				highlightIndex = 0;
 
-			labels.get(highlightIndex).setColor(Color.GOLD);
+			labels.get(highlightIndex).setColor(Color.WHITE);
 			MenuItems.get(highlightIndex).Group.setVisible(true);
 
 			if (highlightIndex != 0)
@@ -183,7 +183,7 @@ public class CircleMenuList implements Screen
 			if (highlightIndex < 0)
 				highlightIndex = labels.size() - 1;
 
-			labels.get(highlightIndex).setColor(Color.GOLD);
+			labels.get(highlightIndex).setColor(Color.WHITE);
 			MenuItems.get(highlightIndex).Group.setVisible(true);
 
 			if (highlightIndex != labels.size() - 1)

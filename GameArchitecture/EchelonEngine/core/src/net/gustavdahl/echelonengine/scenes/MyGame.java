@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-import net.gustavdahl.echelonengine.components.Text;
+import net.gustavdahl.echelonengine.components.visual.Text;
 import net.gustavdahl.echelonengine.entities.Entity;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
 import net.gustavdahl.echelonengine.menus.CircleMenuList;

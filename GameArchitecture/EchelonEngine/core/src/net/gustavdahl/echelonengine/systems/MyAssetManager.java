@@ -17,7 +17,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.sun.xml.internal.stream.events.DummyEvent;
 
-import net.gustavdahl.echelonengine.components.SpriteAnimator;
+import net.gustavdahl.echelonengine.components.visual.SpriteAnimator;
 
 public class MyAssetManager
 {
