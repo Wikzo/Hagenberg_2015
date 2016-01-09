@@ -1,8 +1,11 @@
 package net.gustavdahl.echelonengine.systems;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,22 +17,21 @@ import net.gustavdahl.echelonengine.components.persistence.LevelCommand;
 import net.gustavdahl.echelonengine.components.persistence.Persistable;
 import net.gustavdahl.echelonengine.components.physics.IPhysics;
 
-public class PersistenceSystem extends BaseSystem
+public class PersistenceSystem extends BaseSystem<Persistable>
 {
 
-	private List<Persistable> _persistables;
+	//private List<Persistable> _persistables;
 	private static List<LevelCommand> _quickStore;
 
 	public PersistenceSystem()
 	{
-		_persistables = new ArrayList<Persistable>();
 		_quickStore = new ArrayList<LevelCommand>();
 	}
 
 	public void remove(Persistable persistable)
 	{
 		// silently ignore if persistable is unknown (best practice)
-		_persistables.remove(persistable);
+		_componentList.remove(persistable);
 	}
 
 	public void store(File file) throws IOException
@@ -41,17 +43,45 @@ public class PersistenceSystem extends BaseSystem
 
 			out.writeObject(_quickStore);
 			Gdx.app.log(getClass().getSimpleName(),
-					"entities (" + _persistables.size() + ") stored in " + file.getAbsolutePath());
+					"entities (" + _componentList.size() + ") stored in " + file.getAbsolutePath());
+		}
+	}
+
+	public void restore(File file) throws FileNotFoundException, IOException
+	{
+		try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file)))
+		{
+
+			@SuppressWarnings("unchecked")
+			List<LevelCommand> actions = (List<LevelCommand>) in.readObject();
+			for (LevelCommand action : actions)
+			{
+				action.Execute();
+			}
+			Gdx.app.log(getClass().getSimpleName(),
+					"entities (" + actions.size() + ") restored from " + file.getAbsolutePath());
+
+		} catch (ClassNotFoundException e)
+		{
+			throw new IOException("invalid world file ", e);
 		}
 	}
 
 	public void store()
 	{
 		_quickStore.clear();
-		for (int i = 0; i < _persistables.size(); ++i)
+		for (int i = 0; i < _componentList.size(); ++i)
 		{
-			Persistable persistable = _persistables.get(i);
+			Persistable persistable = _componentList.get(i);
 			_quickStore.add(persistable.CreateCommand());
+		}
+	}
+
+	public void restore()
+	{
+		for (int i = 0; i < _quickStore.size(); ++i)
+		{
+			_quickStore.get(i).Execute();
 		}
 	}
 
@@ -63,7 +93,7 @@ public class PersistenceSystem extends BaseSystem
 		if (c instanceof Persistable)
 		{
 			succesfullyAdded = true;
-			_persistables.add((Persistable) c);
+			_componentList.add((Persistable) c);
 
 		} else
 			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName()

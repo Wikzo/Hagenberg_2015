@@ -15,7 +15,6 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.sun.xml.internal.stream.events.DummyEvent;
 
 import net.gustavdahl.echelonengine.components.visual.SpriteAnimator;
 

@@ -11,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.compression.lzma.Base;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.physics.IPhysics;
@@ -19,7 +18,7 @@ import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
 import net.gustavdahl.echelonengine.components.visual.IRenderable;
 import net.gustavdahl.echelonengine.enums.ForceMode;
 
-public class PhysicsSystem extends BaseSystem
+public class PhysicsSystem extends BaseSystem<IPhysics>
 {
 	public ForceMode ForceMode;
 
@@ -33,12 +32,9 @@ public class PhysicsSystem extends BaseSystem
 	double _accumulator = 0;
 	double _frameTimeInSeconds = 0;
 
-	private List<IPhysics> _physicsList;
-
 	public PhysicsSystem(double targetFPS)
 	{
 		super();
-		_physicsList = new ArrayList<IPhysics>();
 		ForceMode = ForceMode.ExplicitEuler;
 
 		_targetUpdateRate = targetFPS;
@@ -80,9 +76,9 @@ public class PhysicsSystem extends BaseSystem
 
 	void UpdatePhysics(float deltaTime)
 	{
-		for (int i = 0; i < _physicsList.size(); i++)
+		for (int i = 0; i < _componentList.size(); i++)
 		{
-			_physicsList.get(i).Update(deltaTime);
+			_componentList.get(i).Update(deltaTime);
 		}
 	}
 
@@ -140,7 +136,7 @@ public class PhysicsSystem extends BaseSystem
 		if (c instanceof IPhysics)
 		{
 			succesfullyAdded = true;
-			_physicsList.add((IPhysics) c);
+			_componentList.add((IPhysics) c);
 
 		} else
 			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName()

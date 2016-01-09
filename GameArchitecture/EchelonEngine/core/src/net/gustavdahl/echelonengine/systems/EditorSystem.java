@@ -32,10 +32,9 @@ enum SelectionModifier
 	None, Control, Move, Rotate, Scale, Duplicate, Remove
 }
 
-public class EditorSystem extends BaseSystem implements InputProcessor
+public class EditorSystem extends BaseSystem<EditorComponent> implements InputProcessor
 {
 
-	private List<EditorComponent> _editorComponents;
 	private Ray _ray;
 	private Vector3 _mousePosition;
 	private List<Entity> _selectedEntities;
@@ -48,7 +47,6 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 	{
 		super();
 
-		_editorComponents = new ArrayList<EditorComponent>();
 		_mousePosition = new Vector3();
 
 		ServiceLocator.AssetManager.AddInputListener(this);
@@ -91,7 +89,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		_editorActionStateManager.Update(this);
 		
 		// set selection color
-		for (EditorComponent e : _editorComponents)
+		for (EditorComponent e : _componentList)
 		{
 			e.Owner.GetComponent(Collider.class).SetHitColor(e.Owner.CurrentlySelectedByEditor);
 			
@@ -148,12 +146,12 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 
 	public Entity EntityRaycast()
 	{
-		for (int i = 0; i < _editorComponents.size(); i++)
+		for (int i = 0; i < _componentList.size(); i++)
 		{
 			Entity e = null;
-			if (Collider.MouseIntersectCollider(_ray, _editorComponents.get(i).GetCollider()) != null)
+			if (Collider.MouseIntersectCollider(_ray, _componentList.get(i).GetCollider()) != null)
 			{
-				e = Collider.MouseIntersectCollider(_ray, _editorComponents.get(i).GetCollider()).Owner;
+				e = Collider.MouseIntersectCollider(_ray, _componentList.get(i).GetCollider()).Owner;
 				return e;
 			}
 		}
@@ -169,7 +167,7 @@ public class EditorSystem extends BaseSystem implements InputProcessor
 		if (c instanceof EditorComponent)
 		{
 			succesfullyAdded = true;
-			_editorComponents.add((EditorComponent) c);
+			_componentList.add((EditorComponent) c);
 
 		} else
 			throw new RuntimeException("ERROR - " + c.Name() + " is not a EditorComponent!");

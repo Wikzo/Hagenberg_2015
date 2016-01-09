@@ -24,8 +24,6 @@ import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.math.collision.Sphere;
 import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
-import com.sun.org.glassfish.gmbal.Description;
-import com.sun.xml.internal.ws.api.Component;
 
 import net.gustavdahl.echelonengine.components.DebugComponent;
 import net.gustavdahl.echelonengine.components.IUpdatable;
@@ -54,7 +52,6 @@ import net.gustavdahl.echelonengine.systems.MyAssetManager;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
-import sun.awt.image.OffScreenImage;
 
 public class SelectionScene implements Screen, IUpdatable
 {

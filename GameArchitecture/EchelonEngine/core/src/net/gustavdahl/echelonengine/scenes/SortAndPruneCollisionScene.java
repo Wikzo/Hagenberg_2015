@@ -24,7 +24,6 @@ import com.badlogic.gdx.math.collision.BoundingBox;
 import com.badlogic.gdx.math.collision.Ray;
 import com.badlogic.gdx.math.collision.Sphere;
 import com.badlogic.gdx.scenes.scene2d.ui.Table.Debug;
-import com.sun.org.glassfish.gmbal.Description;
 
 import net.gustavdahl.echelonengine.components.DebugComponent;
 import net.gustavdahl.echelonengine.components.IUpdatable;

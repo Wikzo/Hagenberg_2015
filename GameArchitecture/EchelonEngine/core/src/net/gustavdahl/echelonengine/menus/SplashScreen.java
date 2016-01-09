@@ -24,7 +24,6 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import javafx.scene.shape.MoveTo;
 import net.gustavdahl.echelonengine.scenes.*;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 

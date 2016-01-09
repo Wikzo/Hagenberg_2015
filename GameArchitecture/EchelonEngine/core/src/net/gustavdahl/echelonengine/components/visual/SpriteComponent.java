@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.sun.javafx.webkit.theme.Renderer;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.systems.MyAssetManager;

@@ -15,7 +15,6 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.compression.lzma.Base;
-import com.sun.xml.internal.ws.dump.LoggingDumpTube.Position;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.DebugComponent;
@@ -23,10 +22,8 @@ import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
 import net.gustavdahl.echelonengine.components.visual.IRenderable;
 
-public class DebugSystem extends BaseSystem
+public class DebugSystem extends BaseSystem<IDebugRenderable>
 {
-	protected List<IDebugRenderable> _debugRenderList;
-
 	private SpriteBatch _spriteBatch;
 	private ShapeRenderer _shapeRenderer;
 	private BitmapFont _font;
@@ -39,8 +36,6 @@ public class DebugSystem extends BaseSystem
 		_spriteBatch = spriteBatch;
 		_shapeRenderer = shapeRenderer;
 		_font = font;
-
-		_debugRenderList = new ArrayList<IDebugRenderable>();
 
 		_isActive = false;
 
@@ -64,19 +59,19 @@ public class DebugSystem extends BaseSystem
 		if (!_isActive)
 			return;
 
-		if (_debugRenderList.size() < 1)
+		if (_componentList.size() < 1)
 		{
 			System.out.println("ERROR - no render components in DebugSystem!");
 			return;
 		}
 
 		// debug shapes
-		for (int i = 0; i < _debugRenderList.size(); i++)
+		for (int i = 0; i < _componentList.size(); i++)
 		{
-			if (!((Component) _debugRenderList.get(i)).IsActive())
+			if (!((Component) _componentList.get(i)).IsActive())
 				continue;
 
-			_debugRenderList.get(i).DebugRender(_spriteBatch, _shapeRenderer, deltaTime);
+			_componentList.get(i).DebugRender(_spriteBatch, _shapeRenderer, deltaTime);
 		}
 
 		// debug text
@@ -130,7 +125,7 @@ public class DebugSystem extends BaseSystem
 		if (c instanceof IDebugRenderable)
 		{
 			succesfullyAdded = true;
-			_debugRenderList.add((IDebugRenderable) c);
+			_componentList.add((IDebugRenderable) c);
 
 		} else
 			throw new RuntimeException(

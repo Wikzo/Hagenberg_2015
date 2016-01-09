@@ -5,19 +5,15 @@ import java.util.List;
 
 import net.gustavdahl.echelonengine.components.Component;
 
-public abstract class BaseSystem implements ISystem
+public abstract class BaseSystem<T> implements ISystem
 {
 	private int _updatePriority = 1;
 	protected boolean _isActive;
-	protected List<Component> _componentList; // TODO: make generic T type!
-	
-	// TODO: maybe IList or ICollection?
-
+	protected List<T> _componentList = new ArrayList<T>();
 	
 	public BaseSystem()
 	{
 		_updatePriority = 1;
-		_componentList = new ArrayList<Component>();
 		_isActive = true;
 	}
 
@@ -25,10 +21,10 @@ public abstract class BaseSystem implements ISystem
 	{
 		for (int i = 0; i < _componentList.size(); i++)
 		{
-			if (_componentList.get(i).HasBeenInitialized())
+			if (((Component) _componentList.get(i)).HasBeenInitialized())
 				continue;
 
-			_componentList.get(i).Initialize();
+			((Component) _componentList.get(i)).Initialize();
 		}
 	}
 
@@ -45,10 +41,10 @@ public abstract class BaseSystem implements ISystem
 
 		for (int i = 0; i < _componentList.size(); i++)
 		{
-			if (!_componentList.get(i).IsActive())
+			if (!((Component) _componentList.get(i)).IsActive())
 				continue;
 
-			_componentList.get(i).Update(deltaTime);
+			((Component) _componentList.get(i)).Update(deltaTime);
 
 		}
 

@@ -11,7 +11,6 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector;
 import com.badlogic.gdx.math.Vector2;
 
-import javafx.scene.shape.Box;
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 

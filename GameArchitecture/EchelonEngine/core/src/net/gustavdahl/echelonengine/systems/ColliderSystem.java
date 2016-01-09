@@ -14,21 +14,20 @@ import net.gustavdahl.echelonengine.components.physics.ICollider;
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
 import net.gustavdahl.echelonengine.enums.CollisionMode;
 
-public class ColliderSystem extends BaseSystem
+public class ColliderSystem extends BaseSystem<Collider>
 {
 
 	private CollisionMode _collisionMode;
-	private List<Collider> _colliderList; // list of ALL colliders
 
 	public ColliderSystem(CollisionMode collisionMode)
 	{
-		_colliderList = new ArrayList<Collider>();
+		//_colliderList = new ArrayList<Collider>();
 		this._collisionMode = collisionMode;
 	}
 
 	void QuickSort()
 	{
-		Collections.sort(_colliderList);
+		Collections.sort(_componentList);
 	}
 
 	private void SortAndPrune()
@@ -41,13 +40,13 @@ public class ColliderSystem extends BaseSystem
 	{
 		DebugSystem.AddDebugText("Collision Method: Sort and Prune");
 
-		for (int i = 0; i < _colliderList.size(); i++)
+		for (int i = 0; i < _componentList.size(); i++)
 		{
-			Collider a = _colliderList.get(i);
+			Collider a = _componentList.get(i);
 
-			for (int j = i + 1; j < _colliderList.size(); j++)
+			for (int j = i + 1; j < _componentList.size(); j++)
 			{
-				Collider b = _colliderList.get(j);
+				Collider b = _componentList.get(j);
 
 				if (b.GetLeftSide() < a.GetRightSide())
 				{
@@ -97,9 +96,9 @@ public class ColliderSystem extends BaseSystem
 
 	void ClearCollisions()
 	{
-		for (int i = 0; i < _colliderList.size(); i++)
+		for (int i = 0; i < _componentList.size(); i++)
 		{
-			Collider a = _colliderList.get(i);
+			Collider a = _componentList.get(i);
 			a.ClearCollisions();
 
 			// a.Update(deltaTime);
@@ -115,7 +114,7 @@ public class ColliderSystem extends BaseSystem
 			break;
 
 		case BruteForce:
-			BruteForceCollisionCheck(_colliderList);
+			BruteForceCollisionCheck(_componentList);
 			break;
 		}
 	}
@@ -142,7 +141,7 @@ public class ColliderSystem extends BaseSystem
 		if (c instanceof Collider)
 		{
 			succesfullyAdded = true;
-			_colliderList.add((Collider) c);
+			_componentList.add((Collider) c);
 
 		} else
 			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName() + " is not a Collider!!");

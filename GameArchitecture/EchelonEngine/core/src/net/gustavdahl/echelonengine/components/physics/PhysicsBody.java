@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.math.Vector2;
-import com.sun.xml.internal.ws.wsdl.writer.document.Service;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.enums.ForceMode;

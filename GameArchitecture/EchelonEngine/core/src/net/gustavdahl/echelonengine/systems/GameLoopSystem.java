@@ -9,6 +9,8 @@ import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
 
 public class GameLoopSystem extends BaseSystem
 {	
+	// TODO: remov ethis?
+	
 	private IUpdatable _gameLoop;
 	
 	public boolean IsActive = true;
