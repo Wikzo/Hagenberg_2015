@@ -36,6 +36,10 @@ import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public class PersistenceScene extends BaseScene
 {
+	
+	final float _savingInterval = 10f;
+	float _time = 0f;
+	
 	private final String _description1 = "-- Persistence Scene --\n";
 	private final String _description2 = "The states of the entities (position, rotation and scale)\n";
 	private final String _description3 = "will be stored upon exiting the scene.\n";
@@ -107,7 +111,6 @@ public class PersistenceScene extends BaseScene
 	@Override
 	public void render(float delta)
 	{
-
 		super.render(delta);
 
 		_spriteBatch.begin();
@@ -116,14 +119,27 @@ public class PersistenceScene extends BaseScene
 
 	}
 
+	
 	@Override
 	public void UpdateScene(float deltaTime)
 	{
+		_time += deltaTime;
+		
+		if (_time > _savingInterval)
+			SaveSceneToFile();
 	}
 
 	@Override
 	public void hide()
 	{
 		SaveSceneToFile();
+		super.hide();
+	}
+	
+	@Override
+	public void dispose()
+	{
+		SaveSceneToFile();
+		super.dispose();
 	}
 }
