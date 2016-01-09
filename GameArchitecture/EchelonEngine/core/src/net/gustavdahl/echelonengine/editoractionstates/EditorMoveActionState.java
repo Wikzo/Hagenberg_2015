@@ -23,7 +23,7 @@ public class EditorMoveActionState implements IEditorActionState
 	@Override
 	public void EnterState()
 	{
-		System.out.println("Entering move action state");
+		//System.out.println("Entering move action state");
 		
 	}
 }

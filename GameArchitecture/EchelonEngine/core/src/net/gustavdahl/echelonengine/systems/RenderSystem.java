@@ -66,8 +66,15 @@ public class RenderSystem extends BaseSystem<IRenderable>
 	}
 
 	@Override
-	public boolean AddToSystem(Component c)
+	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
+		if (c instanceof IRenderable)
+			return true;
+		else
+			return false;
+
+		
+		/*
 		boolean succesfullyAdded = false;
 
 		if (c instanceof IRenderable)
@@ -79,7 +86,7 @@ public class RenderSystem extends BaseSystem<IRenderable>
 			throw new RuntimeException("ERROR - " + c.Name() + " doesn't implement IRenderable interface!");
 		//throw new GdxRuntimeException("ERROR - " + c.Name() + " doesn't implement IRenderable interface!");
 
-		return succesfullyAdded;
+		return succesfullyAdded;*/
 
 	}
 

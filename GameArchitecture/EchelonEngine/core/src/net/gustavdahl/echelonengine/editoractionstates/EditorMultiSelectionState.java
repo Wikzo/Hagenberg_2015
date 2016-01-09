@@ -43,7 +43,7 @@ public class EditorMultiSelectionState implements IEditorSelectionState
 	@Override
 	public void EnterState(EditorSystem editor)
 	{
-		System.out.println("Entering multi selection state");
+		//System.out.println("Entering multi selection state");
 
 	}
 

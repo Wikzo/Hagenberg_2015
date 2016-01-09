@@ -18,6 +18,7 @@ import com.badlogic.gdx.utils.compression.lzma.Base;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.DebugComponent;
+import net.gustavdahl.echelonengine.components.editor.EditorComponent;
 import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
 import net.gustavdahl.echelonengine.components.visual.IRenderable;
@@ -118,20 +119,13 @@ public class DebugSystem extends BaseSystem<IDebugRenderable>
 	}
 
 	@Override
-	public boolean AddToSystem(Component c)
+	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
-		boolean succesfullyAdded = false;
-
 		if (c instanceof IDebugRenderable)
-		{
-			succesfullyAdded = true;
-			_componentList.add((IDebugRenderable) c);
-
-		} else
-			throw new RuntimeException(
-					"ERROR - component " + c.getClass().getSimpleName() + " doesn't isn't a DebugComponent!");
-
-		return succesfullyAdded;
+			return true;
+		else
+			return false;
+		
 	}
 
 }

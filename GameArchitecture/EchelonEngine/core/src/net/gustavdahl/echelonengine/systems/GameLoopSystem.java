@@ -33,10 +33,13 @@ public class GameLoopSystem extends BaseSystem
 	}
 
 	@Override
-	public boolean AddToSystem(Component c)
+	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
-		// TODO: move away?
+		return false;
+		
+		/*// TODO: move away?
 		throw new RuntimeException("ERROR - cannot add " + c.Name() + " to the GameLoopSystem! Add an IUpdtable via the constructor instead.");
+		*/
 	}
 
 

@@ -16,7 +16,7 @@ public class EditorIdleActionState implements IEditorActionState
 	@Override
 	public void EnterState()
 	{
-		System.out.println("Entering idle action state");
+		//System.out.println("Entering idle action state");
 		
 	}
 

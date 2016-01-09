@@ -19,7 +19,7 @@ public class EditorRotateActionState implements IEditorActionState
 	@Override
 	public void EnterState()
 	{
-		System.out.println("Entering rotate action state");
+		//System.out.println("Entering rotate action state");
 		
 	}
 

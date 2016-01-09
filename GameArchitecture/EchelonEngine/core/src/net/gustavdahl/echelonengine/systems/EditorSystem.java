@@ -15,6 +15,7 @@ import com.badlogic.gdx.math.collision.Ray;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.colliders.Collider;
 import net.gustavdahl.echelonengine.components.editor.EditorComponent;
+import net.gustavdahl.echelonengine.components.persistence.Persistable;
 import net.gustavdahl.echelonengine.components.physics.ConstantForce;
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
 import net.gustavdahl.echelonengine.components.visual.IRenderable;
@@ -160,19 +161,12 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 	}
 
 	@Override
-	public boolean AddToSystem(Component c)
+	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
-		boolean succesfullyAdded = false;
-
 		if (c instanceof EditorComponent)
-		{
-			succesfullyAdded = true;
-			_componentList.add((EditorComponent) c);
-
-		} else
-			throw new RuntimeException("ERROR - " + c.Name() + " is not a EditorComponent!");
-
-		return succesfullyAdded;
+			return true;
+		else
+			return false;
 
 	}
 
@@ -274,5 +268,6 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 	{
 		return false;
 	}
+
 
 }

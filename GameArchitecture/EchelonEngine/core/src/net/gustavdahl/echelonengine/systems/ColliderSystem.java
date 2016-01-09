@@ -134,19 +134,12 @@ public class ColliderSystem extends BaseSystem<Collider>
 	}
 
 	@Override
-	public boolean AddToSystem(Component c)
+	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
-		boolean succesfullyAdded = false;
-
 		if (c instanceof Collider)
-		{
-			succesfullyAdded = true;
-			_componentList.add((Collider) c);
-
-		} else
-			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName() + " is not a Collider!!");
-
-		return succesfullyAdded;
+			return true;
+		else
+			return false;
 	}
 
 }

@@ -16,7 +16,7 @@ public abstract class Component implements IComponent, IUpdatable
 
 	protected TransFormComponent Transform;
 
-	public Class DefaultSystem = PhysicsSystem.class;
+	public Class DefaultSystem = null;
 
 	public int UpdatePriority = 1;
 
@@ -37,7 +37,9 @@ public abstract class Component implements IComponent, IUpdatable
 		_hasBeenInitialized = true;
 		_isActive = true;
 
-		if (systemClass != null)
+		if (systemClass == null)
+			AddToSystem(DefaultSystem);
+		else
 			AddToSystem(systemClass);
 
 	}
@@ -46,12 +48,13 @@ public abstract class Component implements IComponent, IUpdatable
 	{
 		if (systemClass != null)
 		{
-			boolean added = ServiceLocator.GetSystem(systemClass).AddToSystem(this);
+			boolean added = ServiceLocator.GetSystem(systemClass).AddComponentToSystem(this);
 			
-			/*System.out.println(String.format("%s: [%s was added to %s: %s]",
-					this.Owner.Name,
+			if (!added)
+			System.out.println(String.format("ERROR! [%s] could NOT be added to [%s]! (%s)",
 					this.Name(),
-					systemClass.getSimpleName(), added));*/
+					systemClass.getSimpleName(),
+					this.Owner.Name));
 		}
 
 		return this;

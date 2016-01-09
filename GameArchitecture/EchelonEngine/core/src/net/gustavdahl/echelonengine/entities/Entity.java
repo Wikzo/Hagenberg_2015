@@ -148,7 +148,7 @@ public class Entity
 
 	public void AddComponent(Component c)
 	{
-		AddComponent(c, c.DefaultSystem);
+		AddComponent(c, null);
 	}
 
 	public Component GetComponent_old(Class componentClass)

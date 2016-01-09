@@ -16,7 +16,7 @@ public class EditorIdleState implements IEditorSelectionState
 	public void EnterState(EditorSystem editor)
 	{
 		editor.ClearRemoveAllSelectedEntities();
-		System.out.println("Entering Idle state");
+		//System.out.println("Entering Idle state");
 	}
 
 	@Override

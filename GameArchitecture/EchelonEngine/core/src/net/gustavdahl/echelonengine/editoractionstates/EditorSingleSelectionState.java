@@ -48,7 +48,7 @@ public class EditorSingleSelectionState implements IEditorSelectionState
 	@Override
 	public void EnterState(EditorSystem editor)
 	{
-		System.out.println("Entering single selection state");
+		//System.out.println("Entering single selection state");
 
 	}
 

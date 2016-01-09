@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 
 import net.gustavdahl.echelonengine.components.Component;
+import net.gustavdahl.echelonengine.components.IComponent;
 import net.gustavdahl.echelonengine.components.physics.IPhysics;
 import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
 import net.gustavdahl.echelonengine.components.visual.IRenderable;
@@ -129,20 +130,13 @@ public class PhysicsSystem extends BaseSystem<IPhysics>
 
 
 	@Override
-	public boolean AddToSystem(Component c)
+	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
-		boolean succesfullyAdded = false;
-
 		if (c instanceof IPhysics)
-		{
-			succesfullyAdded = true;
-			_componentList.add((IPhysics) c);
-
-		} else
-			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName()
-					+ " doesn't implement PhysicsComponent interface!");
-
-		return succesfullyAdded;
+			return true;
+		else
+			return false;
+		
 	}
 
 }

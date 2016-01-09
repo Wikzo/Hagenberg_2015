@@ -4,20 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.gustavdahl.echelonengine.components.Component;
+import net.gustavdahl.echelonengine.components.IComponent;
 
 public abstract class BaseSystem<T> implements ISystem
 {
 	private int _updatePriority = 1;
 	protected boolean _isActive;
 	protected List<T> _componentList = new ArrayList<T>();
-	
+
 	public BaseSystem()
 	{
 		_updatePriority = 1;
 		_isActive = true;
+
 	}
 
-	public void Start() // TODO: should work with any list (not only component list)
+	public void Start()
+					
 	{
 		for (int i = 0; i < _componentList.size(); i++)
 		{
@@ -32,10 +35,11 @@ public abstract class BaseSystem<T> implements ISystem
 	{
 		if (!_isActive)
 			return;
-		
+
 		if (_componentList.size() < 1)
 		{
-			//System.out.println("ERROR - no components in system! (Update) - " + this.getClass().getSimpleName());
+			// System.out.println("ERROR - no components in system! (Update) - "
+			// + this.getClass().getSimpleName());
 			return;
 		}
 
@@ -50,20 +54,43 @@ public abstract class BaseSystem<T> implements ISystem
 
 	}
 
-	// TODO: use this method to make sure that no components can be added to the same system twice
-	public void AddComponentToSystem_NotUsedYet(Component component)
+	public boolean AddComponentToSystem(Component component)
 	{
-		if (!_componentList.contains(component))
-			AddToSystem(component);
-		else
-			throw new RuntimeException("Error - " + component.Name() + " has already been added to " + this.toString());
+		boolean canBeAdded = ValidateIfComponentCanBeAddedToSystem(component);
+
+		if (canBeAdded)
+		{
+			if (!_componentList.contains(component))
+				_componentList.add((T) component);
+		}
+
+		return canBeAdded;
 	}
-	
-	public void SetActive(boolean active) {	_isActive = active; }
-	public void SetActive() {	SetActive(_isActive); }
-	public boolean GetActive() { return _isActive; }
-	public int GetUpdatePriority() { return _updatePriority; }
-	public void SetUpdatePriority(int _updatePriority) { this._updatePriority = _updatePriority; }
+
+	public void SetActive(boolean active)
+	{
+		_isActive = active;
+	}
+
+	public void SetActive()
+	{
+		SetActive(_isActive);
+	}
+
+	public boolean GetActive()
+	{
+		return _isActive;
+	}
+
+	public int GetUpdatePriority()
+	{
+		return _updatePriority;
+	}
+
+	public void SetUpdatePriority(int _updatePriority)
+	{
+		this._updatePriority = _updatePriority;
+	}
 
 	public void Destroy()
 	{
@@ -78,16 +105,6 @@ public abstract class BaseSystem<T> implements ISystem
 
 		// _componentList.clear();
 		// _componentList = null;
-
-	}
-
-	
-	protected void SuccesfullyAddedToSystem(String name, boolean success)
-	{
-		if (success)
-			System.out.println("Component " + name + "  successfully added to appropiate system");
-		else
-			System.out.println("Component " + name + " NOT added to appropiate system");
 	}
 
 }

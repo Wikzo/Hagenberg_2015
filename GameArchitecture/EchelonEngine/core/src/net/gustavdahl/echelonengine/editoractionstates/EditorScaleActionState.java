@@ -29,7 +29,7 @@ public class EditorScaleActionState implements IEditorActionState
 	@Override
 	public void EnterState()
 	{
-		System.out.println("Entering scale action state");
+		//System.out.println("Entering scale action state");
 		
 	}
 

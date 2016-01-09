@@ -85,21 +85,14 @@ public class PersistenceSystem extends BaseSystem<Persistable>
 		}
 	}
 
+
 	@Override
-	public boolean AddToSystem(Component c)
+	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
-		boolean succesfullyAdded = false;
-
 		if (c instanceof Persistable)
-		{
-			succesfullyAdded = true;
-			_componentList.add((Persistable) c);
-
-		} else
-			throw new RuntimeException("ERROR - component " + c.getClass().getSimpleName()
-					+ " doesn't implement PhysicsComponent interface!");
-
-		return succesfullyAdded;
+			return true;
+		else
+			return false;
 	}
 
 }
