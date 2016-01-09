@@ -32,7 +32,7 @@ public class SpriteComponent extends Component implements IRenderable
 		Width(_width);
 		Heighth(_height);
 		
-		DefaultSystem = RenderSystem.class;
+		_defaultSystem = RenderSystem.class;
 		//LoadContent(ServiceLocator.AssetManager.DummyTexture);
 	}
 

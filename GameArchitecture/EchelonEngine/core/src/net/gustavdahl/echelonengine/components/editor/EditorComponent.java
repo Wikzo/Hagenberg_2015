@@ -14,7 +14,7 @@ public class EditorComponent extends Component
 	{
 		super();
 		
-		DefaultSystem = EditorSystem.class;
+		_defaultSystem = EditorSystem.class;
 	}
 	
 	@Override

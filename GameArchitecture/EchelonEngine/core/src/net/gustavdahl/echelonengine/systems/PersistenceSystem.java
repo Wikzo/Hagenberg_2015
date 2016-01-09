@@ -14,12 +14,12 @@ import com.badlogic.gdx.Gdx;
 
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.persistence.LevelCommand;
-import net.gustavdahl.echelonengine.components.persistence.Persistable;
+import net.gustavdahl.echelonengine.components.persistence.PersistableComponent;
 
-public class PersistenceSystem extends BaseSystem<Persistable>
+public class PersistenceSystem extends BaseSystem<PersistableComponent>
 {
 
-	//private List<Persistable> _persistables;
+	// private List<Persistable> _persistables;
 	private static List<LevelCommand> _quickStore;
 
 	public PersistenceSystem()
@@ -27,7 +27,7 @@ public class PersistenceSystem extends BaseSystem<Persistable>
 		_quickStore = new ArrayList<LevelCommand>();
 	}
 
-	public void remove(Persistable persistable)
+	public void remove(PersistableComponent persistable)
 	{
 		// silently ignore if persistable is unknown (best practice)
 		_componentList.remove(persistable);
@@ -71,7 +71,7 @@ public class PersistenceSystem extends BaseSystem<Persistable>
 		_quickStore.clear();
 		for (int i = 0; i < _componentList.size(); ++i)
 		{
-			Persistable persistable = _componentList.get(i);
+			PersistableComponent persistable = _componentList.get(i);
 			_quickStore.add(persistable.CreateCommand());
 		}
 	}
@@ -84,11 +84,10 @@ public class PersistenceSystem extends BaseSystem<Persistable>
 		}
 	}
 
-
 	@Override
 	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
-		if (c instanceof Persistable)
+		if (c instanceof PersistableComponent)
 			return true;
 		else
 			return false;

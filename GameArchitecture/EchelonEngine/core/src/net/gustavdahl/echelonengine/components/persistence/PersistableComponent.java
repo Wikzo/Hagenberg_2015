@@ -3,12 +3,12 @@ package net.gustavdahl.echelonengine.components.persistence;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.systems.PersistenceSystem;
 
-public abstract class Persistable extends Component
+public abstract class PersistableComponent extends Component
 {
 	
-	public Persistable()
+	public PersistableComponent()
 	{
-		DefaultSystem = PersistenceSystem.class;
+		_defaultSystem = PersistenceSystem.class;
 	}
 
 	@Override

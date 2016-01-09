@@ -34,7 +34,7 @@ public abstract class Collider extends Component implements Comparable<Collider>
 	{
 		super();
 
-		DefaultSystem = ColliderSystem.class;
+		_defaultSystem = ColliderSystem.class;
 	}
 
 	@Override

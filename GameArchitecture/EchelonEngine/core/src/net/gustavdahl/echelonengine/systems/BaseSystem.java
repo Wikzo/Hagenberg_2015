@@ -65,6 +65,12 @@ public abstract class BaseSystem<T> implements ISystem
 
 		return canBeAdded;
 	}
+	
+	public void RemoveComponentFromSystem(Component component)
+	{
+		if (_componentList.contains(component))
+			_componentList.remove((T) component);
+	}
 
 	public void SetActive(boolean active)
 	{

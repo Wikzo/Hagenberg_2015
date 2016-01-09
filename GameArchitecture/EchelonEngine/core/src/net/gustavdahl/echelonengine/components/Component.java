@@ -14,7 +14,8 @@ public abstract class Component implements IComponent, IUpdatable
 
 	protected TransFormComponent Transform;
 
-	public Class DefaultSystem = null;
+	protected Class _defaultSystem = null;
+	protected Class _mySystem;
 
 	public int UpdatePriority = 1;
 
@@ -34,11 +35,14 @@ public abstract class Component implements IComponent, IUpdatable
 
 		_hasBeenInitialized = true;
 		_isActive = true;
-
-		if (systemClass == null)
-			AddToSystem(DefaultSystem);
+		
+		if (systemClass != null)
+			_mySystem = systemClass;
 		else
-			AddToSystem(systemClass);
+			_mySystem = _defaultSystem;
+
+		AddToSystem(_mySystem);
+
 
 	}
 
@@ -63,11 +67,15 @@ public abstract class Component implements IComponent, IUpdatable
 
 	}
 
-	public void Destroy()
+	public void RemoveComponent()
 	{
 		// TODO: make sure that the object is destroyed/disposed of!
 		_isActive = false;
-		System.out.println("[" + Name() + " destroyed]");
+		System.out.println("Removing [" + Name() + "]");
+		
+		ServiceLocator.GetSystem(_mySystem).RemoveComponentFromSystem(this);
+		this.Owner.RemoveComponentFromEntity(this);
+		
 	}
 
 	public abstract void Update(float deltaTime);

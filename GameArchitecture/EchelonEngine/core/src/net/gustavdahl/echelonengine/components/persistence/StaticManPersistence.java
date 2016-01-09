@@ -4,7 +4,7 @@ import net.gustavdahl.echelonengine.components.TransFormComponent;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
-public class StaticManPersistence extends Persistable
+public class StaticManPersistence extends PersistableComponent
 {
 
 	public StaticManPersistence()

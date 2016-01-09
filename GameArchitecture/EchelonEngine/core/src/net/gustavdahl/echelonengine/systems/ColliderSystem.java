@@ -19,6 +19,11 @@ public class ColliderSystem extends BaseSystem<Collider>
 		this._collisionMode = collisionMode;
 	}
 
+	public void SetCollisionMode(CollisionMode mode)
+	{
+		this._collisionMode = mode;
+	}
+	
 	void QuickSort()
 	{
 		Collections.sort(_componentList);

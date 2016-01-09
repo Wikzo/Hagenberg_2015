@@ -23,118 +23,56 @@ import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
-public class ForcesAndSpringsScene implements Screen, IUpdatable
+public class ForcesAndSpringsScene extends BaseScene
 {
-	public static OrthographicCamera _camera; // TODO: don't make public static
-	private SpriteBatch _spriteBatch;
-	private ServiceLocator _serviceLocator;
-	private EntityFactory _entityFactory;
-	private Game _game;
-	private CircleMenuList _circleMenu;
-
-	public ForcesAndSpringsScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
-	{
-		_game = game;
-		_circleMenu = circleMenu;
-
-		InitializeSystems(serviceLocator);
-
-		_camera = new OrthographicCamera();
-		_camera.setToOrtho(false, 800, 480);
-
-		create();
-	}
-
-	DebugSystem _debugSystem;
-
-	void InitializeSystems(ServiceLocator serviceLocator)
-	{
-		_spriteBatch = ServiceLocator.AssetManager.SpriteBatch;
-		RenderSystem _renderSystem = new RenderSystem(ServiceLocator.AssetManager.SpriteBatch);
-		_debugSystem = new DebugSystem(ServiceLocator.AssetManager.SpriteBatch,
-				ServiceLocator.AssetManager.ShapeRenderer, ServiceLocator.AssetManager.DebugFont, _camera);
-		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetUseFixedUpdate(true)
-				.SetForceMode(ForceMode.ExplicitEuler);
-		ColliderSystem _colliderSystem = new ColliderSystem(CollisionMode.BruteForce);
-		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
-		EditorSystem _editorSystem = new EditorSystem(_camera);
-
-		_serviceLocator = serviceLocator;
-		_serviceLocator.RegisterNewSystem(_renderSystem);
-		_serviceLocator.RegisterNewSystem(_debugSystem);
-		_serviceLocator.RegisterNewSystem(_physicsSystem);
-		_serviceLocator.RegisterNewSystem(_colliderSystem);
-		_serviceLocator.RegisterNewSystem(_gameLogicSystem);
-		_serviceLocator.RegisterNewSystem(_editorSystem);
-		_serviceLocator.InitializeSystems();
-
-		_entityFactory = _serviceLocator.EntityFactory;
-		
-		_debugSystem.SetActive(true);
-
-	}
-	
-	// TODO:
-	// Toggle between fixed/varied update rate
-	// Toggle between spawning/non spawning
-
-	public void create()
-	{
-		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200);
-		Entity e2 = _entityFactory.CreateStaticManWithCircleCollider("Static2", 500, 200);
-		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
-		
-		EntityFactory f = new EntityFactory();
-		//f.CreateSingleSpring("Cog1", 300, 300);
-		f.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
-
-	}
-	
-	@Override
-	public void render(float delta)
-	{
-
-		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		_camera.update();
-
-		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(_camera.combined);
-		ServiceLocator.AssetManager.ShapeRenderer.setProjectionMatrix(_camera.combined);
-
-		_debugSystem.GetCamera(_camera);
-		ServiceLocator.GetSystem(EditorSystem.class).SetCamera(_camera);
-
-		_serviceLocator.UpdateSystems(delta);
-
-	}
-
 	private float _timer;
 	private boolean _spawnEntities = false;
 	private boolean _useFixedUpdate = true;
 
-	@Override
-	public void Update(float deltaTime)
+	public ForcesAndSpringsScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{
-		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
-			_game.setScreen(_circleMenu);
-		
-		if (Gdx.input.isKeyJustPressed(Keys.O))
-			_spawnEntities = !_spawnEntities;
-		
+		super(game, circleMenu, serviceLocator);
+	}
+
+	void InitializeSystems(ServiceLocator serviceLocator)
+	{
+		super.InitializeSystems(serviceLocator);
+		_serviceLocator.GetSystem(PhysicsSystem.class).SetUseFixedUpdate(false);
+		_debugSystem.SetActive(true);
+
+	}
+
+	@Override
+	public void CreateScene()
+	{
+		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200);
+		Entity e2 = _entityFactory.CreateStaticManWithCircleCollider("Static2", 500, 200);
+		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
+
+		EntityFactory f = new EntityFactory();
+		// f.CreateSingleSpring("Cog1", 300, 300);
+		f.CreateMultipleSprings("COG_ROOT", 300, 300, 5);
+
+	}
+
+	@Override
+	public void UpdateScene(float deltaTime)
+	{
+	
+
 		if (Gdx.input.isKeyJustPressed(Keys.P))
 		{
 			_useFixedUpdate = !_useFixedUpdate;
 			ServiceLocator.GetSystem(PhysicsSystem.class).SetUseFixedUpdate(_useFixedUpdate);
 		}
-		
+
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText(" ");
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("-- Forces & Springs --");
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("PRESS O TO TOGGLE ENTITIES SPAWNING");
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("PRESS P TO TOGGLE FIXED/VARIED PHYSICS UPDATE");
 
 		if (_spawnEntities)
-			_timer+= deltaTime;
+			_timer += deltaTime;
 
 		if (_timer > 0.01)
 		{
@@ -148,42 +86,5 @@ public class ForcesAndSpringsScene implements Screen, IUpdatable
 
 		}
 
-	}
-
-	@Override
-	public void dispose()
-	{
-		_serviceLocator.DestroyAllSystems();
-		ServiceLocator.AssetManager.DisposeAllAssets();
-	}
-
-	@Override
-	public void show()
-	{
-
-	}
-
-	@Override
-	public void resize(int width, int height)
-	{
-
-	}
-
-	@Override
-	public void pause()
-	{
-
-	}
-
-	@Override
-	public void resume()
-	{
-
-	}
-
-	@Override
-	public void hide()
-	{
-		// dispose();
 	}
 }

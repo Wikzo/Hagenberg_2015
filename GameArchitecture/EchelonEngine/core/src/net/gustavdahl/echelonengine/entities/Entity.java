@@ -59,19 +59,16 @@ public class Entity
 		return _isActive;
 	}
 
-	// bool indicates whether the component was successfully retrieved
 	public boolean RemoveComponentOfType(Class componentClass)
 	{
 		boolean removedComponent = false;
 
 		for (int i = _components.size() - 1; i >= 0; i--)
 		{
-
 			// System.out.println(i);
 			if (_components.get(i).getClass() == componentClass)
 			{
-				_components.get(i).Destroy();
-				_components.remove(i);
+				_components.get(i).RemoveComponent();
 
 				System.gc();
 
@@ -83,12 +80,12 @@ public class Entity
 		return removedComponent;
 	}
 
-	public boolean RemoveComponentOfTypeUsingBase(Class baseClass)
+	public void RemoveComponentFromEntity(Component component)
 	{
-
-		// TODO: be able to retrieve all subclasses, e.g. by specifying
-		// "RenderComponent" and then get all sub-components
-		return false;
+		if (_components.contains(component))
+			_components.remove(component);
+		
+		component = null;
 	}
 
 	public boolean RemoveAllComponents()
@@ -98,7 +95,7 @@ public class Entity
 
 		for (int i = _components.size() - 1; i >= 0; i--)
 		{
-			_components.get(i).Destroy();
+			_components.get(i).RemoveComponent();
 			_components.remove(i);
 			System.gc();
 		}
@@ -106,17 +103,6 @@ public class Entity
 		return true;
 	}
 
-	// USING MAP
-	// https://stackoverflow.com/questions/33485007/java-how-to-retrieve-a-specific-type-in-an-arraylist/33485349#33485349
-	// problem: can NOT have duplicated keys!
-	/*
-	 * private Map<String, Component> _components = new HashMap<String,
-	 * Component>(); public void AddComponent(Component c) {
-	 * _components.put(c.Name(), c); c.Enable(); }
-	 * 
-	 * public Component GetComponent(Component c) { return
-	 * _components.get(c.Name()); }
-	 */
 
 	public void AddComponent(Component c, Class systemName)
 	{
@@ -126,7 +112,7 @@ public class Entity
 		{
 
 			System.err.println("ERROR: Cannot have more than one " + c.Name() + " on this entity!");
-			c.Destroy();
+			c.RemoveComponent();
 
 			return;
 		}
@@ -142,32 +128,8 @@ public class Entity
 		AddComponent(c, null);
 	}
 
-	public Component GetComponent_old(Class componentClass)
-	{
-		boolean found = false;
-		for (Component c : _components)
-		{
-			if (c.getClass() == componentClass)
-			{
-				found = true;
-				return c;
-			}
-		}
 
-		// TODO: how to return null AND throw an exception at the same time?
-		if (!found)
-		{
-			// throw new RuntimeException("ERROR - " + Name + " does not have a
-			// " + componentClass.getName());
-			// System.out.println("ERROR - " + this.Name + " has no " +
-			// componentClass.getName());
-			return null;
-		}
-
-		return null;
-	}
-
-	public <T extends Component> T GetComponent(Class<T> clazz, boolean internalLookup)
+	private <T extends Component> T GetComponent(Class<T> clazz, boolean internalLookup)
 	{
 
 		for (int i = 0; i < _components.size(); i++)
@@ -256,29 +218,5 @@ public class Entity
 		// TODO: destroy this (garbage collector?)
 	}
 
-	// not working correctly yet!
-	public Entity DuplicateEntity()
-	{
-		Entity e = new Entity(this.Name + "_Copy");
-
-		List<Component> originalComponents = GetAllComponents();
-		List<Component> duplicatedComponents = new ArrayList<Component>(originalComponents);
-
-		for (int i = 0; i < duplicatedComponents.size(); i++)
-		{
-			if (!(duplicatedComponents.get(i) instanceof TransFormComponent))
-			{
-				e.AddComponent(duplicatedComponents.get(i));
-				duplicatedComponents.get(i).Owner = e;
-			} else
-			{
-				e.AddComponent(new TransFormComponent());
-				// e.SetPosition(this.GetPositionX() + 50, this.GetPositionY());
-			}
-			System.out.println(duplicatedComponents.get(i).Name());
-		}
-
-		return e;
-	}
 
 }

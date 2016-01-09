@@ -96,6 +96,8 @@ public class MenuItem
 			game.setScreen(s);
 			break;
 		case Persistence:
+			s = new PersistenceScene(game, circleMenu, _serviceLocator);
+			game.setScreen(s);
 			break;
 		case Selection:
 			s = new SelectionScene(game, circleMenu, _serviceLocator);

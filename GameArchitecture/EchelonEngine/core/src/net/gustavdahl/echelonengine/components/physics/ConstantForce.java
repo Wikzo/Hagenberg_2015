@@ -15,7 +15,7 @@ public class ConstantForce extends PhysicsBody
 		_angularVelocity = angularVelocity;
 		
 		CanHaveMultipleComponentsOfThisType = false;
-		DefaultSystem = PhysicsSystem.class;
+		_defaultSystem = PhysicsSystem.class;
 	}
 
 	@Override

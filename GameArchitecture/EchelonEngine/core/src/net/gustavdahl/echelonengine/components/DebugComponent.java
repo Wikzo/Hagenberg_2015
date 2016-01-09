@@ -37,7 +37,7 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 		super();
 		_font = f;
 
-		DefaultSystem = DebugSystem.class;
+		_defaultSystem = DebugSystem.class;
 
 		_projectionMatrixSet = false;
 

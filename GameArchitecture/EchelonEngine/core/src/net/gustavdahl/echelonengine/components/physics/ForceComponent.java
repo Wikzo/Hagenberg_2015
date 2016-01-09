@@ -12,7 +12,7 @@ public abstract class ForceComponent extends Component implements IPhysics
 	public ForceComponent(PhysicsBody b)
 	{
 		_body = b;
-		DefaultSystem = PhysicsSystem.class;
+		_defaultSystem = PhysicsSystem.class;
 	}
 	
 	protected abstract Vector2 CalculateForce();
