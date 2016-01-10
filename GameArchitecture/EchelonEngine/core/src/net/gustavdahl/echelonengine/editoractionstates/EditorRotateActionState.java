@@ -4,6 +4,7 @@ import net.gustavdahl.echelonengine.systems.EditorSystem;
 
 public class EditorRotateActionState implements IEditorActionState
 {
+	private final float _rotationSensitivity = 0.1f;
 
 	@Override
 	public void Update(EditorSystem editor)
@@ -11,7 +12,7 @@ public class EditorRotateActionState implements IEditorActionState
 		for (int i = 0; i < editor.GetSelectedEntities().size(); i++)
 		{
 			editor.GetSelectedEntities().get(i)
-					.SetRotation(editor.GetMousePosition().y / 10f);
+					.SetRotation(editor.GetStartRotation(i) - editor.GetMouseDeltaMovement().y * _rotationSensitivity);
 		}
 		
 	}

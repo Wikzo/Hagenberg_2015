@@ -1,18 +1,21 @@
 package net.gustavdahl.echelonengine.editoractionstates;
 
+
 import net.gustavdahl.echelonengine.systems.EditorSystem;
 
 public class EditorMoveActionState implements IEditorActionState
 {
 
+	
 	@Override
 	public void Update(EditorSystem editor)
 	{
-		editor.UnprojectMouse();
+		//editor.UnprojectMouse();
 		for (int i = 0; i < editor.GetSelectedEntities().size(); i++)
 		{
 			editor.GetSelectedEntities().get(i)
-					.SetPosition(editor.GetMousePosition().x + (i*20) + 10, editor.GetMousePosition().y);
+					.SetPosition(editor.GetStartPosition(i).x - editor.GetMouseDeltaMovement().x,
+							editor.GetStartPosition(i).y - editor.GetMouseDeltaMovement().y);
 		}
 		
 	}
@@ -21,6 +24,5 @@ public class EditorMoveActionState implements IEditorActionState
 	public void EnterState()
 	{
 		//System.out.println("Entering move action state");
-		
 	}
 }

@@ -5,11 +5,15 @@ import java.util.Map;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
+
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.visual.IDebugRenderable;
 
@@ -64,7 +68,9 @@ public class DebugSystem extends BaseSystem<IDebugRenderable>
 
 			_componentList.get(i).DebugRender(_spriteBatch, _shapeRenderer, deltaTime);
 		}
-
+		
+		
+		
 		// debug text
 		_spriteBatch.begin();
 		_spriteBatch.setProjectionMatrix(_camera.combined);
@@ -93,6 +99,11 @@ public class DebugSystem extends BaseSystem<IDebugRenderable>
 
 	}
 
+	public Vector3 GetPositionInWorldSpace(Vector3 vec)
+	{
+		 return _camera.unproject(vec);
+	}
+	
 	// TODO: make input field that can change variables dynamically (like Unity & TuneFish)
 	
 	private static int _textPosition = 0;

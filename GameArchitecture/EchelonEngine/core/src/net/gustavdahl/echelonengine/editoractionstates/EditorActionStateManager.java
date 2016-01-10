@@ -23,7 +23,13 @@ public class EditorActionStateManager
 		return _actionState;
 	}
 
-	public void HandleInputUpdate(int input)
+	public void ResetActionState()
+	{
+		//System.out.println("reseting");
+		HandleInputUpdate(-1);
+	}
+	
+	public boolean HandleInputUpdate(int input)
 	{
 
 		IEditorActionState temp = null;
@@ -41,16 +47,29 @@ public class EditorActionStateManager
 		else
 			temp = new EditorIdleActionState();
 
+		/*if (_actionState.getClass().equals(temp.getClass()))
+		{
+			_actionState = null;
+			_actionState = new EditorIdleActionState();
+			_actionState.EnterState();
+		}*/
+		
 		if (!_actionState.getClass().equals(temp.getClass())) // check if the same state is already active
 		{
 			if (temp != null && temp != _actionState) // assign new state
 			{
+				
 				_actionState = null;
 				_actionState = temp;
 
 				_actionState.EnterState();
 			}
 		}
+		
+		if (temp != null)
+			return true;
+		else
+			return false;
 
 	}
 

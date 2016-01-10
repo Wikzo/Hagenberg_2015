@@ -191,6 +191,12 @@ public class Entity
 		_transform.PositionX = x;
 		_transform.PositionY = y;
 	}
+	
+	public void AddPosition(float x, float y)
+	{
+		_transform.PositionX += x;
+		_transform.PositionY += y;
+	}
 
 	public String GetPositionString()
 	{

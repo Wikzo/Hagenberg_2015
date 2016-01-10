@@ -8,9 +8,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
 import net.gustavdahl.echelonengine.components.IUpdatable;
 import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
@@ -105,7 +108,6 @@ public abstract class BaseScene implements Screen, IUpdatable
 		_serviceLocator.UpdateSystems(delta);
 
 	}
-	
 	
 
 	protected void UpdateCameras()
