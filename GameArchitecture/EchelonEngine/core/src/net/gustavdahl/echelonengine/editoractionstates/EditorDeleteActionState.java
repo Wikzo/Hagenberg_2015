@@ -18,5 +18,11 @@ public class EditorDeleteActionState implements IEditorActionState
 		//System.out.println("Entering delete action state");
 		
 	}
+
+	@Override
+	public void Reset(EditorSystem editor)
+	{
+		
+	}
 	
 }

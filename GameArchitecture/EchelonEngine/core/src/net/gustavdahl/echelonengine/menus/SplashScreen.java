@@ -14,7 +14,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import net.gustavdahl.echelonengine.scenes.*;
-import net.gustavdahl.echelonengine.systems.ServiceLocator;
+import net.gustavdahl.echelonengine.systems.MyAssetManager;
 
 public class SplashScreen implements Screen
 {
@@ -24,16 +24,16 @@ public class SplashScreen implements Screen
 	private Viewport viewport;
 
 	private float displayTime;
-	private float fadeInTime = 1f;
+	private float fadeInTime = 1.2f;
 	private float fadeOutTime = 1f;
-	private float DisplayTime = 1f;
+	private float DisplayTime = 3f;
 	private Stage stage;
-	private ServiceLocator _serviceLocator;
+	private MyAssetManager _assetManager;
 
-	public SplashScreen(MyGame project, ServiceLocator serviceLocator)
+	public SplashScreen(MyGame project)
 	{
 		this.game = project;
-		_serviceLocator = serviceLocator;
+		this._assetManager = project.MyAssetManager;
 		
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
@@ -46,7 +46,7 @@ public class SplashScreen implements Screen
 	@Override
 	public void show()
 	{
-		Image img = new Image(ServiceLocator.AssetManager.SplashTexture);
+		Image img = new Image(_assetManager.SplashTexture);
 		img.setPosition(0, 0, Align.center);
 		img.getColor().a = 0f;
 		img.setName("Splash");
@@ -75,7 +75,7 @@ public class SplashScreen implements Screen
 	{
 		Actor img = stage.getRoot().findActor("Splash");
 		assert(img != null);
-		img.clearActions();
+		//img.clearActions();
 		img.addAction(Actions.sequence(Actions.fadeOut(fadeTime), Actions.run(new Runnable()
 		{
 			@Override
@@ -90,17 +90,17 @@ public class SplashScreen implements Screen
 	{
 
 		game.setScreen(new CircleMenuList(game));
-		dispose();
+		//dispose();
 	}
 
 	@Override
 	public void render(float delta)
 	{
-		Gdx.gl.glClearColor(0.1f, 1f, 0.8f, 1);
+		Gdx.gl.glClearColor(1,1,1,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		camera.update();
-		ServiceLocator.AssetManager.SpriteBatch.setProjectionMatrix(camera.combined);
+		_assetManager.SpriteBatch.setProjectionMatrix(camera.combined);
 
 		stage.act(delta);
 		stage.draw();

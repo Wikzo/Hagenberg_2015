@@ -10,6 +10,7 @@ public class DesktopLauncher {
 		config.title = "Echelon Engine";
 		config.width = 1366;
 		config.height = 768;
+		config.fullscreen = true;
 		
 		new LwjglApplication(new MyGame(), config);
 	}

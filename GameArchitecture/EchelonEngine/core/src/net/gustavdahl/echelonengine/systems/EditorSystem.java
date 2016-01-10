@@ -129,7 +129,6 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 				DebugSystem.AddDebugText(debugTextToShow, new Vector2(e.Owner.GetPositionX(), e.Owner.GetPositionY()));
 			}
 		}
-
 	}
 
 	public void ClearRemoveAllSelectedEntities()
@@ -151,7 +150,6 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 			entity.CurrentlySelectedByEditor = true;
 			GetSelectedEntities().add(entity);
 		}
-
 	}
 
 	public Entity EntityRaycast()
@@ -165,7 +163,6 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 				return e;
 			}
 		}
-
 		return null;
 	}
 
@@ -176,7 +173,6 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 			return true;
 		else
 			return false;
-
 	}
 
 	public Vector3 UnprojectVector(Vector3 vector)
@@ -188,7 +184,6 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 	{
 		return _selectedEntities;
 	}
-
 	
 	public Vector2 GetStartPosition(int i)
 	{
@@ -206,7 +201,6 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 	{
 		return _savedRotations.get(i);
 	}
-
 	
 	private void SaveTransformDataBeforeChanging()
 	{
@@ -235,10 +229,8 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 			_savedYScales.add(scaleY);
 			_savedRotations.add(rotation);
 		}
-
 	}
 
-	
 	public Vector3 GetMouseDeltaMovement()
 	{
 		Vector3 difference = UnprojectVector(_previousMousePosition.cpy()).sub(UnprojectVector(_currentMousePosition.cpy()));
@@ -246,19 +238,16 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 		return difference;
 	}
 
-	
-	
 	@Override
 	public boolean keyDown(int keycode)
 	{
 		if (keycode == Keys.CONTROL_LEFT)
 			_controlDown = true;
 
-		boolean validInput = _editorActionStateManager.HandleInputUpdate(keycode);
+		boolean validInput = _editorActionStateManager.HandleInputUpdate(keycode, this);
 		
 		if (validInput)
 			SavePreviousMousePosition();
-
 
 		return false;
 	}
@@ -284,35 +273,24 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 		return false;
 	}
 
-	boolean touched;
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button)
 	{
-		
-		
 		IEditorSelectionState temp = _editorSelectionState.HandleInput(this, _controlDown);
 		
 		if (temp != null)
 			SaveTransformDataBeforeChanging();
 		
 		if (temp instanceof EditorIdleState)
-			_editorActionStateManager.ResetActionState();
+			_editorActionStateManager.ResetActionState(this);
 
 		if (temp != _editorSelectionState)
 		{
-			
-			
 			_editorSelectionState = null;
 			_editorSelectionState = temp;
 			_editorSelectionState.EnterState(this);
 		}
 		
-	
-		
-		
-		
-		
-
 		return false;
 	}
 

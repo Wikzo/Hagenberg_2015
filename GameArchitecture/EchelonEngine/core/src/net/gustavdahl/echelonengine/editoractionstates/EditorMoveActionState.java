@@ -25,4 +25,9 @@ public class EditorMoveActionState implements IEditorActionState
 	{
 		//System.out.println("Entering move action state");
 	}
+	
+	@Override
+	public void Reset(EditorSystem editor)
+	{
+	}
 }

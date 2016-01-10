@@ -213,10 +213,21 @@ public class Entity
 		_transform.ScaleX = x;
 		_transform.ScaleY = y;
 	}
+	
+	public void ResetScale()
+	{
+		_transform.ScaleX = 1;
+		_transform.ScaleY = 1;
+	}
 
 	public void SetRotation(float rotation)
 	{
 		_transform.Rotation = rotation;
+	}
+	
+	public void ResetRotation()
+	{
+		_transform.Rotation = 0;
 	}
 
 	public void DestroyEntity()

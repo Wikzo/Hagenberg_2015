@@ -20,4 +20,11 @@ public class EditorIdleActionState implements IEditorActionState
 		
 	}
 
+	@Override
+	public void Reset(EditorSystem editor)
+	{
+
+		
+	}
+
 }

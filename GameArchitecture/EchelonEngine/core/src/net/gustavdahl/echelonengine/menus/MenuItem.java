@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
+import net.gustavdahl.echelonengine.enums.MenuItemType;
 import net.gustavdahl.echelonengine.scenes.*;
 import net.gustavdahl.echelonengine.systems.EntityManager;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
@@ -18,6 +19,8 @@ public class MenuItem
 {
 	public String MenuName = "";
 	private String InnerMenuName = "";
+	
+	private Screen _newScreen;
 
 	final MyGame game;
 	CircleMenuList circleMenu;
@@ -50,31 +53,30 @@ public class MenuItem
 		{
 		case CollisionBruteForce:
 			MenuName = "Collision:\nBrute Force";
-			InnerMenuName = "***PAIR-WISE COLLISION***\nBrute-force checking every entitiy against each other.\nComplexity is O(n^2)";
+			InnerMenuName = "--- PAIR-WISE COLLISION ---\nBrute-force checking every entitiy against each other.\nComplexity is O(n^2).";
 			break;
 			
 		case CollisionSortAndPrune:
 			MenuName=  "Collision:\nSort and Prune";
-			InnerMenuName = "***SORT AND PRUNE COLLISION***\nBefore checking each pair, the entities are sorted by using their X position.\nEntities that have overlapping X positions are then checked.";
+			InnerMenuName = "--- SORT AND PRUNE COLLISION ---\nBefore checking each pair, the entities are sorted by using their X position.\nEntities that have overlapping X positions are then checked.";
 			break;
 			
 		case Persistence:
 			MenuName= "Persistence";
-			InnerMenuName = "***PERSISTENCE***\nSaving and loading entities via creation commands stored in an external text file.";
+			InnerMenuName = "--- PERSISTENCE ---\nSaving and loading entities via creation commands stored in an external text file.";
 			break;
 			
 		case Selection:
 			MenuName= "Editor Selection";
-			InnerMenuName = "***EDITOR SELECTION***\nUse the mouse to select entities.\nWhen an entity is selected, the following actions can be performed:\nMOVE (W); Rotate (E); Scale (R) and Multi-Select (CTRL).";
+			InnerMenuName = "--- EDITOR SELECTION --- \nUse the mouse to select entities.\nWhen an entity is selected, the following actions can be performed:\nMOVE (W); Rotate (E); Scale (R) and Multi-Select (CTRL).";
 			break;
 			
 		case SpringsAndForces:
-			InnerMenuName = "***FORCES AND SPRINGS***\nShowing gravity forces and connected springs using Euler integration.";
+			InnerMenuName = "--- FORCES AND SPRINGS ---\nShowing gravity forces and connected springs using Euler integration.";
 			MenuName= "Forces and Springs";
 		}
 	}
 
-	Screen s;
 	public void LoadScene()
 	{
 		System.gc();
@@ -82,32 +84,31 @@ public class MenuItem
 		EntityManager _entityManager = new EntityManager();
 		EntityFactory _entityFactory = new EntityFactory();
 		
-		_serviceLocator = new ServiceLocator(game._assetManager, _entityManager, _entityFactory);
+		_serviceLocator = new ServiceLocator(game.MyAssetManager, _entityManager, _entityFactory);
 		
 		switch (MenuType)
 		{
 		case CollisionBruteForce:
-			s = new BruteForceCollisionScene(game, circleMenu, _serviceLocator);
-			//s = new SplashScreen(game, _serviceLocator);
-			game.setScreen(s);
+			_newScreen = new BruteForceCollisionScene(game, circleMenu, _serviceLocator);
+			game.setScreen(_newScreen);
 			break;
 			
 		case CollisionSortAndPrune:
-			s = new SortAndPruneCollisionScene(game, circleMenu, _serviceLocator);
-			game.setScreen(s);
+			_newScreen = new SortAndPruneCollisionScene(game, circleMenu, _serviceLocator);
+			game.setScreen(_newScreen);
 			break;
 		case Persistence:
-			s = new PersistenceScene(game, circleMenu, _serviceLocator);
-			game.setScreen(s);
+			_newScreen = new PersistenceScene(game, circleMenu, _serviceLocator);
+			game.setScreen(_newScreen);
 			break;
 		case Selection:
-			s = new SelectionScene(game, circleMenu, _serviceLocator);
-			game.setScreen(s);
+			_newScreen = new SelectionScene(game, circleMenu, _serviceLocator);
+			game.setScreen(_newScreen);
 			break;
 			
 		case SpringsAndForces:
-			s = new ForcesAndSpringsScene(game, circleMenu, _serviceLocator);
-			game.setScreen(s);
+			_newScreen = new ForcesAndSpringsScene(game, circleMenu, _serviceLocator);
+			game.setScreen(_newScreen);
 			break;
 		}
 	}
@@ -124,7 +125,7 @@ public class MenuItem
 	protected void CreateMenus()
 	{
 		// label style
-		LabelStyle labelStyle = new Label.LabelStyle(game._assetManager.InnerMenuFont, Color.WHITE);
+		LabelStyle labelStyle = new Label.LabelStyle(game.MyAssetManager.InnerMenuFont, Color.WHITE);
 		Label label1 = new Label(InnerMenuName, labelStyle);
 		float startPosX = Gdx.graphics.getWidth() / 2;
 		label1.setWrap(true);

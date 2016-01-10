@@ -20,20 +20,15 @@ import net.gustavdahl.echelonengine.components.visual.SpriteAnimator;
 public class MyAssetManager
 {
 
-	// TODO: make use of asset manager instead
-	// https://github.com/libgdx/libgdx/wiki/Managing-your-assets
-
-	// SPRITES ///////////////////////////////////////////////////////
 	private ArrayList<Texture> textures;
 	public Texture SplashTexture;
+	public Texture Mountain;
 	public Texture DummyTexture;
 	public Texture RunningMan;
 	public Texture Floor;
 	public Texture CogWheelAtlas;
 	public TextureRegion[] CogWheels;
 	public TextureRegion[] RunningManRegion;
-
-	// SPRITES end //////////////////////////////////////////////////
 
 	private ArrayList<BitmapFont> fonts;
 	public BitmapFont ArialFont;
@@ -45,9 +40,8 @@ public class MyAssetManager
 	public Stage Stage;
 	public ShapeRenderer ShapeRenderer;
 	
-	private InputMultiplexer _inputMultiplexer; // TODO: move this to Input System
+	private InputMultiplexer _inputMultiplexer;
 
-	// common, menu, gameplay (assets)
 
 	public void InitializeMenuAssets()
 	{
@@ -56,10 +50,12 @@ public class MyAssetManager
 		ArialFont = new BitmapFont(Gdx.files.internal("arial_black_32.fnt"));
 		fonts.add(ArialFont);
 
-		SplashTexture = new Texture("splash.png");
+		SplashTexture = new Texture("echelon_engine_logo.png");
+		Mountain = new Texture("menu_background.png");
 
 		textures = new ArrayList<Texture>();
 		textures.add(SplashTexture);
+		textures.add(Mountain);
 	}
 
 	
@@ -77,9 +73,9 @@ public class MyAssetManager
 		fonts.add(DebugFont2);
 		
 		// from: https://github.com/libgdx/libgdx/wiki/Gdx-freetype
-		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("ROUGD__.TTF"));
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("Rokkitt.otf"));
 		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
-		parameter.size = 22;
+		parameter.size = 32;
 		InnerMenuFont = generator.generateFont(parameter); 
 		generator.dispose(); // don't forget to dispose to avoid memory leaks!
 		fonts.add(InnerMenuFont);
@@ -137,8 +133,6 @@ public class MyAssetManager
 			for (Texture t : textures)
 				t.dispose();
 		}
-
-		// System.out.println("All assets have been disposed by " + name);
 
 	}
 

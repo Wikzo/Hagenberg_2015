@@ -23,5 +23,14 @@ public class EditorRotateActionState implements IEditorActionState
 		//System.out.println("Entering rotate action state");
 		
 	}
+	
+	@Override
+	public void Reset(EditorSystem editor)
+	{
+		for (int i = 0; i < editor.GetSelectedEntities().size(); i++)
+		{
+			editor.GetSelectedEntities().get(i).ResetRotation();
+		}
+	}
 
 }

@@ -90,14 +90,14 @@ public abstract class BaseScene implements Screen, IUpdatable
 
 	public void create()
 	{
-			CreateScene();
+		CreateScene();
 	}
 
 	@Override
 	public void render(float delta)
 	{
-		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
-			_game.setScreen(_circleMenu);
+		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE) || Gdx.input.isKeyJustPressed(Keys.F2))
+			_game.setScreen(_circleMenu);			
 
 
 		Gdx.gl.glClearColor(0, 0, 0.2f, 1);

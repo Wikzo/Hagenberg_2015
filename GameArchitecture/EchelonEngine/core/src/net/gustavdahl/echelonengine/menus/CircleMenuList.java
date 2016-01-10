@@ -8,13 +8,16 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import net.gustavdahl.echelonengine.enums.MenuItemType;
 import net.gustavdahl.echelonengine.scenes.*;
+import net.gustavdahl.echelonengine.systems.MyAssetManager;
 
 public class CircleMenuList implements Screen
 {
@@ -39,6 +42,12 @@ public class CircleMenuList implements Screen
 		viewport = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
 
 		stage = new Stage();
+		
+		Image img = new Image(game.MyAssetManager.Mountain);
+		img.setPosition(0, 0, Align.center);
+		img.getColor().a = 1f;
+		img.setName("Splash");
+		stage.addActor(img);
 
 		MenuItems = new ArrayList<MenuItem>();
 		MenuItems.add(new MenuItem(MenuItemType.Selection, game, stage, this));
@@ -53,8 +62,12 @@ public class CircleMenuList implements Screen
 
 	void CreateMenuItems()
 	{
+		
+		
+		
+		
 		// label style
-		LabelStyle labelStyle = new Label.LabelStyle(game._assetManager.ArialFont, Color.WHITE);
+		LabelStyle labelStyle = new Label.LabelStyle(game.MyAssetManager.ArialFont, Color.WHITE);
 		// Label label1 = new Label("1", labelStyle);
 
 		// create labels
@@ -77,27 +90,21 @@ public class CircleMenuList implements Screen
 		float y = 0f;
 		for (int i = 0; i < labels.size(); i++)
 		{
-
 			x = (float) Math.sin(Math.toRadians(angle)) * 400;
-			y = (float) Math.cos(Math.toRadians(angle)) * 350;
+			y = (float) Math.cos(Math.toRadians(angle)) * 300;
 
 			labels.get(i).setPosition(x, y);
 			angle += (360f / labels.size());
-
-			// System.out.println(x + ", " + y);
-
 		}
 
-		// labels.get(0).setPosition(200f, 300f);
-
-		// System.out.println(labels.get(0).getX() + ", " +
-		// labels.get(0).getY());
 
 		labels.get(highlightIndex).setColor(Color.WHITE);
 
 		stage.setViewport(new FitViewport(game.V_WIDTH, game.V_HEIGHT));
 
 		MenuItems.get(highlightIndex).Group.setVisible(true);
+		
+		
 	}
 
 	@Override
@@ -109,7 +116,7 @@ public class CircleMenuList implements Screen
 	@Override
 	public void render(float delta)
 	{
-		Gdx.gl.glClearColor(0.1f, 1f, 0.8f, 1);
+		Gdx.gl.glClearColor(0.76f, 0.68f, 0.417f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		// tell the camera to update its matrices.
@@ -117,7 +124,7 @@ public class CircleMenuList implements Screen
 
 		// tell the SpriteBatch to render in the
 		// coordinate system specified by the camera.
-		game._assetManager.SpriteBatch.setProjectionMatrix(camera.combined);
+		game.MyAssetManager.SpriteBatch.setProjectionMatrix(camera.combined);
 
 		stage.act(delta);
 		stage.draw();
@@ -131,7 +138,7 @@ public class CircleMenuList implements Screen
 		if (Gdx.input.isKeyJustPressed(Keys.ENTER))
 			MenuItems.get(highlightIndex).LoadScene();
 
-		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE))
+		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE) || Gdx.input.isKeyJustPressed(Keys.F2))
 			Gdx.app.exit();
 
 	}
@@ -181,33 +188,11 @@ public class CircleMenuList implements Screen
 			}
 			break;
 		}
-
-		// System.out.println(highlightIndex);
 	}
 
 	@Override
 	public void resize(int width, int height)
 	{
-
-		/*
-		 * float w = Gdx.graphics.getWidth(); float h =
-		 * Gdx.graphics.getHeight();
-		 * 
-		 * float aspect = w / h;
-		 * 
-		 * // https://github.com/libgdx/libgdx/wiki/Viewports
-		 * 
-		 * camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT / aspect);
-		 * camera.position.set(0, 0, 0); camera.update();
-		 * 
-		 * 
-		 * float ar = (float) Gdx.graphics.getWidth() /
-		 * Gdx.graphics.getHeight(); cam.setToOrtho(false, project1.V_WIDTH,
-		 * project1.V_WIDTH / ar); cam.position.set(0, 0, 0); cam.update();
-		 * 
-		 * viewport.update(width, height);
-		 */
-
 		stage.getViewport().update(width, height);
 
 	}
@@ -221,7 +206,6 @@ public class CircleMenuList implements Screen
 	@Override
 	public void resume()
 	{
-		System.out.println("back to menu!");
 	}
 
 	@Override

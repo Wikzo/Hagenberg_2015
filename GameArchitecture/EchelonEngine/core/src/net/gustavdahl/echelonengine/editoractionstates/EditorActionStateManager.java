@@ -23,13 +23,13 @@ public class EditorActionStateManager
 		return _actionState;
 	}
 
-	public void ResetActionState()
+	public void ResetActionState(EditorSystem editor)
 	{
 		//System.out.println("reseting");
-		HandleInputUpdate(-1);
+		HandleInputUpdate(-1, editor);
 	}
 	
-	public boolean HandleInputUpdate(int input)
+	public boolean HandleInputUpdate(int input, EditorSystem editor)
 	{
 
 		IEditorActionState temp = null;
@@ -44,30 +44,29 @@ public class EditorActionStateManager
 			temp = new EditorDeleteActionState();
 		else if (input == Keys.D)
 			temp = new EditorDuplicateActionState();
+		else if (input == Keys.Z && _actionState != null)
+		{
+			_actionState.Reset(editor);
+			ResetActionState(editor);
+		}
 		else
 			temp = new EditorIdleActionState();
 
-		/*if (_actionState.getClass().equals(temp.getClass()))
+		if (temp != null) // check if temp is null
 		{
-			_actionState = null;
-			_actionState = new EditorIdleActionState();
-			_actionState.EnterState();
-		}*/
-		
-		if (!_actionState.getClass().equals(temp.getClass())) // check if the same state is already active
-		{
-			if (temp != null && temp != _actionState) // assign new state
+			if (!_actionState.getClass().equals(temp.getClass())) // check if the same state is already active
 			{
-				
-				_actionState = null;
-				_actionState = temp;
-
-				_actionState.EnterState();
+				if (temp != null && temp != _actionState) // assign new state
+				{
+					_actionState = null;
+					_actionState = temp;
+	
+					_actionState.EnterState();
+				}
 			}
-		}
-		
-		if (temp != null)
+			
 			return true;
+		}
 		else
 			return false;
 

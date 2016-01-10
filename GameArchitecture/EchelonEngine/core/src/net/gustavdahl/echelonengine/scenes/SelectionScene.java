@@ -29,10 +29,10 @@ import net.gustavdahl.echelonengine.systems.ServiceLocator;
 public class SelectionScene extends BaseScene
 {
 	private final String _description1 = "-- Editor Selection --\nClick on entities to select them.\n";
-	private final String _description2 = "Hold CTRL for multi-selection\n";
+	private final String _description2 = "Hold CTRL for multi-selection.\n";
 	private final String _description3 = "Hold any of the following buttons down while moving to perform an action:\n";
-	private final String _description4 = "W = move, E = rotate, R = scale\n";
-	private final String _fullDescription = "";//_description1 + _description2 + _description3 + _description4;
+	private final String _description4 = "W = move, E = rotate, R = scale, Z = reset\n";
+	private final String _fullDescription = _description1 + _description2 + _description3 + _description4;
 
 	public SelectionScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{

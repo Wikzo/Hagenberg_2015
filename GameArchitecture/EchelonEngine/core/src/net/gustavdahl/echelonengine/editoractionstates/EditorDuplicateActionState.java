@@ -20,4 +20,10 @@ public class EditorDuplicateActionState implements IEditorActionState
 		
 	}
 
+	@Override
+	public void Reset(EditorSystem editor)
+	{
+		
+	}
+
 }
