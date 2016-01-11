@@ -22,7 +22,8 @@ public class MyAssetManager
 
 	private ArrayList<Texture> textures;
 	public Texture SplashTexture;
-	public Texture Mountain;
+	public Texture MenuBackground;
+	public Texture GameBackground;
 	public Texture DummyTexture;
 	public Texture RunningMan;
 	public Texture Floor;
@@ -51,11 +52,13 @@ public class MyAssetManager
 		fonts.add(ArialFont);
 
 		SplashTexture = new Texture("echelon_engine_logo.png");
-		Mountain = new Texture("menu_background.png");
+		MenuBackground = new Texture("menu_background.png");
+		GameBackground = new Texture("game_background.png");
 
 		textures = new ArrayList<Texture>();
 		textures.add(SplashTexture);
-		textures.add(Mountain);
+		textures.add(MenuBackground);
+		textures.add(GameBackground);
 	}
 
 	

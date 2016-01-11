@@ -43,7 +43,7 @@ public class CircleMenuList implements Screen
 
 		stage = new Stage();
 		
-		Image img = new Image(game.MyAssetManager.Mountain);
+		Image img = new Image(game.MyAssetManager.MenuBackground);
 		img.setPosition(0, 0, Align.center);
 		img.getColor().a = 1f;
 		img.setName("Splash");
@@ -62,10 +62,6 @@ public class CircleMenuList implements Screen
 
 	void CreateMenuItems()
 	{
-		
-		
-		
-		
 		// label style
 		LabelStyle labelStyle = new Label.LabelStyle(game.MyAssetManager.ArialFont, Color.WHITE);
 		// Label label1 = new Label("1", labelStyle);

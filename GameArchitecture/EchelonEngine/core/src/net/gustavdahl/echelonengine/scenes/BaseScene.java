@@ -17,6 +17,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
 import net.gustavdahl.echelonengine.components.IUpdatable;
 import net.gustavdahl.echelonengine.components.physics.PhysicsBody;
+import net.gustavdahl.echelonengine.components.visual.SpriteComponent;
 import net.gustavdahl.echelonengine.entities.Entity;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
 import net.gustavdahl.echelonengine.enums.CollisionMode;
@@ -40,6 +41,7 @@ public abstract class BaseScene implements Screen, IUpdatable
 	protected EntityFactory _entityFactory;
 	protected Game _game;
 	protected CircleMenuList _circleMenu;
+	protected DebugSystem _debugSystem;
 
 	public BaseScene(Game game, CircleMenuList circleMenu, ServiceLocator serviceLocator)
 	{
@@ -54,7 +56,7 @@ public abstract class BaseScene implements Screen, IUpdatable
 		create();
 	}
 
-	DebugSystem _debugSystem;
+	
 
 	void InitializeSystems(ServiceLocator serviceLocator)
 	{
@@ -98,7 +100,6 @@ public abstract class BaseScene implements Screen, IUpdatable
 	{
 		if (Gdx.input.isKeyJustPressed(Keys.ESCAPE) || Gdx.input.isKeyJustPressed(Keys.F2))
 			_game.setScreen(_circleMenu);			
-
 
 		Gdx.gl.glClearColor(0, 0, 0.2f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

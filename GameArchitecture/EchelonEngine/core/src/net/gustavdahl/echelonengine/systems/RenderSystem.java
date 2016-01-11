@@ -10,12 +10,16 @@ public class RenderSystem extends BaseSystem<IRenderable>
 	public static final String SystemName = RenderSystem.class.getSimpleName();
 
 	protected SpriteBatch _spriteBatch;
+	protected MyAssetManager _assetManager;
+	private boolean _drawBackground;
 
 	public RenderSystem(SpriteBatch spriteBatch)
 	{
 		super();
 
 		_spriteBatch = spriteBatch;
+		_assetManager = ServiceLocator.AssetManager;
+		_drawBackground = true;
 	}
 
 	@Override
@@ -47,15 +51,20 @@ public class RenderSystem extends BaseSystem<IRenderable>
 			return;
 		}
 
+		_spriteBatch.begin();
+		
+		if (_drawBackground)
+			_spriteBatch.draw(_assetManager.GameBackground, 0, 0);
 		for (int i = 0; i < _componentList.size(); i++)
 		{
 			if (!((Component) _componentList.get(i)).IsActive())
 				continue;
 
-			_spriteBatch.begin();
+			
 			_componentList.get(i).Render(_spriteBatch, deltaTime);
-			_spriteBatch.end();
+			
 		}
+		_spriteBatch.end();
 	}
 
 	@Override
