@@ -12,10 +12,11 @@ public class ColliderSystem extends BaseSystem<Collider>
 {
 
 	private CollisionMode _collisionMode;
+	
+	int _sortAndPruneOverlapCounter = 0;
 
 	public ColliderSystem(CollisionMode collisionMode)
 	{
-		//_colliderList = new ArrayList<Collider>();
 		this._collisionMode = collisionMode;
 	}
 
@@ -37,8 +38,9 @@ public class ColliderSystem extends BaseSystem<Collider>
 
 	private void Prune()
 	{
-		DebugSystem.AddDebugText("Collision Method: Sort and Prune");
+		DebugSystem.AddDebugText("Collision Method: Sort and Prune [complexity: " + _sortAndPruneOverlapCounter + "]");
 
+		_sortAndPruneOverlapCounter = 0;
 		for (int i = 0; i < _componentList.size(); i++)
 		{
 			Collider a = _componentList.get(i);
@@ -49,6 +51,7 @@ public class ColliderSystem extends BaseSystem<Collider>
 
 				if (b.GetLeftSide() < a.GetRightSide())
 				{
+					_sortAndPruneOverlapCounter++;
 					a.SetCollisionState(CollisionState.PotentialCollision);
 					b.SetCollisionState(CollisionState.PotentialCollision);
 
@@ -64,22 +67,22 @@ public class ColliderSystem extends BaseSystem<Collider>
 		}
 	}
 
-	void BruteForceCollisionCheck(List<Collider> list)
+	void BruteForceCollisionCheck()
 	{
-		DebugSystem.AddDebugText("Collision Method: Pair-wise Brute Force");
+		DebugSystem.AddDebugText("Collision Method: Pair-wise Brute Force [complexity: " + _componentList.size() * _componentList.size() + "]");
 		
 		// potential collision
 		// for (int i = 0; i < list.size(); i++)
 		// list.get(i).SetCollisionState(CollisionState.PotentialCollision);
 
 		// doing the pair-wise collision check
-		for (int i = 0; i < list.size(); i++)
+		for (int i = 0; i < _componentList.size(); i++)
 		{
-			Collider a = list.get(i);
+			Collider a = _componentList.get(i);
 
-			for (int j = i + 1; j < list.size(); j++)
+			for (int j = i + 1; j < _componentList.size(); j++)
 			{
-				Collider b = list.get(j);
+				Collider b = _componentList.get(j);
 
 				// check if a and b collide
 				boolean hit = a.Collide(b);
@@ -99,8 +102,6 @@ public class ColliderSystem extends BaseSystem<Collider>
 		{
 			Collider a = _componentList.get(i);
 			a.ClearCollisions();
-
-			// a.Update(deltaTime);
 		}
 	}
 
@@ -113,7 +114,7 @@ public class ColliderSystem extends BaseSystem<Collider>
 			break;
 
 		case BruteForce:
-			BruteForceCollisionCheck(_componentList);
+			BruteForceCollisionCheck();
 			break;
 		}
 	}
@@ -124,8 +125,6 @@ public class ColliderSystem extends BaseSystem<Collider>
 
 		if (!_isActive)
 			return;
-
-		// fixed delta time?
 
 		ClearCollisions();
 		CalculateCollisions();
