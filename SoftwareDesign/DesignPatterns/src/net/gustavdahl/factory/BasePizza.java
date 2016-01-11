@@ -3,7 +3,7 @@ package net.gustavdahl.factory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BasePizza implements IMakePizza
+public abstract class BasePizza implements IMakePizza
 {
 
 	public List<String> Ingredients; 

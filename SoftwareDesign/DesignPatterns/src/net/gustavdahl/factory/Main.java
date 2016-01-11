@@ -8,16 +8,16 @@ public class Main
 		ChicagoFactory chicagoFactory = new ChicagoFactory();
 		
 		// cheese
-		CheesePizza newYorkCheese = (CheesePizza) newYorkFactory.CreateCheesePizza();
-		CheesePizza chicagoCheese = (CheesePizza) chicagoFactory.CreateCheesePizza();
+		BasePizza newYorkCheese = newYorkFactory.CreateCheesePizza();
+		BasePizza chicagoCheese = chicagoFactory.CreateCheesePizza();
 		
 		// veggie
-		VeggiePizza newYorkVeggie = (VeggiePizza) newYorkFactory.CreateVeggiePizza();
-		VeggiePizza chicagoVeggie = (VeggiePizza) chicagoFactory.CreateVeggiePizza();
+		BasePizza newYorkVeggie = newYorkFactory.CreateVeggiePizza();
+		BasePizza chicagoVeggie = chicagoFactory.CreateVeggiePizza();
 		
 		// pepporoni
-		PepporoniPizza newYorkPepporoni = (PepporoniPizza) newYorkFactory.CreatePepporoniPizza();
-		PepporoniPizza chicagoPepporoni = (PepporoniPizza) chicagoFactory.CreatePepporoniPizza();
+		BasePizza newYorkPepporoni = newYorkFactory.CreatePepporoniPizza();
+		BasePizza chicagoPepporoni = chicagoFactory.CreatePepporoniPizza();
 	}
 
 }
