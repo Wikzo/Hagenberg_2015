@@ -112,32 +112,13 @@ public class SpringComponent extends ForceComponent implements IDebugRenderable
 
 		Gdx.gl.glDisable(GL30.GL_BLEND);
 
-		/*
-		 * DebugSystem.AddDebugText( "Euler: " + _body._forceMode + "\nMass: " +
-		 * Float.toString(_body._mass) + "\nDamping: " + _dampConstant +
-		 * "\nSpringConstant: " + _springConstant, new
-		 * Vector2(Transform.PositionX, Transform.PositionY));
-		 */
-
-		/*
-		 * if (_root != null) { DebugSystem.AddDebugText("Root: " + _root.Name,
-		 * new Vector2(Transform.PositionX + 10, Transform.PositionY + 20)); }
-		 */
-
 	}
 
 	@Override
 	public String OnSelectedText()
 	{
-		/*
-		 * DebugSystem.AddDebugText( "Euler: " + _body._forceMode + "\nMass: " +
-		 * Float.toString(_body._mass) + "\nDamping: " + _dampConstant +
-		 * "\nSpringConstant: " + _springConstant, new
-		 * Vector2(Transform.PositionX, Transform.PositionY));
-		 */
-
-		return "Euler: " + _body._forceMode + "\nMass: " + Float.toString(_body._mass) + "\nDamping: " + _dampConstant
-				+ "\nSpringConstant: " + _springConstant;
+		return "   > Euler: " + _body._forceMode + "\n   > Mass: " + Float.toString(_body._mass) + "\n   > Damping: " + _dampConstant
+				+ "\n   > SpringConstant: " + _springConstant;
 	}
 
 }

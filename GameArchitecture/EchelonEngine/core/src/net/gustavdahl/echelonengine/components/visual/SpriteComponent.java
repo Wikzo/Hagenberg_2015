@@ -97,16 +97,6 @@ public class SpriteComponent extends Component implements IRenderable
 			_texture = t;
 	}
 
-	public void Render_old(SpriteBatch spriteBatch)
-	{
-		if (!IsVisible)
-			return;
-
-		if (!IsActive())
-			return;
-
-		spriteBatch.draw(this._texture, this.Transform.PositionX, this.Transform.PositionY);
-	}
 	
 	@Override
 	public void Render(SpriteBatch batch, float deltaTime)
@@ -126,9 +116,7 @@ public class SpriteComponent extends Component implements IRenderable
 		_width, _height, // size in world space
 		Transform.ScaleX, Transform.ScaleY,
 		MathUtils.radDeg * Transform.Rotation);
-		
-		
-		
+
 	}
 
 	@Override

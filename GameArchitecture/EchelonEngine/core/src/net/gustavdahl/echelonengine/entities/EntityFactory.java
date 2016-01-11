@@ -55,9 +55,8 @@ public class EntityFactory
 
 	private PhysicsBody AddPhysicsBody(Entity e)
 	{
-		PhysicsBody body = new PhysicsBody();
-
-		body.AddConstantForce(PhysicsBody.GravityForce);
+		PhysicsBody body = new PhysicsBody(true);
+		
 		body.SetMass(5);
 
 		e.AddComponent(body);

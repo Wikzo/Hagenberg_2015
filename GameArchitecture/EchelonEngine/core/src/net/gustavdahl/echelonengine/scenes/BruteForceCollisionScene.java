@@ -43,9 +43,15 @@ public class BruteForceCollisionScene extends BaseScene
 
 	public void CreateScene()
 	{
-		Entity e1 = _entityFactory.CreateStaticManWithBoxCollider("Static1", 100, 200, 0, 1, 1);
-		Entity e2 = _entityFactory.CreateStaticManWithCircleCollider("Static2", 500, 200);
-		Entity e4 = _entityFactory.CreateAnimatedMan("Animated_1", 700, 200);
+		_entityFactory.CreateStaticManWithBoxCollider("StaticBox1", 444, 211, 0, 1, 1);
+		_entityFactory.CreateStaticManWithBoxCollider("StaticBox2", 348, 100, 0, 1, 1);
+
+		_entityFactory.CreateStaticManWithCircleCollider("StaticCircle1", 160, 210);
+		_entityFactory.CreateStaticManWithCircleCollider("StaticCircle2", 140, 100);
+		_entityFactory.CreateStaticManWithCircleCollider("StaticCircle3", 580, 270);
+
+		_entityFactory.CreateAnimatedMan("Animated_1", 613, 132);
+		_entityFactory.CreateAnimatedMan("Animated_2", 710, 270);
 	}
 
 	@Override
@@ -77,7 +83,7 @@ public class BruteForceCollisionScene extends BaseScene
 			float y = MathUtils.random(Gdx.graphics.getHeight() + 800);
 
 			Entity e = _entityFactory.CreateAnimatedMan("StressTest_Man", x, y);
-			e.AddComponent(new PhysicsBody().AddConstantForce(PhysicsBody.GravityForce));
+			e.AddComponent(new PhysicsBody(true));
 
 		}
 

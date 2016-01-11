@@ -31,12 +31,15 @@ public class PhysicsBody extends Component implements IPhysics
 	}
 
 
-	public PhysicsBody()
+	public PhysicsBody(boolean useGravity)
 	{
 		_defaultSystem = PhysicsSystem.class;
 		_velocity = new Vector2(0f, 0f);
 		_acceleration = new Vector2(0f, 0f);
 		_forceMode = ServiceLocator.GetSystem(PhysicsSystem.class).ForceMode;
+		
+		if (useGravity)
+			AddConstantForce(GravityForce);
 
 	}
 

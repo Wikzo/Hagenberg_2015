@@ -24,7 +24,6 @@ public class MyAssetManager
 	public Texture SplashTexture;
 	public Texture MenuBackground;
 	public Texture GameBackground;
-	public Texture DummyTexture;
 	public Texture RunningMan;
 	public Texture Floor;
 	public Texture CogWheelAtlas;
@@ -83,12 +82,10 @@ public class MyAssetManager
 		generator.dispose(); // don't forget to dispose to avoid memory leaks!
 		fonts.add(InnerMenuFont);
 		
-		DummyTexture = new Texture("cat-tongue.png");
 		RunningMan = new Texture("spriteSheet_man.png");
 		Floor = new Texture("floor.png");
 		CogWheelAtlas = new Texture("cogwheels_atlas.png");
 
-		textures.add(DummyTexture);
 		textures.add(RunningMan);
 		textures.add(Floor);
 		
@@ -115,11 +112,6 @@ public class MyAssetManager
 		Gdx.input.setInputProcessor(_inputMultiplexer);
 	}
 
-	public void InitializeGamePlayAssets()
-	{
-
-	}
-
 	public void DisposeAllAssets()
 	{
 
@@ -136,7 +128,6 @@ public class MyAssetManager
 			for (Texture t : textures)
 				t.dispose();
 		}
-
 	}
 
 }

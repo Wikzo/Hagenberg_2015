@@ -75,7 +75,7 @@ public class DebugSystem extends BaseSystem<IDebugRenderable>
 		_spriteBatch.begin();
 		_spriteBatch.setProjectionMatrix(_camera.combined);
 
-		_font.draw(_spriteBatch, "DEBUG MENU\n(F1 to toggle)", Gdx.graphics.getWidth() / 2, 450);
+		_font.draw(_spriteBatch, "DEBUG MENU\n(F1 to toggle)", Gdx.graphics.getWidth() / 2 - 10, 450);
 		// _font.draw(_spriteBatch, _debugText,400, 400);
 
 		if (!_debugDrawingPosition.isEmpty())

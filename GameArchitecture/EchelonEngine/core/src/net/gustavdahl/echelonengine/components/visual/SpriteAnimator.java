@@ -92,7 +92,7 @@ public class SpriteAnimator extends SpriteComponent implements IDebugRenderable
 	@Override
 	public String OnSelectedText()
 	{
-		return "Frame rate: " + _framerate + "\nCurrent frame: " + Integer.toString(_index);
+		return "   > Frame rate: " + _framerate + "\n   > Current frame: " + Integer.toString(_index);
 	}
 
 }

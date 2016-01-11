@@ -1,5 +1,6 @@
 package net.gustavdahl.echelonengine.systems;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.visual.IRenderable;
@@ -54,7 +55,10 @@ public class RenderSystem extends BaseSystem<IRenderable>
 		_spriteBatch.begin();
 		
 		if (_drawBackground)
+		{
+			_spriteBatch.setColor(Color.WHITE);
 			_spriteBatch.draw(_assetManager.GameBackground, 0, 0);
+		}
 		for (int i = 0; i < _componentList.size(); i++)
 		{
 			if (!((Component) _componentList.get(i)).IsActive())

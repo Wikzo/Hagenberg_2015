@@ -115,16 +115,20 @@ public class EditorSystem extends BaseSystem<EditorComponent> implements InputPr
 			if (e.Owner.CurrentlySelectedByEditor)
 			{
 				String debugTextToShow = "\n" + e.Owner.Name + ":\n" + data;
+				debugTextToShow += "\nComponents:\n";
 
 				// look for all possible debug text in the components
 				for (Component c : e.Owner.GetAllComponents())
+				{
+					debugTextToShow += "- " + c.Name() + "\n";
+					
 					if (c instanceof IDebugRenderable)
 					{
 						String componentDebugText = ((IDebugRenderable) c).OnSelectedText();
 						if (componentDebugText != null && !componentDebugText.equals("null"))
-							debugTextToShow += "\n---\n" + componentDebugText + "\n---\n";
+							debugTextToShow += componentDebugText + "\n";
 					}
-						
+				}
 				
 				DebugSystem.AddDebugText(debugTextToShow, new Vector2(e.Owner.GetPositionX(), e.Owner.GetPositionY()));
 			}

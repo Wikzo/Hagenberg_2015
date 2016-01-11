@@ -185,8 +185,7 @@ public class BoxCollider extends Collider implements IDebugRenderable
 	@Override
 	public String OnSelectedText()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return "   > XPos: " + Bounds().x + ", YPos: " + Bounds().y + "\n   > Width: " + Bounds().width + ", Height: " + Bounds().height;
 	}
 
 }

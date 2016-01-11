@@ -11,6 +11,8 @@ public class ConstantForce extends PhysicsBody
 
 	public ConstantForce(Vector2 velocity, float angularVelocity)
 	{
+		super(false);
+		
 		_velocity = velocity;
 		_angularVelocity = angularVelocity;
 		
