@@ -23,7 +23,7 @@ public class EditorComponent extends Component
 		super.GetExternalReferences();
 		
 		if ( Owner.GetComponent(Collider.class) == null)
-			throw new RuntimeException("ERROR! - " + Owner.Name + " has no Collider component!"); // TODO: this does not work?
+			throw new RuntimeException("ERROR! - " + Owner.Name + " has no Collider component!");
 		else
 			_collider = (Collider) Owner.GetComponent(Collider.class);
 		

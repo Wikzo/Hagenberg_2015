@@ -20,11 +20,6 @@ import net.gustavdahl.echelonengine.systems.ServiceLocator;
 public class EntityFactory
 {
 
-	public EntityFactory()
-	{
-
-	}
-
 	private Entity CreateEntity(String name, Float x, Float y)
 	{
 		Entity e = new Entity(name);

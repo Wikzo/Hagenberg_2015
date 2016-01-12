@@ -6,7 +6,7 @@ import net.gustavdahl.echelonengine.entities.EntityFactory;
 public class ServiceLocator
 {
 
-	public static MyAssetManager AssetManager; // TODO: change type to AssetManager
+	public static MyAssetManager AssetManager;
 	public static EntityManager EntityManager;
 	public static EntityFactory EntityFactory;
 

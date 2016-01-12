@@ -89,8 +89,7 @@ public class CircleCollider extends Collider implements IDebugRenderable
 			final Vector2 penetrationVector = n.scl((float) penetration); // vector to push out
 			
 			//System.out.println("P: " + penetrationVector);
-			
-			// TODO: can only hit/move the next one in the loop from ColliderSystem!
+		
 			
 			// CIRCLE PENETRATION:
 			/*if (!this.IsStatic)

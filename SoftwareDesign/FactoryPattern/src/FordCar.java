@@ -8,5 +8,4 @@ public class FordCar extends Car
 		Model = "Fiesta";
 		EngineSize = "1.1";
 	}
-
 }

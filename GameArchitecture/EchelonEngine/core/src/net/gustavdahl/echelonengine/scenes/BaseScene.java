@@ -34,8 +34,7 @@ import net.gustavdahl.echelonengine.systems.ServiceLocator;
 
 public abstract class BaseScene implements Screen, IUpdatable
 {
-	protected static OrthographicCamera _camera; // TODO: don't make public
-													// static
+	protected static OrthographicCamera _camera;
 	protected SpriteBatch _spriteBatch;
 	protected ServiceLocator _serviceLocator;
 	protected EntityFactory _entityFactory;

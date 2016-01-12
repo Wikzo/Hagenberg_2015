@@ -69,7 +69,6 @@ public abstract class Component implements IComponent, IUpdatable
 
 	public void RemoveComponent()
 	{
-		// TODO: make sure that the object is destroyed/disposed of!
 		_isActive = false;
 		System.out.println("Removing [" + Name() + "]");
 		

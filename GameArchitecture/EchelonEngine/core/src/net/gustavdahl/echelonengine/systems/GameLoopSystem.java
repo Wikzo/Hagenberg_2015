@@ -3,7 +3,7 @@ package net.gustavdahl.echelonengine.systems;
 import net.gustavdahl.echelonengine.components.Component;
 import net.gustavdahl.echelonengine.components.IUpdatable;
 
-public class GameLoopSystem extends BaseSystem
+public class sGameLoopSystem extends BaseSystem
 {	
 	// TODO: remove this?
 	
@@ -32,10 +32,6 @@ public class GameLoopSystem extends BaseSystem
 	public boolean ValidateIfComponentCanBeAddedToSystem(Component c)
 	{
 		return false;
-		
-		/*// TODO: move away?
-		throw new RuntimeException("ERROR - cannot add " + c.Name() + " to the GameLoopSystem! Add an IUpdtable via the constructor instead.");
-		*/
 	}
 
 

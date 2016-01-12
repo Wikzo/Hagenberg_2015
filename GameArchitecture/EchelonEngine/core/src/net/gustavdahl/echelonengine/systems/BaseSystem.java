@@ -108,7 +108,7 @@ public abstract class BaseSystem<T> implements ISystem
 			// TODO: also destroy the entity itself! (maybe?)
 		}
 
-		// _componentList.clear();
+		 _componentList.clear();
 		// _componentList = null;
 	}
 

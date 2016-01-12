@@ -6,13 +6,6 @@ public class TransFormComponent extends Component
 	public float Rotation;
 	public float ScaleX, ScaleY;
 
-
-	// TODO: store position as floats in array [x][y][rotation]
-	// do this for physics body
-	// same with velocityX, velocityY and angularVelocity
-	// same with acceleration...
-	
-	//public float[]
 	
 	public TransFormComponent()
 	{

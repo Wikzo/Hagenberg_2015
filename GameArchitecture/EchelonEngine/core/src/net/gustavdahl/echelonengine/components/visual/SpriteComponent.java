@@ -92,7 +92,6 @@ public class SpriteComponent extends Component implements IRenderable
 
 	public void LoadContent(Texture t)
 	{
-		// TODO: load via asset manager...
 		if (t != null)
 			_texture = t;
 	}

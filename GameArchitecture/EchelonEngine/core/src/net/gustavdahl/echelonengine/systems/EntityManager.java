@@ -19,18 +19,22 @@ public class EntityManager
 	{
 		_entities.add(e);
 	}
-	
+
 	public int GetEntityCount()
 	{
 		return _entities.size();
 	}
 
-	public void RemoveEntity()
+	public void RemoveEntity(Entity entity)
 	{
 	}
 
 	public void RemoveAllEntities()
 	{
+		for (int i = 0; i < _entities.size(); i++)
+		{
+			_entities.get(i).DestroyEntity();
+		}
 		_entities.clear();
 	}
 

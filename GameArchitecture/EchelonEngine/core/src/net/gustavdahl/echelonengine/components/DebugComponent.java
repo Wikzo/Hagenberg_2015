@@ -47,8 +47,6 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 		//Gdx.input.setInputProcessor(this);
 	}
 
-	// TODO: pass parameters (e.g. position) by reference instead of values
-
 	public DebugComponent SetRenderPosition(boolean b)
 	{
 		Position = b;
@@ -75,9 +73,7 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 	public void DebugRender(SpriteBatch spriteBatch, ShapeRenderer shapeRenderer, float deltaTime)
 	{
 	}
-	
-	
-	// TODO: component adding stuff should be in own class/component
+
 
 	@Override
 	public boolean keyDown(int keycode)
@@ -171,7 +167,6 @@ public class DebugComponent extends Component implements IDebugRenderable, Input
 	@Override
 	public String OnSelectedText()
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 

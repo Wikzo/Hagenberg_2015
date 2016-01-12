@@ -89,8 +89,6 @@ public class PhysicsSystem extends BaseSystem<IPhysics>
 			UpdatePhysics(deltaTime);
 		} else // fixed update
 		{
-			// TODO: does not work well with springs?
-			
 			// http://gafferongames.com/game-physics/fix-your-timestep/
 
 			_newTime = TimeUtils.nanoTime();

@@ -19,8 +19,7 @@ public class Entity
 	private boolean _isActive;
 	private Entity _parent;
 
-	public boolean CurrentlySelectedByEditor; // TODO: move this to
-												// EditorComponent
+	public boolean CurrentlySelectedByEditor; // TODO: move this to EditorComponent
 
 	public Entity(String name)
 	{
@@ -28,8 +27,7 @@ public class Entity
 
 		_components = new ArrayList<Component>();
 		_transform = new TransFormComponent();
-		_transform.Enable(this, null); // QUESTION: does Transform need to be
-										// added to a system?
+		_transform.Enable(this, null);
 
 		_components.add(_transform);
 
@@ -229,10 +227,10 @@ public class Entity
 	{
 		_transform.Rotation = 0;
 	}
-
+	
 	public void DestroyEntity()
 	{
-		// TODO: destroy this (garbage collector?)
+		
 	}
 
 

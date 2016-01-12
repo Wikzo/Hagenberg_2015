@@ -21,8 +21,6 @@ public class SpriteAnimator extends SpriteComponent implements IDebugRenderable
 		_framerate = framerate;
 
 	}
-
-	// TODO: make repeatable sprites
 	
 	public static TextureRegion[] CreateSpriteSheet(Texture texture, int numberOfPictures, int columns, int rows)
 	{

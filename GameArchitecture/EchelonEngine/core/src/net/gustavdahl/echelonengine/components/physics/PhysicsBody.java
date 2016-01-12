@@ -55,7 +55,7 @@ public class PhysicsBody extends Component implements IPhysics
 
 	public void AddForce(Vector2 force)
 	{
-		// TODO: force modes
+		// TODO: add force modes
 		// http://docs.unity3d.com/ScriptReference/ForceMode2D.html
 
 		_force.add(force).scl(1f / _mass);
