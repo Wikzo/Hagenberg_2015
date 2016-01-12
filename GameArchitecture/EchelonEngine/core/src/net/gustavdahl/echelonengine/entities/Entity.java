@@ -39,7 +39,7 @@ public class Entity
 		this.ID = id;
 		ServiceLocator.EntityManager.AddEntity(this);
 
-		System.out.println("*** " + this.Name + " created! ***");
+		//System.out.println("*** " + this.Name + " created! ***");
 	}
 
 	public void SetActive(boolean active)

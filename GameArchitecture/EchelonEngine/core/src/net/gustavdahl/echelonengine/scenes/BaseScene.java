@@ -26,7 +26,6 @@ import net.gustavdahl.echelonengine.menus.CircleMenuList;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
-import net.gustavdahl.echelonengine.systems.GameLoopSystem;
 import net.gustavdahl.echelonengine.systems.PersistenceSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
@@ -66,7 +65,6 @@ public abstract class BaseScene implements Screen, IUpdatable
 		PhysicsSystem _physicsSystem = new PhysicsSystem(60d).SetUseFixedUpdate(true)
 				.SetForceMode(ForceMode.ExplicitEuler);
 		ColliderSystem _colliderSystem = new ColliderSystem(CollisionMode.BruteForce);
-		GameLoopSystem _gameLogicSystem = new GameLoopSystem(this);
 		EditorSystem _editorSystem = new EditorSystem(_camera);
 		PersistenceSystem _persistenceSystem = new PersistenceSystem();
 
@@ -75,7 +73,6 @@ public abstract class BaseScene implements Screen, IUpdatable
 		_serviceLocator.RegisterNewSystem(_debugSystem);
 		_serviceLocator.RegisterNewSystem(_physicsSystem);
 		_serviceLocator.RegisterNewSystem(_colliderSystem);
-		_serviceLocator.RegisterNewSystem(_gameLogicSystem);
 		_serviceLocator.RegisterNewSystem(_editorSystem);
 		_serviceLocator.RegisterNewSystem(_persistenceSystem);
 		_serviceLocator.InitializeSystems();
@@ -106,6 +103,8 @@ public abstract class BaseScene implements Screen, IUpdatable
 		UpdateCameras();
 
 		_serviceLocator.UpdateSystems(delta);
+		
+		Update(delta);
 
 	}
 	

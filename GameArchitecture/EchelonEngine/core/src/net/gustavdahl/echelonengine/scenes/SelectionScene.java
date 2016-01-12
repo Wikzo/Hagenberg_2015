@@ -21,7 +21,6 @@ import net.gustavdahl.echelonengine.menus.CircleMenuList;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
-import net.gustavdahl.echelonengine.systems.GameLoopSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
@@ -65,7 +64,6 @@ public class SelectionScene extends BaseScene
 	@Override
 	public void UpdateScene(float deltaTime)
 	{
-	
 
 	}
 

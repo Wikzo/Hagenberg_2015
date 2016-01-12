@@ -20,7 +20,6 @@ import net.gustavdahl.echelonengine.menus.CircleMenuList;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
-import net.gustavdahl.echelonengine.systems.GameLoopSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
@@ -85,8 +84,8 @@ public class ForcesAndSpringsScene extends BaseScene
 
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText(" ");
 		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("-- Forces & Springs --");
-		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("PRESS O TO TOGGLE ENTITIES SPAWNING");
-		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("PRESS P TO TOGGLE FIXED/VARIED PHYSICS UPDATE");
+		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("Press O to toggle entities spawning");
+		ServiceLocator.GetSystem(DebugSystem.class).AddDebugText("Press P to toggle fixed/varied physics update");
 
 		if (_spawnEntities)
 			_timer += deltaTime;

@@ -28,7 +28,6 @@ import net.gustavdahl.echelonengine.menus.CircleMenuList;
 import net.gustavdahl.echelonengine.systems.ColliderSystem;
 import net.gustavdahl.echelonengine.systems.DebugSystem;
 import net.gustavdahl.echelonengine.systems.EditorSystem;
-import net.gustavdahl.echelonengine.systems.GameLoopSystem;
 import net.gustavdahl.echelonengine.systems.PersistenceSystem;
 import net.gustavdahl.echelonengine.systems.PhysicsSystem;
 import net.gustavdahl.echelonengine.systems.RenderSystem;
