@@ -154,7 +154,7 @@ public class TwitterMoodMap
 		// System.out.println(jsonArray);
 
 		// try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter("C:/Users/Wikzo/Documents/Hagenberg_2015/SemanticTextAnalysis/Twitter_MyMoodMap/Web/tweets.json"))
+		try (FileWriter file = new FileWriter("tweets.json"))
 		{
 			file.write(jsonArray.toJSONString());
 			//System.out.println("Successfully Copied JSON Object to File...");

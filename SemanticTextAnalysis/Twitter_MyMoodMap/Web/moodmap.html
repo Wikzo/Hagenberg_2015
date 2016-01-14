@@ -3,7 +3,7 @@
 
     <title>Twitter Mood Map</title>
     <h2>Twitter Mood Map</h2>
-    <p>Created by <a href="https://twitter.com/Wikzo">@Wikzo</a> and ...</p>
+
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -13,6 +13,8 @@
         google.charts.setOnLoadCallback(drawRegionsMap);
 
         var data;
+
+        // <p>Created by <a href="https://twitter.com/Wikzo">@Wikzo</a> and ...</p>
 
         var Denmark = {name: "Denmark", moodTotal: 0, moodCounter: 0, averageMood: 1};
         var UK = {name: "Great Britain", moodTotal: 0, moodCounter: 0, averageMood: 0};
@@ -38,7 +40,7 @@
         function drawRegionsMap() {
 
             updating = true;
-            console.log("drwaing call");
+            console.log("draw call");
 
             d3.json("tweets.json", function (error, json) {
                 for (var key in json) {
@@ -73,7 +75,6 @@
 
             data = google.visualization.arrayToDataTable([
                 ['Country', 'Mood'],
-                //[Germany.name, Germany.averageMood],
                 [Denmark.name, Denmark.averageMood],
                 [UK.name, UK.averageMood],
                 [Ireland.name, Ireland.averageMood],
