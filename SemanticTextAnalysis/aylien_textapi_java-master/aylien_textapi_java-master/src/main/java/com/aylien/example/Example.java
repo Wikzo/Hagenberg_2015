@@ -1,3 +1,4 @@
+package com.aylien.example;
 import com.aylien.textapi.TextAPIClient;
 import com.aylien.textapi.TextAPIException;
 import com.aylien.textapi.parameters.*;
@@ -23,24 +24,30 @@ class Example
 
 		String text = "hej med dig";
 
-		System.out.println("en: " + DetectEnglishLanguage(client, text));
+		boolean isEnglish = true;
+		//isEnglish = DetectEnglishLanguage(client, text);
+		
+		if (isEnglish)
+		{
+			SentimentParams.Builder builder = SentimentParams.newBuilder();
 
-		SentimentParams.Builder builder = SentimentParams.newBuilder();
+			builder.setMode("tweet");
+			builder.setText(text);
 
-		builder.setMode("tweet");
-		builder.setText(text);
-		// builder.setMode("tweet");
-		Sentiment sentiment = client.sentiment(builder.build());
+			Sentiment sentiment = client.sentiment(builder.build());
 
-		double score = 0;
+			double score = 0;
 
-		score = sentiment.getPolarityConfidence();
+			score = sentiment.getPolarityConfidence();
 
-		System.out.println(sentiment.getPolarity());
-		System.out.println(score);
+			System.out.println(sentiment.getPolarity());
+			System.out.println(score);
 
-		// good 0.8693919697854208
-		// bad 0.8963085163984621
+			// good 0.8693919697854208
+			// bad 0.8963085163984621
+		}
+
+		
 
 	}
 

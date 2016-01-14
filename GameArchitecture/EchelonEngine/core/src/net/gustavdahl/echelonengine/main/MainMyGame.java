@@ -5,7 +5,7 @@ import net.gustavdahl.echelonengine.menus.CircleMenuList;
 import net.gustavdahl.echelonengine.menus.SplashScreen;
 import net.gustavdahl.echelonengine.systems.MyAssetManager;
 
-// Created by Gustav Dahl, 2016
+// Created by Gustav Dahl, 2016 - Hagenberg
 
 public class MainMyGame extends Game
 {

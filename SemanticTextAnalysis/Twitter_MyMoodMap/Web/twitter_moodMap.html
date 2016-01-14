@@ -1,0 +1,120 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['geochart']});
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        var data;
+
+        var Denmark = {name: "Denmark", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var UK = {name: "Great Britain", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var Ireland = {name: "Ireland", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var Norway = {name: "Norway", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var Sweden = {name: "Sweden", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var NewZealand = {name: "New Zealand", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var Australia = {name: "Australia", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var Canada = {name: "Canada", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var Singapore = {name: "Singapore", moodTotal: 0, moodCounter: 0, averageMood: 0};
+        var USA = {name: "USA", moodTotal: 0, moodCounter: 0, averageMood: 0};
+
+
+        function ReloadData()
+        {
+            data = google.visualization.arrayToDataTable([
+                ['Country', 'Mood'],
+               //[Germany.name, Germany.averageMood],
+                [Denmark.name, Denmark.averageMood],
+                [UK.name, UK.averageMood],
+                [Ireland.name, Ireland.averageMood],
+                [Norway.name, Norway.averageMood],
+                [Sweden.name, Sweden.averageMood],
+                [NewZealand.name, NewZealand.averageMood],
+                [Australia.name, Australia.averageMood],
+                [Canada.name, Canada.averageMood],
+                [Singapore.name, Singapore.averageMood],
+                [USA.name, USA.averageMood]
+            ]);
+        }
+
+        function drawRegionsMap() {
+            //ReloadData();
+
+            var options = {
+                region: 'world', // Northern Europe
+                colorAxis: {colors: ['red', 'yellow', 'green']},
+                backgroundColor: '#81d4fa',
+                datalessRegionColor: 'grey',
+                defaultColor: '#f5f5f5'
+            };
+
+
+
+
+            d3.json("tweets.json", function (error, json)
+            {
+                for (var key in json)
+                {
+                    var entry = json[key];
+
+
+                    if (entry.Location == "denmark")
+                        AddToCountry(Denmark, entry);
+                    else if (entry.Location == "uk")
+                        AddToCountry(UK, entry);
+                    else if (entry.Location == "ireland")
+                        AddToCountry(Ireland, entry);
+                    else if (entry.Location == "norway")
+                        AddToCountry(Norway, entry);
+                    else if (entry.Location == "sweden")
+                        AddToCountry(Sweden, entry);
+                    else if (entry.Location == "newzealand")
+                        AddToCountry(NewZealand, entry);
+                    else if (entry.Location == "australia")
+                        AddToCountry(Australia, entry);
+                    else if (entry.Location == "canada")
+                        AddToCountry(Canada, entry);
+                    else if (entry.Location == "singapore")
+                        AddToCountry(Singapore, entry);
+                    else if (entry.Location == "usa")
+                        AddToCountry(USA, entry);
+
+                }
+
+                ReloadData();
+                DrawMap();
+
+
+            });
+
+            function AddToCountry(country, entry)
+            {
+                country.moodTotal += parseInt(entry.Mood);
+                country.moodCounter++;
+
+                // dont divide by zero
+                if (country.moodCounter == 0 || country.moodTotal == 0)
+                    country.averageMood = 0;
+                else
+                    country.averageMood = country.moodTotal / country.moodCounter;
+
+                console.log(country.name);
+                console.log(country.moodTotal);
+
+            }
+
+            function DrawMap()
+            {
+                var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
+                chart.draw(data, options);
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="geochart-colors" style="width: 800px; height: 500px;"></div>
+</body>
+</html>
