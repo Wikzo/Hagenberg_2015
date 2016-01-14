@@ -79,7 +79,7 @@ public class TwitterMoodMap
 		twitter4j.JSONObject twitterJSON;
 
 		// Do whatever needs to be done with messages
-		for (int validatedTweets = 0; validatedTweets < 20;)
+		for (int validatedTweets = 0; validatedTweets < 100;)
 		{
 			// get next json message
 			String msg = queue.take();
@@ -125,13 +125,16 @@ public class TwitterMoodMap
 
 						System.out.println(myJson.toString());
 						
+						
 						System.out.println("Gathered tweets: " + validatedTweets);
+						WriteToJSONFile(jsonArray);
 					}
 
 					
 
 				}
 
+				
 				//System.out.println("Gathered tweets: " + validatedTweets);
 				// Thread.sleep(1000);
 
@@ -151,11 +154,11 @@ public class TwitterMoodMap
 		// System.out.println(jsonArray);
 
 		// try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter("tweets.json"))
+		try (FileWriter file = new FileWriter("C:/Users/Wikzo/Documents/Hagenberg_2015/SemanticTextAnalysis/Twitter_MyMoodMap/Web/tweets.json"))
 		{
 			file.write(jsonArray.toJSONString());
-			System.out.println("Successfully Copied JSON Object to File...");
-			System.out.println("\nJSON Object: " + jsonArray);
+			//System.out.println("Successfully Copied JSON Object to File...");
+			//System.out.println("\nJSON Object: " + jsonArray);
 
 		}
 	}
