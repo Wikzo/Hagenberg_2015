@@ -13,13 +13,14 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import net.gustavdahl.echelonengine.main.MainMyGame;
 import net.gustavdahl.echelonengine.scenes.*;
 import net.gustavdahl.echelonengine.systems.MyAssetManager;
 
 public class SplashScreen implements Screen
 {
 
-	final MyGame game;
+	final MainMyGame game;
 	private OrthographicCamera camera;
 	private Viewport viewport;
 
@@ -30,7 +31,7 @@ public class SplashScreen implements Screen
 	private Stage stage;
 	private MyAssetManager _assetManager;
 
-	public SplashScreen(MyGame project)
+	public SplashScreen(MainMyGame project)
 	{
 		this.game = project;
 		this._assetManager = project.MyAssetManager;

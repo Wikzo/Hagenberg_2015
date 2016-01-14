@@ -1,11 +1,13 @@
-package net.gustavdahl.echelonengine.scenes;
+package net.gustavdahl.echelonengine.main;
 
 import com.badlogic.gdx.Game;
 import net.gustavdahl.echelonengine.menus.CircleMenuList;
 import net.gustavdahl.echelonengine.menus.SplashScreen;
 import net.gustavdahl.echelonengine.systems.MyAssetManager;
 
-public class MyGame extends Game
+// Created by Gustav Dahl, 2016
+
+public class MainMyGame extends Game
 {
 
 	// virtual resolution
@@ -22,7 +24,6 @@ public class MyGame extends Game
 		MyAssetManager.InitializeMenuAssets();
 		MyAssetManager.InitializeDebugAssets();
 
-		//setScreen(new CircleMenuList(this));
 		setScreen(new SplashScreen(this));
 		
 	}

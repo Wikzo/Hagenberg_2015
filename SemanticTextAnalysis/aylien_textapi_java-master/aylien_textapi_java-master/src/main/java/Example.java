@@ -1,4 +1,5 @@
 import com.aylien.textapi.TextAPIClient;
+import com.aylien.textapi.TextAPIException;
 import com.aylien.textapi.parameters.*;
 import com.aylien.textapi.responses.*;
 
@@ -20,24 +21,14 @@ class Example
 
 		TextAPIClient client = new TextAPIClient("87aa215a", "7a4e24952e4f20db11fc1508abd12eac");
 
+		String text = "hej med dig";
+
+		System.out.println("en: " + DetectEnglishLanguage(client, text));
+
 		SentimentParams.Builder builder = SentimentParams.newBuilder();
 
-		/*String fileName = "data.txt";
-
-		try
-		{
-			List<String> lines = Files.readAllLines(Paths.get(fileName), Charset.defaultCharset());
-			for (String line : lines)
-			{
-				System.out.println(line);
-			}
-		} catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-*/
-		builder.setText(
-				"Just under a week left to order a fab  AudreLorde mug in time for Christmas  amp  make a difference at the same time     t co MSFnvdjypC");
+		builder.setMode("tweet");
+		builder.setText(text);
 		// builder.setMode("tweet");
 		Sentiment sentiment = client.sentiment(builder.build());
 
@@ -51,5 +42,18 @@ class Example
 		// good 0.8693919697854208
 		// bad 0.8963085163984621
 
+	}
+
+	static boolean DetectEnglishLanguage(TextAPIClient client, String text) throws TextAPIException
+	{
+		LanguageParams.Builder builder = LanguageParams.newBuilder();
+		builder.setText(text);
+		Language language = client.language(builder.build());
+		//System.out.println("language: " + language + ", confidence: " + language.getConfidence());
+
+		if (language.getLanguage() == "en" && language.getConfidence() > 0.7)
+			return true;
+		else
+			return false;
 	}
 }

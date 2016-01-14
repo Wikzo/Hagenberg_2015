@@ -16,13 +16,14 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import net.gustavdahl.echelonengine.enums.MenuItemType;
+import net.gustavdahl.echelonengine.main.MainMyGame;
 import net.gustavdahl.echelonengine.scenes.*;
 import net.gustavdahl.echelonengine.systems.MyAssetManager;
 
 public class CircleMenuList implements Screen
 {
 
-	public final MyGame game;
+	public final MainMyGame game;
 	private OrthographicCamera camera;
 	private Viewport viewport;
 
@@ -33,7 +34,7 @@ public class CircleMenuList implements Screen
 
 	java.util.List<MenuItem> MenuItems;
 
-	public CircleMenuList(MyGame project)
+	public CircleMenuList(MainMyGame project)
 	{
 		this.game = project;
 

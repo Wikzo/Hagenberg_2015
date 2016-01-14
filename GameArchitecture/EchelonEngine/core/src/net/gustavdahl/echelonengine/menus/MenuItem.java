@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import net.gustavdahl.echelonengine.entities.EntityFactory;
 import net.gustavdahl.echelonengine.enums.MenuItemType;
+import net.gustavdahl.echelonengine.main.MainMyGame;
 import net.gustavdahl.echelonengine.scenes.*;
 import net.gustavdahl.echelonengine.systems.EntityManager;
 import net.gustavdahl.echelonengine.systems.ServiceLocator;
@@ -22,7 +23,7 @@ public class MenuItem
 	
 	private Screen _newScreen;
 
-	final MyGame game;
+	final MainMyGame game;
 	CircleMenuList circleMenu;
 	MenuItemType MenuType;
 	
@@ -33,7 +34,7 @@ public class MenuItem
 	protected Stage Stage;
 	public Group Group;
 
-	public MenuItem(MenuItemType type, MyGame game, Stage stage, CircleMenuList circleMenu)
+	public MenuItem(MenuItemType type, MainMyGame game, Stage stage, CircleMenuList circleMenu)
 	{
 		this.game = game;
 		this.circleMenu = circleMenu;
