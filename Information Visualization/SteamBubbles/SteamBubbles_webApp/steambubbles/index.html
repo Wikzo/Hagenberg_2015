@@ -82,7 +82,7 @@
 
 
 <h1>Steam Bubbles - Visualizing data from SteamSpy.com</h1>
-Created by <a href="https://twitter.com/Wikzo">@Wikzo</a> and <a href="https://www.facebook.com/annejuhlerhansen">Annemate</a>. Click to <b>zoom</b> and hover with the mouse</b>
+Created by <a href="https://twitter.com/Wikzo">@Wikzo</a> and <a href="https://www.facebook.com/annejuhlerhansen">Annemate</a>. Click to <b>zoom</b> and <b>hover with the mouse</b>
 to reveal data about each game. The big percentage numbers in gold indicate <b>player review scores</b> from Steam.
 </br></br><a href="javascript:unhide('about');">Click here to read more about this
     project.</a></br></br><hr>
@@ -508,11 +508,11 @@ to reveal data about each game. The big percentage numbers in gold indicate <b>p
 
     var pack = d3.layout.pack()
             .size([r, r]).sort(function (a, b) {
-                return a.score_rank - b.score_rank;
+                return a.Category - b.Category;
             })
             .padding([2])
             .value(function (d) {
-                return d.score_rank;
+                return 1;
             });
 
     var vis = d3.select("body").insert("svg:svg", "h2")
@@ -544,16 +544,16 @@ to reveal data about each game. The big percentage numbers in gold indicate <b>p
         var b20 = {"children": []};
         var b10 = {"children": []};
 
-        b100.IntervalName = "91-100%";
-        b90.IntervalName = "81-90%";
-        b80.IntervalName = "71-80%";
-        b70.IntervalName = "61-70%";
-        b60.IntervalName = "51-60%";
-        b50.IntervalName = "41-50%";
-        b40.IntervalName = "31-40%";
-        b30.IntervalName = "21-30%";
-        b20.IntervalName = "11-20%";
-        b10.IntervalName = "0-10%";
+        b100.IntervalName = "100%";
+        b90.IntervalName = "90%";
+        b80.IntervalName = "80%";
+        b70.IntervalName = "70%";
+        b60.IntervalName = "60%";
+        b50.IntervalName = "50%";
+        b40.IntervalName = "40%";
+        b30.IntervalName = "30%";
+        b20.IntervalName = "20%";
+        b10.IntervalName = "10%";
 
         var gameNode = {"name": "GAMES_2", "children": [b100, b90, b80, b70, b60, b50, b40, b30, b20, b10]};
 
