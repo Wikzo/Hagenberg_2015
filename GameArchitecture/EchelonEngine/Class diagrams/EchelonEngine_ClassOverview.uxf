@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>15</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1635</x>
+      <y>240</y>
+      <w>405</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>EntityManager
+--
+-Entities : List
+--
++AddEntity(Entity e)
++RemoveEntity(Entity e)
++RemoveAllEntities()
+
+bg=white
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>135</y>
+      <w>1425</w>
+      <h>945</h>
+    </coordinates>
+    <panel_attributes>SYSTEMS
+bg=orange
+layer=-1
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>195</y>
+      <w>585</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface extends Component&gt;&gt;
+ISystem
+--
+ValidateIfComponentCanBeAddedToSystem(T component)
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>675</y>
+      <w>195</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>ColliderSystem
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>135</x>
+      <y>360</y>
+      <w>495</w>
+      <h>285</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+BaseSystem
+--
+-UpdatePriority : int
+-IsActive : bool
+-Components : List
+--
++Start()
++Update(float delta)
++AddComponentToSystem(Component c)
++RemoveComponentFromSystem(Component c)
++Destroy()
+
+bg=orange
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>735</y>
+      <w>195</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>DebugSystem
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>795</y>
+      <w>195</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>EditorSystem
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>675</y>
+      <w>195</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>PersistenceSystem
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>735</y>
+      <w>195</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>PhysicsSystem
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>795</y>
+      <w>195</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>RenderSystem
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>375</x>
+      <y>285</y>
+      <w>45</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>630</y>
+      <w>90</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0;40.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>630</y>
+      <w>90</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;40.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>630</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;40.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>630</y>
+      <w>75</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>30.0;10.0;30.0;40.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>630</y>
+      <w>75</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>30.0;10.0;30.0;120.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>630</y>
+      <w>75</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=1</panel_attributes>
+    <additional_attributes>30.0;10.0;30.0;80.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>210</y>
+      <w>405</w>
+      <h>285</h>
+    </coordinates>
+    <panel_attributes>ServiceLocator
+--
++AssetManager : MyAssetManager
++EntityManager : EntityManager
++EntityFactory : EntityFactory
+-Systems : List
+--
++RegisterNewSystem(BaseSystem s)
++RemoveSystem(BaseSystem s)
++GetSystem(Class c)
++InitializeSystems()
++UpdateSystems(float delta)
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1590</x>
+      <y>615</y>
+      <w>705</w>
+      <h>375</h>
+    </coordinates>
+    <panel_attributes>EntityFactory
+--
+--
++CreateStaticMan(String name, float x, float y, float ang, float sX, float sY)
++CreateAnimatedMan(String name, float x, float y)
++CreateSingleSpring(String name, float x, float y)
++CreateMultipleSprings(Spring name, float x, float y, int number)
+-CreateEntity(String name, float x, float y)
+-AddRenderComponent()
+-AddCircleCollider()
+-AddBoxCollider()
+-AddPhysicsBody()
+-AddSpringComponent()
+
+bg=white
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>585</y>
+      <w>405</w>
+      <h>375</h>
+    </coordinates>
+    <panel_attributes>MyAssetManager
+--
++RunningMan : Texture
++GameBackground : Texture
++CogWheels : TextureRegion[]
++DebugFont : BitmapFont
++SpriteBatch : SpriteBatch
++ShapeRenderer : ShapeRenderer
++Stage : Stage
+-Textures : List
+-InputMultiplexer : InputMultiplexer
+--
++InitializeCommonAssets()
++InitializeDebugAssets()
++DiposeAllAssets()
+
+bg=white
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1230</x>
+      <y>300</y>
+      <w>435</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1230</x>
+      <y>300</y>
+      <w>750</w>
+      <h>345</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0;230.0;170.0;480.0;170.0;480.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>615</x>
+      <y>330</y>
+      <w>255</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..n
+group=1</panel_attributes>
+    <additional_attributes>150.0;10.0;70.0;10.0;70.0;110.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>1125</y>
+      <w>3090</w>
+      <h>1545</h>
+    </coordinates>
+    <panel_attributes>COMPONENTS
+bg=green
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>795</x>
+      <y>1410</y>
+      <w>420</w>
+      <h>405</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+Component
+--
++Owner : Entity
++CanHaveMultiple : bool
++UpdatePriority : int
+-TransformComponent : Transform
+-IsActive : bool
+-IsInitialized : bool
+-MySystem : Class
+-DefaultSystem : Class
+--
++Enable(Entity owner, Class system)
++AddToSystem(Class system)
++&lt;&lt;abstract&gt;&gt;Update(float delta)
++SetActive(bool active)
++ToString()
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>1200</y>
+      <w>270</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IUpdatable
+--
+Update(float delta)
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>1605</y>
+      <w>420</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IRenderable
+--
+Render(SpriteBatch batch, float delta)
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>1200</y>
+      <w>270</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IComponent
+--
+Initialize()
+GetExternalReferences()
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>1320</y>
+      <w>150</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>80.0;10.0;80.0;40.0;10.0;40.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>795</x>
+      <y>1320</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;140.0;40.0;140.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1290</x>
+      <y>1605</y>
+      <w>675</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IDebugRenderable
+--
+DebugRender(SpriteBatch batch, ShapeRenderer shape, float delta)
+String OnSelectedText()
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>375</x>
+      <y>1950</y>
+      <w>300</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>SpriteComponent
+--
+-Texture : Texture
+-Region : TextureRegion
+-SpriteColor : Color
+-SortingLayer : int
+-Width : float
+-Height : float
+-HalfWidth : float
+-HalfHeight : float
+-ScaleX : float
+-ScaleY : float
+-Visible :bool
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>15</x>
+      <y>1950</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>TransformComponent
+--
++PositionX : float
++PositionY : float
++ScaleX : float
++ScaleY : float
++Rotation : float
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>195</x>
+      <y>2310</y>
+      <w>645</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>SpriteAnimator
+--
+-Region : TextureRegion[]
+-Index : int
+-FrameRate : float
+-FrameCounter : float
++&lt;&lt;static&gt;&gt;CreateSpriteSheet(Texture t, int picNum, int cols, int rows)
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1035</x>
+      <y>1950</y>
+      <w>480</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+Collider
+--
+-Sprite : SpriteComponent
+-Center : Vector2
+-CollisionColor : Color
+-NormalColor : Color
+-CurrentState : CollisionState
+--
++&lt;&lt;abstract&gt;&gt;Collide(Collider c)
+-CollideWithCircle(CircleCollider c)
+-CollideWithBox(BoxCollider b)
++CompareTo(Collider c)
++&lt;&lt;static&gt;&gt;MouseIntersectCollider(Ray r, Collider c)
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>165</x>
+      <y>1800</y>
+      <w>870</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>560.0;10.0;560.0;60.0;10.0;60.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>1800</y>
+      <w>540</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>340.0;10.0;340.0;60.0;10.0;60.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>525</x>
+      <y>1725</y>
+      <w>45</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>2250</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>915</x>
+      <y>2370</y>
+      <w>390</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>BoxCollider
+--
+-Width : float
+-Height : float
+--
++GetBounds()
++CollideWithCircle(CircleCollider c)
++CollideWithBox(BoxCollider b)
+
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1350</x>
+      <y>2370</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>CircleCollider
+--
+-Radius : float
+--
++CollideWithCircle(CircleCollider c)
++CollideWithBox(BoxCollider b)
+
+
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1095</x>
+      <y>2265</y>
+      <w>225</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;130.0;50.0;10.0;50.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1275</x>
+      <y>2265</y>
+      <w>300</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;180.0;50.0;180.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1125</x>
+      <y>1725</y>
+      <w>480</w>
+      <h>675</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>300.0;10.0;300.0;420.0;10.0;420.0;10.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1560</x>
+      <y>2325</y>
+      <w>45</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>1800</y>
+      <w>330</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;200.0;60.0;200.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1620</x>
+      <y>1965</y>
+      <w>390</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>PhysicsBody
+--
+-Mass : float
+-Force : Vector2
+-Velocity : Vector2
+-Acceleration : Vector2
+-ConstantForces : List
+--
++Update(float delta)
++AddForce(Vector2 f)
++AddConstantForce(Vector2 f)
+-ApplyForces(float delta)
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1995</x>
+      <y>1605</y>
+      <w>315</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IPhysics
+--
+Update(float delta)
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1830</x>
+      <y>1725</y>
+      <w>360</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>220.0;10.0;220.0;140.0;10.0;140.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2220</x>
+      <y>1965</y>
+      <w>360</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+ForceComponent
+--
+-Body : PhysicsBody
+--
++Update(float delta)
+-&lt;&lt;abstract&gt;&gt;CalculateForce()
+-AddForce()
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2145</x>
+      <y>1725</y>
+      <w>285</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0;170.0;140.0;170.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2220</x>
+      <y>2295</y>
+      <w>345</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>SpringComponent
+--
+-SpringConstant : float
+-DampConstant : float
+-AnchorX : float
+-AnchorY : float
+-Entity : Entity
+--
+-CalculateForce()
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1995</x>
+      <y>2070</y>
+      <w>255</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2370</x>
+      <y>2220</y>
+      <w>45</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>1800</y>
+      <w>855</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;550.0;60.0;550.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>1800</y>
+      <w>1470</w>
+      <h>195</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;960.0;60.0;960.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2715</x>
+      <y>1605</y>
+      <w>270</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+CreateEntityCommand
+--
+Execute()
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2730</x>
+      <y>1965</y>
+      <w>270</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+PersistableComponent
+--
+--
++CreateCommand()
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2715</x>
+      <y>1380</y>
+      <w>270</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+java.io.Serializable
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2835</x>
+      <y>1470</y>
+      <w>45</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2850</x>
+      <y>1725</y>
+      <w>45</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2655</x>
+      <y>2280</y>
+      <w>420</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>StaticManPersistence
+--
+-CreateCommand : CreateEntityCommand
+--
++CreateCommand()
+bg=white</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2850</x>
+      <y>2220</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1545</x>
+      <y>135</y>
+      <w>1530</w>
+      <h>945</h>
+    </coordinates>
+    <panel_attributes>ENTITY
+bg=blue
+layer=-1
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1020</x>
+      <y>480</y>
+      <w>45</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1
+group=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2370</x>
+      <y>240</y>
+      <w>480</w>
+      <h>435</h>
+    </coordinates>
+    <panel_attributes>Entity
+--
++Name : String
++ID : UUID
++SelectedByEditor : bool
+-Transform : TransformComponent
+-Components : List
+-IsActive : bool
+-Parent : Entity
+--
++SetActive()
++AddComponent(Component c, Class system)
++GetComponent(Class t)
++GetAllComponents()
++RemoveComponentOfType(Class c)
++RemoveComponent(Component c)
++RemoveAllComponents()
+
+
+bg=blue
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2025</x>
+      <y>315</y>
+      <w>375</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..1
+group=2</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1200</x>
+      <y>435</y>
+      <w>1200</w>
+      <h>1185</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..1</panel_attributes>
+    <additional_attributes>780.0;10.0;750.0;10.0;750.0;760.0;10.0;760.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1200</x>
+      <y>0</y>
+      <w>555</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>ECHELON ENGINE - by Gustav Dahl (2015/2016)
+bg=red
+layer=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>105</x>
+      <y>1530</y>
+      <w>720</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black
+m2=1</panel_attributes>
+    <additional_attributes>460.0;10.0;10.0;10.0;10.0;280.0</additional_attributes>
+  </element>
+</diagram>

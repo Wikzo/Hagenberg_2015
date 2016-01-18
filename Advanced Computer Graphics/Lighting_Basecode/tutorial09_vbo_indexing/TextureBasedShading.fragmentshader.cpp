@@ -90,8 +90,8 @@ void main()
 
 	vec3 l = normalize(LightDirection_tangentSpace);
 
-	//vec3 n = normalize(Normal_cameraspace);
-	vec3 n = normalMap; // <--- applying the normal map
+	vec3 n = normalize(Normal_cameraspace);
+	//vec3 n = normalMap; // <--- applying the normal map
 	//n = vec3(0.0);
 
 	// anisotropic reflective normals - does not work...

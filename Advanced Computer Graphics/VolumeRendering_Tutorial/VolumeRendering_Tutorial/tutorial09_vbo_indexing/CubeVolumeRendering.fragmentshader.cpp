@@ -36,7 +36,6 @@ void main(){
 	// TODO calculate the number of steps until we left the cube
 	float stepNumber = 128.0; // just to be safe we get all
 
-
 	
 
 	// calculating the smallest step (in 3D)
@@ -64,8 +63,11 @@ void main(){
 	vec4 runningCol = vec4(0.0); // destination
 	// TODO  for loop over a fixed amount of steps (at least as much as uvstep fits into the
 	// diagonal of the volume texture)
+
+	//float add = 0.0;
 	for (float i = 0; i < stepNumber; i+=1.0)
 	{	
+		//add += 0.01;
 		// TODO  sample the volume texture at the texture coordinates
 		vec4 sample = texture(volumeSampler, startPoint + random + vec3(i)*stepVector);
 
@@ -75,6 +77,7 @@ void main(){
 		
 		// TODO  set alpha
 		runningCol.a = max(sample.a, runningCol.a);
+		//runningCol.r = add;
 		//runningCol.a = 1.0;
 		
 		// TODO  advance the uvs by uvStep
@@ -86,6 +89,7 @@ void main(){
 	// TODO  set the output color to the running color
 	//color.rgba = vec4(1.0, 0.0, 0.0, 1.0);
 	color.rgba = runningCol.rgba;
+
 	//color.rgba = vec4(vec3(stepNumber),1.0);
 
 }

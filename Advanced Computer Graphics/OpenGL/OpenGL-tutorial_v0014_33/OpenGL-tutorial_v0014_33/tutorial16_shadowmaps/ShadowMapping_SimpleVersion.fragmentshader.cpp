@@ -1,3 +1,5 @@
+// original
+
 #version 330 core
 
 // Interpolated values from the vertex shaders
@@ -13,13 +15,14 @@ uniform sampler2DShadow shadowMap;
 uniform float time;
 
 
-void main(){
+void main()
+{
 
 	// Light emission properties
-	vec3 LightColor = vec3(1,1,1);
-	
+	vec3 LightColor = vec3(1, 1, 1);
+
 	// Material properties
-	vec3 MaterialDiffuseColor = texture2D( myTextureSampler, UV ).rgb;
+	vec3 MaterialDiffuseColor = texture2D(myTextureSampler, UV).rgb;
 	vec3 MaterialAmbientColor = vec3(0.1, 0.1, 0.1) * MaterialDiffuseColor;
 
 
@@ -31,15 +34,13 @@ void main(){
 	// if ( texture( shadowMap, ShadowCoord.xy ).z  <  ShadowCoord.z)
 	if (texture(shadowMap, ShadowCoord.xyz) < ShadowCoord.z - bias)
 	{
-		visibility = 0;
+	visibility = 0;
 	}
 	*/
-	
-	visibility -= 0.8 *  (1.0-texture(shadowMap, vec3(ShadowCoord.xy, (ShadowCoord.z - bias) / ShadowCoord.w)));
 
+	visibility -= 0.8 *  (1.0 - texture(shadowMap, vec3(ShadowCoord.xy, (ShadowCoord.z - bias) / ShadowCoord.w)));
 
 	color = MaterialAmbientColor + visibility * MaterialDiffuseColor * LightColor;
 	//color = vec3(visibility);
 }
-
 
